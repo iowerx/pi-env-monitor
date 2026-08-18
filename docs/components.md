@@ -1,0 +1,6 @@
+# Components Used
+
+| System | OS | Temperature | Pressure | Humidity | Solar | Seismic | Location |
+|--------|----|-------------|----------|----------|-------|---------|----------|
+| RPi Zero 2 W | Ubuntu 24.04 Server | BME 280 | BME 280 | BME 280 | TBD | TBD | SIM7600A |
+| TBD | TBD | TBD | TBD | TBD | TBD | TBD | TBD |
