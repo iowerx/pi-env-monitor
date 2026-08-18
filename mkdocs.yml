@@ -26,7 +26,7 @@ repo_url: 'https://github.com/iowerx/pi-env-monitor'
 edit_uri: 'blob/main/docs'
 
 # Copyright
-copyright: 'Copyright &copy; 2026 Hank R.. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.'
+copyright: 'Copyright &copy; 2026 Hank R. Licensed under <a href="licensing/">CC BY-NC-SA 4.0</a> for non-commercial use.'
 
 # Navigation
 # IMPORTANT: do NOT add `navigation.tabs` — these books use side navigation
@@ -54,7 +54,7 @@ nav:
   - MicroSims:
       - List of MicroSims: sims/index.md
 
-  - License: license.md
+  - License: licensing.md
   - Contact: contact.md
 
 # Theme configuration
