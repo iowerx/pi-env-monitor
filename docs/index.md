@@ -1,6 +1,5 @@
 ---
-title: 'Raspberry Pi Environmental Monitoring'
-description: 'An interactive intelligent textbook on building Raspberry Pi environmental monitoring systems: sensors, data collection, storage, and dashboards.'
+description: 'A hands-on textbook for middle and high school students: build a Raspberry Pi station that measures temperature, pressure, and humidity, logs the data, and reports it from the field.'
 image: img/cover.png
 ---
 
@@ -10,7 +9,13 @@ image: img/cover.png
   ![Raspberry Pi Environmental Monitoring cover](./img/cover.png){ width="100%" }
 </figure>
 
-An interactive intelligent textbook on building Raspberry Pi environmental monitoring systems: sensors, data collection, storage, and dashboards.
+A hands-on textbook for middle and high school students. You will build a
+Raspberry Pi station that measures temperature, pressure, and humidity, records
+the readings unattended, and reports them from wherever you put it — then learn
+to read the data critically enough to know when the station is lying to you.
+
+No prior experience with programming, Linux, or electronics is needed. This
+book teaches all of it.
 
 ## Getting Started
 

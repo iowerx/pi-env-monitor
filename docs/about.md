@@ -1,11 +1,37 @@
 # About
 
-An interactive intelligent textbook on building Raspberry Pi environmental monitoring systems: sensors, data collection, storage, and dashboards.
+A hands-on textbook for middle and high school students: build a Raspberry Pi
+station that measures temperature, pressure, and humidity, logs the data, and
+reports it from the field.
 
 ## Audience
 
-Describe the intended reader: their background, prerequisites, and what they
-should be able to do after working through the book.
+This edition is written for students in **grades 6–12** working in a science
+classroom, an after-school STEM club, or on an independent science fair
+project, along with the teachers and advisors guiding them.
+
+You need to be comfortable with decimals, ratios, and reading a line graph, and
+you need to be able to follow a multi-step procedure carefully. That is the
+whole list. No prior experience with programming, the Linux command line, or
+electronics is assumed — the book teaches each of those as it becomes
+necessary.
+
+The grade band is wide on purpose. The main path through each chapter is
+written to be readable in middle school; the extension activities and the
+data-analysis chapters go considerably deeper for older students.
+
+See the [Course Description](course-description.md) for the full list of
+prerequisites, topics, and learning outcomes.
+
+## Other Editions
+
+This is one of several editions covering the same subject at different levels:
+
+| Edition | Audience | Status |
+|---------|----------|--------|
+| **Grades 6–12** | Middle and high school | This book |
+| Undergraduate | College-level earth and environmental science | Planned |
+| Elementary | Grades K–5, focused on the history of environmental science and how to read a weather report | Planned |
 
 ## How to Use This Book
 
