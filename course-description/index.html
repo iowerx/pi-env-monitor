@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An interactive intelligent textbook on building Raspberry Pi environmental monitoring systems: sensors, data collection, storage, and dashboards.">
+        <meta name="description" content="A hands-on textbook for middle and high school students: build a Raspberry Pi station that measures temperature, pressure, and humidity, logs the data, and reports it from the field.">
       
       
         <meta name="author" content="Hank R.">
@@ -29,7 +29,7 @@
     
     
       
-        <title>Course Description - Raspberry Pi Environmental Monitoring</title>
+        <title>Course Description - Raspberry Pi Environmental Monitoring: Grades 6–12</title>
       
     
     
@@ -96,7 +96,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Raspberry Pi Environmental Monitoring" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring" data-md-component="logo">
+    <a href=".." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -110,7 +110,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Raspberry Pi Environmental Monitoring
+            Raspberry Pi Environmental Monitoring: Grades 6–12
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -213,13 +213,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Raspberry Pi Environmental Monitoring" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring" data-md-component="logo">
+    <a href=".." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    Raspberry Pi Environmental Monitoring
+    Raspberry Pi Environmental Monitoring: Grades 6–12
   </label>
   
     <div class="md-nav__source">
@@ -777,41 +777,85 @@
 
 
 <h1 id="course-description">Course Description<a class="headerlink" href="#course-description" title="Permanent link">&para;</a></h1>
-<p>This file is the seed document used by the learning-graph-generator skill to
-enumerate concepts, build the dependency graph, and assign concepts to a
-taxonomy. Keep it focused, concrete, and free of marketing language.</p>
-<p>A good course description includes:</p>
-<ul>
-<li><strong>Title</strong> — same as <code>site_name</code> in <code>mkdocs.yml</code></li>
-<li><strong>Audience</strong> — who this book is for and what they already know</li>
-<li><strong>Prerequisites</strong> — concepts the reader is assumed to have mastered</li>
-<li><strong>Topics</strong> — the major areas the book covers (typically 8–20 topics)</li>
-<li><strong>Bloom's Taxonomy outcomes</strong> — what the reader should be able to <em>remember,
-  understand, apply, analyze, evaluate,</em> and <em>create</em> by the end</li>
-</ul>
-<p>Run the <code>course-description-analyzer</code> skill to validate completeness, then run
-<code>learning-graph-generator</code> to enumerate ~200 concepts with dependencies.</p>
+<p>This is the seed document for the learning graph. It defines the audience,
+prerequisites, topics, and outcomes that <code>learning-graph-generator</code> uses to
+enumerate concepts and their dependencies.</p>
 <hr />
 <h2 id="title">Title<a class="headerlink" href="#title" title="Permanent link">&para;</a></h2>
-<p>Raspberry Pi Environmental Monitoring</p>
+<p>Raspberry Pi Environmental Monitoring: Grades 6–12</p>
 <h2 id="audience">Audience<a class="headerlink" href="#audience" title="Permanent link">&para;</a></h2>
-<p>Describe the intended reader.</p>
+<p>Students in grades 6–12 building a working environmental monitoring station,
+in a science classroom, an after-school STEM club, or an independent science
+fair project. The book also serves the teachers and club advisors who guide
+them, who may be introducing this hardware for the first time themselves.</p>
+<p>Readers are assumed to be curious about how measurements are made but new to
+nearly all of the technology involved. No prior experience with Linux, the
+command line, electronics, or programming is expected. Everything specific to
+the Raspberry Pi, the sensors, and Python is taught within the book.</p>
+<p>Because the grade band is wide, the material is written to a middle-school
+reading level and introduces every technical term before using it. Depth comes
+from the extension activities and the data-analysis chapters, which give older
+students somewhere to go without leaving younger ones behind.</p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
-<p>List the assumed prior knowledge.</p>
+<p>Readers are assumed to have mastered:</p>
+<ul>
+<li>Arithmetic with decimals, ratios, percentages, and unit conversion</li>
+<li>Reading and constructing line graphs and scatter plots from tabular data</li>
+<li>Introductory physical science: matter, energy, temperature, and states of matter</li>
+<li>Basic computer literacy: files and folders, typing, connecting to a Wi-Fi network</li>
+<li>Following a written multi-step procedure and recording results in a notebook</li>
+</ul>
+<p>Readers are <strong>not</strong> assumed to know:</p>
+<ul>
+<li>Any programming language, including Python</li>
+<li>The Linux command line, or what an operating system does</li>
+<li>Circuits, voltage, current, soldering, or how to read a datasheet</li>
+<li>Statistics beyond the mean and the range</li>
+<li>Trigonometry or calculus</li>
+</ul>
 <h2 id="topics">Topics<a class="headerlink" href="#topics" title="Permanent link">&para;</a></h2>
 <ol>
-<li>...</li>
-<li>...</li>
+<li>What environmental monitoring is, and the questions monitoring data answers</li>
+<li>Measurement fundamentals: units, resolution, accuracy versus precision, uncertainty, and calibration</li>
+<li>The atmosphere and weather: temperature, barometric pressure, relative humidity, and dew point</li>
+<li>How sensors work: transduction, and what happens inside a BME280</li>
+<li>The Raspberry Pi as a computer, and what Ubuntu Server does</li>
+<li>Working at the command line: files, permissions, editors, and services</li>
+<li>Connecting hardware safely: GPIO pins, the I2C bus, wiring, and static discipline</li>
+<li>Reading a sensor from Python and turning raw values into physical units</li>
+<li>Data logging: sampling rate, timestamps, CSV files, and why records need units</li>
+<li>Storing and retrieving a growing dataset</li>
+<li>Charting time-series data and reading it critically</li>
+<li>Data quality: drift, outliers, gaps, and validating a suspicious reading</li>
+<li>Time and place: GPS coordinates, elevation, and why stations record UTC</li>
+<li>Getting data off the device: networks, cellular telemetry, and intermittent links</li>
+<li>Powering a remote station: batteries, solar panels, and building a power budget</li>
+<li>Siting and weatherproofing: enclosures, sensor exposure, and why placement changes the data</li>
+<li>Sensing the ground: introduction to accelerometers and seismic measurement</li>
+<li>Publishing and sharing data, including citizen-science networks</li>
+<li>Documenting the build and presenting findings to a non-technical audience</li>
 </ol>
 <h2 id="learning-outcomes">Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Permanent link">&para;</a></h2>
 <p>By the end of this book, the reader will be able to:</p>
 <ul>
-<li><strong>Remember:</strong> ...</li>
-<li><strong>Understand:</strong> ...</li>
-<li><strong>Apply:</strong> ...</li>
-<li><strong>Analyze:</strong> ...</li>
-<li><strong>Evaluate:</strong> ...</li>
-<li><strong>Create:</strong> ...</li>
+<li>
+<p><strong>Remember:</strong> Name the quantities a weather station measures and their standard units; identify the major components of the station, including the single-board computer, the BME280 sensor, the power subsystem, and the telemetry module; state what the I2C bus does.</p>
+</li>
+<li>
+<p><strong>Understand:</strong> Explain how a sensor converts a physical property into a number a computer can store; describe the difference between accuracy and precision in their own words; explain why two thermometers a meter apart can legitimately disagree.</p>
+</li>
+<li>
+<p><strong>Apply:</strong> Wire a BME280 to a Raspberry Pi over I2C without damaging either; write and modify a Python program that reads the sensor and appends timestamped readings to a CSV file on a fixed interval; produce a labeled chart from the resulting data.</p>
+</li>
+<li>
+<p><strong>Analyze:</strong> Examine several days of readings and separate the daily temperature cycle from a passing weather system and from sensor drift; locate outliers and missing intervals in a log file and determine which are instrument faults rather than real events.</p>
+</li>
+<li>
+<p><strong>Evaluate:</strong> Judge whether a proposed solar panel and battery will keep a station running through a week of overcast weather; critique a siting decision by predicting how it biases the measurements; compare two candidate sensors against the station's stated requirements and defend a choice.</p>
+</li>
+<li>
+<p><strong>Create:</strong> Design, build, deploy, and document a working environmental monitoring station that records data unattended and makes it available to others; write up the design decisions, the data collected, and the limitations of the results for a general audience.</p>
+</li>
 </ul>
 
 
