@@ -1,0 +1,112 @@
+import tkinter as tk
+from tkinter import font
+import urllib.request, json
+from datetime import datetime
+import csv, os, threading
+
+SENSOR_URL = "http://SENSOR_IP:8080"  # ← change this
+POLL_INTERVAL = 30
+CSV_FILE = "sensor_log.csv"
+
+def c_to_f(c):
+    return round((c * 9/5) + 32, 2)
+
+def hpa_to_inhg(hpa):
+    return round(hpa * 0.02953, 2)
+
+class WeatherDisplay(tk.Tk):
+    def __init__(self):
+        super().__init__()
+        self.title("Weather Station")
+        self.configure(bg="#1a1a2e")
+        self.attributes("-fullscreen", True)
+        self.bind("<Escape>", lambda e: self.attributes("-fullscreen", False))
+        self.bind("q", lambda e: self.destroy())
+
+        self.temp_c_var    = tk.StringVar(value="--.-°C")
+        self.temp_f_var    = tk.StringVar(value="--.-°F")
+        self.humid_var     = tk.StringVar(value="--.-% RH")
+        self.press_hpa_var = tk.StringVar(value="---.- hPa")
+        self.press_inhg_var= tk.StringVar(value="--.-- inHg")
+        self.status_var    = tk.StringVar(value="Connecting...")
+        self.time_var      = tk.StringVar()
+
+        self._build_ui()
+        self._poll()
+        self._tick()
+
+    def _build_ui(self):
+        big   = font.Font(family="DejaVu Sans", size=64, weight="bold")
+        med   = font.Font(family="DejaVu Sans", size=36)
+        sub   = font.Font(family="DejaVu Sans", size=28)
+        small = font.Font(family="DejaVu Sans", size=18)
+        tiny  = font.Font(family="DejaVu Sans", size=14)
+
+        tk.Label(self, text="🌡 Temperature",
+                 font=small, bg="#1a1a2e", fg="#aaaaaa").pack(pady=(30, 0))
+        temp_frame = tk.Frame(self, bg="#1a1a2e")
+        temp_frame.pack()
+        tk.Label(temp_frame, textvariable=self.temp_c_var,
+                 font=big, bg="#1a1a2e", fg="#ff6b6b").pack(side="left", padx=30)
+        tk.Frame(temp_frame, bg="#333355", width=2).pack(side="left", fill="y", pady=5)
+        tk.Label(temp_frame, textvariable=self.temp_f_var,
+                 font=big, bg="#1a1a2e", fg="#ff9f43").pack(side="left", padx=30)
+
+        tk.Frame(self, bg="#333355", height=2).pack(fill="x", padx=60, pady=15)
+
+        tk.Label(self, text="💧 Humidity",
+                 font=small, bg="#1a1a2e", fg="#aaaaaa").pack()
+        tk.Label(self, textvariable=self.humid_var,
+                 font=med, bg="#1a1a2e", fg="#4ecdc4").pack(pady=(0, 15))
+
+        tk.Frame(self, bg="#333355", height=2).pack(fill="x", padx=60, pady=15)
+
+        tk.Label(self, text="🔵 Pressure",
+                 font=small, bg="#1a1a2e", fg="#aaaaaa").pack()
+        press_frame = tk.Frame(self, bg="#1a1a2e")
+        press_frame.pack()
+        tk.Label(press_frame, textvariable=self.press_hpa_var,
+                 font=sub, bg="#1a1a2e", fg="#45b7d1").pack(side="left", padx=30)
+        tk.Frame(press_frame, bg="#333355", width=2).pack(side="left", fill="y", pady=5)
+        tk.Label(press_frame, textvariable=self.press_inhg_var,
+                 font=sub, bg="#1a1a2e", fg="#a29bfe").pack(side="left", padx=30)
+
+        tk.Frame(self, bg="#333355", height=2).pack(fill="x", padx=60, pady=15)
+
+        tk.Label(self, textvariable=self.time_var,
+                 font=tiny, bg="#1a1a2e", fg="#666688").pack()
+        tk.Label(self, textvariable=self.status_var,
+                 font=tiny, bg="#1a1a2e", fg="#666688").pack()
+
+    def _poll(self):
+        def fetch():
+            try:
+                with urllib.request.urlopen(SENSOR_URL, timeout=5) as r:
+                    data = json.loads(r.read())
+                tc   = data['temperature']
+                hpa  = data['pressure']
+                self.temp_c_var.set(f"{tc}°C")
+                self.temp_f_var.set(f"{c_to_f(tc)}°F")
+                self.humid_var.set(f"{data['humidity']}% RH")
+                self.press_hpa_var.set(f"{hpa} hPa")
+                self.press_inhg_var.set(f"{hpa_to_inhg(hpa)} inHg")
+                self.status_var.set(f"Last update: {data['timestamp'][:19]}")
+                self._log_csv(data)
+            except Exception as e:
+                self.status_var.set(f"⚠ Sensor offline: {e}")
+            self.after(POLL_INTERVAL * 1000, self._poll)
+        threading.Thread(target=fetch, daemon=True).start()
+
+    def _log_csv(self, data):
+        file_exists = os.path.isfile(CSV_FILE)
+        with open(CSV_FILE, 'a', newline='') as f:
+            writer = csv.DictWriter(f, fieldnames=data.keys())
+            if not file_exists:
+                writer.writeheader()
+            writer.writerow(data)
+
+    def _tick(self):
+        self.time_var.set(datetime.now().strftime("%A %d %B %Y  %H:%M:%S"))
+        self.after(1000, self._tick)
+
+WeatherDisplay().mainloop()

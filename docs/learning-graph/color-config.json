@@ -1,0 +1,17 @@
+{
+  "FOUND": "SteelBlue",
+  "SENSE": "DarkSlateBlue",
+  "ATMOS": "DarkGreen",
+  "TEMP": "LimeGreen",
+  "PRESS": "Gold",
+  "HUMID": "DarkGoldenrod",
+  "SOLAR": "Khaki",
+  "WIND": "Teal",
+  "SEIS": "DodgerBlue",
+  "GEO": "LightSkyBlue",
+  "HW": "Crimson",
+  "SYS": "MediumPurple",
+  "DATA": "Indigo",
+  "DEPLOY": "DarkOrchid",
+  "IMPACT": "Orange"
+}
