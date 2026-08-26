@@ -1,0 +1,2440 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Siting and sensor exposure, weatherproof enclosures and IP ratings, the power budget with battery and solar, duty cycling, and the telemetry chain for an unattended remote station.">
+      
+      
+        <meta name="author" content="Hank R.">
+      
+      
+        <link rel="canonical" href="https://iowerx.github.io/pi-env-monitor/chapters/16-building-for-outdoors/">
+      
+      
+        <link rel="prev" href="../15-charting-and-analysis/">
+      
+      
+        <link rel="next" href="../17-measurement-to-consequence/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Building the Station for the Outdoors - Raspberry Pi Environmental Monitoring: Grades 6–12</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website">
+<meta property="og:title" content="Building the Station for the Outdoors - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="og:description" content="Siting and sensor exposure, weatherproof enclosures and IP ratings, the power budget with battery and solar, duty cycling, and the telemetry chain for an unattended remote station.">
+<meta property="og:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/16-building-for-outdoors/index.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://iowerx.github.io/pi-env-monitor/chapters/16-building-for-outdoors/">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Building the Station for the Outdoors - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="twitter:description" content="Siting and sensor exposure, weatherproof enclosures and IP ratings, the power budget with battery and solar, duty cycling, and the telemetry chain for an unattended remote station.">
+<meta property="twitter:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/16-building-for-outdoors/index.png">
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#building-the-station-for-the-outdoors" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Raspberry Pi Environmental Monitoring: Grades 6–12
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Building the Station for the Outdoors
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Raspberry Pi Environmental Monitoring: Grades 6–12
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components Used
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-why-we-measure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Why We Measure the Natural Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-language-of-measurement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. The Language of Measurement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-electricity-and-computer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Electricity and the Single-Board Computer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-how-sensors-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. How Sensors Turn the World Into Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-time-and-place/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Time and Place - Recording Where and When
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-temperature/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Temperature - From the Thermoscope to the Silicon Chip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-barometric-pressure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Barometric Pressure - The Weight of the Atmosphere
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-humidity-and-dew-point/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Humidity and Dew Point - The Water Hidden in the Air
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-solar-radiation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Solar Radiation - The Energy That Drives the Weather
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-wind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Wind - Measuring Air in Motion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-ground-motion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Ground Motion - Measuring Earthquakes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-os-and-sensor-buses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. The Station's Brain - Operating System, Command Line, and Sensor Buses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-python-programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Programming the Station in Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-data-logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Logging Data - Timestamps, Intervals, and Files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-charting-and-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Charting and Interpreting Your Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Building the Station for the Outdoors
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Building the Station for the Outdoors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nobody-is-coming-to-fix-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nobody Is Coming to Fix It
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#siting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Siting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Siting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-station-siting-planner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Station Siting Planner
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-enclosure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Enclosure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-power-budget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Power Budget
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Power Budget">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-measure-consumption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Measure Consumption
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-size-the-battery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Size the Battery
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-size-the-solar-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Size the Solar Panel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-charge-safely" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Charge Safely
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-use-less" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Use Less
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 5: Use Less">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-power-budget-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Power Budget Calculator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-the-data-home" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting the Data Home
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-the-link-is-not-there" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When the Link Is Not There
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#many-stations-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Many Stations Together
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-measurement-to-consequence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. From Measurement to Consequence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../licensing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nobody-is-coming-to-fix-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nobody Is Coming to Fix It
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#siting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Siting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Siting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-station-siting-planner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Station Siting Planner
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-enclosure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Enclosure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-power-budget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Power Budget
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Power Budget">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-measure-consumption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Measure Consumption
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-size-the-battery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Size the Battery
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-size-the-solar-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Size the Solar Panel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-charge-safely" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Charge Safely
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-use-less" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Use Less
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 5: Use Less">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-power-budget-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Power Budget Calculator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-the-data-home" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting the Data Home
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-the-link-is-not-there" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When the Link Is Not There
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#many-stations-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Many Stations Together
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/iowerx/pi-env-monitor/blob/main/docs/chapters/16-building-for-outdoors/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="building-the-station-for-the-outdoors">Building the Station for the Outdoors<a class="headerlink" href="#building-the-station-for-the-outdoors" title="Permanent link">¶</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
+<p>A station indoors on a desk is a demonstration; a station outdoors and unattended is an instrument. This chapter covers siting and sensor exposure, weatherproof enclosures and their ingress protection ratings, and the power budget that determines the battery, solar panel, and charge controller, with duty cycling to stretch what is available. The second half covers telemetry: the cellular link, Wi-Fi, the base station, and what a program must do when the connection is intermittent rather than absent. It closes with seismic networks, where many stations together do what one cannot.</p>
+<h2 id="concepts-covered">Concepts Covered<a class="headerlink" href="#concepts-covered" title="Permanent link">¶</a></h2>
+<p>This chapter covers the following 16 concepts from the learning graph:</p>
+<ol>
+<li>Remote Station</li>
+<li>Weatherproof Enclosure</li>
+<li>Power Budget</li>
+<li>Ingress Protection Rating</li>
+<li>Sensor Exposure</li>
+<li>Battery Capacity</li>
+<li>Duty Cycling</li>
+<li>Sensor Siting</li>
+<li>Telemetry</li>
+<li>Seismic Network</li>
+<li>Solar Panel</li>
+<li>Wi-Fi Network</li>
+<li>Charge Controller</li>
+<li>Base Station</li>
+<li>Cellular Data Link</li>
+<li>Intermittent Connectivity</li>
+</ol>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-why-we-measure/">Chapter 1: Why We Measure the Natural Environment</a></li>
+<li><a href="../03-electricity-and-computer/">Chapter 3: Electricity and the Single-Board Computer</a></li>
+<li><a href="../06-temperature/">Chapter 6: Temperature: From the Thermoscope to the Silicon Chip</a></li>
+<li><a href="../09-solar-radiation/">Chapter 9: Solar Radiation: The Energy That Drives the Weather</a></li>
+<li><a href="../11-ground-motion/">Chapter 11: Ground Motion: Measuring Earthquakes</a></li>
+<li><a href="../12-os-and-sensor-buses/">Chapter 12: The Station's Brain: Operating System, Command Line, and Sensor Buses</a></li>
+<li><a href="../15-charting-and-analysis/">Chapter 15: Charting and Interpreting Your Data</a></li>
+</ul>
+<hr>
+<h2 id="nobody-is-coming-to-fix-it">Nobody Is Coming to Fix It<a class="headerlink" href="#nobody-is-coming-to-fix-it" title="Permanent link">¶</a></h2>
+<p>Everything so far has assumed a bench, a wall socket, and you sitting nearby.</p>
+<p>Now put it on a post in a field.</p>
+<p>A <strong>remote station</strong> is a monitoring station that operates unattended, away from mains power and often away from any network you control.</p>
+<p>Every assumption changes:</p>
+<table>
+<thead>
+<tr>
+<th>On the bench</th>
+<th>In the field</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mains power, unlimited</td>
+<td>A battery and whatever the Sun provides</td>
+</tr>
+<tr>
+<td>You notice failures immediately</td>
+<td>Nobody notices for weeks</td>
+</tr>
+<tr>
+<td>Room temperature</td>
+<td>−10 °C at night, 45 °C inside a sunlit box</td>
+</tr>
+<tr>
+<td>Dry</td>
+<td>Rain, dew, frost, condensation, humidity</td>
+</tr>
+<tr>
+<td>Reboot by unplugging</td>
+<td>A three-hour round trip</td>
+</tr>
+<tr>
+<td>Data on the desk</td>
+<td>Data has to travel to you</td>
+</tr>
+<tr>
+<td>Nothing eats it</td>
+<td>Insects, spiders, rodents, birds, curious people</td>
+</tr>
+</tbody>
+</table>
+<p>The design goal for a remote station is not elegance. It is <strong>not needing to be visited</strong>. Every trip out to a station is expensive in time and, in winter or in difficult terrain, sometimes impossible. A station that requires monthly attention will be abandoned by spring.</p>
+<h2 id="siting">Siting<a class="headerlink" href="#siting" title="Permanent link">¶</a></h2>
+<p><strong>Sensor siting</strong> is the choice of where to place a station and its sensors.</p>
+<p>Chapter 6 gave the warning: a badly sited station produces plausible-looking data that measures the wrong thing, and the fault is invisible on any day the sun is not shining. Here are the rules in full.</p>
+<p><strong>Distance from obstructions.</strong> The international convention is that a station should be at least four times the height of any nearby obstruction away from it. A 5-metre building means 20 metres of clearance. Buildings block wind, cast shade, radiate stored heat at night, and channel airflow into gusts that are not representative of anything.</p>
+<p><strong>Surface beneath.</strong> Natural short grass is the standard. Concrete and asphalt absorb heat all day and release it all night, raising your night-time temperatures by several degrees. Bare soil dries and behaves differently from vegetated ground. Chapter 9's albedo table explains why this matters so much.</p>
+<p><strong>Height above ground.</strong> Air temperature and humidity are measured at 1.25 to 2 metres, most commonly 1.5 m. Wind is measured at 10 metres by convention, which almost no school station can achieve — record whatever height you use in the metadata so readings can be adjusted later.</p>
+<p><strong>Sensor exposure</strong> is how a sensor is presented to the thing it measures. Each quantity has its own requirement, and they sometimes conflict:</p>
+<table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>Needs</th>
+<th>Ruined by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Temperature</td>
+<td>Shade, free airflow, standard height</td>
+<td>Direct sun, radiating walls, still air</td>
+</tr>
+<tr>
+<td>Humidity</td>
+<td>Same as temperature</td>
+<td>Same, plus condensation and contaminants</td>
+</tr>
+<tr>
+<td>Pressure</td>
+<td>Almost nothing — just a vented enclosure</td>
+<td>A fully sealed box</td>
+</tr>
+<tr>
+<td>Solar radiation</td>
+<td>Unobstructed view of the whole sky, level</td>
+<td>Any shadow, at any time of day</td>
+</tr>
+<tr>
+<td>Wind</td>
+<td>Height and distance from obstructions</td>
+<td>Buildings, trees, the station's own mast</td>
+</tr>
+<tr>
+<td>Ground motion</td>
+<td>Firm coupling to the ground</td>
+<td>A wobbly post, a wooden deck</td>
+</tr>
+<tr>
+<td>GPS</td>
+<td>Clear view of the sky</td>
+<td>Dense canopy, deep valleys, metal above</td>
+</tr>
+</tbody>
+</table>
+<p>Notice the conflict. Temperature wants shade; solar radiation wants no shade at all. They cannot share a location on the mast. The solar sensor goes on top, level and clear; the temperature and humidity go in a shield below it, positioned so the shield never shades the solar sensor.</p>
+<p>The seismic sensor conflicts too. It wants to be rigidly coupled to the ground, and a station on a pole is the worst possible mounting — the pole sways in the wind and the accelerometer faithfully records that instead of earthquakes.</p>
+<div class="admonition warning">
+<p class="admonition-title">Do not skip this and fix it later</p>
+<p>You cannot correct a siting error after the fact. If your temperature sensor spent a summer in afternoon sun, that data is not recoverable — you cannot subtract the sun. Moving the station later creates a discontinuity in your record that a future analyst has to detect and correct, which Chapter 15 identified as one of the hardest problems in long-term climate records.</p>
+<p>Spend the extra hour choosing the location. Photograph it. Write it in the metadata.</p>
+</div>
+<h4 id="diagram-station-siting-planner">Diagram: Station Siting Planner<a class="headerlink" href="#diagram-station-siting-planner" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/station-siting-planner/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Station Siting Planner</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> station-siting-planner<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Evaluate (L5)
+Bloom Verb: recommend</p>
+<p>Learning objective: The learner recommends a station location on a realistic site plan, justifying the choice against the exposure requirements of all seven measured quantities and identifying which requirements conflict.</p>
+<p>Purpose: Siting is the highest-consequence irreversible decision in the project, and it involves simultaneous constraints that pull in different directions. A planner where placing the station immediately scores every sensor's exposure makes the trade-offs visible before a student commits in the real world.</p>
+<p>Canvas layout:
+- Main area: a plan view of a school site containing a two-storey building, a single-storey annexe, three trees of different heights, an asphalt car park, a grass field, a fence line, and a paved path
+- The learner drags a station marker anywhere on the plan
+- Overlay layers, individually toggleable: shadow footprints at 09:00, 12:00, and 15:00 for summer and winter; the four-times-height clearance circles around each obstruction; surface type shading; GPS sky-view obstruction
+- Right or below (responsive): a per-sensor scorecard
+- Bottom: controls and a mast-configuration panel
+- Responsive to window resize; plan preserves aspect ratio</p>
+<p>Data Visibility Requirements:
+  Stage 1: Show the station's distance to each obstruction and the required clearance for each, e.g. "Main building 8 m tall, requires 32 m, you are at 14 m — FAIL"
+  Stage 2: Show the surface directly beneath and its albedo from Chapter 9
+  Stage 3: Show hours of shadow per day in summer and in winter, computed from the toggled shadow layers
+  Stage 4: Show a scorecard row per sensor — temperature, humidity, pressure, solar, wind, seismic, GPS — each rated good, marginal, or poor with a one-line reason
+  Stage 5: Show an overall verdict and the single worst problem</p>
+<p>Required conflict demonstration: a mast-configuration panel where the learner positions the radiation shield and the solar sensor on the mast. Placing the shield above the solar sensor must trigger "The shield is casting a shadow on the solar sensor between 11:00 and 13:00 in summer" with the affected hours computed. This makes the temperature-versus-solar conflict from the chapter text a discovered constraint rather than a stated one.</p>
+<p>Required seismic constraint: mounting the accelerometer on the mast rather than on a ground stake or slab must score poor with the reason "The mast sways in wind. This sensor will record the mast, not the ground." Providing a separate ground-mount option that scores well teaches the resolution.</p>
+<p>Candidate locations the plan should make tempting and then penalise:
+- <strong>Beside the building</strong> — convenient for power and Wi-Fi, fails clearance and gets radiated night heat
+- <strong>On the car park</strong> — open sky and good for solar and GPS, but asphalt beneath ruins temperature
+- <strong>Under the large tree</strong> — shaded and cool, but ruins solar radiation and blocks GPS
+- <strong>Middle of the grass field</strong> — best exposure, worst for power and network access, which sets up the rest of the chapter</p>
+<p>Interactive controls:
+- Drag the station; all scores update live
+- Season and time-of-day sliders driving the shadow layers
+- Layer toggles
+- Mast configuration: height of shield, height of solar sensor, seismic mounting choice, anemometer height
+- "Explain this score" on any scorecard row, opening the reasoning with a chapter cross-reference</p>
+<p>Instructional Rationale: The objective is Evaluate/recommend, which requires weighing incompatible criteria and defending a choice. Scoring all seven sensors simultaneously from one placement is the design decision that makes the conflict unavoidable — a learner cannot optimise one without watching another degrade. The tempting-but-flawed candidate locations exist because students reliably choose convenience over exposure, and the planner should let them make that choice and see the cost.</p>
+<p>Implementation: p5.js. Compute shadows geometrically from obstruction heights and solar elevation for the selected date and latitude. Score each sensor from documented rules so "explain this score" can cite the specific rule applied.</p>
+</details>
+<h2 id="the-enclosure">The Enclosure<a class="headerlink" href="#the-enclosure" title="Permanent link">¶</a></h2>
+<p>A <strong>weatherproof enclosure</strong> is a sealed box that protects the electronics from rain, dust, insects, and sunlight.</p>
+<p>An <strong>ingress protection rating</strong>, written IP followed by two digits, is a standardized measure of how well an enclosure keeps things out. The first digit rates solids, the second rates liquids.</p>
+<table>
+<thead>
+<tr>
+<th>Rating</th>
+<th>Solids</th>
+<th>Liquids</th>
+<th>Suitable for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IP20</td>
+<td>Fingers</td>
+<td>None</td>
+<td>Indoors only</td>
+</tr>
+<tr>
+<td>IP54</td>
+<td>Dust-protected</td>
+<td>Splashing water</td>
+<td>Sheltered outdoor</td>
+</tr>
+<tr>
+<td>IP65</td>
+<td>Dust-tight</td>
+<td>Water jets</td>
+<td>General outdoor use</td>
+</tr>
+<tr>
+<td>IP66</td>
+<td>Dust-tight</td>
+<td>Powerful water jets</td>
+<td>Exposed outdoor</td>
+</tr>
+<tr>
+<td>IP67</td>
+<td>Dust-tight</td>
+<td>Temporary immersion</td>
+<td>Flood-prone locations</td>
+</tr>
+</tbody>
+</table>
+<p>IP65 is the sensible target for a station enclosure. Higher ratings cost more and, past a point, work against you — which is the counter-intuitive part of this section.</p>
+<div class="admonition warning">
+<p class="admonition-title">A perfectly sealed box will destroy your station</p>
+<p>This surprises everyone, and it is the most common enclosure mistake.</p>
+<p>Seal a box completely and it still breathes. Air inside warms during the day and expands; at night it cools and contracts, drawing outside air in through any imperfection. That incoming air carries moisture. The moisture condenses on the coolest surface inside — usually the circuit board — and cannot escape.</p>
+<p>Do this for a few months and you get corrosion, short circuits, and a humidity sensor permanently reading 100 percent. The box was watertight and the electronics drowned anyway.</p>
+<p>Three fixes, used together:</p>
+<ol>
+<li><strong>A vent</strong>, specifically a Gore-Tex or similar membrane vent, which passes water vapor and air pressure but blocks liquid water. It also lets the pressure sensor read correctly, which a sealed box prevents entirely.</li>
+<li><strong>Silica gel desiccant</strong> inside, replaced periodically.</li>
+<li><strong>Mount cable glands and vents on the bottom face</strong>, so gravity works with you rather than against you.</li>
+</ol>
+</div>
+<p>Other enclosure requirements:</p>
+<ul>
+<li><strong>White or light coloured.</strong> Chapter 9's albedo applies to your box. A black enclosure in summer sun can exceed 60 °C inside, which is past the BME280's 85 °C limit sooner than you would think and shortens battery life considerably.</li>
+<li><strong>UV-resistant plastic.</strong> Ordinary plastics become brittle and crack after a year or two of sunlight.</li>
+<li><strong>Cable glands, not holes.</strong> Every wire entering needs a proper compression gland. A drilled hole with a wire through it is a drain.</li>
+<li><strong>A drip loop.</strong> Cables should hang below their entry point so water runs off the low point rather than following the cable inside.</li>
+<li><strong>Insect exclusion.</strong> Fine mesh over every vent. Wasps and spiders find enclosures extremely attractive, and Chapter 15 listed insect nests as a genuine cause of sensor faults.</li>
+</ul>
+<p>The sensors themselves stay outside the box, in the radiation shield, with only their wires passing through a gland.</p>
+<h2 id="the-power-budget">The Power Budget<a class="headerlink" href="#the-power-budget" title="Permanent link">¶</a></h2>
+<p>A <strong>power budget</strong> is an accounting of how much energy a system consumes against how much it can collect or store.</p>
+<p>This is the calculation that determines whether your station survives the winter, and it is arithmetic rather than guesswork.</p>
+<h3 id="step-1-measure-consumption">Step 1: Measure Consumption<a class="headerlink" href="#step-1-measure-consumption" title="Permanent link">¶</a></h3>
+<p>Every component draws current. Current times voltage is power, and power times time is energy.</p>
+<p>Typical figures for this project:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Current</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pi Zero 2 W, idle</td>
+<td>100 mA</td>
+<td>Doing nothing, Wi-Fi off</td>
+</tr>
+<tr>
+<td>Pi Zero 2 W, active</td>
+<td>200–350 mA</td>
+<td>Reading sensors, writing files</td>
+</tr>
+<tr>
+<td>Wi-Fi active</td>
+<td>+50–100 mA</td>
+<td>Only while transmitting</td>
+</tr>
+<tr>
+<td>SIM7600A, idle</td>
+<td>10–20 mA</td>
+<td>Registered on the network</td>
+</tr>
+<tr>
+<td>SIM7600A, transmitting</td>
+<td>200–500 mA</td>
+<td>Brief bursts, but large</td>
+</tr>
+<tr>
+<td>BME280</td>
+<td>0.004 mA</td>
+<td>Effectively nothing</td>
+</tr>
+<tr>
+<td>GPS receiver</td>
+<td>25–40 mA</td>
+<td>Continuous while acquiring</td>
+</tr>
+</tbody>
+</table>
+<p>The BME280 row is worth noticing. The sensor consumes essentially nothing. <strong>Your power problem is the computer and the radio, not the sensors.</strong></p>
+<p>Energy is measured in milliamp-hours (mAh). A device drawing 150 mA for 24 hours uses:</p>
+<div class="arithmatex">\[ 150\ \text{mA} \times 24\ \text{h} = 3600\ \text{mAh per day} \]</div>
+<h3 id="step-2-size-the-battery">Step 2: Size the Battery<a class="headerlink" href="#step-2-size-the-battery" title="Permanent link">¶</a></h3>
+<p><strong>Battery capacity</strong> is how much charge a battery can store, in milliamp-hours or amp-hours.</p>
+<p>Two adjustments turn a raw capacity into usable capacity, and both are commonly forgotten:</p>
+<ul>
+<li><strong>Depth of discharge.</strong> Lithium batteries should not be run below about 20 percent, and lead-acid below about 50 percent, or their lifetime collapses. Plan to use 80 percent of a lithium battery's rating.</li>
+<li><strong>Cold weather.</strong> Capacity falls with temperature — commonly 20 to 30 percent at 0 °C. Winter is when solar input is lowest and battery capacity is worst at the same time.</li>
+</ul>
+<p>The autonomy calculation asks how long the station runs with no solar input at all:</p>
+<div class="arithmatex">\[ \text{days of autonomy} = \frac{\text{usable capacity (mAh)}}{\text{daily consumption (mAh)}} \]</div>
+<p>A 20,000 mAh battery at 80 percent usable is 16,000 mAh. Against 3,600 mAh per day, that is <strong>4.4 days</strong> — and less in the cold. Aim for at least three days of autonomy, and five if your winters are overcast.</p>
+<h3 id="step-3-size-the-solar-panel">Step 3: Size the Solar Panel<a class="headerlink" href="#step-3-size-the-solar-panel" title="Permanent link">¶</a></h3>
+<p>A <strong>solar panel</strong> converts sunlight into electricity by the photovoltaic effect from Chapter 9.</p>
+<p>Panels are rated in watts under standard test conditions of 1000 W/m². Real output is far lower, and this is where Chapter 15's insolation figure earns its place.</p>
+<p>Daily energy from a panel:</p>
+<div class="arithmatex">\[ E_{\text{daily}} = P_{\text{rated}} \times \text{insolation (kWh/m²/day)} \times \eta \]</div>
+<p>where <span class="arithmatex">\(\eta\)</span> accounts for panel angle, dirt, temperature losses, and charge controller efficiency. Use 0.7 as a working figure.</p>
+<p>Worked example. A 10 W panel, in December, at a mid-latitude site with 1.5 kWh/m²/day of insolation:</p>
+<div class="arithmatex">\[ 10\ \text{W} \times 1.5 \times 0.7 = 10.5\ \text{Wh per day} \]</div>
+<p>At 5 V that is 2,100 mAh per day — against a consumption of 3,600 mAh per day. <strong>The station runs down.</strong> In December it would drain the battery in a few days and stay dead until spring.</p>
+<div class="admonition danger">
+<p class="admonition-title">Size for December, not for July</p>
+<p>This is the mistake that kills student stations, and it is not obvious because everything works beautifully during the term when you build it.</p>
+<p>A panel sized for summer insolation of 6 kWh/m²/day collects four times as much as the same panel in December. A station built and tested in May will fail in November, and by then everyone has moved on.</p>
+<p>Design against your <strong>worst month</strong>, and confirm the numbers with real insolation data for your location. Then add margin, because the worst month has bad weeks in it.</p>
+</div>
+<h3 id="step-4-charge-safely">Step 4: Charge Safely<a class="headerlink" href="#step-4-charge-safely" title="Permanent link">¶</a></h3>
+<p>A <strong>charge controller</strong> sits between the solar panel and the battery, regulating charging to prevent damage.</p>
+<p>It is not optional. A panel connected directly to a battery will overcharge it, which for lithium chemistry is a fire risk and for lead-acid destroys the battery.</p>
+<p>A controller handles:</p>
+<ul>
+<li><strong>Overcharge protection</strong> — stopping when the battery is full</li>
+<li><strong>Over-discharge protection</strong> — disconnecting the load before the battery is damaged</li>
+<li><strong>Reverse current blocking</strong> — preventing the battery discharging back through the panel at night</li>
+<li><strong>Charging profile</strong> — the correct voltage and current curve for the chemistry</li>
+</ul>
+<p>MPPT controllers extract 10 to 30 percent more energy than simpler PWM ones by continuously finding the panel's optimal operating point. On a marginal power budget, that difference can be what makes the station survive.</p>
+<h3 id="step-5-use-less">Step 5: Use Less<a class="headerlink" href="#step-5-use-less" title="Permanent link">¶</a></h3>
+<p><strong>Duty cycling</strong> is switching a device off, or into a low-power mode, between the times it is actually needed.</p>
+<p>This is by far the most effective tool available, because your station spends almost all of its time waiting.</p>
+<p>A station reading once a minute spends perhaps two seconds working and 58 seconds idle. If the Pi could sleep through those 58 seconds, consumption would fall by roughly 95 percent.</p>
+<p>The techniques, roughly in order of how much they save:</p>
+<table>
+<thead>
+<tr>
+<th>Technique</th>
+<th>Saving</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Turn off Wi-Fi except when transmitting</td>
+<td>50–100 mA</td>
+<td>Delayed data delivery</td>
+</tr>
+<tr>
+<td>Batch transmissions — send once an hour, not every minute</td>
+<td>Large</td>
+<td>Data arrives up to an hour late</td>
+</tr>
+<tr>
+<td>Disable HDMI output</td>
+<td>20–30 mA</td>
+<td>None; nothing is plugged in</td>
+</tr>
+<tr>
+<td>Disable onboard LEDs</td>
+<td>5–10 mA</td>
+<td>Harder to tell it is alive</td>
+</tr>
+<tr>
+<td>Sleep the SIM7600A between transmissions</td>
+<td>10–20 mA idle</td>
+<td>Reconnection time</td>
+</tr>
+<tr>
+<td>External timer that powers the Pi down entirely</td>
+<td>Very large</td>
+<td>Complexity; boot time each cycle</td>
+</tr>
+</tbody>
+</table>
+<p>Turning off HDMI and the LEDs takes two configuration lines and saves 25 to 40 mA continuously — roughly 700 mAh per day, which is 20 percent of the example budget for no functional loss at all.</p>
+<p>Batching transmissions is the biggest software-only win. Writing every reading to the SD card locally and uploading once an hour means the radio, the most power-hungry component, is on for a few seconds an hour instead of continuously.</p>
+<h4 id="diagram-power-budget-calculator">Diagram: Power Budget Calculator<a class="headerlink" href="#diagram-power-budget-calculator" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/power-budget-calculator/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Power Budget Calculator</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> power-budget-calculator<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Evaluate (L5)
+Bloom Verb: judge</p>
+<p>Learning objective: The learner judges whether a proposed combination of panel, battery, and duty cycle will keep a station running through the worst month of the year, and justifies the design against a simulated year of real insolation and temperature.</p>
+<p>Purpose: This is the Evaluate-level outcome the course description names explicitly. The failure mode it targets is specific and common: a station sized in spring that dies in November. Simulating a full year, month by month, with the battery state carried forward, is the only way to make that failure visible before it happens.</p>
+<p>Canvas layout:
+- Left: component selection and duty-cycle configuration
+- Center: a year-long battery state-of-charge chart, with months on the x-axis and percentage on the y-axis, and a red shaded band below the safe discharge floor
+- Right or below (responsive): the monthly energy balance table — collected, consumed, net — and a verdict panel
+- Bottom: location and scenario controls
+- Responsive to window resize</p>
+<p>Data Visibility Requirements:
+  Stage 1: Show the itemised daily consumption, component by component, in mA and mAh, summing to a daily total
+  Stage 2: Show the monthly insolation figure used and where it came from
+  Stage 3: Show monthly energy collected via the panel formula, with the 0.7 loss factor shown as a separate visible step
+  Stage 4: Show the monthly net balance and the battery state of charge carried forward from the previous month
+  Stage 5: Show days of autonomy at the current consumption, adjusted for the month's temperature
+  Stage 6: Show a clear pass or fail verdict naming the month it fails, if it does</p>
+<p>Configurable components:
+- Panel rating: 5, 10, 20, 50 W
+- Battery: 5,000 / 10,000 / 20,000 / 50,000 mAh, with chemistry selection (lithium at 80 percent usable, lead-acid at 50 percent)
+- Charge controller: PWM or MPPT, applying different efficiency factors
+- Radio: Wi-Fi or cellular, with idle and transmit currents
+- Duty-cycle checkboxes matching the chapter table, each showing its individual saving and updating the total live</p>
+<p>Location and scenario controls:
+- Latitude, driving the seasonal insolation curve
+- Preset locations with realistic monthly insolation: a coastal mid-latitude site, a high-latitude site, a desert site, and a persistently cloudy site
+- "Bad week" stress test that inserts seven consecutive days of heavy overcast into the worst month and shows whether the battery survives it</p>
+<p>Required teaching moments:
+- A default configuration that <strong>passes in summer and fails in December</strong>, with the verdict panel stating: "This design works from March to October and fails in December. A station built and tested in spring will die in autumn."
+- Enabling all duty-cycle options must visibly move a failing design into passing, quantifying how much of the fix came from software rather than hardware
+- A cold-weather toggle showing battery capacity dropping 25 percent at 0 °C, with the caption "Winter takes your solar input and your battery capacity at the same time."</p>
+<p>Instructional Rationale: The objective is Evaluate/judge against a criterion, and the criterion here is survival through the worst case rather than average performance. Simulating a full year with state carried forward is what distinguishes this from a spreadsheet — the learner sees the battery draw down progressively across autumn rather than seeing a single monthly average. Making the duty-cycle savings itemised and live teaches that the cheapest fix is usually software.</p>
+<p>Implementation: p5.js. Model state of charge day by day: SOC += collected − consumed, clamped to capacity and floor. Use published monthly insolation values for each preset location. Apply temperature derating to usable capacity per month.</p>
+</details>
+<h2 id="getting-the-data-home">Getting the Data Home<a class="headerlink" href="#getting-the-data-home" title="Permanent link">¶</a></h2>
+<p><strong>Telemetry</strong> is the automatic transmission of measurements from a remote location to somewhere they can be collected.</p>
+<p>Without it, a remote station is a data recorder that somebody has to visit. With it, you find out about a failure in hours rather than months.</p>
+<p>Three options, in increasing order of independence:</p>
+<p>A <strong>Wi-Fi network</strong> is the simplest when the station is within range of one. It is free to run, fast, and needs no additional hardware since the Pi Zero 2 W has Wi-Fi built in. The limits are range — typically under 100 metres outdoors — and that it ties your station's siting to a building, which Chapter 6's siting rules argue against.</p>
+<p>A <strong>cellular data link</strong> uses the mobile phone network, through the SIM7600A module in this project's parts list. It works anywhere with coverage, which is most places, and frees the station's location entirely. The costs are a data plan, higher power consumption, and the complexity of AT commands over the serial UART from Chapter 12.</p>
+<p>A <strong>base station</strong> is a computer at a fixed, convenient location that collects data from one or more remote stations. <a href="../../components/">Components Used</a> specifies a Raspberry Pi 2B running Raspberry Pi OS for this role. A base station has mains power, a reliable network, and no weather exposure, so it can do the work the remote station cannot afford: storing the full archive, running charts and dashboards, alerting you when a station goes quiet, and serving as one of the 3-2-1 backup copies from Chapter 14.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Wi-Fi</th>
+<th>Cellular</th>
+<th>Store and collect later</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Range</td>
+<td>Under 100 m</td>
+<td>Anywhere with coverage</td>
+<td>Unlimited</td>
+</tr>
+<tr>
+<td>Extra hardware</td>
+<td>None</td>
+<td>SIM7600A + SIM</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Ongoing cost</td>
+<td>None</td>
+<td>Data plan</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Power</td>
+<td>Moderate</td>
+<td>Higher</td>
+<td>Lowest</td>
+</tr>
+<tr>
+<td>Data delay</td>
+<td>Seconds</td>
+<td>Seconds to an hour</td>
+<td>Until you visit</td>
+</tr>
+<tr>
+<td>Failure notice</td>
+<td>Immediate</td>
+<td>Immediate</td>
+<td>On your next visit</td>
+</tr>
+</tbody>
+</table>
+<h2 id="when-the-link-is-not-there">When the Link Is Not There<a class="headerlink" href="#when-the-link-is-not-there" title="Permanent link">¶</a></h2>
+<p><strong>Intermittent connectivity</strong> is a connection that works sometimes and fails at other times, unpredictably.</p>
+<p>This is the normal condition for a remote station, and it is harder to write software for than a connection that is simply absent. Rain attenuates cellular signals. Networks go down. Power to the local tower fails. A truck parks in the wrong place.</p>
+<p>The design principle is simple to state and easy to get wrong:</p>
+<div class="admonition danger">
+<p class="admonition-title">Never make transmission a precondition for recording</p>
+<p>The failure looks like this. Your program reads the sensors, tries to upload, the upload fails, an exception is raised, and the reading is lost. You lose data for exactly as long as the network is down — and network outages correlate with storms, which is when the data matters most.</p>
+<p>Always write to local storage <strong>first</strong>. Transmit as a separate, later, optional step. If transmission fails, the reading is still safely on the SD card and can be sent later.</p>
+</div>
+<p>The pattern is called store and forward. Before the code: <code>write_reading</code> is the Chapter 14 function that appends to the local CSV. <code>pending</code> is a list of rows not yet acknowledged by the server. The upload is attempted inside its own <code>try</code>, and a failure only leaves rows in <code>pending</code> — it never affects the local record.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">pending</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">log_and_queue</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="sd">"""Record locally first, then queue for transmission."""</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">write_reading</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>        <span class="c1"># local CSV — never skipped</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">pending</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">try_upload</span><span class="p">():</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="sd">"""Attempt to send queued rows. Failure is not fatal."""</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="k">global</span> <span class="n">pending</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">pending</span><span class="p">:</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        <span class="k">return</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>        <span class="n">send_to_server</span><span class="p">(</span><span class="n">pending</span><span class="p">)</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>        <span class="n">log_event</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Uploaded </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">pending</span><span class="p">)</span><span class="si">}</span><span class="s2"> rows"</span><span class="p">)</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>        <span class="n">pending</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>        <span class="n">log_event</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Upload failed, </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">pending</span><span class="p">)</span><span class="si">}</span><span class="s2"> rows queued: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Four refinements make this robust in the field:</p>
+<ul>
+<li><strong>Persist the queue.</strong> If <code>pending</code> lives only in memory, a reboot loses it. Track the last acknowledged timestamp in a small file instead, and re-send from there.</li>
+<li><strong>Back off on repeated failures.</strong> Retrying every minute against a dead network wastes power on the radio, which Chapter 15's power budget cannot spare. Double the interval after each failure, up to an hour.</li>
+<li><strong>Batch.</strong> Sending 60 rows once an hour uses far less radio time than one row 60 times.</li>
+<li><strong>Send a heartbeat.</strong> A short message even when there is nothing new lets the base station distinguish "the station is fine and quiet" from "the station is dead."</li>
+</ul>
+<h2 id="many-stations-together">Many Stations Together<a class="headerlink" href="#many-stations-together" title="Permanent link">¶</a></h2>
+<p>One station tells you about one place. A network tells you about a region, and it can do things no single station can.</p>
+<p>A <strong>seismic network</strong> is a set of seismic stations whose combined data locates earthquakes and characterizes ground motion across an area.</p>
+<p>Chapter 11 explained why this matters. One seismometer can estimate its distance from an earthquake by timing the gap between the P and S waves, but distance alone puts the epicenter anywhere on a circle. Three stations trilaterate to a point — the same technique GPS uses in Chapter 5.</p>
+<p>Networks also do something a single station fundamentally cannot: <strong>reject false alarms</strong>. A truck passing your station produces a signal that looks somewhat like an earthquake. But a truck shakes one station and an earthquake shakes many, in a pattern that spreads outward at a known speed. Requiring agreement across several stations is what makes an earthquake early warning system trustworthy enough to stop trains.</p>
+<p>This is the argument for cheap dense sensors from Chapter 11 stated as a design principle. A single MEMS accelerometer is a poor instrument. Ten thousand of them, spread across a city and cross-checked against one another, detect and locate earthquakes that a handful of excellent instruments would miss the details of.</p>
+<p>The same logic applies to weather. Your station is one point. Contributing it to a network — CoCoRaHS, Weather Underground, or a local mesonet — makes it part of something that resolves the microclimates a sparse official network cannot see. Chapter 17 covers how.</p>
+<h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">¶</a></h2>
+<ul>
+<li>A <strong>remote station</strong> must not need visiting. Every field assumption differs from bench assumptions.</li>
+<li><strong>Sensor siting</strong> follows the four-times-height clearance rule, natural surface beneath, and standard heights. <strong>Sensor exposure</strong> requirements conflict between sensors — shade for temperature, clear sky for solar, ground coupling for seismic.</li>
+<li>A <strong>weatherproof enclosure</strong> at <strong>IP65</strong> is the target, but must be <strong>vented</strong> — a fully sealed box condenses moisture inside and destroys the electronics.</li>
+<li>A <strong>power budget</strong> accounts consumption against collection. The computer and radio dominate; the sensors are negligible.</li>
+<li><strong>Battery capacity</strong> must be derated for depth of discharge and for cold. A <strong>solar panel</strong> must be sized against the <strong>worst month's</strong> insolation, not summer. A <strong>charge controller</strong> is mandatory.</li>
+<li><strong>Duty cycling</strong> is the most effective lever. Disabling HDMI and LEDs and batching transmissions can halve consumption with no functional loss.</li>
+<li><strong>Telemetry</strong> by <strong>Wi-Fi</strong> or <strong>cellular data link</strong> to a <strong>base station</strong> turns a recorder into a monitored instrument.</li>
+<li><strong>Intermittent connectivity</strong> is normal. Write locally first, always; transmit as an optional later step with back-off and batching.</li>
+<li>A <strong>seismic network</strong> locates events by trilateration and rejects false alarms by requiring agreement — the argument for density over individual precision.</li>
+</ul>
+<h2 id="check-yourself">Check Yourself<a class="headerlink" href="#check-yourself" title="Permanent link">¶</a></h2>
+<details class="question">
+<summary>Your station uses 3,600 mAh/day. Your 10 W panel produces 2,100 mAh/day in December. What are your options? Click to check.</summary>
+<p>The station runs a 1,500 mAh/day deficit in December and will drain its battery in days. Three families of fix, cheapest first: <strong>reduce consumption</strong> through duty cycling — disabling HDMI and LEDs and batching transmissions could cut 1,000 to 1,800 mAh/day for free; <strong>increase collection</strong> with a larger panel — a 20 W panel would give 4,200 mAh/day in December; or <strong>increase storage</strong> so the battery carries you through the worst weeks, which only works if the monthly average is positive. Note that a bigger battery alone does not fix a negative monthly balance.</p>
+</details>
+<details class="question">
+<summary>Your enclosure is rated IP68 — fully waterproof. Why might your board still corrode? Click to check.</summary>
+<p>Because a sealed box still breathes. Air inside expands when heated by day and contracts at night, drawing in outside air through any imperfection. That air carries moisture, which condenses on the coolest interior surface — usually the circuit board — and has no way out. Over months this causes corrosion and shorts. The fix is a Gore-Tex membrane vent that passes vapor and pressure but blocks liquid, plus desiccant. The vent is also required for the pressure sensor to read the actual atmosphere at all.</p>
+</details>
+<details class="question">
+<summary>Your upload code raises an exception when the network is down, and you lose that reading. What is the design error? Click to check.</summary>
+<p>Transmission has been made a precondition for recording. The fix is store-and-forward: write the reading to local storage <strong>first</strong>, unconditionally, then attempt transmission as a separate, optional step inside its own error handler. A failed upload should leave the row queued and the local file complete. This matters most during storms, when networks fail and the data is most valuable.</p>
+</details>
+<details class="question">
+<summary>Why does an earthquake early warning system need many stations, not one very good one? Click to check.</summary>
+<p>Two reasons. <strong>Location</strong> — one station can estimate its distance from the P–S gap, but that places the epicenter anywhere on a circle; three stations trilaterate to a point. <strong>False alarm rejection</strong> — a truck, a slammed door, or a construction site shakes one station in a way that resembles an earthquake. A real earthquake shakes many stations in a pattern that propagates outward at a known speed. Requiring agreement across stations is what makes the system trustworthy enough to automatically stop trains.</p>
+</details>
+<hr>
+<h2 id="what-is-next">What Is Next<a class="headerlink" href="#what-is-next" title="Permanent link">¶</a></h2>
+<p>Your station is built, sited, powered, and reporting. It has been running for months and you have a growing record of your own air.</p>
+<p>Chapter 17 answers the question the whole book has been building toward: so what? It traces each of the seven measurements into the decisions it drives in the world — weather forecasting and severe weather warnings, agricultural planning, energy demand and solar generation, aviation safety, the building codes written from seismic and wind data, urban heat islands, air quality, wildfire risk, and flood and tsunami warning. It closes with what you can do with your own data: contribute it to citizen science networks, share it so others can use it, and communicate what you found to people who were not there.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../15-charting-and-analysis/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 15. Charting and Interpreting Your Data">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                15. Charting and Interpreting Your Data
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../17-measurement-to-consequence/" class="md-footer__link md-footer__link--next" aria-label="Next: 17. From Measurement to Consequence">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                17. From Measurement to Consequence
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Hank R. Licensed under <a href="licensing/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

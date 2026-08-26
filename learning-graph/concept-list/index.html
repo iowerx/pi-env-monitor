@@ -1,0 +1,1747 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A hands-on textbook for middle and high school students: build a Raspberry Pi station that measures temperature, pressure, and humidity, logs the data, and reports it from the field.">
+      
+      
+        <meta name="author" content="Hank R.">
+      
+      
+        <link rel="canonical" href="https://iowerx.github.io/pi-env-monitor/learning-graph/concept-list/">
+      
+      
+        <link rel="prev" href="../course-description-assessment/">
+      
+      
+        <link rel="next" href="../concept-taxonomy/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Concept Enumeration - Raspberry Pi Environmental Monitoring: Grades 6–12</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website">
+<meta property="og:title" content="Concept Enumeration - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="og:description" content="A hands-on textbook for middle and high school students: build a Raspberry Pi station that measures temperature, pressure, and humidity, logs the data, and reports it from the field.">
+<meta property="og:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/learning-graph/concept-list.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://iowerx.github.io/pi-env-monitor/learning-graph/concept-list/">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Concept Enumeration - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="twitter:description" content="A hands-on textbook for middle and high school students: build a Raspberry Pi station that measures temperature, pressure, and humidity, logs the data, and reports it from the field.">
+<meta property="twitter:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/learning-graph/concept-list.png">
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#concept-list" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Raspberry Pi Environmental Monitoring: Grades 6–12
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Concept Enumeration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Raspberry Pi Environmental Monitoring: Grades 6–12
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components Used
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../chapters/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Learning Graph
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../course-description-assessment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description Assessment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concept Enumeration
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concept Enumeration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#measurement-foundations-1-21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Measurement Foundations (1-21)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensors-and-transduction-22-38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sensors And Transduction (22-38)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atmospheric-science-39-56" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Atmospheric Science (39-56)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#temperature-57-75" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Temperature (57-75)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#barometric-pressure-76-93" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Barometric Pressure (76-93)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#humidity-and-dew-point-94-108" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Humidity And Dew Point (94-108)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solar-radiation-109-126" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solar Radiation (109-126)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wind-127-143" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wind (127-143)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ground-motion-and-seismology-144-161" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ground Motion And Seismology (144-161)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#location-elevation-and-time-162-179" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Location Elevation And Time (162-179)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hardware-and-interfacing-180-196" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hardware And Interfacing (180-196)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#computing-and-programming-197-215" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Computing And Programming (197-215)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-logging-and-analysis-216-237" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Logging And Analysis (216-237)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#field-deployment-and-power-238-252" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Field Deployment And Power (238-252)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environmental-and-societal-impact-253-269" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environmental And Societal Impact (253-269)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concept-taxonomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concept Taxonomy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quality-metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graph Quality Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../taxonomy-distribution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Taxonomy Distribution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary-quality-report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary Quality Report
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../licensing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#measurement-foundations-1-21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Measurement Foundations (1-21)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensors-and-transduction-22-38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sensors And Transduction (22-38)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atmospheric-science-39-56" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Atmospheric Science (39-56)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#temperature-57-75" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Temperature (57-75)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#barometric-pressure-76-93" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Barometric Pressure (76-93)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#humidity-and-dew-point-94-108" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Humidity And Dew Point (94-108)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solar-radiation-109-126" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solar Radiation (109-126)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wind-127-143" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wind (127-143)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ground-motion-and-seismology-144-161" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ground Motion And Seismology (144-161)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#location-elevation-and-time-162-179" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Location Elevation And Time (162-179)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hardware-and-interfacing-180-196" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hardware And Interfacing (180-196)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#computing-and-programming-197-215" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Computing And Programming (197-215)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-logging-and-analysis-216-237" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Logging And Analysis (216-237)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#field-deployment-and-power-238-252" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Field Deployment And Power (238-252)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environmental-and-societal-impact-253-269" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environmental And Societal Impact (253-269)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/iowerx/pi-env-monitor/blob/main/docs/learning-graph/concept-list.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="concept-list">Concept List<a class="headerlink" href="#concept-list" title="Permanent link">¶</a></h1>
+<p>This is the enumerated concept list for <strong>Raspberry Pi Environmental Monitoring:
+Grades 6-12</strong>, generated from <a href="../../course-description/">course-description.md</a>
+by <code>learning-graph-generator</code> v0.05.</p>
+<p>There are <strong>269 concepts</strong>. Each label is in Title Case, is 32 characters or
+fewer, and names an entity rather than asking a question. The number is the
+ConceptID used in <a href="../learning-graph.csv">learning-graph.csv</a> and
+<a href="../learning-graph.json">learning-graph.json</a>.</p>
+<p>The concepts are listed in taxonomy groups for readability. The grouping matches
+<a href="../concept-taxonomy/">concept-taxonomy.md</a>. ConceptIDs are stable and must not
+be renumbered.</p>
+<h2 id="measurement-foundations-1-21">Measurement Foundations (1-21)<a class="headerlink" href="#measurement-foundations-1-21" title="Permanent link">¶</a></h2>
+<ol>
+<li>Environmental Monitoring</li>
+<li>Physical Property</li>
+<li>Measurement</li>
+<li>Quantitative Data</li>
+<li>Qualitative Observation</li>
+<li>Unit Of Measure</li>
+<li>SI Units</li>
+<li>SI Prefix</li>
+<li>Unit Conversion</li>
+<li>Scientific Notation</li>
+<li>Order Of Magnitude</li>
+<li>Logarithmic Scale</li>
+<li>Measurement Scale</li>
+<li>Resolution</li>
+<li>Accuracy</li>
+<li>Precision</li>
+<li>Measurement Uncertainty</li>
+<li>Calibration</li>
+<li>Reference Standard</li>
+<li>Measurement Range</li>
+<li>Standardization</li>
+</ol>
+<h2 id="sensors-and-transduction-22-38">Sensors And Transduction (22-38)<a class="headerlink" href="#sensors-and-transduction-22-38" title="Permanent link">¶</a></h2>
+<ol>
+<li>Sensor</li>
+<li>Transduction</li>
+<li>Analog Signal</li>
+<li>Digital Signal</li>
+<li>Analog To Digital Conversion</li>
+<li>Sensor Response Time</li>
+<li>Piezoresistive Effect</li>
+<li>Capacitive Sensing</li>
+<li>Thermoelectric Effect</li>
+<li>Photoelectric Effect</li>
+<li>Semiconductor</li>
+<li>Silicon Diode Sensor</li>
+<li>MEMS Sensor</li>
+<li>Sensor Filtering</li>
+<li>Sensor Averaging</li>
+<li>BME280 Sensor</li>
+<li>Sensor Datasheet</li>
+</ol>
+<h2 id="atmospheric-science-39-56">Atmospheric Science (39-56)<a class="headerlink" href="#atmospheric-science-39-56" title="Permanent link">¶</a></h2>
+<ol>
+<li>Atmosphere</li>
+<li>Air Mass</li>
+<li>Atmospheric Layer</li>
+<li>Weather</li>
+<li>Climate</li>
+<li>Meteorologist</li>
+<li>Climatologist</li>
+<li>High Pressure System</li>
+<li>Low Pressure System</li>
+<li>Weather Front</li>
+<li>Convection</li>
+<li>Evaporation</li>
+<li>Condensation</li>
+<li>Precipitation</li>
+<li>Cloud Formation</li>
+<li>Water Vapor</li>
+<li>Diurnal Cycle</li>
+<li>Seasonal Variation</li>
+</ol>
+<h2 id="temperature-57-75">Temperature (57-75)<a class="headerlink" href="#temperature-57-75" title="Permanent link">¶</a></h2>
+<ol>
+<li>Temperature</li>
+<li>Kinetic Energy Of Atoms</li>
+<li>Heat Transfer</li>
+<li>Infrared Radiation</li>
+<li>Thermoscope</li>
+<li>Liquid In Glass Thermometer</li>
+<li>Fahrenheit Scale</li>
+<li>Celsius Scale</li>
+<li>Kelvin Scale</li>
+<li>Absolute Zero</li>
+<li>Freezing Point Of Water</li>
+<li>Boiling Point Of Water</li>
+<li>Thermocouple</li>
+<li>Resistance Thermometer</li>
+<li>Thermistor</li>
+<li>Stevenson Screen</li>
+<li>Air Temperature</li>
+<li>Surface Temperature</li>
+<li>Temperature Conversion</li>
+</ol>
+<h2 id="barometric-pressure-76-93">Barometric Pressure (76-93)<a class="headerlink" href="#barometric-pressure-76-93" title="Permanent link">¶</a></h2>
+<ol>
+<li>Pressure</li>
+<li>Barometric Pressure</li>
+<li>Vacuum</li>
+<li>Mercury Barometer</li>
+<li>Torricelli Experiment</li>
+<li>Puy De Dome Experiment</li>
+<li>Aneroid Barometer</li>
+<li>Inches Of Mercury</li>
+<li>Millibar</li>
+<li>Hectopascal</li>
+<li>Pascal Unit</li>
+<li>One Atmosphere</li>
+<li>Sea Level Pressure</li>
+<li>Pressure Altitude</li>
+<li>Altimeter</li>
+<li>Pressure Tendency</li>
+<li>Barometric Forecasting</li>
+<li>Hydrostatic Pressure</li>
+</ol>
+<h2 id="humidity-and-dew-point-94-108">Humidity And Dew Point (94-108)<a class="headerlink" href="#humidity-and-dew-point-94-108" title="Permanent link">¶</a></h2>
+<ol>
+<li>Humidity</li>
+<li>Absolute Humidity</li>
+<li>Relative Humidity</li>
+<li>Dew Point</li>
+<li>Partial Pressure Of Vapor</li>
+<li>Saturation Vapor Pressure</li>
+<li>Hair Hygrometer</li>
+<li>Psychrometer</li>
+<li>Wet Bulb Temperature</li>
+<li>Chilled Mirror Hygrometer</li>
+<li>Capacitive Humidity Sensor</li>
+<li>Dew And Frost Formation</li>
+<li>Fog Formation</li>
+<li>Apparent Temperature</li>
+<li>Heat Index</li>
+</ol>
+<h2 id="solar-radiation-109-126">Solar Radiation (109-126)<a class="headerlink" href="#solar-radiation-109-126" title="Permanent link">¶</a></h2>
+<ol>
+<li>Solar Radiation</li>
+<li>Electromagnetic Spectrum</li>
+<li>Ultraviolet Radiation</li>
+<li>Visible Light</li>
+<li>Irradiance</li>
+<li>Solar Constant</li>
+<li>Insolation</li>
+<li>Watts Per Square Meter</li>
+<li>Pyrheliometer</li>
+<li>Pyranometer</li>
+<li>Bolometer</li>
+<li>Thermopile</li>
+<li>Photodiode</li>
+<li>Photovoltaic Effect</li>
+<li>Solar Cell</li>
+<li>UV Index</li>
+<li>Solar Zenith Angle</li>
+<li>Albedo</li>
+</ol>
+<h2 id="wind-127-143">Wind (127-143)<a class="headerlink" href="#wind-127-143" title="Permanent link">¶</a></h2>
+<ol>
+<li>Wind</li>
+<li>Wind Speed</li>
+<li>Wind Direction</li>
+<li>Weather Vane</li>
+<li>Pressure Gradient</li>
+<li>Anemometer</li>
+<li>Cup Anemometer</li>
+<li>Sonic Anemometer</li>
+<li>Beaufort Scale</li>
+<li>Knot Unit</li>
+<li>Meters Per Second</li>
+<li>Wind Gust</li>
+<li>Sustained Wind Speed</li>
+<li>Wind Chill</li>
+<li>Saffir Simpson Scale</li>
+<li>Enhanced Fujita Scale</li>
+<li>Wind Load</li>
+</ol>
+<h2 id="ground-motion-and-seismology-144-161">Ground Motion And Seismology (144-161)<a class="headerlink" href="#ground-motion-and-seismology-144-161" title="Permanent link">¶</a></h2>
+<ol>
+<li>Earthquake</li>
+<li>Seismic Wave</li>
+<li>P Wave</li>
+<li>S Wave</li>
+<li>Fault</li>
+<li>Seismoscope</li>
+<li>Seismograph</li>
+<li>Seismometer</li>
+<li>Inertial Mass</li>
+<li>Accelerometer</li>
+<li>MEMS Accelerometer</li>
+<li>Acceleration</li>
+<li>Richter Scale</li>
+<li>Moment Magnitude Scale</li>
+<li>Mercalli Intensity Scale</li>
+<li>Magnitude Versus Intensity</li>
+<li>Earthquake Early Warning</li>
+<li>Seismic Network</li>
+</ol>
+<h2 id="location-elevation-and-time-162-179">Location Elevation And Time (162-179)<a class="headerlink" href="#location-elevation-and-time-162-179" title="Permanent link">¶</a></h2>
+<ol>
+<li>Latitude</li>
+<li>Longitude</li>
+<li>Elevation</li>
+<li>Coordinate System</li>
+<li>Sextant</li>
+<li>Marine Chronometer</li>
+<li>Longitude Problem</li>
+<li>Prime Meridian</li>
+<li>Trilateration</li>
+<li>GPS</li>
+<li>GNSS</li>
+<li>GPS Satellite</li>
+<li>Atomic Clock</li>
+<li>WGS 84 Datum</li>
+<li>Position Fix Accuracy</li>
+<li>Coordinated Universal Time</li>
+<li>Time Zone</li>
+<li>Timestamp</li>
+</ol>
+<h2 id="hardware-and-interfacing-180-196">Hardware And Interfacing (180-196)<a class="headerlink" href="#hardware-and-interfacing-180-196" title="Permanent link">¶</a></h2>
+<ol>
+<li>Raspberry Pi</li>
+<li>Single Board Computer</li>
+<li>Raspberry Pi Zero 2 W</li>
+<li>GPIO Pin</li>
+<li>Pin Header</li>
+<li>Voltage</li>
+<li>Current</li>
+<li>Ground Connection</li>
+<li>Jumper Wire</li>
+<li>Breadboard</li>
+<li>Pull Up Resistor</li>
+<li>I2C Bus</li>
+<li>I2C Device Address</li>
+<li>SPI Bus</li>
+<li>Serial UART</li>
+<li>Electrostatic Discharge</li>
+<li>SIM7600A Module</li>
+</ol>
+<h2 id="computing-and-programming-197-215">Computing And Programming (197-215)<a class="headerlink" href="#computing-and-programming-197-215" title="Permanent link">¶</a></h2>
+<ol>
+<li>Operating System</li>
+<li>Ubuntu Server</li>
+<li>Raspberry Pi OS</li>
+<li>Command Line Interface</li>
+<li>File System</li>
+<li>File Permissions</li>
+<li>Text Editor</li>
+<li>Shell Command</li>
+<li>Software Package</li>
+<li>Systemd Service</li>
+<li>Python</li>
+<li>Variable</li>
+<li>Data Type</li>
+<li>Function</li>
+<li>Loop</li>
+<li>Conditional Statement</li>
+<li>Python Library</li>
+<li>Exception Handling</li>
+<li>Script Execution</li>
+</ol>
+<h2 id="data-logging-and-analysis-216-237">Data Logging And Analysis (216-237)<a class="headerlink" href="#data-logging-and-analysis-216-237" title="Permanent link">¶</a></h2>
+<ol>
+<li>Data Logging</li>
+<li>Sampling Interval</li>
+<li>Time Series</li>
+<li>CSV File</li>
+<li>Data Record</li>
+<li>Data Field</li>
+<li>Header Row</li>
+<li>File Rotation</li>
+<li>Data Storage</li>
+<li>Database</li>
+<li>Data Backup</li>
+<li>Line Chart</li>
+<li>Scatter Plot</li>
+<li>Axis Labeling</li>
+<li>Moving Average</li>
+<li>Trend</li>
+<li>Correlation</li>
+<li>Outlier</li>
+<li>Missing Data</li>
+<li>Sensor Drift</li>
+<li>Data Validation</li>
+<li>Metadata</li>
+</ol>
+<h2 id="field-deployment-and-power-238-252">Field Deployment And Power (238-252)<a class="headerlink" href="#field-deployment-and-power-238-252" title="Permanent link">¶</a></h2>
+<ol>
+<li>Remote Station</li>
+<li>Sensor Siting</li>
+<li>Weatherproof Enclosure</li>
+<li>Ingress Protection Rating</li>
+<li>Sensor Exposure</li>
+<li>Power Budget</li>
+<li>Battery Capacity</li>
+<li>Solar Panel</li>
+<li>Charge Controller</li>
+<li>Duty Cycling</li>
+<li>Telemetry</li>
+<li>Cellular Data Link</li>
+<li>Wi-Fi Network</li>
+<li>Base Station</li>
+<li>Intermittent Connectivity</li>
+</ol>
+<h2 id="environmental-and-societal-impact-253-269">Environmental And Societal Impact (253-269)<a class="headerlink" href="#environmental-and-societal-impact-253-269" title="Permanent link">¶</a></h2>
+<ol>
+<li>Weather Forecasting</li>
+<li>Severe Weather Warning</li>
+<li>Agricultural Planning</li>
+<li>Evapotranspiration</li>
+<li>Energy Demand</li>
+<li>Solar Energy Generation</li>
+<li>Aviation Safety</li>
+<li>Building Code</li>
+<li>Urban Heat Island</li>
+<li>Air Quality</li>
+<li>Wildfire Risk</li>
+<li>Flood Warning</li>
+<li>Tsunami Warning</li>
+<li>Climate Record</li>
+<li>Citizen Science</li>
+<li>Data Sharing</li>
+<li>Science Communication</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../course-description-assessment/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Course Description Assessment">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Course Description Assessment
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../concept-taxonomy/" class="md-footer__link md-footer__link--next" aria-label="Next: Concept Taxonomy">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Concept Taxonomy
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Hank R. Licensed under <a href="licensing/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

@@ -1,0 +1,17 @@
+{
+  "FOUND": "Measurement Foundations",
+  "SENSE": "Sensors And Transduction",
+  "ATMOS": "Atmospheric Science",
+  "TEMP": "Temperature",
+  "PRESS": "Barometric Pressure",
+  "HUMID": "Humidity And Dew Point",
+  "SOLAR": "Solar Radiation",
+  "WIND": "Wind",
+  "SEIS": "Ground Motion And Seismology",
+  "GEO": "Location Elevation And Time",
+  "HW": "Hardware And Interfacing",
+  "SYS": "Computing And Programming",
+  "DATA": "Data Logging And Analysis",
+  "DEPLOY": "Field Deployment And Power",
+  "IMPACT": "Environmental And Societal Impact"
+}

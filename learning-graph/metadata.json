@@ -1,0 +1,10 @@
+{
+  "title": "Raspberry Pi Environmental Monitoring: Grades 6-12",
+  "description": "A learning graph for an intelligent textbook in which students in grades 6-12 build a Raspberry Pi environmental monitoring station. The primary goal is to understand what is being measured in the natural environment - temperature, barometric pressure, humidity, solar radiation, wind speed, ground motion, and location - and how those measurements affect the natural and man-made environments. The graph covers the history, physics, units, and instruments of each measurement, together with the hardware, Linux, Python, data logging, analysis, and field deployment skills needed to take the readings.",
+  "creator": "Hank R.",
+  "date": "2026-08-25",
+  "version": "1.0",
+  "format": "Learning Graph JSON v1.0",
+  "schema": "https://raw.githubusercontent.com/dmccreary/learning-graphs/refs/heads/main/src/schema/learning-graph-schema.json",
+  "license": "CC BY-NC-SA 4.0 DEED"
+}

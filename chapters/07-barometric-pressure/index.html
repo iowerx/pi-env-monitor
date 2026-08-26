@@ -1,0 +1,2205 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Pressure as the weight of the air above, from Aristotle's rejected vacuum through Torricelli and Pascal to the aneroid barometer, the altimeter, and the piezoresistive silicon sensor.">
+      
+      
+        <meta name="author" content="Hank R.">
+      
+      
+        <link rel="canonical" href="https://iowerx.github.io/pi-env-monitor/chapters/07-barometric-pressure/">
+      
+      
+        <link rel="prev" href="../06-temperature/">
+      
+      
+        <link rel="next" href="../08-humidity-and-dew-point/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Barometric Pressure: The Weight of the Atmosphere - Raspberry Pi Environmental Monitoring: Grades 6–12</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website">
+<meta property="og:title" content="Barometric Pressure: The Weight of the Atmosphere - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="og:description" content="Pressure as the weight of the air above, from Aristotle's rejected vacuum through Torricelli and Pascal to the aneroid barometer, the altimeter, and the piezoresistive silicon sensor.">
+<meta property="og:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/07-barometric-pressure/index.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://iowerx.github.io/pi-env-monitor/chapters/07-barometric-pressure/">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Barometric Pressure: The Weight of the Atmosphere - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="twitter:description" content="Pressure as the weight of the air above, from Aristotle's rejected vacuum through Torricelli and Pascal to the aneroid barometer, the altimeter, and the piezoresistive silicon sensor.">
+<meta property="twitter:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/07-barometric-pressure/index.png">
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#barometric-pressure-the-weight-of-the-atmosphere" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Raspberry Pi Environmental Monitoring: Grades 6–12
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Barometric Pressure: The Weight of the Atmosphere
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Raspberry Pi Environmental Monitoring: Grades 6–12
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components Used
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-why-we-measure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Why We Measure the Natural Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-language-of-measurement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. The Language of Measurement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-electricity-and-computer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Electricity and the Single-Board Computer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-how-sensors-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. How Sensors Turn the World Into Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-time-and-place/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Time and Place - Recording Where and When
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-temperature/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Temperature - From the Thermoscope to the Silicon Chip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Barometric Pressure - The Weight of the Atmosphere
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Barometric Pressure - The Weight of the Atmosphere
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#there-is-a-column-of-air-on-your-head" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        There Is a Column of Air on Your Head
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pressure-and-the-weight-of-fluids" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pressure and the Weight of Fluids
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#two-thousand-years-of-being-wrong" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two Thousand Years of Being Wrong
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#torricellis-tube" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Torricelli's Tube
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-mountain-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Mountain Test
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Mountain Test">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-torricelli-and-puy-de-dome-experiment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Torricelli and Puy de Dome Experiment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#four-units-one-pressure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Four Units, One Pressure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#correcting-for-altitude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correcting for Altitude
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Correcting for Altitude">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-pressure-and-altitude-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Pressure and Altitude Calculator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-instrument-gets-smaller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Instrument Gets Smaller
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-pressure-tells-you-about-tomorrow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Pressure Tells You About Tomorrow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Pressure Tells You About Tomorrow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-falling-barometer-forecast-trainer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Falling Barometer Forecast Trainer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-humidity-and-dew-point/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Humidity and Dew Point - The Water Hidden in the Air
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-solar-radiation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Solar Radiation - The Energy That Drives the Weather
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-wind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Wind - Measuring Air in Motion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-ground-motion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Ground Motion - Measuring Earthquakes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-os-and-sensor-buses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. The Station's Brain - Operating System, Command Line, and Sensor Buses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-python-programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Programming the Station in Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-data-logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Logging Data - Timestamps, Intervals, and Files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-charting-and-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Charting and Interpreting Your Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-building-for-outdoors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Building the Station for the Outdoors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-measurement-to-consequence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. From Measurement to Consequence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../licensing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#there-is-a-column-of-air-on-your-head" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        There Is a Column of Air on Your Head
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pressure-and-the-weight-of-fluids" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pressure and the Weight of Fluids
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#two-thousand-years-of-being-wrong" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two Thousand Years of Being Wrong
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#torricellis-tube" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Torricelli's Tube
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-mountain-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Mountain Test
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Mountain Test">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-torricelli-and-puy-de-dome-experiment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Torricelli and Puy de Dome Experiment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#four-units-one-pressure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Four Units, One Pressure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#correcting-for-altitude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correcting for Altitude
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Correcting for Altitude">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-pressure-and-altitude-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Pressure and Altitude Calculator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-instrument-gets-smaller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Instrument Gets Smaller
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-pressure-tells-you-about-tomorrow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Pressure Tells You About Tomorrow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Pressure Tells You About Tomorrow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-falling-barometer-forecast-trainer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Falling Barometer Forecast Trainer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/iowerx/pi-env-monitor/blob/main/docs/chapters/07-barometric-pressure/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="barometric-pressure-the-weight-of-the-atmosphere">Barometric Pressure: The Weight of the Atmosphere<a class="headerlink" href="#barometric-pressure-the-weight-of-the-atmosphere" title="Permanent link">¶</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
+<p>Aristotle said a vacuum could not exist; Torricelli built one in a glass tube in 1643. This chapter follows that argument through Pascal's Puy de Dome experiment, which proved the atmosphere has weight by carrying a barometer up a mountain, to the aneroid barometer that finally made the instrument portable. It reconciles the competing units — inches of mercury, millibars, hectopascals, and pascals — that all describe one atmosphere, then covers sea level pressure, pressure altitude, and the altimeter. It closes with the piezoresistive effect, the silicon mechanism inside the station's own sensor.</p>
+<h2 id="concepts-covered">Concepts Covered<a class="headerlink" href="#concepts-covered" title="Permanent link">¶</a></h2>
+<p>This chapter covers the following 17 concepts from the learning graph:</p>
+<ol>
+<li>Pressure</li>
+<li>Barometric Pressure</li>
+<li>Vacuum</li>
+<li>Piezoresistive Effect</li>
+<li>Mercury Barometer</li>
+<li>Millibar</li>
+<li>Torricelli Experiment</li>
+<li>Aneroid Barometer</li>
+<li>Inches Of Mercury</li>
+<li>Hectopascal</li>
+<li>Pascal Unit</li>
+<li>Puy De Dome Experiment</li>
+<li>Sea Level Pressure</li>
+<li>One Atmosphere</li>
+<li>Pressure Altitude</li>
+<li>Hydrostatic Pressure</li>
+<li>Altimeter</li>
+</ol>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-why-we-measure/">Chapter 1: Why We Measure the Natural Environment</a></li>
+<li><a href="../02-language-of-measurement/">Chapter 2: The Language of Measurement</a></li>
+<li><a href="../04-how-sensors-work/">Chapter 4: How Sensors Turn the World Into Numbers</a></li>
+<li><a href="../05-time-and-place/">Chapter 5: Time and Place: Recording Where and When</a></li>
+</ul>
+<hr>
+<h2 id="there-is-a-column-of-air-on-your-head">There Is a Column of Air on Your Head<a class="headerlink" href="#there-is-a-column-of-air-on-your-head" title="Permanent link">¶</a></h2>
+<p>Right now, a column of air about 100 kilometers tall is standing on top of you.</p>
+<p>It weighs roughly the same as a small car spread across your shoulders — about 10,000 kilograms pressing on every square meter. You do not feel it, because the air inside you pushes out with exactly the same force. Balanced pressure is invisible.</p>
+<p>But it is there, and it changes, and those changes are why weather forecasting is possible at all.</p>
+<p>Nobody knew this for two thousand years. The story of finding out is the best one in this book, and it starts with somebody being confidently wrong.</p>
+<h2 id="pressure-and-the-weight-of-fluids">Pressure and the Weight of Fluids<a class="headerlink" href="#pressure-and-the-weight-of-fluids" title="Permanent link">¶</a></h2>
+<p><strong>Pressure</strong> is force spread over an area. It is defined as force divided by the area that force acts on:</p>
+<div class="arithmatex">\[ P = \frac{F}{A} \]</div>
+<p>This is why a drawing pin works. Push a pin with your thumb and the force at your thumb is spread over a wide, comfortable area. The same force at the pin's tip is concentrated into a tiny area, so the pressure there is enormous — enough to push through a wall.</p>
+<p><strong>Hydrostatic pressure</strong> is the pressure produced by the weight of a fluid at rest. Dive to the bottom of a swimming pool and your ears hurt, because the water above you has weight and it presses down. The deeper you go, the more water is stacked above, and the higher the pressure.</p>
+<p>Two features of hydrostatic pressure matter for everything that follows:</p>
+<ul>
+<li><strong>It depends on depth, not on the shape of the container.</strong> The pressure at the bottom of a narrow pipe of water 10 metres tall equals the pressure at the bottom of a wide lake 10 metres deep.</li>
+<li><strong>It pushes in all directions equally</strong>, not just downward. This is why your ears hurt sideways underwater.</li>
+</ul>
+<p><strong>Barometric pressure</strong> — also called atmospheric pressure — is the hydrostatic pressure produced by the weight of the atmosphere above a point.</p>
+<p>Air is a fluid, just a very light one. It has weight, it stacks up, and the stack presses down. The atmosphere is a fluid ocean, and you live at the bottom of it.</p>
+<p>Underwater, this effect is dramatic: seawater is so dense that about every 10 metres of depth adds another atmosphere of pressure. Divers feel the change within seconds. Air is roughly 800 times less dense than water, so the same pressure change takes about 8 kilometres of altitude. The mechanism is identical; only the density differs.</p>
+<h2 id="two-thousand-years-of-being-wrong">Two Thousand Years of Being Wrong<a class="headerlink" href="#two-thousand-years-of-being-wrong" title="Permanent link">¶</a></h2>
+<p>Aristotle, writing in the 4th century BC, concluded that "nature abhors a vacuum." A <strong>vacuum</strong> is a space containing no matter, and Aristotle argued that such a thing was impossible — any emptiness would immediately be filled, because nothingness could not persist.</p>
+<p>He had no instrument to test the idea. He had logic, and the logic seemed sound. The idea stood for nearly two thousand years, and it became the standard explanation for a range of everyday effects. Why does water rise when you pull a piston up a pipe? Because nature abhors a vacuum and the water rushes in to prevent one.</p>
+<p>That explanation had a crack in it, and Italian well-diggers found it. Suction pumps could lift water about 10 metres and no further. Beyond that height, no amount of pumping helped. If nature genuinely abhorred a vacuum, why did the abhorrence give out at 10 metres?</p>
+<p>Galileo puzzled over this near the end of his life. It was his student who solved it.</p>
+<h2 id="torricellis-tube">Torricelli's Tube<a class="headerlink" href="#torricellis-tube" title="Permanent link">¶</a></h2>
+<p>In 1643 Evangelista Torricelli ran the experiment that broke the theory.</p>
+<p>His reasoning was inspired. If the water in a pump is being <em>pushed up</em> by the weight of the atmosphere rather than <em>pulled up</em> by nature's dislike of emptiness, then the limit should depend on the liquid's density. A denser liquid should be pushed to a lower height. Mercury is about 13.6 times denser than water, so mercury should stop at about 10 metres divided by 13.6 — roughly 760 millimetres. Conveniently, that fits on a bench.</p>
+<p>The <strong>Torricelli experiment</strong> is straightforward enough to picture:</p>
+<ol>
+<li>Fill a glass tube about a metre long, sealed at one end, completely with mercury.</li>
+<li>Cover the open end, invert the tube, and stand it in a dish of mercury.</li>
+<li>Uncover the end.</li>
+</ol>
+<p>The mercury falls part of the way and then stops, leaving a gap at the sealed top. The column settles at about 760 millimetres above the dish, every time.</p>
+<p>Two conclusions follow, and both were revolutionary.</p>
+<p>First, the space at the top contains nothing. Nothing could have entered — the tube was sealed and full. That space is a <strong>vacuum</strong>, now called a Torricellian vacuum, and it exists. Aristotle was wrong.</p>
+<p>Second, something is holding up 760 mm of mercury. Torricelli's answer: the weight of the atmosphere pressing down on the mercury in the dish, pushing it up the tube. The column stops where its weight balances that push.</p>
+<p>He wrote to a colleague, "We live submerged at the bottom of an ocean of air." That sentence is roughly the thesis of this chapter.</p>
+<p>The device he had built is a <strong>mercury barometer</strong> — an instrument that measures atmospheric pressure by the height of a mercury column it supports. The name comes from the Greek <em>baros</em>, meaning weight, and it is a good name: the instrument literally weighs the atmosphere.</p>
+<p>Torricelli also noticed that the column height changed slightly from day to day. He suspected the atmosphere's weight varied with the weather. He was right, and that observation is the seed of weather forecasting.</p>
+<h2 id="the-mountain-test">The Mountain Test<a class="headerlink" href="#the-mountain-test" title="Permanent link">¶</a></h2>
+<p>Torricelli's explanation was clean, but it was not proven. A rival explanation held that some invisible property of the tube or the mercury held the column up.</p>
+<p>Blaise Pascal saw the test that would settle it. If the column is held up by the weight of the air above, then carrying the barometer <em>up a mountain</em> puts less air overhead — and the column must fall. If some property of the tube holds the mercury, altitude should change nothing.</p>
+<p>Pascal was in poor health, so in September 1648 he asked his brother-in-law, Florin Périer, to carry a barometer up the Puy de Dôme, a volcanic peak in central France about 1,465 metres high.</p>
+<p>The <strong>Puy de Dome experiment</strong> was conducted with real care, and its design is worth noticing because it is good experimental method by modern standards. Périer left one barometer at the monastery at the base with an observer watching it all day, to confirm the base reading did not drift on its own. He carried a second up the mountain, stopping to measure along the way. He repeated the measurement at several points on the descent.</p>
+<p>The result was unambiguous. The column stood about 85 mm lower at the summit than at the base, it fell steadily with height on the way up, and it rose again on the way down. The control barometer at the base did not move.</p>
+<p>The atmosphere had been weighed. The measurement took the name <strong>barometric pressure</strong>.</p>
+<p>The unit of pressure now bears Pascal's name, which is a fair outcome, though it is worth remembering that Périer did the climbing.</p>
+<h4 id="diagram-torricelli-and-puy-de-dome-experiment">Diagram: Torricelli and Puy de Dome Experiment<a class="headerlink" href="#diagram-torricelli-and-puy-de-dome-experiment" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/torricelli-puy-de-dome/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Torricelli and Puy de Dome Experiment</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> torricelli-puy-de-dome<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Understand (L2)
+Bloom Verb: explain</p>
+<p>Learning objective: The learner explains why a mercury column stands at a particular height, predicts how that height changes with altitude and with the density of the liquid used, and explains how the Puy de Dome result ruled out the competing hypothesis.</p>
+<p>Purpose: The central claim of this chapter — that air has weight — is genuinely counter-intuitive and was disbelieved by intelligent people for two millennia. Letting the learner replicate both experiments, including changing the liquid, converts a historical anecdote into a demonstrated mechanism.</p>
+<p>Canvas layout:
+- Left panel: the Torricelli apparatus — a tube standing in a dish, with a measurable column and a labeled vacuum space at the top
+- Right panel: a cross-section of the Puy de Dôme with a draggable barometer that can be moved from base to summit, plus a fixed control barometer at the base
+- Bottom: readouts and controls
+- Responsive to window resize; panels stack vertically on narrow canvases</p>
+<p>Data Visibility Requirements:
+  Stage 1: In the Torricelli panel, show the column height in millimetres and the pressure it corresponds to in hPa, updating together
+  Stage 2: Show a force-balance annotation: an arrow labeled "weight of the mercury column" pointing down, and an arrow labeled "atmospheric pressure on the dish" pointing up, sized to match so the balance is visible
+  Stage 3: In the mountain panel, show altitude, column height at that altitude, and the control barometer's unchanged reading side by side
+  Stage 4: Plot the climb as a small graph of column height against altitude, built up point by point as the learner drags, so the linear-ish relationship emerges from their own measurements
+  Stage 5: On reaching the summit, display the historical comparison: "Périer measured a drop of about 85 mm. Your simulated drop: N mm."</p>
+<p>Interactive controls:
+- Liquid selector: mercury (density 13,534 kg/m3), water (1,000), and olive oil (about 920). Selecting water must extend the tube visually and show the column standing over 10 metres, with a caption: "This is why the well-diggers' pumps failed at 10 metres, and why Torricelli chose mercury."
+- Altitude drag on the mountain panel, 0 to 1,465 m, with named waypoints at the monastery base, mid-slope, and summit
+- "Hypothesis test" toggle that switches between two competing predictions and shows both as ghost lines on the graph:
+  - "Air has weight" — predicts the column falls with altitude
+  - "Something about the tube holds the mercury" — predicts no change with altitude
+  The learner's own measurements are plotted against both, and only one survives.
+- Weather variation slider that changes sea level pressure between 980 and 1040 hPa, so the learner sees that the column also moves for reasons unrelated to altitude — the observation that led to forecasting</p>
+<p>Instructional Rationale: The objective is Understand/explain, so this is built as a controlled apparatus the learner manipulates and reads, not an animation of a historical scene. The two-hypothesis overlay is the key pedagogical device: an experiment is only meaningful if it could have come out the other way, and showing the losing prediction alongside the winning one is what makes Périer's climb an experiment rather than a demonstration.</p>
+<p>Implementation: p5.js. Column height h = P / (rho x g). Use the barometric formula for pressure against altitude. Draw the mountain profile as a polygon; no external assets.</p>
+</details>
+<h2 id="four-units-one-pressure">Four Units, One Pressure<a class="headerlink" href="#four-units-one-pressure" title="Permanent link">¶</a></h2>
+<p>Because different countries and professions standardized at different moments, atmospheric pressure is reported in at least four units that are all in current use. They all describe the same physical thing.</p>
+<p><strong>Inches of mercury</strong>, written inHg, is the pressure that supports a mercury column one inch high. It comes directly from Torricelli's instrument, and it is still standard in United States weather reports and aviation. Standard sea level pressure is <strong>29.92 inHg</strong>.</p>
+<p>The <strong>pascal unit</strong>, symbol Pa, is the SI unit of pressure, defined as one newton per square metre and named for Blaise Pascal in 1971. It is a very small unit — standard atmospheric pressure is 101,325 Pa — which makes it awkward for weather use.</p>
+<p>The <strong>millibar</strong>, symbol mbar or mb, is one thousandth of a bar, where the bar was defined in the early twentieth century as a convenient meteorological unit close to average sea level pressure. Standard sea level pressure is <strong>1013.25 mbar</strong>.</p>
+<p>The <strong>hectopascal</strong>, symbol hPa, is 100 pascals. And here is the tidy part: <strong>one hectopascal equals one millibar exactly.</strong> When the world moved to SI units, weather services switched from millibars to hectopascals without changing a single number on a single chart. Standard sea level pressure is <strong>1013.25 hPa</strong>.</p>
+<p><strong>One atmosphere</strong>, symbol atm, is a unit defined as the standard average pressure at sea level. It is used for comparison rather than for reporting weather.</p>
+<table>
+<thead>
+<tr>
+<th>Unit</th>
+<th>Symbol</th>
+<th>Standard sea level value</th>
+<th>Where used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hectopascal</td>
+<td>hPa</td>
+<td>1013.25</td>
+<td>Most of the world; the SI-compatible standard</td>
+</tr>
+<tr>
+<td>Millibar</td>
+<td>mbar</td>
+<td>1013.25</td>
+<td>Older charts; numerically identical to hPa</td>
+</tr>
+<tr>
+<td>Inches of mercury</td>
+<td>inHg</td>
+<td>29.92</td>
+<td>US weather reports and aviation</td>
+</tr>
+<tr>
+<td>Pascal</td>
+<td>Pa</td>
+<td>101,325</td>
+<td>Physics and engineering</td>
+</tr>
+<tr>
+<td>Atmosphere</td>
+<td>atm</td>
+<td>1</td>
+<td>Comparisons, diving, chemistry</td>
+</tr>
+<tr>
+<td>Millimetres of mercury</td>
+<td>mmHg</td>
+<td>760</td>
+<td>Medicine, some laboratories</td>
+</tr>
+</tbody>
+</table>
+<p>Your BME280 reports pressure in pascals. You will divide by 100 to get hectopascals, which is what you should store and display. Chapter 2's unit-cancellation method handles the rest:</p>
+<div class="arithmatex">\[ 29.92\ \text{inHg} \times \frac{33.8639\ \text{hPa}}{1\ \text{inHg}} = 1013.2\ \text{hPa} \]</div>
+<div class="admonition tip">
+<p class="admonition-title">Know the normal range by heart</p>
+<p>Sea level pressure almost always falls between <strong>980 and 1040 hPa</strong>. Learn that range and you have a free sanity check on your own station. A reading of 1013 is unremarkable. A reading of 950 means a serious storm, or a sensor problem, or that you are on a mountain. A reading of 500 means your code has a bug — most likely you forgot to divide the sensor's pascals by 100.</p>
+</div>
+<h2 id="correcting-for-altitude">Correcting for Altitude<a class="headerlink" href="#correcting-for-altitude" title="Permanent link">¶</a></h2>
+<p>Chapter 5 said that elevation is required, not optional. Here is why in full.</p>
+<p>Pressure falls as you climb, because there is less air above you. Near sea level the rate is roughly <strong>12 hPa per 100 metres</strong>, though it decreases with height because the air itself thins.</p>
+<p>That rate is large compared to weather. A strong storm might drop sea level pressure by 30 hPa. A 250-metre difference in station elevation produces the same 30 hPa. So without correcting for altitude, geography completely swamps meteorology, and no two stations at different heights can be compared at all.</p>
+<p><strong>Sea level pressure</strong> is the pressure a station would read if it were at sea level, calculated from its actual reading and its known elevation. Every pressure value in every weather report is a sea level pressure. It is a computed value, not a measured one, and almost no station actually sits at sea level.</p>
+<p>The simple approximation used for small elevations:</p>
+<div class="arithmatex">\[ P_{\text{sea level}} \approx P_{\text{station}} + \left(\frac{h}{8.3}\right) \]</div>
+<p>where <span class="arithmatex">\(h\)</span> is the station elevation in metres and pressure is in hPa. For a station at 152 m reading 995 hPa, the sea level pressure is about <span class="arithmatex">\(995 + 18.3 = 1013\)</span> hPa — a perfectly ordinary day that looked like a storm before correction.</p>
+<p>Now run the same physics backwards. If pressure depends on height in a known way, then measuring pressure tells you your height.</p>
+<p><strong>Pressure altitude</strong> is altitude calculated from a barometric pressure reading, assuming a standard atmosphere. An <strong>altimeter</strong> is an instrument that does exactly this — a barometer with its scale marked in metres or feet instead of hectopascals.</p>
+<p>Aircraft altimeters are barometers. This has a consequence that pilots handle constantly: since real pressure differs from the standard atmosphere, an altimeter must be corrected. Before landing, pilots set the current local sea level pressure into the instrument. An uncorrected altimeter flying from high pressure into low pressure reads <em>higher</em> than the aircraft actually is, which is the dangerous direction. The aviation memory aid is blunt: "High to low, look out below."</p>
+<h4 id="diagram-pressure-and-altitude-calculator">Diagram: Pressure and Altitude Calculator<a class="headerlink" href="#diagram-pressure-and-altitude-calculator" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/pressure-altitude-calculator/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Pressure and Altitude Calculator</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> pressure-altitude-calculator<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Apply (L3)
+Bloom Verb: solve</p>
+<p>Learning objective: The learner solves for sea level pressure given a station reading and elevation, converts between all common pressure units, and evaluates whether an observed pressure difference between two stations is caused by weather or by elevation.</p>
+<p>Purpose: The elevation correction is the single most consequential piece of arithmetic in this chapter, and getting it wrong makes a student's pressure data incomparable to anyone else's. A calculator that shows the correction as a visible adjustment on a column, rather than as a formula result, makes the size of the effect impossible to underestimate.</p>
+<p>Canvas layout:
+- Left: a vertical altitude column from sea level to 3,000 m, with a draggable station marker and a pressure scale alongside
+- Center: the worked correction arithmetic, step by step
+- Right or below (responsive): a unit conversion panel showing the current pressure in hPa, mbar, inHg, Pa, and atm simultaneously
+- Bottom: controls and a two-station comparison mode
+- Responsive to window resize</p>
+<p>Data Visibility Requirements:
+  Stage 1: Show the raw station reading with its elevation, e.g. "995 hPa measured at 152 m"
+  Stage 2: Show the correction term computed, e.g. "152 / 8.3 = 18.3 hPa"
+  Stage 3: Show the corrected sea level pressure, e.g. "995 + 18.3 = 1013.3 hPa"
+  Stage 4: Show the same value in all five units at once
+  Stage 5: Show a verdict against the normal range: "1013.3 hPa is within the normal 980 to 1040 hPa band. Ordinary conditions."</p>
+<p>Two-station comparison mode: the learner sets an elevation and a raw reading for each of two stations. The panel then separates the total difference into the part explained by elevation and the part that is genuine weather, with a written verdict such as: "Station B reads 28 hPa lower. Elevation accounts for 36 hPa. After correction, Station B is actually 8 hPa HIGHER than Station A. The apparent storm was geography."</p>
+<p>Interactive controls:
+- Drag the station marker along the altitude column; the raw reading and correction update live
+- Type a raw reading directly, or a sea level pressure to work backwards
+- Weather slider: sets true sea level pressure from 950 to 1050 hPa
+- Preset locations with real elevations: Death Valley (−86 m), a coastal town (5 m), Denver (1,609 m), Mexico City (2,240 m), and a user-entered value for the learner's own station
+- Altimeter mode: switches the column's scale to read altitude from pressure, and includes a "pilot's setting" control. Flying from a high-pressure region into a low-pressure region without resetting must display the aircraft's true altitude below its indicated altitude, with the caption "High to low, look out below."</p>
+<p>Instructional Rationale: The objective is Apply/solve, so parameter entry with a fully visible worked calculation is correct. The two-station comparison mode exists because the real skill is not performing the arithmetic but knowing when it is needed — a student comparing their station to a neighbour's must decompose a difference into geography and weather, and that decomposition is the actual learning.</p>
+<p>Implementation: p5.js. Use the simple linear approximation for the primary display since that is what the chapter teaches, and offer the full barometric formula as an optional toggle showing the small difference between them at high altitude.</p>
+</details>
+<h2 id="the-instrument-gets-smaller">The Instrument Gets Smaller<a class="headerlink" href="#the-instrument-gets-smaller" title="Permanent link">¶</a></h2>
+<p>Torricelli's barometer worked well and was hopelessly impractical. It stood nearly a metre tall, had to be perfectly vertical, could not be moved without spilling, and contained a large quantity of a liquid metal now known to be seriously toxic. It could not go to sea, which is exactly where it was most needed.</p>
+<p>Lucien Vidi built the first practical <strong>aneroid barometer</strong> in 1844. The word aneroid means "without liquid," and that is the whole invention: a sealed metal capsule with most of the air pumped out, made with flexible corrugated walls.</p>
+<p>When atmospheric pressure rises, the capsule is squeezed slightly and flexes inward. When pressure falls, it expands. The movement is tiny — a fraction of a millimetre — so a train of levers and gears amplifies it enough to move a needle across a dial.</p>
+<p>The consequences were immediate. A barometer could now be carried, taken aboard ship, mounted on a wall, and eventually strapped to a wrist. Barometers spread everywhere, and weather observation stopped being a laboratory activity.</p>
+<p>That spread made something new possible. Admiral Robert FitzRoy — the captain who had taken Charles Darwin around the world aboard HMS <em>Beagle</em> — became convinced that a network of barometers plus the telegraph could warn ships of coming storms. He established the organization that became the UK Met Office and issued the first public storm warnings in the 1860s. He coined the word "forecast," and he was widely criticized for the presumption of predicting weather at all.</p>
+<p>The physical principle in your station is the third generation of this idea, and Chapter 4 already introduced its mechanism.</p>
+<p>The <strong>piezoresistive effect</strong> is the change in electrical resistance of a material when it is mechanically deformed. Squeeze or stretch certain semiconductors and their resistance changes measurably.</p>
+<p>Inside the BME280 is a silicon diaphragm a few micrometres thick, with a sealed reference cavity beneath it. Atmospheric pressure pushes on the diaphragm and flexes it by a microscopic amount. Piezoresistive elements formed into the silicon change resistance as it flexes, and the chip's built-in analog-to-digital converter turns that change into a number.</p>
+<p>It is the aneroid barometer's flexing capsule, shrunk onto a chip and read electrically instead of mechanically.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Mercury barometer</th>
+<th>Aneroid barometer</th>
+<th>MEMS piezoresistive</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Invented</td>
+<td>1643</td>
+<td>1844</td>
+<td>1960s–1980s</td>
+</tr>
+<tr>
+<td>Size</td>
+<td>About 1 m tall</td>
+<td>Palm-sized</td>
+<td>A few millimetres</td>
+</tr>
+<tr>
+<td>Portable</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>Column height, read by eye</td>
+<td>Needle on a dial</td>
+<td>A digital number</td>
+</tr>
+<tr>
+<td>Toxic</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Typical accuracy</td>
+<td>Very high</td>
+<td>Moderate</td>
+<td>±1 hPa</td>
+</tr>
+<tr>
+<td>Cost today</td>
+<td>High, and restricted</td>
+<td>Low</td>
+<td>Very low</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Why pressure is the easiest measurement in this book</p>
+<p>Pressure has no radiation-shield problem, no exposure standard, and essentially no response-time issue — air pressure equalizes almost instantly, and it is the same inside a sealed enclosure as outside as long as there is a small vent. Of the seven quantities this station measures, pressure is the one most likely to be right on the first try. Chapter 6's temperature siting problem has no equivalent here.</p>
+</div>
+<h2 id="what-pressure-tells-you-about-tomorrow">What Pressure Tells You About Tomorrow<a class="headerlink" href="#what-pressure-tells-you-about-tomorrow" title="Permanent link">¶</a></h2>
+<p>Torricelli's day-to-day variations were not noise. They are the atmosphere reorganizing itself, and they carry information.</p>
+<p>The broad pattern is reliable enough to be genuinely useful:</p>
+<ul>
+<li><strong>High pressure</strong>, generally above about 1020 hPa, means air is sinking. Sinking air warms and dries, which prevents cloud formation. Expect fair, settled weather.</li>
+<li><strong>Low pressure</strong>, generally below about 1000 hPa, means air is rising. Rising air cools and its moisture condenses. Expect clouds, wind, and precipitation.</li>
+</ul>
+<p>But the single most useful thing is not the value at all — it is the <strong>change</strong>. A barometer that has fallen 5 hPa in three hours is telling you something is arriving, and it tells you before there is anything to see in the sky. This is why traditional barometers have a second, manually-set needle: you align it with the current reading, and hours later the gap between the two needles shows you which way and how fast pressure has moved.</p>
+<p>Your station will do this far better than any dial, because it records every reading. Chapter 15 covers the calculation, called pressure tendency, and it is the point where your logged data starts to predict rather than merely describe.</p>
+<h4 id="diagram-falling-barometer-forecast-trainer">Diagram: Falling Barometer Forecast Trainer<a class="headerlink" href="#diagram-falling-barometer-forecast-trainer" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/falling-barometer-forecast/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Falling Barometer Forecast Trainer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> falling-barometer-forecast<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Evaluate (L5)
+Bloom Verb: predict</p>
+<p>Learning objective: The learner predicts approaching weather from a pressure trace, judging the rate of change rather than the absolute value, and justifies the prediction from the physical behaviour of rising and sinking air.</p>
+<p>Purpose: Students reliably learn "low pressure means bad weather" and stop there, which produces wrong calls. The forecasting signal is the derivative, not the value, and the only way to teach that is to present traces where value and trend disagree and let the learner get it wrong safely.</p>
+<p>Canvas layout:
+- Upper two-thirds: a scrolling pressure trace over 24 hours, with the current time as a moving cursor and future data hidden
+- Overlay: a traditional barometer dial with two needles — a live needle and a draggable "set" needle, so the historical instrument is connected to the modern trace
+- Lower area: prediction buttons and a scoring panel
+- Right or below (responsive): a readout of current pressure, 3-hour change, and rate in hPa per hour
+- Responsive to window resize</p>
+<p>Data Visibility Requirements:
+  Stage 1: Show the current pressure in hPa and its position against the 980 to 1040 normal band
+  Stage 2: Show the pressure 3 hours ago and the difference, labeled "pressure tendency"
+  Stage 3: Show the rate in hPa per hour with a plain-language category: steady, slowly falling, rapidly falling, slowly rising, rapidly rising
+  Stage 4: After the learner predicts, reveal the next 12 hours of the trace and the actual weather that followed
+  Stage 5: Show a running scoreboard and a breakdown of which cue the learner relied on</p>
+<p>Scenario library — each is a 36-hour pressure trace with a known outcome. The set must include cases where absolute value and trend disagree:
+1. <strong>Steady high, 1028 hPa, flat</strong> — fair and settled. Easy case.
+2. <strong>Steady low, 995 hPa, flat for 18 hours</strong> — overcast but no storm. Teaches that a low value alone is not a warning.
+3. <strong>High value, falling fast</strong> — 1025 hPa but dropping 4 hPa in 3 hours. Storm arriving within hours. This is the critical case: the value still looks reassuring.
+4. <strong>Low value, rising steadily</strong> — 990 hPa and climbing. The storm has passed; clearing follows.
+5. <strong>Rapid deep fall</strong> — more than 6 hPa in 3 hours from any starting value. Severe weather. Historically the signature FitzRoy's storm warnings were built on.
+6. <strong>Diurnal wobble</strong> — a small twice-daily oscillation of about 3 hPa with no weather change, most pronounced in the tropics. Teaches the learner not to over-read small regular variation.</p>
+<p>Interaction:
+- The learner scrubs or plays the trace up to "now"
+- Prediction buttons: "Fair, next 12 h", "Clouding over", "Rain likely", "Storm — take it seriously", "Clearing"
+- On submitting, the future reveals and feedback explains which cue mattered: for scenario 3, "You predicted fair because 1025 hPa is a high value. The value was misleading. The 4 hPa fall in 3 hours was the signal."
+- "Set" needle can be dragged to the current reading, then left; after simulated hours pass, the gap between the two needles shows the tendency. A caption explains: "This is what the second needle on an old barometer was for."</p>
+<p>Instructional Rationale: The objective is Evaluate/predict, which requires committing to a judgment before seeing the outcome and then being held to it. Hiding the future until a prediction is submitted is what makes this evaluation rather than observation. Including scenarios where value and trend point in opposite directions is the specific design decision that breaks the "low equals bad" heuristic.</p>
+<p>Implementation: p5.js. Store scenarios as arrays of {hour, pressure} plus an outcome label and a feedback string. Compute tendency as the difference over the trailing 3 hours, matching standard meteorological practice.</p>
+</details>
+<h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Pressure</strong> is force divided by area. <strong>Hydrostatic pressure</strong> comes from the weight of a fluid and depends on depth, not container shape.</li>
+<li><strong>Barometric pressure</strong> is the weight of the atmosphere above a point. Aristotle denied that a <strong>vacuum</strong> could exist, and that belief stood for two thousand years.</li>
+<li>The <strong>Torricelli experiment</strong> of 1643 created a vacuum and showed that the atmosphere supports a 760 mm <strong>mercury barometer</strong> column.</li>
+<li>The <strong>Puy de Dome experiment</strong> of 1648 proved air has weight by carrying a barometer up a mountain, with a control barometer left at the base.</li>
+<li><strong>Hectopascal</strong>, <strong>millibar</strong>, <strong>inches of mercury</strong>, <strong>pascal unit</strong>, and <strong>one atmosphere</strong> all describe the same pressure. 1 hPa = 1 mbar exactly; standard sea level is 1013.25 hPa or 29.92 inHg.</li>
+<li>Pressure falls about 12 hPa per 100 m. <strong>Sea level pressure</strong> is a computed correction using station elevation, without which stations cannot be compared. Run backwards, the same physics gives <strong>pressure altitude</strong> and the <strong>altimeter</strong>.</li>
+<li>The <strong>aneroid barometer</strong> of 1844 made the instrument portable and enabled the first storm warnings. The <strong>piezoresistive effect</strong> shrinks the same flexing-capsule idea onto a silicon chip.</li>
+</ul>
+<h2 id="check-yourself">Check Yourself<a class="headerlink" href="#check-yourself" title="Permanent link">¶</a></h2>
+<details class="question">
+<summary>Why did Torricelli use mercury instead of water? Click to check.</summary>
+<p>Because a water barometer would need to be over 10 metres tall. The atmosphere supports a column whose weight balances it, and since mercury is about 13.6 times denser than water, the mercury column is about 13.6 times shorter — around 760 mm instead of 10.3 m. This also explains the well-diggers' problem that started the whole inquiry: suction pumps failed above 10 metres because that is the maximum height of water the atmosphere can support.</p>
+</details>
+<details class="question">
+<summary>Your station at 300 m reads 977 hPa. Is a storm coming? Click to check.</summary>
+<p>Probably not. Correct to sea level first: <span class="arithmatex">\(977 + 300/8.3 = 977 + 36.1 = 1013.1\)</span> hPa. That is almost exactly standard pressure — an entirely ordinary day. The raw 977 looked alarming only because 300 metres of elevation removes about 36 hPa before the weather does anything at all. This is why elevation is one of the things the station records.</p>
+</details>
+<details class="question">
+<summary>Why does a pilot reset the altimeter before landing? Click to check.</summary>
+<p>An altimeter is a barometer that converts pressure to height assuming a standard atmosphere. Real sea level pressure differs from standard, so the conversion is off by whatever that difference is. Setting the local sea level pressure removes the error. The dangerous case is flying from high pressure into low pressure without resetting: the altimeter then reads higher than the aircraft actually is, so the pilot believes they have clearance they do not have. Hence "high to low, look out below."</p>
+</details>
+<details class="question">
+<summary>Your code reports pressure as 101325. What went wrong, and how do you know? Click to check.</summary>
+<p>Nothing went wrong with the sensor — that is a correct reading in pascals, which is what the BME280 natively reports. The problem is the unit. Divide by 100 to get 1013.25 hPa, which is the unit weather data is reported in. You can spot this instantly because 101325 is nowhere near the 980 to 1040 range that sea level pressure always falls in, and it is off by exactly a factor of 100 — the fingerprint of a missing prefix conversion.</p>
+</details>
+<hr>
+<h2 id="what-is-next">What Is Next<a class="headerlink" href="#what-is-next" title="Permanent link">¶</a></h2>
+<p>Pressure and temperature are two of the three quantities the BME280 measures. The third is the one you cannot see at all.</p>
+<p>Chapter 8 covers humidity — the water vapor suspended invisibly in the air. It builds the water cycle first, then separates three ideas that get used interchangeably and should not be: absolute humidity, relative humidity, and dew point. It explains why warm air can hold more water than cold air, why that means fog can form overnight without any new water arriving, and why the dew point predicts how a day will actually feel far better than the percentage in the forecast does.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../06-temperature/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 6. Temperature - From the Thermoscope to the Silicon Chip">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                6. Temperature - From the Thermoscope to the Silicon Chip
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../08-humidity-and-dew-point/" class="md-footer__link md-footer__link--next" aria-label="Next: 8. Humidity and Dew Point - The Water Hidden in the Air">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                8. Humidity and Dew Point - The Water Hidden in the Air
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Hank R. Licensed under <a href="licensing/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

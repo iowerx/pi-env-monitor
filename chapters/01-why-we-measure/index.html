@@ -1,0 +1,2271 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="An introduction to environmental monitoring, the difference between observing and measuring, and the atmosphere, weather, and climate that this book's station will measure.">
+      
+      
+        <meta name="author" content="Hank R.">
+      
+      
+        <link rel="canonical" href="https://iowerx.github.io/pi-env-monitor/chapters/01-why-we-measure/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../02-language-of-measurement/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Why We Measure the Natural Environment - Raspberry Pi Environmental Monitoring: Grades 6–12</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website">
+<meta property="og:title" content="Why We Measure the Natural Environment - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="og:description" content="An introduction to environmental monitoring, the difference between observing and measuring, and the atmosphere, weather, and climate that this book's station will measure.">
+<meta property="og:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/01-why-we-measure/index.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://iowerx.github.io/pi-env-monitor/chapters/01-why-we-measure/">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Why We Measure the Natural Environment - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="twitter:description" content="An introduction to environmental monitoring, the difference between observing and measuring, and the atmosphere, weather, and climate that this book's station will measure.">
+<meta property="twitter:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/01-why-we-measure/index.png">
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#why-we-measure-the-natural-environment" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Raspberry Pi Environmental Monitoring: Grades 6–12
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Why We Measure the Natural Environment
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Raspberry Pi Environmental Monitoring: Grades 6–12
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components Used
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Why We Measure the Natural Environment
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Why We Measure the Natural Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#it-is-cold-outside" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        It Is Cold Outside
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observing-versus-measuring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observing Versus Measuring
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Observing Versus Measuring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-observation-or-measurement-sorter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Observation or Measurement Sorter
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-environmental-monitoring-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Environmental Monitoring Is
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Environmental Monitoring Is">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-anatomy-of-an-environmental-monitoring-station" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Anatomy of an Environmental Monitoring Station
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-air-above-you" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Air Above You
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Air Above You">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-atmospheric-layers-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Atmospheric Layers Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#weather-is-not-climate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Weather Is Not Climate
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Weather Is Not Climate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-weather-versus-climate-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Weather Versus Climate Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-people-who-do-this-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The People Who Do This Work
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-any-of-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Any of This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-language-of-measurement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. The Language of Measurement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-electricity-and-computer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Electricity and the Single-Board Computer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-how-sensors-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. How Sensors Turn the World Into Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-time-and-place/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Time and Place - Recording Where and When
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-temperature/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Temperature - From the Thermoscope to the Silicon Chip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-barometric-pressure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Barometric Pressure - The Weight of the Atmosphere
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-humidity-and-dew-point/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Humidity and Dew Point - The Water Hidden in the Air
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-solar-radiation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Solar Radiation - The Energy That Drives the Weather
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-wind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Wind - Measuring Air in Motion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-ground-motion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Ground Motion - Measuring Earthquakes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-os-and-sensor-buses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. The Station's Brain - Operating System, Command Line, and Sensor Buses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-python-programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Programming the Station in Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-data-logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Logging Data - Timestamps, Intervals, and Files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-charting-and-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Charting and Interpreting Your Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-building-for-outdoors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Building the Station for the Outdoors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-measurement-to-consequence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. From Measurement to Consequence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../licensing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#it-is-cold-outside" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        It Is Cold Outside
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observing-versus-measuring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observing Versus Measuring
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Observing Versus Measuring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-observation-or-measurement-sorter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Observation or Measurement Sorter
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-environmental-monitoring-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Environmental Monitoring Is
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Environmental Monitoring Is">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-anatomy-of-an-environmental-monitoring-station" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Anatomy of an Environmental Monitoring Station
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-air-above-you" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Air Above You
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Air Above You">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-atmospheric-layers-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Atmospheric Layers Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#weather-is-not-climate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Weather Is Not Climate
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Weather Is Not Climate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-weather-versus-climate-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Weather Versus Climate Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-people-who-do-this-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The People Who Do This Work
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-any-of-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Any of This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/iowerx/pi-env-monitor/blob/main/docs/chapters/01-why-we-measure/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="why-we-measure-the-natural-environment">Why We Measure the Natural Environment<a class="headerlink" href="#why-we-measure-the-natural-environment" title="Permanent link">¶</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
+<p>This chapter asks what environmental monitoring is and why anyone bothers. It introduces the difference between a qualitative observation and a quantitative measurement, then introduces the system this book measures: the atmosphere, the air masses that move through it, and the distinction between weather and climate. By the end, readers can name the quantities a monitoring station records and describe what a meteorologist and a climatologist each do with them.</p>
+<h2 id="concepts-covered">Concepts Covered<a class="headerlink" href="#concepts-covered" title="Permanent link">¶</a></h2>
+<p>This chapter covers the following 12 concepts from the learning graph:</p>
+<ol>
+<li>Environmental Monitoring</li>
+<li>Physical Property</li>
+<li>Atmosphere</li>
+<li>Measurement</li>
+<li>Air Mass</li>
+<li>Atmospheric Layer</li>
+<li>Quantitative Data</li>
+<li>Qualitative Observation</li>
+<li>Weather</li>
+<li>Climate</li>
+<li>Meteorologist</li>
+<li>Climatologist</li>
+</ol>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
+<p>This chapter assumes only the prerequisites listed in the <a href="../../course-description/">course description</a>.</p>
+<hr>
+<h2 id="it-is-cold-outside">It Is Cold Outside<a class="headerlink" href="#it-is-cold-outside" title="Permanent link">¶</a></h2>
+<p>Step outside on a winter morning and you know something right away. It is cold.</p>
+<p>You did not need a thermometer to know that. Your skin told you. But now try to answer a harder question. Is it colder than yesterday? Most people cannot say for sure. Your body is good at telling you <em>cold</em>. It is bad at telling you <em>how much</em>.</p>
+<p>That gap is where this book starts.</p>
+<p>Try a small experiment. Fill three bowls with water. Put ice water in the first, room-temperature water in the second, and warm water in the third. Soak your left hand in the ice water and your right hand in the warm water for thirty seconds. Then put both hands in the middle bowl.</p>
+<p>The same bowl of water will feel hot to your left hand and cold to your right hand. Your hands disagree. One of them has to be wrong, and there is no way to settle the argument by feeling harder.</p>
+<p>A thermometer settles it in one second. It says 21 °C, and it says that to everybody.</p>
+<div class="admonition note">
+<p class="admonition-title">The point of the experiment</p>
+<p>Your senses report <em>change</em>, not <em>amount</em>. Your left hand says "warmer than before" and your right hand says "colder than before." Both are telling the truth. Neither one is measuring.</p>
+</div>
+<h2 id="observing-versus-measuring">Observing Versus Measuring<a class="headerlink" href="#observing-versus-measuring" title="Permanent link">¶</a></h2>
+<p>There are two ways to record what the world is doing, and it matters a great deal which one you use.</p>
+<p>A <strong>qualitative observation</strong> describes something without a number. "The sky is cloudy." "The wind is strong." "It feels muggy today." These are real information. Scientists use them constantly, and some of the most important science ever done started with somebody noticing something odd.</p>
+<p><strong>Quantitative data</strong> describes something <em>with</em> a number and a unit. "Cloud cover is 80 percent." "Wind speed is 24 kilometers per hour." "Relative humidity is 88 percent." A number without a unit is not quantitative data — it is just a number. "The temperature is 25" tells you nothing until you know whether that is Celsius or Fahrenheit.</p>
+<p>A <strong>measurement</strong> is the act of comparing something in the world to an agreed-upon standard, and reporting the result as a number with a unit. When you measure a table with a meter stick, you are comparing the table to a standard length that everyone has agreed on. The meter stick is the agreement made physical.</p>
+<p>What gets measured is a <strong>physical property</strong> — a feature of an object or a place that can be described by a number. Temperature is a physical property. Pressure is a physical property. So are length, mass, speed, and brightness. "Beautiful" is not a physical property. Neither is "scary." You cannot build an instrument that reads out how scary something is, because there is nothing physical to compare against a standard.</p>
+<p>Before the table below, one warning. It is easy to read this comparison and conclude that qualitative observations are the weak, unscientific option. They are not. They are how you <em>notice</em> that something needs measuring in the first place.</p>
+<p>Here is how the two kinds of information compare:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Qualitative Observation</th>
+<th>Quantitative Data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Contains a number</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Contains a unit</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Example</td>
+<td>"It is windy"</td>
+<td>"Wind speed is 24 km/h"</td>
+</tr>
+<tr>
+<td>Two people agree?</td>
+<td>Often not</td>
+<td>Almost always</td>
+</tr>
+<tr>
+<td>Can be graphed</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Can be compared to last year</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Needs an instrument</td>
+<td>No</td>
+<td>Usually</td>
+</tr>
+<tr>
+<td>Good for</td>
+<td>Noticing something is happening</td>
+<td>Proving it, and by how much</td>
+</tr>
+</tbody>
+</table>
+<p>Look at the row labeled <em>Can be compared to last year</em>. That row is the reason this book exists. You cannot graph "it was windy." You cannot ask whether this March was windier than last March if all you wrote down was "windy." The moment you record 24 km/h instead, you can do both.</p>
+<p>Before the next element, two more terms. A <strong>sorter</strong> here means a small program that shows you an example and asks you to place it in one of two bins. <strong>Feedback</strong> means the program tells you immediately whether you were right, and why.</p>
+<h4 id="diagram-observation-or-measurement-sorter">Diagram: Observation or Measurement Sorter<a class="headerlink" href="#diagram-observation-or-measurement-sorter" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/observation-or-measurement-sorter/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Observation or Measurement Sorter</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> observation-or-measurement-sorter<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Evaluate (L5)
+Bloom Verb: judge</p>
+<p>Learning objective: Given a statement about the environment, the learner judges whether it is a qualitative observation or quantitative data, and justifies the choice by identifying whether a number and a unit are present.</p>
+<p>Purpose: The distinction between observing and measuring is the foundational idea of the whole book, and it is a distinction students think they understand until they are asked to apply it to borderline cases. This sorter forces the judgment on 12 examples, several of which are deliberately tricky.</p>
+<p>Canvas layout:
+- Top band: the current statement card, displayed in large text
+- Middle: two labeled drop bins, "Qualitative Observation" (left) and "Quantitative Data" (right)
+- Bottom band: feedback area and score counter, plus Next and Reset buttons
+- Responsive: bins stack vertically below 500px canvas width; the layout must respond to window resize events</p>
+<p>Statement bank (12 cards, presented in random order):
+1. "The sky is overcast." -&gt; qualitative
+2. "Barometric pressure is 1013 hPa." -&gt; quantitative
+3. "It feels muggy." -&gt; qualitative
+4. "Relative humidity is 88 percent." -&gt; quantitative
+5. "The wind is strong enough to bend the small trees." -&gt; qualitative
+6. "Wind speed is 24 kilometers per hour." -&gt; quantitative
+7. "The temperature is 25." -&gt; TRICK: qualitative, because no unit is given
+8. "The air temperature is 25 degrees Celsius." -&gt; quantitative
+9. "It is colder than yesterday." -&gt; qualitative
+10. "Today is 3.2 degrees Celsius colder than yesterday." -&gt; quantitative
+11. "The ground shook hard enough to rattle the windows." -&gt; qualitative
+12. "The earthquake measured 4.1 on the moment magnitude scale." -&gt; quantitative</p>
+<p>Interaction:
+- Learner drags the card into a bin, or clicks a bin button on touch devices
+- On drop, the feedback area states correct or incorrect and gives the reason, naming the rule: "Quantitative data needs both a number AND a unit."
+- Card 7 gets special feedback: "Careful. There is a number here, but 25 what? Celsius? Fahrenheit? Without a unit this cannot be compared to anything."
+- Card 5 gets special feedback: "This is a real, useful observation, and it is roughly Beaufort force 6. But as written it has no number, so it cannot be graphed."
+- Score counter shows correct out of attempted
+- Reset reshuffles and clears the score</p>
+<p>Default parameters:
+- Score: 0 of 0
+- Cards shuffled on load</p>
+<p>Instructional Rationale: A sorting task at the Evaluate level is appropriate because the objective is judgment against a criterion, not recall. Immediate per-card feedback that names the rule is what converts a guess into a generalization. The two trick cards exist because students commonly believe "has a number" is sufficient, and the missing-unit case is the fastest way to break that belief.</p>
+<p>Implementation: p5.js with drag-and-drop hit testing on bin rectangles. Store the statement bank as an array of objects with text, answer, and feedback fields.</p>
+</details>
+<h2 id="what-environmental-monitoring-is">What Environmental Monitoring Is<a class="headerlink" href="#what-environmental-monitoring-is" title="Permanent link">¶</a></h2>
+<p><strong>Environmental monitoring</strong> means measuring conditions in the natural environment, over and over, in the same place, for a long time.</p>
+<p>Every word in that sentence is doing work.</p>
+<p><em>Measuring</em> rules out simply describing. <em>Conditions in the natural environment</em> means the air, the ground, and the water rather than something in a laboratory. <em>Over and over</em> rules out a single reading. <em>In the same place</em> means the readings can be compared to one another. And <em>for a long time</em> is what turns a pile of numbers into a story.</p>
+<p>That last part is what makes monitoring different from an ordinary science experiment. An experiment usually asks a question, collects data for an afternoon, and answers it. A monitoring station asks a question that cannot be answered in an afternoon:</p>
+<ul>
+<li>Is it getting warmer here?</li>
+<li>How much rain does this valley actually get, compared to the town in the next valley?</li>
+<li>Does the parking lot beside the school get hotter than the field behind it?</li>
+<li>Did the ground move last Tuesday, or was that a truck?</li>
+</ul>
+<p>None of those have an answer after one reading. They all have an answer after a year of readings.</p>
+<p>A monitoring station is just a machine built to be patient. It takes a reading, writes it down with the time and the place attached, and then does it again. It does this while you are asleep, while you are at school, and while nobody is thinking about it at all. That patience is the entire product.</p>
+<p>The station you will build in this book measures seven things:</p>
+<ol>
+<li><strong>Temperature</strong> — how fast the atoms in the air are moving</li>
+<li><strong>Barometric pressure</strong> — the weight of the air above you</li>
+<li><strong>Humidity</strong> — how much invisible water is in the air</li>
+<li><strong>Solar radiation</strong> — how much energy is arriving from the Sun</li>
+<li><strong>Wind speed</strong> — how fast air is moving past you</li>
+<li><strong>Ground motion</strong> — whether the earth beneath the station is shaking</li>
+<li><strong>Location and time</strong> — exactly where and when every reading was taken</li>
+</ol>
+<p>The seventh one may look like it does not belong. It does. A temperature reading with no place and no time attached is not a measurement of anything. It is a number that used to mean something.</p>
+<p>Before the next element, here are the parts you will be clicking on. A <strong>sensor</strong> is the part that responds to the physical world. A <strong>single-board computer</strong> is a small, complete computer on one circuit board — the brain that asks the sensors for readings and writes them down. An <strong>enclosure</strong> is the weatherproof box that keeps rain out.</p>
+<h4 id="diagram-anatomy-of-an-environmental-monitoring-station">Diagram: Anatomy of an Environmental Monitoring Station<a class="headerlink" href="#diagram-anatomy-of-an-environmental-monitoring-station" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/monitoring-station-anatomy/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Anatomy of an Environmental Monitoring Station</summary>
+<p>Type: infographic
+<strong>sim-id:</strong> monitoring-station-anatomy<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Remember (L1)
+Bloom Verb: identify</p>
+<p>Learning objective: The learner identifies each major component of an environmental monitoring station and names the quantity it measures, building the mental map of the system that the rest of the book fills in.</p>
+<p>Purpose: Chapter 1 readers have never seen one of these. This is the orientation diagram they will return to in every later chapter, so each hotspot names the chapter where that component is covered in depth.</p>
+<p>Layout: A simple side-view illustration of a small weather station on a post, drawn with p5.js primitives rather than a photograph so it scales cleanly. Components arranged around a central enclosure. Fully responsive to window resize; hotspot positions are computed as fractions of canvas width and height, never as fixed pixel coordinates.</p>
+<p>Clickable hotspots (each opens an infobox in a side panel or below the canvas on narrow screens):
+1. Enclosure — "The weatherproof box. Keeps rain and sun off the electronics. Covered in Chapter 16."
+2. Single-board computer inside the enclosure — "A whole computer on one circuit board. Asks the sensors for readings and writes them down. Chapter 3."
+3. BME280 sensor in a vented shield — "One chip that measures temperature, pressure, and humidity. Chapters 6, 7, and 8."
+4. Radiation shield / louvered screen around the sensor — "White louvers keep sunlight off the thermometer. Without this, the station measures the sun, not the air. Chapter 6."
+5. Anemometer on top — "Spinning cups measure wind speed. Chapter 10."
+6. Solar radiation sensor — "Measures the energy arriving from the Sun, in watts per square meter. Chapter 9."
+7. Accelerometer inside the enclosure — "Feels the ground shake. Chapter 11."
+8. GPS antenna — "Gives the station its exact position and a very accurate clock. Chapter 5."
+9. Solar panel — "Charges the battery so the station never needs to be plugged in. Chapter 16."
+10. Battery — "Runs the station at night and through cloudy weather. Chapter 16."
+11. Cellular antenna — "Sends the data home when there is no Wi-Fi. Chapter 16."</p>
+<p>Interactive features:
+- Hover: component outline highlights and its name appears
+- Click: infobox opens with the text above; previously clicked hotspots stay marked with a small check so the learner can see which ones they have explored
+- A "Show all labels" toggle reveals every label at once for learners who prefer an overview first
+- Reset button clears the explored marks</p>
+<p>Color scheme: Each hotspot is tinted with the taxonomy color used for its chapter in the learning graph, so the visual identity carries through the book. Sensors warm colors, computing and power cool colors.</p>
+<p>Implementation: p5.js. Store hotspots as an array of objects with fractional x, y, radius, label, and infobox text. Compute pixel positions from canvas dimensions in draw() so resize works correctly.</p>
+</details>
+<h2 id="the-air-above-you">The Air Above You<a class="headerlink" href="#the-air-above-you" title="Permanent link">¶</a></h2>
+<p>Six of the seven quantities in the list above are properties of the air. So it is worth being clear about what the air actually is.</p>
+<p>The <strong>atmosphere</strong> is the layer of gases held around the Earth by gravity. It is mostly nitrogen, about 78 percent. Oxygen is about 21 percent. Everything else — argon, carbon dioxide, water vapor — makes up the last one percent. That last one percent does an enormous amount of the interesting work.</p>
+<p>The atmosphere has no lid. It does not stop at a particular height and give way to space. It simply gets thinner and thinner until there is effectively nothing left. But it does have structure, and scientists divide it into <strong>atmospheric layers</strong> — bands at different heights that behave differently from one another.</p>
+<p>Here are the layers, from the ground up:</p>
+<ul>
+<li><strong>Troposphere</strong> (0 to about 12 km) — where all weather happens, and where you live</li>
+<li><strong>Stratosphere</strong> (12 to about 50 km) — contains the ozone layer; airliners fly at its base</li>
+<li><strong>Mesosphere</strong> (50 to about 85 km) — where most meteors burn up</li>
+<li><strong>Thermosphere</strong> (85 to about 600 km) — where auroras glow and the space station orbits</li>
+<li><strong>Exosphere</strong> (600 km and up) — the fading edge, where atmosphere becomes space</li>
+</ul>
+<p>Your station sits at the very bottom of the troposphere, in the first few meters of a layer 12 kilometers thick. Almost everything you will measure is happening in that bottom sliver.</p>
+<p>The troposphere is not still. Enormous bodies of air move through it, and these are called <strong>air masses</strong>. An air mass is a large volume of air — often hundreds of kilometers across — in which the temperature and the moisture are roughly the same throughout.</p>
+<p>Air masses get their character from where they form. Air that sits over the Gulf of Mexico for a week becomes warm and wet. Air that sits over northern Canada becomes cold and dry. When those air masses move, they carry those properties with them. A cold snap in Texas is often just Canadian air that went for a walk.</p>
+<p>This is why your station's readings will change. You are not usually watching one body of air warm up and cool down. You are watching different air masses arrive and depart.</p>
+<p>Before the next element, one term. <strong>Altitude</strong> means height above sea level, and it is the vertical axis in the explorer below.</p>
+<h4 id="diagram-atmospheric-layers-explorer">Diagram: Atmospheric Layers Explorer<a class="headerlink" href="#diagram-atmospheric-layers-explorer" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/atmospheric-layers-explorer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Atmospheric Layers Explorer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> atmospheric-layers-explorer<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Understand (L2)
+Bloom Verb: interpret</p>
+<p>Learning objective: The learner interprets a scale drawing of the atmosphere to explain where weather occurs, and recognizes how thin the weather-producing layer is compared to the whole atmosphere.</p>
+<p>Purpose: Students consistently overestimate how much of the atmosphere is involved in weather. Seeing the troposphere as a thin band at the bottom of a tall column is the single most useful correction this chapter can make, and it is not a correction that prose alone achieves.</p>
+<p>Canvas layout:
+- Left two-thirds: a vertical cross-section of the atmosphere, ground at the bottom, 700 km at the top
+- Right one-third: infobox panel showing details for the selected layer
+- Below canvas: a scale toggle and an altitude slider
+- Responsive: panel moves below the cross-section when canvas width is under 600px; must respond to window resize events</p>
+<p>Data Visibility Requirements:
+  Stage 1: Show the five layers as colored bands with correct proportional thickness on a linear scale, so the troposphere appears as a barely-visible sliver at the bottom
+  Stage 2: When the learner toggles to "stretch the troposphere," redraw with a non-linear vertical scale so the troposphere fills half the canvas and its internal detail becomes visible
+  Stage 3: Show a marker for the monitoring station at ground level, with a label reading "Your station is here"
+  Stage 4: As the learner drags the altitude slider, show at that altitude: approximate air pressure in hPa, approximate temperature in degrees Celsius, and one familiar reference object</p>
+<p>Reference objects to display at the correct altitudes:
+- 0.03 km: a house
+- 0.8 km: the Burj Khalifa
+- 5.9 km: Denali summit
+- 8.8 km: Mount Everest summit
+- 11 km: cruising airliner
+- 30 km: weather balloon burst altitude
+- 100 km: the Karman line, "the usual definition of space"
+- 400 km: International Space Station</p>
+<p>Layer infobox content (shown on click):
+- Troposphere: "0 to 12 km. All weather happens here. Temperature falls about 6.5 degrees Celsius for every kilometer you climb. Contains about 75 percent of the atmosphere's mass."
+- Stratosphere: "12 to 50 km. Holds the ozone layer. Temperature RISES with altitude here, which is why storms cannot punch through it."
+- Mesosphere: "50 to 85 km. Coldest layer. Most meteors burn up here."
+- Thermosphere: "85 to 600 km. Very hot but extremely thin. Auroras glow here."
+- Exosphere: "600 km and up. Atmosphere fades into space."</p>
+<p>Interaction:
+- Click any layer band to open its infobox
+- Drag the altitude slider to move a horizontal marker line and update the readout
+- Toggle button: "Linear scale" / "Stretch the troposphere"
+- Hover a reference object to see its name and exact altitude</p>
+<p>Default parameters:
+- Scale: linear
+- Slider: 0 km
+- No layer selected</p>
+<p>Instructional Rationale: The objective is Understand/interpret, so the specification calls for step-controlled exploration with concrete numbers visible at every altitude rather than an animation. The scale toggle is the pedagogical core: showing the honest linear proportion first delivers the surprise, and only then stretching it lets the learner read the detail. An animated fly-through would deliver neither.</p>
+<p>Implementation: p5.js. Map altitude to y-position through a switchable function so the two scale modes share all other drawing code. Use the barometric formula for the pressure readout and the standard atmosphere lapse rate for temperature.</p>
+</details>
+<h2 id="weather-is-not-climate">Weather Is Not Climate<a class="headerlink" href="#weather-is-not-climate" title="Permanent link">¶</a></h2>
+<p>Two words get used almost interchangeably in conversation, and confusing them causes more bad arguments about the environment than any other mistake.</p>
+<p><strong>Weather</strong> is the state of the atmosphere at one place at one time. It is what is happening outside right now. Weather is temperature, pressure, humidity, wind, and precipitation at this moment. Weather changes hour to hour. It is what your station measures directly.</p>
+<p><strong>Climate</strong> is the pattern of weather at a place, averaged over a long time. The standard averaging period is 30 years. Climate is not what is happening outside. It is what usually happens outside.</p>
+<p>A useful way to hold the difference:</p>
+<blockquote>
+<p>Climate is what you expect. Weather is what you get.</p>
+</blockquote>
+<p>If you plan a July picnic in Arizona, you are using climate. You expect it to be hot and dry, because it usually is. If it rains on your picnic anyway, that is weather.</p>
+<p>This distinction has a sharp practical edge. A single cold day does not tell you the climate is cooling, in exactly the way that a single tall student does not tell you the school is getting taller. One reading is weather. A pattern across decades is climate.</p>
+<p>And here is the part that matters for you personally: your station cannot measure climate. It can only measure weather. Climate is what you get when somebody adds up thirty years of weather. But every climate record that exists was built out of weather readings taken by stations like yours, one at a time, by people who kept showing up.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Weather</th>
+<th>Climate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Time scale</td>
+<td>Minutes to days</td>
+<td>Decades</td>
+</tr>
+<tr>
+<td>Question it answers</td>
+<td>"Do I need a coat today?"</td>
+<td>"Do I need a coat collection?"</td>
+</tr>
+<tr>
+<td>Changes</td>
+<td>Constantly</td>
+<td>Slowly</td>
+</tr>
+<tr>
+<td>Measured by</td>
+<td>Instruments, right now</td>
+<td>Averaging many years of instrument readings</td>
+</tr>
+<tr>
+<td>Your station measures</td>
+<td>This, directly</td>
+<td>Only by contributing to a long record</td>
+</tr>
+<tr>
+<td>Studied by</td>
+<td>Meteorologists</td>
+<td>Climatologists</td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-weather-versus-climate-explorer">Diagram: Weather Versus Climate Explorer<a class="headerlink" href="#diagram-weather-versus-climate-explorer" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/weather-versus-climate-explorer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Weather Versus Climate Explorer</summary>
+<p>Type: chart
+<strong>sim-id:</strong> weather-versus-climate-explorer<br>
+<strong>Library:</strong> Chart.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Analyze (L4)
+Bloom Verb: distinguish</p>
+<p>Learning objective: The learner distinguishes short-term variation from long-term trend in the same dataset, and explains why a single unusual reading does not establish a trend.</p>
+<p>Purpose: This is the chapter's hardest idea and the one most vulnerable to misunderstanding. Showing the same data at three different time windows, with the trend line appearing only when the window is wide enough, teaches the point in a way a paragraph cannot.</p>
+<p>Chart type: Line chart with a toggleable overlay, three selectable time windows</p>
+<p>Data: Synthetic but realistic daily mean temperature for a single mid-latitude location, generated once and stored as a static JSON file so every learner sees the same numbers. The series must contain:
+- A strong daily and seasonal cycle
+- Random day-to-day noise of a few degrees
+- Several deliberately extreme individual days, both hot and cold
+- A slow warming trend of about 0.02 degrees Celsius per year embedded underneath</p>
+<p>Time window selector (three buttons):
+1. "One week" — shows 7 daily values. Trend overlay is DISABLED with the message: "Seven days is not enough to see a trend. This is weather."
+2. "One year" — shows 365 daily values. The seasonal cycle dominates. Trend overlay is DISABLED with the message: "One year shows the seasons, not the climate. Come back with thirty."
+3. "Thirty years" — shows 30 years of monthly means. Trend overlay is ENABLED.</p>
+<p>X-axis: Date. Label and tick density adapt to the selected window.
+Y-axis: Mean temperature in degrees Celsius. The axis range must stay FIXED across all three windows so the learner can see that the same vertical distance means the same thing in each view. This is essential and must not be auto-scaled.</p>
+<p>Overlay toggle: "Show 30-year average line" — draws a horizontal climate normal, and in the thirty-year view also draws the fitted trend line.</p>
+<p>Interactive features:
+- Hover any point: tooltip shows the exact date, that day's value, and how far it sits from the 30-year average, e.g. "14 January: -2.1 C, which is 4.3 C below normal"
+- Click one of the marked extreme days: an infobox appears reading "This was an unusual day. Notice that it does not move the 30-year average line at all."
+- Toggle the trend overlay on and off in the thirty-year view to see the trend appear and disappear against identical data</p>
+<p>Annotations:
+- In the one-week view: a caption reading "WEATHER"
+- In the thirty-year view: a caption reading "CLIMATE"</p>
+<p>Color scheme: Daily values in a light gray-blue so they read as noise; the 30-year average in a solid dark line; the trend line in a contrasting warm color.</p>
+<p>Implementation: Chart.js with a fixed y-axis scale and a custom tooltip callback that computes the departure from normal. The dataset must be pre-generated and committed, never randomized at load time, so that classroom discussion refers to the same numbers.</p>
+</details>
+<h2 id="the-people-who-do-this-work">The People Who Do This Work<a class="headerlink" href="#the-people-who-do-this-work" title="Permanent link">¶</a></h2>
+<p>Two job titles come up constantly in this field, and they are not the same job.</p>
+<p>A <strong>meteorologist</strong> is a scientist who studies and forecasts weather. Meteorologists work on short time scales — hours to about two weeks. They pull in readings from thousands of surface stations, weather balloons, radar, ocean buoys, and satellites, feed them into computer models, and predict what the atmosphere will do next. The person on the news telling you about tomorrow's storm is doing meteorology. So is the person deciding whether to close an airport.</p>
+<p>A <strong>climatologist</strong> is a scientist who studies weather patterns over long periods — decades, centuries, and much longer. Climatologists ask different questions. Not "will it rain Thursday" but "is this region getting drier over fifty years." Because their questions run longer than the instrument record, climatologists also read the environment's own records: tree rings, gas bubbles trapped in ice cores, layers of sediment on lake bottoms, and coral growth bands.</p>
+<p>The two fields use much of the same data. They ask different questions of it.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Meteorologist</th>
+<th>Climatologist</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Time scale</td>
+<td>Hours to two weeks</td>
+<td>Decades to millennia</td>
+</tr>
+<tr>
+<td>Typical question</td>
+<td>"Will it rain on Thursday?"</td>
+<td>"Is this valley getting drier?"</td>
+</tr>
+<tr>
+<td>Main data source</td>
+<td>Live instrument readings</td>
+<td>Long instrument records, plus tree rings and ice cores</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>A forecast</td>
+<td>A trend</td>
+</tr>
+<tr>
+<td>Wrong prediction means</td>
+<td>A ruined picnic</td>
+<td>A misjudged policy</td>
+</tr>
+<tr>
+<td>Uses your station's data</td>
+<td>Right now, today</td>
+<td>In thirty years</td>
+</tr>
+</tbody>
+</table>
+<p>Both of them depend on people who take readings and write them down. There is no forecast without stations, and no climate record without decades of them. When you build a station and log its data honestly, you are doing the part of this work that everything else rests on.</p>
+<div class="admonition tip">
+<p class="admonition-title">Your data can actually be used</p>
+<p>Amateur weather stations are not a toy version of the real thing. Networks like the Community Collaborative Rain, Hail and Snow Network (CoCoRaHS) and the Weather Underground personal weather station network accept data from stations built by students and hobbyists, and professional forecasters use it. Chapter 17 covers how to contribute. What you need first is a station that is sited correctly and logs honest numbers — which is what Chapters 2 through 16 are about.</p>
+</div>
+<h2 id="why-any-of-this-matters">Why Any of This Matters<a class="headerlink" href="#why-any-of-this-matters" title="Permanent link">¶</a></h2>
+<p>It is fair to ask why a school should care about seven numbers taken in one spot.</p>
+<p>The answer is that decisions get made from those numbers, and the decisions are not small ones. Consider a few:</p>
+<ul>
+<li>A school district decides whether to cancel outdoor practice. That comes from temperature and humidity readings combined into a heat index.</li>
+<li>An engineer decides how high to build a bridge deck above a river. That comes from decades of rainfall and flood records.</li>
+<li>A farmer decides when to plant. That comes from soil and air temperature records for that specific field.</li>
+<li>A city decides where to plant trees. That often comes from surface temperature measurements showing which neighborhoods run hottest.</li>
+<li>A building code committee decides how strong a roof must be in a given county. That comes from wind speed records.</li>
+</ul>
+<p>Every one of those decisions traces back to instruments and to people who read them. Chapter 17 follows each of the seven measurements all the way to the decisions it drives.</p>
+<p>There is a second reason, and it is more personal. Once you have wired a sensor, watched it drift, found a reading you did not believe, and figured out whether the instrument or the world was responsible, you hold environmental data differently. You know what a measurement costs. You know what it can honestly support and where it can mislead. That is a different relationship to a chart in a news article than most people ever get.</p>
+<h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">¶</a></h2>
+<ul>
+<li>A <strong>qualitative observation</strong> describes without a number. <strong>Quantitative data</strong> carries both a number and a unit. A number without a unit is neither.</li>
+<li>A <strong>measurement</strong> compares a <strong>physical property</strong> to an agreed standard and reports a number with a unit.</li>
+<li><strong>Environmental monitoring</strong> means measuring the same place repeatedly over a long time. The patience is the point.</li>
+<li>The <strong>atmosphere</strong> is the gas layer held by gravity, divided into <strong>atmospheric layers</strong>. All weather happens in the bottom one, the troposphere.</li>
+<li>An <strong>air mass</strong> is a large body of air with roughly uniform temperature and moisture. Most day-to-day change at your station is air masses arriving and leaving.</li>
+<li><strong>Weather</strong> is the atmosphere right now. <strong>Climate</strong> is the 30-year pattern. Your station measures weather, and contributes to climate records.</li>
+<li><strong>Meteorologists</strong> forecast the near term. <strong>Climatologists</strong> study long-term patterns. Both depend on station data.</li>
+</ul>
+<h2 id="check-yourself">Check Yourself<a class="headerlink" href="#check-yourself" title="Permanent link">¶</a></h2>
+<details class="question">
+<summary>Is 'the barometric pressure is 1013' quantitative data? Click to check.</summary>
+<p>No. There is a number, but no unit. 1013 what? Hectopascals, most likely — but the reader cannot know that, and a reading nobody can interpret cannot be compared to anything. Add the unit and it becomes quantitative data: 1013 hPa.</p>
+</details>
+<details class="question">
+<summary>Your station records the coldest March day in its five-year history. Does this tell you the climate is cooling? Click to check.</summary>
+<p>No. One day is weather, and five years is not long enough to establish climate anyway. The standard climate averaging period is 30 years. An extreme single day is exactly what you expect to find inside normal variation — the Weather Versus Climate Explorer above shows extreme days that do not move the long-term average at all.</p>
+</details>
+<details class="question">
+<summary>Why is location one of the seven things the station measures? Click to check.</summary>
+<p>Because a reading with no location attached cannot be compared to any other reading. Pressure changes with elevation, so a pressure reading is meaningless without knowing how high the station sits. Beyond that, location is what lets many stations together become a map — and maps are how heat islands, pollution plumes, and storm tracks become visible.</p>
+</details>
+<details class="question">
+<summary>A friend says 'it was freezing this morning, so much for global warming.' Using this chapter, what is wrong with the argument? Click to check.</summary>
+<p>It confuses weather with climate. A single cold morning is one weather observation. Climate is the 30-year average pattern. A cold morning is entirely compatible with a warming climate, in the same way that one short student is compatible with a school whose average height is rising. To say anything about climate you need decades of readings, not one morning.</p>
+</details>
+<hr>
+<h2 id="what-is-next">What Is Next<a class="headerlink" href="#what-is-next" title="Permanent link">¶</a></h2>
+<p>You now know what this book is measuring and why. The next chapter takes on the thing that makes all of it possible: units. Every measurement in this book is a number attached to a unit, and every unit is an agreement that took people a surprisingly long time to reach.</p>
+<p>Chapter 2 covers the SI system, how to convert between units, and the vocabulary for describing how good a measurement is — accuracy, precision, and uncertainty. Those words get used loosely in conversation. They mean specific and different things here, and you will need all of them before you can judge whether your own station is telling you the truth.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: List of Chapters">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                List of Chapters
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../02-language-of-measurement/" class="md-footer__link md-footer__link--next" aria-label="Next: 2. The Language of Measurement">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                2. The Language of Measurement
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Hank R. Licensed under <a href="licensing/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

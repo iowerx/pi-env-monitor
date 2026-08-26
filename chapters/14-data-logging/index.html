@@ -1,0 +1,2351 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Choosing a sampling interval, building a time series, CSV structure and header rows, storage and file rotation, backup, databases, and the metadata that makes a dataset understandable.">
+      
+      
+        <meta name="author" content="Hank R.">
+      
+      
+        <link rel="canonical" href="https://iowerx.github.io/pi-env-monitor/chapters/14-data-logging/">
+      
+      
+        <link rel="prev" href="../13-python-programming/">
+      
+      
+        <link rel="next" href="../15-charting-and-analysis/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Logging Data: Timestamps, Intervals, and Files - Raspberry Pi Environmental Monitoring: Grades 6–12</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website">
+<meta property="og:title" content="Logging Data: Timestamps, Intervals, and Files - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="og:description" content="Choosing a sampling interval, building a time series, CSV structure and header rows, storage and file rotation, backup, databases, and the metadata that makes a dataset understandable.">
+<meta property="og:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/14-data-logging/index.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://iowerx.github.io/pi-env-monitor/chapters/14-data-logging/">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Logging Data: Timestamps, Intervals, and Files - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="twitter:description" content="Choosing a sampling interval, building a time series, CSV structure and header rows, storage and file rotation, backup, databases, and the metadata that makes a dataset understandable.">
+<meta property="twitter:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/14-data-logging/index.png">
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#logging-data-timestamps-intervals-and-files" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Raspberry Pi Environmental Monitoring: Grades 6–12
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Logging Data: Timestamps, Intervals, and Files
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Raspberry Pi Environmental Monitoring: Grades 6–12
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components Used
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-why-we-measure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Why We Measure the Natural Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-language-of-measurement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. The Language of Measurement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-electricity-and-computer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Electricity and the Single-Board Computer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-how-sensors-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. How Sensors Turn the World Into Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-time-and-place/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Time and Place - Recording Where and When
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-temperature/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Temperature - From the Thermoscope to the Silicon Chip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-barometric-pressure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Barometric Pressure - The Weight of the Atmosphere
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-humidity-and-dew-point/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Humidity and Dew Point - The Water Hidden in the Air
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-solar-radiation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Solar Radiation - The Energy That Drives the Weather
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-wind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Wind - Measuring Air in Motion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-ground-motion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Ground Motion - Measuring Earthquakes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-os-and-sensor-buses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. The Station's Brain - Operating System, Command Line, and Sensor Buses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-python-programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Programming the Station in Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Logging Data - Timestamps, Intervals, and Files
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Logging Data - Timestamps, Intervals, and Files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#everything-so-far-has-been-thrown-away" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Everything So Far Has Been Thrown Away
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-often-should-you-read" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Often Should You Read?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#time-series" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Time Series
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#csv-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CSV Files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage-on-a-small-computer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage on a Small Computer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rotation-and-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rotation and Backup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rotation and Backup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-sampling-interval-trade-off-bench" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Sampling Interval Trade-off Bench
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-a-file-is-not-enough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When a File Is Not Enough
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Metadata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-anatomy-of-a-good-data-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Anatomy of a Good Data File
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Putting It Together
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-charting-and-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Charting and Interpreting Your Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-building-for-outdoors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Building the Station for the Outdoors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-measurement-to-consequence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. From Measurement to Consequence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../licensing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#everything-so-far-has-been-thrown-away" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Everything So Far Has Been Thrown Away
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-often-should-you-read" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Often Should You Read?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#time-series" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Time Series
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#csv-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CSV Files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage-on-a-small-computer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage on a Small Computer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rotation-and-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rotation and Backup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rotation and Backup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-sampling-interval-trade-off-bench" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Sampling Interval Trade-off Bench
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-a-file-is-not-enough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When a File Is Not Enough
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Metadata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-anatomy-of-a-good-data-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Anatomy of a Good Data File
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Putting It Together
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/iowerx/pi-env-monitor/blob/main/docs/chapters/14-data-logging/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="logging-data-timestamps-intervals-and-files">Logging Data: Timestamps, Intervals, and Files<a class="headerlink" href="#logging-data-timestamps-intervals-and-files" title="Permanent link">¶</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
+<p>A reading that is not written down is not a measurement. This chapter covers choosing a sampling interval against the sensor's response time, building a time series from timestamped readings, and the structure of a CSV file down to the header row that names the units. It covers storage, file rotation, backup, and databases for a dataset that keeps growing, and closes with metadata — the record of what was measured, where, with what instrument — without which a dataset cannot be understood by anyone else.</p>
+<h2 id="concepts-covered">Concepts Covered<a class="headerlink" href="#concepts-covered" title="Permanent link">¶</a></h2>
+<p>This chapter covers the following 12 concepts from the learning graph:</p>
+<ol>
+<li>CSV File</li>
+<li>Data Storage</li>
+<li>Data Record</li>
+<li>File Rotation</li>
+<li>Data Backup</li>
+<li>Data Field</li>
+<li>Database</li>
+<li>Metadata</li>
+<li>Header Row</li>
+<li>Data Logging</li>
+<li>Sampling Interval</li>
+<li>Time Series</li>
+</ol>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-why-we-measure/">Chapter 1: Why We Measure the Natural Environment</a></li>
+<li><a href="../02-language-of-measurement/">Chapter 2: The Language of Measurement</a></li>
+<li><a href="../04-how-sensors-work/">Chapter 4: How Sensors Turn the World Into Numbers</a></li>
+<li><a href="../05-time-and-place/">Chapter 5: Time and Place: Recording Where and When</a></li>
+<li><a href="../12-os-and-sensor-buses/">Chapter 12: The Station's Brain: Operating System, Command Line, and Sensor Buses</a></li>
+<li><a href="../13-python-programming/">Chapter 13: Programming the Station in Python</a></li>
+</ul>
+<hr>
+<h2 id="everything-so-far-has-been-thrown-away">Everything So Far Has Been Thrown Away<a class="headerlink" href="#everything-so-far-has-been-thrown-away" title="Permanent link">¶</a></h2>
+<p>Every reading in this book so far has gone to the screen and then vanished.</p>
+<p><code>print(sensor.temperature)</code> displays a number and forgets it. Chapter 1 said that environmental monitoring means measuring the same place repeatedly, over a long time — and that the patience is the point. A program that displays readings and discards them has no patience at all. It has an attention span of one line.</p>
+<p><strong>Data logging</strong> is the automatic recording of measurements over time, with each reading stored alongside the time it was taken.</p>
+<p>This chapter is where the station stops being a demonstration and starts being an instrument.</p>
+<h2 id="how-often-should-you-read">How Often Should You Read?<a class="headerlink" href="#how-often-should-you-read" title="Permanent link">¶</a></h2>
+<p><strong>Sampling interval</strong> is the time between consecutive readings.</p>
+<p>Choosing it is the first real design decision in the project, and it is a genuine trade with costs on both sides.</p>
+<p><strong>Sample too fast and you get:</strong></p>
+<ul>
+<li>Enormous files that are slow to move, chart, and back up</li>
+<li>Higher power consumption, which Chapter 16 will show is the binding constraint</li>
+<li>Redundant readings, because Chapter 4 established that sampling faster than a sensor's response time produces the sensor catching up, not new information</li>
+<li>More wear on the SD card, which has a finite number of writes</li>
+</ul>
+<p><strong>Sample too slowly and you get:</strong></p>
+<ul>
+<li>Missed events — a squall line, a gust front, a temperature spike between readings</li>
+<li>Coarse charts that hide real structure</li>
+<li>Data that cannot answer questions you have not thought of yet</li>
+</ul>
+<p>That last point deserves weight. You can always thin dense data later by averaging. You can never recover detail you never captured. When genuinely unsure, sample somewhat faster than you think you need.</p>
+<p>Chapter 4's rule sets the floor: <strong>never sample faster than the sensor can respond.</strong> The BME280's humidity element takes about a second to settle, so ten readings per second yields nine readings of the sensor still moving.</p>
+<p>Working figures for this project:</p>
+<table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>Sensor response</th>
+<th>Sensible interval</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Temperature</td>
+<td>~1 s</td>
+<td>60 s</td>
+<td>Air temperature changes slowly</td>
+</tr>
+<tr>
+<td>Pressure</td>
+<td>Near instant</td>
+<td>60 s</td>
+<td>Weather-relevant change takes minutes</td>
+</tr>
+<tr>
+<td>Humidity</td>
+<td>~1 s</td>
+<td>60 s</td>
+<td>Matches temperature for dew point calculation</td>
+</tr>
+<tr>
+<td>Solar radiation</td>
+<td>Fast</td>
+<td>60 s, or 10 s for cloud detail</td>
+<td>Passing cloud changes it in seconds</td>
+</tr>
+<tr>
+<td>Wind speed</td>
+<td>Seconds</td>
+<td>1–3 s, reported as 60 s averages</td>
+<td>Gusts are brief and matter</td>
+</tr>
+<tr>
+<td>Ground motion</td>
+<td>Sub-millisecond</td>
+<td>100 samples/s</td>
+<td>A P wave lasts fractions of a second</td>
+</tr>
+</tbody>
+</table>
+<p>Notice the range: from once a minute to a hundred times a second, across sensors on one station. Wind and seismic have to be sampled fast and <em>summarized</em> — you record gust and sustained values each minute rather than every raw sample, a technique Chapter 15 covers.</p>
+<p>A one-minute interval is the right default for a first station. It produces 1,440 readings a day and 525,600 a year, which is enough to see everything weather does and small enough to handle comfortably.</p>
+<div class="admonition tip">
+<p class="admonition-title">Align your readings to the clock</p>
+<p>Reading at 14:30:00, 14:31:00, 14:32:00 is much more useful than at 14:30:07, 14:31:09, 14:32:11. Aligned timestamps make comparison to other stations straightforward and make charting cleanly-spaced. In Python, sleep until the next whole minute rather than sleeping a fixed 60 seconds — the fixed sleep slowly drifts, because the reading itself takes time.</p>
+</div>
+<h2 id="time-series">Time Series<a class="headerlink" href="#time-series" title="Permanent link">¶</a></h2>
+<p>A <strong>time series</strong> is a sequence of measurements of the same quantity taken at successive points in time.</p>
+<p>This is the fundamental shape of all your data, and it has properties that ordinary data does not:</p>
+<ul>
+<li><strong>Order matters.</strong> Shuffling the rows destroys the information entirely.</li>
+<li><strong>Spacing matters.</strong> A gap is meaningful — it says something was not recorded.</li>
+<li><strong>Neighbours are related.</strong> The temperature a minute from now will be close to the temperature now, which is what makes an outlier detectable at all in Chapter 15.</li>
+</ul>
+<p>A <strong>data record</strong> is one complete observation — all the readings taken at a single moment, plus the time they were taken.</p>
+<p>A <strong>data field</strong> is one individual value within a record.</p>
+<p>For your station, a record looks like this:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Example value</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>timestamp</td>
+<td>2026-08-25T14:30:00Z</td>
+<td>UTC, ISO 8601</td>
+</tr>
+<tr>
+<td>temperature</td>
+<td>21.4</td>
+<td>°C</td>
+</tr>
+<tr>
+<td>pressure</td>
+<td>1013.2</td>
+<td>hPa</td>
+</tr>
+<tr>
+<td>humidity</td>
+<td>62.3</td>
+<td>% RH</td>
+</tr>
+<tr>
+<td>dew_point</td>
+<td>13.8</td>
+<td>°C</td>
+</tr>
+<tr>
+<td>irradiance</td>
+<td>847</td>
+<td>W/m²</td>
+</tr>
+<tr>
+<td>wind_speed</td>
+<td>3.2</td>
+<td>m/s</td>
+</tr>
+</tbody>
+</table>
+<p>Two design decisions in that table are worth explaining, because both cause arguments.</p>
+<p><strong>Store the timestamp in UTC, in ISO 8601 format.</strong> Chapter 5 gave the reasons in full: local time creates duplicate hours, missing hours, and records that will not sort. This is not negotiable for data you intend to keep.</p>
+<p><strong>Store the computed dew point even though it is derived from temperature and humidity.</strong> It is redundant — anyone could recompute it. Store it anyway. It costs a few bytes, it means the value is available without re-implementing the Magnus formula in whatever tool reads the file later, and it preserves a record of <em>which</em> formula you used. If you improve the calculation next year, you will still know what the old numbers meant.</p>
+<h2 id="csv-files">CSV Files<a class="headerlink" href="#csv-files" title="Permanent link">¶</a></h2>
+<p>A <strong>CSV file</strong> — Comma-Separated Values — is a plain text file where each line is one record and fields within a line are separated by commas.</p>
+<p>It looks exactly like what it is:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>timestamp,temperature_c,pressure_hpa,humidity_pct,dew_point_c
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>2026-08-25T14:30:00Z,21.4,1013.2,62.3,13.8
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>2026-08-25T14:31:00Z,21.5,1013.2,62.1,13.8
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>2026-08-25T14:32:00Z,21.5,1013.1,61.9,13.7
+</span></code></pre></div>
+<p>CSV is the right format for this project, and the reasons are worth stating because more sophisticated options exist and none of them is better here:</p>
+<ul>
+<li><strong>Anything can read it.</strong> Spreadsheets, Python, R, a text editor, a phone.</li>
+<li><strong>It is human-readable.</strong> You can look at it and see what is wrong.</li>
+<li><strong>Appending is trivial.</strong> Add a line to the end. No rewriting, no index to update.</li>
+<li><strong>It is durable.</strong> A corrupted CSV loses the damaged lines. A corrupted binary file may lose everything.</li>
+<li><strong>It will still open in thirty years.</strong> That is not true of most proprietary formats, and Chapter 1 said monitoring is a long-term activity.</li>
+</ul>
+<p>The <strong>header row</strong> is the first line, naming each field.</p>
+<p>It is not optional, and this is the place where the Chapter 2 units lesson becomes a habit:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>timestamp,temperature_c,pressure_hpa,humidity_pct,dew_point_c
+</span></code></pre></div>
+<p>Every field name carries its unit. Compare that to:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>time,temp,press,hum,dew
+</span></code></pre></div>
+<p>Both files contain identical numbers. The first can be understood by a stranger in five years. The second requires someone to remember whether the temperature was Celsius or Fahrenheit, and whether pressure was hectopascals or pascals — and if the answer is wrong by a factor of 100, or off by 32, nobody may notice.</p>
+<div class="admonition danger">
+<p class="admonition-title">The header row is where data becomes shareable</p>
+<p>Of everything in this chapter, the header row costs the least effort and prevents the most damage. Chapter 2 opened with a $327 million spacecraft destroyed by a unit mismatch between two teams. Your station will hand its data to future-you, to a teacher, and possibly to a citizen science network. Every one of those is a different team.</p>
+<p>Write the units into the column names. It takes ten seconds, once.</p>
+</div>
+<p>Here is the complete logging code. Before it: <code>csv.writer</code> handles the comma formatting and escaping correctly. Opening with mode <code>"a"</code> means append, so existing data is never overwritten. <code>newline=""</code> prevents blank lines appearing between rows on some systems. The <code>os.path.exists</code> check writes the header only when the file is new. <code>flush()</code> forces the data to disk immediately rather than waiting for the buffer to fill.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="ch">#!/usr/bin/env python3</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timezone</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">DATA_FILE</span> <span class="o">=</span> <span class="s2">"readings.csv"</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="n">HEADER</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"timestamp"</span><span class="p">,</span> <span class="s2">"temperature_c"</span><span class="p">,</span> <span class="s2">"pressure_hpa"</span><span class="p">,</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>          <span class="s2">"humidity_pct"</span><span class="p">,</span> <span class="s2">"dew_point_c"</span><span class="p">]</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="k">def</span><span class="w"> </span><span class="nf">write_reading</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="sd">"""Append one record, writing the header if the file is new."""</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    <span class="n">is_new</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">DATA_FILE</span><span class="p">)</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">DATA_FILE</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>        <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>        <span class="k">if</span> <span class="n">is_new</span><span class="p">:</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>            <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">HEADER</span><span class="p">)</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>        <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>        <span class="n">f</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>        <span class="n">os</span><span class="o">.</span><span class="n">fsync</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">fileno</span><span class="p">())</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="k">def</span><span class="w"> </span><span class="nf">utc_timestamp</span><span class="p">():</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">    </span><span class="sd">"""Return the current time as an ISO 8601 UTC string."""</span>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>    <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"%Y-%m-</span><span class="si">%d</span><span class="s2">T%H:%M:%SZ"</span><span class="p">)</span>
+</span></code></pre></div>
+<p>That <code>os.fsync</code> line is worth understanding. <code>flush()</code> pushes data out of Python's buffer to the operating system; <code>fsync()</code> tells the operating system to write it to the physical card. Without both, a power cut can lose readings that your program believed were saved. For a station running on battery in a field, that is not a theoretical concern.</p>
+<h2 id="storage-on-a-small-computer">Storage on a Small Computer<a class="headerlink" href="#storage-on-a-small-computer" title="Permanent link">¶</a></h2>
+<p><strong>Data storage</strong> is where and how the data physically lives.</p>
+<p>Your station stores data on a microSD card, which has two properties you must design around.</p>
+<p><strong>Cards have limited write endurance.</strong> Flash memory cells wear out after a finite number of writes. A cheap card in a device writing constantly can fail within a year. Mitigations:</p>
+<ul>
+<li>Buy a card rated for endurance — cards marketed for dashcams and security cameras are built for continuous writing</li>
+<li>Do not sample faster than you need</li>
+<li>Batch small writes where practical</li>
+</ul>
+<p><strong>Cards fail without warning, and often completely.</strong> Unlike a hard drive, which frequently gives symptoms first, an SD card commonly works perfectly and then is simply unreadable.</p>
+<p>The good news is that the data itself is small. One reading with five fields is about 60 bytes:</p>
+<table>
+<thead>
+<tr>
+<th>Interval</th>
+<th>Per day</th>
+<th>Per year</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 second</td>
+<td>5.2 MB</td>
+<td>1.9 GB</td>
+</tr>
+<tr>
+<td>10 seconds</td>
+<td>518 KB</td>
+<td>189 MB</td>
+</tr>
+<tr>
+<td>1 minute</td>
+<td>86 KB</td>
+<td>32 MB</td>
+</tr>
+<tr>
+<td>5 minutes</td>
+<td>17 KB</td>
+<td>6 MB</td>
+</tr>
+</tbody>
+</table>
+<p>At one-minute sampling, a year of data is 32 megabytes. A 16 GB card could hold five centuries of it. <strong>Storage capacity is not your constraint</strong> — card reliability is.</p>
+<h2 id="rotation-and-backup">Rotation and Backup<a class="headerlink" href="#rotation-and-backup" title="Permanent link">¶</a></h2>
+<p><strong>File rotation</strong> is the practice of periodically closing the current data file and starting a new one, usually named by date.</p>
+<p>Writing everything into one enormous file for years creates several problems: opening it becomes slow, a single corruption can affect the whole thing, and copying it off the station gets progressively more expensive.</p>
+<p>Rotating daily gives you files like this:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>readings-2026-08-23.csv
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>readings-2026-08-24.csv
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>readings-2026-08-25.csv
+</span></code></pre></div>
+<p>The benefits are immediate. Each file is small and quick to open. Corruption is contained to one day. Copying only the new files is trivial. And because the names use ISO 8601 dates, they sort chronologically as plain text — the same property Chapter 5 identified for timestamps.</p>
+<p>The code change is small. Before it: <code>strftime("%Y-%m-%d")</code> formats the current UTC date, and building the filename from it means the file changes automatically at midnight UTC with no scheduling required.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">current_data_file</span><span class="p">():</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="sd">"""Return today's data file name, rotating at UTC midnight."""</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"%Y-%m-</span><span class="si">%d</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="k">return</span> <span class="sa">f</span><span class="s2">"readings-</span><span class="si">{</span><span class="n">today</span><span class="si">}</span><span class="s2">.csv"</span>
+</span></code></pre></div>
+<p><strong>Data backup</strong> is keeping copies of your data somewhere other than the station.</p>
+<p>The station will fail. Cards die, power supplies fail, water gets in, and equipment left outdoors sometimes disappears. The question is not whether you will lose the station but whether you will lose the data with it.</p>
+<p>The standard guidance is the 3-2-1 rule:</p>
+<ul>
+<li><strong>3</strong> copies of the data</li>
+<li>On <strong>2</strong> different kinds of media</li>
+<li>With <strong>1</strong> copy in a different physical location</li>
+</ul>
+<p>For a school station that might be: the SD card in the station, a copy on a school computer, and a copy in cloud storage or a GitHub repository. Chapter 16 covers moving data off the station automatically over the telemetry link.</p>
+<div class="admonition warning">
+<p class="admonition-title">A backup you have never restored is not a backup</p>
+<p>The failure that hurts is discovering, at the moment you need it, that the backup was copying an empty directory, or copying the file before the day's data was written, or silently failing for two months.</p>
+<p>Test it. Once a month, take a backup copy, open it, and confirm the last timestamp is recent and the row count is what you expect. This takes two minutes and is the difference between having a backup and believing you have one.</p>
+</div>
+<h4 id="diagram-sampling-interval-trade-off-bench">Diagram: Sampling Interval Trade-off Bench<a class="headerlink" href="#diagram-sampling-interval-trade-off-bench" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/sampling-interval-bench/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Sampling Interval Trade-off Bench</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> sampling-interval-bench<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Evaluate (L5)
+Bloom Verb: justify</p>
+<p>Learning objective: The learner justifies a sampling interval for a stated monitoring purpose, weighing captured detail against file size, power consumption, and SD card wear.</p>
+<p>Purpose: Sampling interval is the first genuine engineering trade in the project, and students default to either "as fast as possible" or "whatever the tutorial said." Showing the same real event captured at five intervals, alongside the cost of each, converts a default into a defended decision.</p>
+<p>Canvas layout:
+- Upper panel: the true continuous signal drawn as a smooth curve, with sample points marked
+- Middle panel: what the logged data actually contains at the selected interval, drawn as points joined by straight lines — the reconstruction a chart would show
+- Lower panel: a cost dashboard
+- Right or below (responsive): a verdict panel
+- Bottom: controls
+- Responsive to window resize; panels stack and share a fixed x-axis</p>
+<p>Data Visibility Requirements:
+  Stage 1: Show the true signal with its key features annotated, e.g. "gust front, 40 seconds", "pressure drop begins"
+  Stage 2: Overlay the sample instants at the chosen interval
+  Stage 3: Show the reconstructed series that a person reading the CSV would see
+  Stage 4: Mark any annotated feature that was entirely missed with a red flag and the text "MISSED — no sample fell inside this event"
+  Stage 5: Show the cost dashboard: readings per day, bytes per day, megabytes per year, estimated SD card writes per year, and estimated daily power cost in milliamp-hours</p>
+<p>Signal scenarios, each with events of different durations:
+1. <strong>A calm day</strong> — smooth diurnal temperature curve. Every interval captures it adequately. Verdict: "One minute is plenty. Faster sampling buys nothing here."
+2. <strong>A cold front passing</strong> — a sharp 4 °C drop and a wind shift over about 8 minutes. One-minute sampling captures it; five-minute sampling blurs it; fifteen-minute sampling reduces it to a single step.
+3. <strong>A gust front</strong> — a 30-second wind spike. Only sub-10-second sampling catches it at all. Verdict: "This is why wind is sampled fast and summarized, rather than sampled once a minute."
+4. <strong>A seismic P wave</strong> — a sub-second signal. Every interval down to one second misses it entirely, which motivates the 100 samples per second figure in the chapter table.
+5. <strong>A passing cloud</strong> — irradiance dropping from 900 to 200 W/m² and back over 90 seconds.</p>
+<p>Interactive controls:
+- Interval selector: 0.01 s, 1 s, 10 s, 60 s, 300 s, 900 s
+- Scenario selector
+- A "purpose" selector that changes the verdict criteria: "daily weather summary", "detect frontal passages", "wind gust analysis", "earthquake detection", "solar panel sizing". The verdict panel must state whether the chosen interval is adequate FOR THAT PURPOSE, so the learner sees that there is no single right answer.
+- "Thin the data" button that averages a fast series down to a slower one, with the caption "You can always thin dense data later. You can never recover detail you never captured."</p>
+<p>Instructional Rationale: The objective is Evaluate/justify, which requires a decision defended against stated criteria. Making the purpose an explicit selector is the design choice that carries this: the same 60-second interval is excellent for one purpose and useless for another, and the learner must see that pairing rather than seek a universal answer. The thin-the-data demonstration establishes the asymmetry that should bias the decision when uncertain.</p>
+<p>Implementation: p5.js. Define each scenario as a continuous mathematical function of time so the true signal is exactly computable at any sample instant. Compute costs from bytes per row and a documented per-read current draw.</p>
+</details>
+<h2 id="when-a-file-is-not-enough">When a File Is Not Enough<a class="headerlink" href="#when-a-file-is-not-enough" title="Permanent link">¶</a></h2>
+<p>A <strong>database</strong> is a structured system for storing, indexing, and querying data efficiently.</p>
+<p>CSV files are excellent for appending and terrible for searching. Finding every reading where pressure fell more than 3 hPa in an hour means reading the entire file from the beginning. With one day of data that is instant. With five years it is not.</p>
+<p>A database indexes the data so that questions can be answered without scanning everything.</p>
+<p>For this project, SQLite is the reasonable option. It is a full database contained in a single file, it needs no server running, and Python includes it — no installation at all. Compared to a plain CSV it offers:</p>
+<ul>
+<li>Fast queries over date ranges and value conditions</li>
+<li>Multiple programs reading safely at the same time</li>
+<li>Enforced structure, so a malformed row is rejected rather than silently stored</li>
+</ul>
+<p>The costs are real too: the file is binary rather than human-readable, it will not open in a spreadsheet, and a corrupted database can be harder to salvage than a corrupted text file.</p>
+<div class="admonition tip">
+<p class="admonition-title">Start with CSV. Add a database if you need one.</p>
+<p>A great many student projects have stalled by building a database first. Start with CSV files rotated daily — they are simple, transparent, and sufficient for well over a year of one-minute readings.</p>
+<p>Move to a database when you have a specific problem it solves: queries taking too long, several programs wanting the data at once, or a web dashboard needing fast lookups. Chapter 15's analysis works fine on CSV.</p>
+<p>A useful middle path is to keep logging CSV as the permanent record and <em>import</em> it into SQLite for analysis. That way the durable, readable, appendable file remains the source of truth and the database is disposable.</p>
+</div>
+<h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">¶</a></h2>
+<p><strong>Metadata</strong> is data about the data: what was measured, where, when, by what instrument, and under what conditions.</p>
+<p>Here is a test. Hand somebody this file and nothing else:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>timestamp,temperature_c,pressure_hpa,humidity_pct
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>2026-08-25T14:30:00Z,21.4,1013.2,62.3
+</span></code></pre></div>
+<p>They can see that at that instant something was 21.4 °C. They cannot answer:</p>
+<ul>
+<li><strong>Where</strong> was this measured? Which city, which yard, which side of the building?</li>
+<li><strong>How high</strong> is the station? Without elevation, Chapter 7 showed the pressure cannot be interpreted at all.</li>
+<li><strong>What sensor</strong> was it? Accuracy of ±1 °C or ±0.1 °C changes what conclusions are supportable.</li>
+<li><strong>Was it shielded?</strong> Chapter 6 showed an unshielded sensor reads its own temperature, not the air's.</li>
+<li><strong>Is 1013.2 the station reading or corrected to sea level?</strong> These differ by tens of hectopascals.</li>
+<li><strong>Has it been calibrated?</strong> When, and against what?</li>
+</ul>
+<p>Without answers, the data is a curiosity. With them, it is a measurement someone else can use.</p>
+<p>Store metadata in a separate file alongside the data, in JSON — a plain-text format that is both human-readable and machine-parseable:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">"station_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"school-roof-01"</span><span class="p">,</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nt">"station_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lincoln Middle School Rooftop"</span><span class="p">,</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="nt">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">37.0902</span><span class="p">,</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span><span class="nt">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-122.0644</span><span class="p">,</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">  </span><span class="nt">"elevation_m"</span><span class="p">:</span><span class="w"> </span><span class="mi">152</span><span class="p">,</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">  </span><span class="nt">"datum"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WGS 84"</span><span class="p">,</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">  </span><span class="nt">"timezone_note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All timestamps are UTC (ISO 8601)"</span><span class="p">,</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">  </span><span class="nt">"sensor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="nt">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BME280"</span><span class="p">,</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="nt">"manufacturer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bosch Sensortec"</span><span class="p">,</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">    </span><span class="nt">"interface"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I2C"</span><span class="p">,</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">    </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x76"</span><span class="p">,</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">    </span><span class="nt">"temperature_accuracy_c"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="nt">"pressure_accuracy_hpa"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">    </span><span class="nt">"humidity_accuracy_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">  </span><span class="nt">"exposure"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">    </span><span class="nt">"height_above_ground_m"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="p">,</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">    </span><span class="nt">"radiation_shield"</span><span class="p">:</span><span class="w"> </span><span class="s2">"louvered plastic, naturally ventilated"</span><span class="p">,</span>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">    </span><span class="nt">"surface_beneath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"grass"</span><span class="p">,</span>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="w">    </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Building is 8 m to the north; no afternoon shading."</span>
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="w">  </span><span class="nt">"processing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="w">    </span><span class="nt">"pressure_reported"</span><span class="p">:</span><span class="w"> </span><span class="s2">"station pressure, uncorrected"</span><span class="p">,</span>
+</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="w">    </span><span class="nt">"dew_point_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Magnus formula, a=17.27 b=237.7"</span><span class="p">,</span>
+</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="w">    </span><span class="nt">"sampling_interval_s"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span>
+</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a><span class="w">    </span><span class="nt">"averaging"</span><span class="p">:</span><span class="w"> </span><span class="s2">"none"</span>
+</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="w">  </span><span class="nt">"calibration"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a><span class="w">    </span><span class="nt">"last_checked"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-08-20"</span><span class="p">,</span>
+</span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a><span class="w">    </span><span class="nt">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"compared against aspirated psychrometer"</span><span class="p">,</span>
+</span><span id="__span-7-33"><a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a><span class="w">    </span><span class="nt">"temperature_offset_c"</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.3</span>
+</span><span id="__span-7-34"><a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-7-35"><a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a><span class="w">  </span><span class="nt">"operator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Grade 8 Science, Lincoln Middle School"</span><span class="p">,</span>
+</span><span id="__span-7-36"><a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a><span class="w">  </span><span class="nt">"license"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CC BY 4.0"</span>
+</span><span id="__span-7-37"><a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>That file is perhaps three minutes of work and it is what makes the difference between data and a pile of numbers.</p>
+<p>Two entries in it deserve highlighting. <code>"pressure_reported": "station pressure, uncorrected"</code> prevents someone comparing your 995 hPa against a neighbour's sea-level-corrected 1013 hPa and concluding a storm is arriving — exactly the error Chapter 7's check-yourself question described. And <code>"temperature_offset_c": -0.3</code> records a known calibration correction, so a future reader knows whether it has already been applied.</p>
+<div class="admonition note">
+<p class="admonition-title">Write the metadata on day one</p>
+<p>Not after the first month, and not when you write up the project. Details you are certain you will remember — which sensor, which address, what the shield was made of, how high it was mounted — become genuinely irretrievable within weeks. Record them while the station is in front of you.</p>
+<p>A good habit: photograph the installation and store the photo with the metadata file.</p>
+</div>
+<h4 id="diagram-anatomy-of-a-good-data-file">Diagram: Anatomy of a Good Data File<a class="headerlink" href="#diagram-anatomy-of-a-good-data-file" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/anatomy-of-a-data-file/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Anatomy of a Good Data File</summary>
+<p>Type: infographic
+<strong>sim-id:</strong> anatomy-of-a-data-file<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Evaluate (L5)
+Bloom Verb: critique</p>
+<p>Learning objective: The learner critiques real data files against a usability standard, identifies which specific omission makes a given file uninterpretable, and constructs a header row and metadata record that would fix it.</p>
+<p>Purpose: Students believe their own data is self-explanatory because they remember the context. The only way to break that belief is to hand them somebody else's badly-documented file and ask them to answer a question they cannot. This element is that experience, repeated across several failure modes.</p>
+<p>Layout: A file-viewer panel showing a CSV file's first ten lines, with an adjacent metadata panel that may be present or empty. Below, a question panel poses a specific analysis task. Right or below (responsive), a diagnostic checklist. Fully responsive to window resize.</p>
+<p>Six files to critique, each broken in exactly one way so the diagnosis is unambiguous:
+1. <strong>No header row</strong> — bare numbers. Question: "What is the third column?" Unanswerable.
+2. <strong>Header without units</strong> — <code>time,temp,press,hum</code>. Question: "Is this station experiencing a storm?" The pressure reads 995 — but is that hPa at the station, hPa at sea level, or something else? Unanswerable without metadata.
+3. <strong>Local timestamps across a DST transition</strong> — two rows stamped 01:30. Question: "How much did the temperature change between these two readings?" Unanswerable; this reprises the Chapter 5 element.
+4. <strong>No metadata file</strong> — good header, good units, no station information. Question: "Can this be compared to the station 5 km away?" Not without elevation.
+5. <strong>US-format dates</strong> — <code>8/5/26</code>. Question: "Sort these chronologically." Ambiguous month and day, and alphabetic sorting scrambles them.
+6. <strong>A complete, correct file</strong> — good header with units, ISO 8601 UTC, full metadata. Every question answerable. This one must come last, so the learner experiences the contrast.</p>
+<p>Interaction:
+- The learner reads the file and attempts the posed question, selecting from multiple-choice answers that include "cannot be determined from this file"
+- Selecting "cannot be determined" correctly reveals a diagnostic explaining exactly which piece of information is missing
+- A repair mode then opens: the learner edits the header row and fills in metadata fields, and the sim re-poses the question and shows whether it is now answerable
+- A running checklist of the seven metadata questions from the chapter, ticked off as the learner's repaired file satisfies each</p>
+<p>Additional feature — "Six months later": a toggle that presents the learner's OWN repaired file with all context stripped away, framed as "you are opening this next spring." This tests whether the file survives without memory, which is the actual standard.</p>
+<p>Instructional Rationale: The objective is Evaluate/critique, and critique requires a standard plus cases that violate it in identifiable ways. Isolating one fault per file makes each diagnosis clean. The repair mode matters because recognizing a bad file is only half the skill; producing a good one is the transferable outcome. The "six months later" framing is included because self-documentation is judged against a reader who has no context, and students cannot simulate that state for themselves.</p>
+<p>Implementation: p5.js. Store each file as literal text plus a metadata object that may be null, along with the posed question, answer options, and diagnostic text. Render the repair mode as editable text fields validated against required patterns.</p>
+</details>
+<h2 id="putting-it-together">Putting It Together<a class="headerlink" href="#putting-it-together" title="Permanent link">¶</a></h2>
+<p>Here is the complete logger, assembling everything from Chapters 12, 13, and 14. Before reading it: it opens the sensor over I2C, then loops forever. Each pass computes the aligned next-minute time, reads the sensor inside a <code>try</code> block, computes dew point, appends a row to today's rotated file, and sleeps until the next whole minute. Failures are logged and the loop continues.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="ch">#!/usr/bin/env python3</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="sd">"""Environmental monitoring station logger."""</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timezone</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="kn">import</span><span class="w"> </span><span class="nn">board</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="kn">import</span><span class="w"> </span><span class="nn">busio</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="kn">from</span><span class="w"> </span><span class="nn">adafruit_bme280</span><span class="w"> </span><span class="kn">import</span> <span class="n">basic</span> <span class="k">as</span> <span class="n">adafruit_bme280</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="n">INTERVAL_S</span> <span class="o">=</span> <span class="mi">60</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="n">HEADER</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"timestamp"</span><span class="p">,</span> <span class="s2">"temperature_c"</span><span class="p">,</span> <span class="s2">"pressure_hpa"</span><span class="p">,</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>          <span class="s2">"humidity_pct"</span><span class="p">,</span> <span class="s2">"dew_point_c"</span><span class="p">]</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="k">def</span><span class="w"> </span><span class="nf">utc_now</span><span class="p">():</span>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>    <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="k">def</span><span class="w"> </span><span class="nf">current_data_file</span><span class="p">():</span>
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>    <span class="k">return</span> <span class="sa">f</span><span class="s2">"readings-</span><span class="si">{</span><span class="n">utc_now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">'%Y-%m-</span><span class="si">%d</span><span class="s1">'</span><span class="p">)</span><span class="si">}</span><span class="s2">.csv"</span>
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="k">def</span><span class="w"> </span><span class="nf">log_event</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"station.log"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a>        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">utc_now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">'%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%SZ'</span><span class="p">)</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a>
+</span><span id="__span-8-28"><a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a><span class="k">def</span><span class="w"> </span><span class="nf">calculate_dew_point</span><span class="p">(</span><span class="n">temperature_c</span><span class="p">,</span> <span class="n">relative_humidity</span><span class="p">):</span>
+</span><span id="__span-8-29"><a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">17.27</span><span class="p">,</span> <span class="mf">237.7</span>
+</span><span id="__span-8-30"><a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a>    <span class="n">gamma</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">temperature_c</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="n">temperature_c</span><span class="p">)</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">relative_humidity</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">)</span>
+</span><span id="__span-8-31"><a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a>    <span class="k">return</span> <span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">gamma</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">gamma</span><span class="p">)</span>
+</span><span id="__span-8-32"><a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a>
+</span><span id="__span-8-33"><a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a><span class="k">def</span><span class="w"> </span><span class="nf">write_reading</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+</span><span id="__span-8-34"><a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a>    <span class="n">path</span> <span class="o">=</span> <span class="n">current_data_file</span><span class="p">()</span>
+</span><span id="__span-8-35"><a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a>    <span class="n">is_new</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</span><span id="__span-8-36"><a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="__span-8-37"><a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a>        <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span id="__span-8-38"><a id="__codelineno-8-38" name="__codelineno-8-38" href="#__codelineno-8-38"></a>        <span class="k">if</span> <span class="n">is_new</span><span class="p">:</span>
+</span><span id="__span-8-39"><a id="__codelineno-8-39" name="__codelineno-8-39" href="#__codelineno-8-39"></a>            <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">HEADER</span><span class="p">)</span>
+</span><span id="__span-8-40"><a id="__codelineno-8-40" name="__codelineno-8-40" href="#__codelineno-8-40"></a>        <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</span><span id="__span-8-41"><a id="__codelineno-8-41" name="__codelineno-8-41" href="#__codelineno-8-41"></a>        <span class="n">f</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+</span><span id="__span-8-42"><a id="__codelineno-8-42" name="__codelineno-8-42" href="#__codelineno-8-42"></a>        <span class="n">os</span><span class="o">.</span><span class="n">fsync</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">fileno</span><span class="p">())</span>
+</span><span id="__span-8-43"><a id="__codelineno-8-43" name="__codelineno-8-43" href="#__codelineno-8-43"></a>
+</span><span id="__span-8-44"><a id="__codelineno-8-44" name="__codelineno-8-44" href="#__codelineno-8-44"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+</span><span id="__span-8-45"><a id="__codelineno-8-45" name="__codelineno-8-45" href="#__codelineno-8-45"></a>    <span class="n">i2c</span> <span class="o">=</span> <span class="n">busio</span><span class="o">.</span><span class="n">I2C</span><span class="p">(</span><span class="n">board</span><span class="o">.</span><span class="n">SCL</span><span class="p">,</span> <span class="n">board</span><span class="o">.</span><span class="n">SDA</span><span class="p">)</span>
+</span><span id="__span-8-46"><a id="__codelineno-8-46" name="__codelineno-8-46" href="#__codelineno-8-46"></a>    <span class="n">sensor</span> <span class="o">=</span> <span class="n">adafruit_bme280</span><span class="o">.</span><span class="n">Adafruit_BME280_I2C</span><span class="p">(</span><span class="n">i2c</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="mh">0x76</span><span class="p">)</span>
+</span><span id="__span-8-47"><a id="__codelineno-8-47" name="__codelineno-8-47" href="#__codelineno-8-47"></a>    <span class="n">log_event</span><span class="p">(</span><span class="s2">"Station started"</span><span class="p">)</span>
+</span><span id="__span-8-48"><a id="__codelineno-8-48" name="__codelineno-8-48" href="#__codelineno-8-48"></a>
+</span><span id="__span-8-49"><a id="__codelineno-8-49" name="__codelineno-8-49" href="#__codelineno-8-49"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="__span-8-50"><a id="__codelineno-8-50" name="__codelineno-8-50" href="#__codelineno-8-50"></a>        <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-8-51"><a id="__codelineno-8-51" name="__codelineno-8-51" href="#__codelineno-8-51"></a>            <span class="n">t</span> <span class="o">=</span> <span class="n">sensor</span><span class="o">.</span><span class="n">temperature</span>
+</span><span id="__span-8-52"><a id="__codelineno-8-52" name="__codelineno-8-52" href="#__codelineno-8-52"></a>            <span class="n">p</span> <span class="o">=</span> <span class="n">sensor</span><span class="o">.</span><span class="n">pressure</span>
+</span><span id="__span-8-53"><a id="__codelineno-8-53" name="__codelineno-8-53" href="#__codelineno-8-53"></a>            <span class="n">h</span> <span class="o">=</span> <span class="n">sensor</span><span class="o">.</span><span class="n">humidity</span>
+</span><span id="__span-8-54"><a id="__codelineno-8-54" name="__codelineno-8-54" href="#__codelineno-8-54"></a>            <span class="n">dp</span> <span class="o">=</span> <span class="n">calculate_dew_point</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+</span><span id="__span-8-55"><a id="__codelineno-8-55" name="__codelineno-8-55" href="#__codelineno-8-55"></a>            <span class="n">stamp</span> <span class="o">=</span> <span class="n">utc_now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"%Y-%m-</span><span class="si">%d</span><span class="s2">T%H:%M:%SZ"</span><span class="p">)</span>
+</span><span id="__span-8-56"><a id="__codelineno-8-56" name="__codelineno-8-56" href="#__codelineno-8-56"></a>            <span class="n">write_reading</span><span class="p">([</span><span class="n">stamp</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+</span><span id="__span-8-57"><a id="__codelineno-8-57" name="__codelineno-8-57" href="#__codelineno-8-57"></a>                           <span class="nb">round</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">dp</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>
+</span><span id="__span-8-58"><a id="__codelineno-8-58" name="__codelineno-8-58" href="#__codelineno-8-58"></a>        <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span><span id="__span-8-59"><a id="__codelineno-8-59" name="__codelineno-8-59" href="#__codelineno-8-59"></a>            <span class="n">log_event</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Sensor read failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-8-60"><a id="__codelineno-8-60" name="__codelineno-8-60" href="#__codelineno-8-60"></a>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span><span id="__span-8-61"><a id="__codelineno-8-61" name="__codelineno-8-61" href="#__codelineno-8-61"></a>            <span class="n">log_event</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Unexpected error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-8-62"><a id="__codelineno-8-62" name="__codelineno-8-62" href="#__codelineno-8-62"></a>
+</span><span id="__span-8-63"><a id="__codelineno-8-63" name="__codelineno-8-63" href="#__codelineno-8-63"></a>        <span class="c1"># Sleep until the next whole minute rather than a fixed 60 s,</span>
+</span><span id="__span-8-64"><a id="__codelineno-8-64" name="__codelineno-8-64" href="#__codelineno-8-64"></a>        <span class="c1"># so timestamps stay aligned and do not drift.</span>
+</span><span id="__span-8-65"><a id="__codelineno-8-65" name="__codelineno-8-65" href="#__codelineno-8-65"></a>        <span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</span><span id="__span-8-66"><a id="__codelineno-8-66" name="__codelineno-8-66" href="#__codelineno-8-66"></a>        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">INTERVAL_S</span> <span class="o">-</span> <span class="p">(</span><span class="n">now</span> <span class="o">%</span> <span class="n">INTERVAL_S</span><span class="p">))</span>
+</span><span id="__span-8-67"><a id="__codelineno-8-67" name="__codelineno-8-67" href="#__codelineno-8-67"></a>
+</span><span id="__span-8-68"><a id="__codelineno-8-68" name="__codelineno-8-68" href="#__codelineno-8-68"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+</span><span id="__span-8-69"><a id="__codelineno-8-69" name="__codelineno-8-69" href="#__codelineno-8-69"></a>    <span class="n">main</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Note the <code>round(t, 2)</code> calls. Chapter 2 warned against reporting more digits than the instrument supports, and the BME280's ±1 °C accuracy does not justify six decimal places. Two decimals is generous and keeps the file readable.</p>
+<p>Combine this with the systemd service from Chapter 12 and you have a station that starts at boot, survives crashes, rotates its files daily, logs its own failures, and keeps timestamps aligned to the clock.</p>
+<h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Data logging</strong> records measurements automatically over time. A <strong>sampling interval</strong> trades detail against file size, power, and card wear — you can thin dense data later, never recover detail you never captured.</li>
+<li>Never sample faster than the sensor responds. One minute is a good default; wind and seismic need fast sampling with summarization.</li>
+<li>A <strong>time series</strong> has order, spacing, and related neighbours. A <strong>data record</strong> is one observation; a <strong>data field</strong> is one value within it.</li>
+<li>A <strong>CSV file</strong> is readable by everything, human-inspectable, trivially appendable, and durable. The <strong>header row</strong> must carry units in every column name.</li>
+<li><strong>Data storage</strong> on SD cards is limited by write endurance and sudden failure, not capacity. <strong>File rotation</strong> by ISO date keeps files small and contains corruption. <strong>Data backup</strong> follows 3-2-1, and an untested backup is not a backup.</li>
+<li>A <strong>database</strong> buys fast queries and concurrent access at the cost of readability. Start with CSV; add SQLite when a specific problem demands it.</li>
+<li><strong>Metadata</strong> records where, how high, with what sensor, under what exposure, and with what processing. Without it, data is a pile of numbers. Write it on day one.</li>
+</ul>
+<h2 id="check-yourself">Check Yourself<a class="headerlink" href="#check-yourself" title="Permanent link">¶</a></h2>
+<details class="question">
+<summary>Why does a header row of <code>time,temp,press,hum</code> fail, when the numbers are correct? Click to check.</summary>
+<p>Because the units are missing. A temperature of 21.4 could be Celsius or Fahrenheit; a pressure of 995 could be station pressure or sea-level-corrected, hectopascals or something else. Anyone reading the file — including you next year — has to guess, and a wrong guess is silent. Naming the columns <code>temperature_c</code>, <code>pressure_hpa</code>, <code>humidity_pct</code> costs ten seconds and removes the ambiguity permanently.</p>
+</details>
+<details class="question">
+<summary>Your station samples every second. A year of data is 1.9 GB and your card is 16 GB. Is one-second sampling fine? Click to check.</summary>
+<p>Capacity is not the issue, but two other things are. First, <strong>write endurance</strong>: sampling every second means 31.5 million writes a year, which will wear an ordinary SD card out. Second, <strong>information</strong>: the BME280's humidity element takes about a second to settle, so most of those readings are the sensor catching up rather than new measurements. Unless you specifically need sub-minute detail, one-second sampling costs card life and power for no additional information.</p>
+</details>
+<details class="question">
+<summary>You find a data file from a station with no metadata file. Pressure reads 995 hPa. Is there a storm? Click to check.</summary>
+<p>You cannot tell, and that is the lesson. Without the station's elevation you cannot know whether 995 hPa is a genuinely low sea-level pressure or an ordinary reading from a station 150 m up. Chapter 7 showed that elevation shifts pressure by about 12 hPa per 100 m, which is larger than most weather signals. You also do not know whether the value is already sea-level corrected. The metadata file answers both in one line each.</p>
+</details>
+<details class="question">
+<summary>Why sleep until the next whole minute instead of sleeping exactly 60 seconds? Click to check.</summary>
+<p>Because the reading itself takes time. A fixed 60-second sleep means each cycle actually takes 60 seconds plus however long the sensor read and the file write took, so the timestamps drift steadily later. After a day the readings are no longer near whole minutes, which makes comparison with other stations awkward and charts unevenly spaced. Sleeping <code>60 - (now % 60)</code> re-aligns to the clock every cycle, so drift never accumulates.</p>
+</details>
+<hr>
+<h2 id="what-is-next">What Is Next<a class="headerlink" href="#what-is-next" title="Permanent link">¶</a></h2>
+<p>Your station now records. What it does not yet do is tell you anything.</p>
+<p>Chapter 15 is about reading change over time, which is a different skill from reading an instrument. It covers line charts and scatter plots, honest axis labeling, moving averages, trend, and correlation between two channels. That machinery unlocks six measurements that could not be defined earlier — pressure tendency and barometric forecasting, insolation, wind gust and sustained wind speed, and the Saffir-Simpson scale. It closes with data quality: finding outliers, missing data, and sensor drift, and deciding which suspicious readings are instrument faults and which are real events.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../13-python-programming/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 13. Programming the Station in Python">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                13. Programming the Station in Python
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../15-charting-and-analysis/" class="md-footer__link md-footer__link--next" aria-label="Next: 15. Charting and Interpreting Your Data">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                15. Charting and Interpreting Your Data
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Hank R. Licensed under <a href="licensing/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

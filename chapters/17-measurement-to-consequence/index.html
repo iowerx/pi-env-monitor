@@ -1,0 +1,2147 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Tracing each measurement into the decisions it drives - forecasting, agriculture, energy, aviation, building codes, heat islands, air quality, wildfire, flood and tsunami warning - and sharing your own data.">
+      
+      
+        <meta name="author" content="Hank R.">
+      
+      
+        <link rel="canonical" href="https://iowerx.github.io/pi-env-monitor/chapters/17-measurement-to-consequence/">
+      
+      
+        <link rel="prev" href="../16-building-for-outdoors/">
+      
+      
+        <link rel="next" href="../../learning-graph/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>From Measurement to Consequence - Raspberry Pi Environmental Monitoring: Grades 6–12</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website">
+<meta property="og:title" content="From Measurement to Consequence - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="og:description" content="Tracing each measurement into the decisions it drives - forecasting, agriculture, energy, aviation, building codes, heat islands, air quality, wildfire, flood and tsunami warning - and sharing your own data.">
+<meta property="og:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/17-measurement-to-consequence/index.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://iowerx.github.io/pi-env-monitor/chapters/17-measurement-to-consequence/">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="From Measurement to Consequence - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="twitter:description" content="Tracing each measurement into the decisions it drives - forecasting, agriculture, energy, aviation, building codes, heat islands, air quality, wildfire, flood and tsunami warning - and sharing your own data.">
+<meta property="twitter:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/17-measurement-to-consequence/index.png">
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#from-measurement-to-consequence" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Raspberry Pi Environmental Monitoring: Grades 6–12
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              From Measurement to Consequence
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Raspberry Pi Environmental Monitoring: Grades 6–12
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components Used
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-why-we-measure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Why We Measure the Natural Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-language-of-measurement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. The Language of Measurement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-electricity-and-computer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Electricity and the Single-Board Computer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-how-sensors-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. How Sensors Turn the World Into Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-time-and-place/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Time and Place - Recording Where and When
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-temperature/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Temperature - From the Thermoscope to the Silicon Chip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-barometric-pressure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Barometric Pressure - The Weight of the Atmosphere
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-humidity-and-dew-point/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Humidity and Dew Point - The Water Hidden in the Air
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-solar-radiation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Solar Radiation - The Energy That Drives the Weather
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-wind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Wind - Measuring Air in Motion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-ground-motion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Ground Motion - Measuring Earthquakes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-os-and-sensor-buses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. The Station's Brain - Operating System, Command Line, and Sensor Buses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-python-programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Programming the Station in Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-data-logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Logging Data - Timestamps, Intervals, and Files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-charting-and-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Charting and Interpreting Your Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-building-for-outdoors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Building the Station for the Outdoors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. From Measurement to Consequence
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. From Measurement to Consequence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#so-what" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        So What?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#temperature-decides-when-things-grow-and-what-they-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Temperature Decides When Things Grow and What They Cost
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pressure-predicts-and-keeps-aircraft-apart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pressure Predicts, and Keeps Aircraft Apart
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solar-radiation-sizes-the-grid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solar Radiation Sizes the Grid
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wind-and-ground-motion-are-written-into-buildings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wind and Ground Motion Are Written Into Buildings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cities-make-their-own-weather" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cities Make Their Own Weather
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cities Make Their Own Weather">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-measurement-to-decision-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Measurement to Decision Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-long-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Long Record
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-to-do-with-yours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What To Do With Yours
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What To Do With Yours">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-environmental-claim-checker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Environmental Claim Checker
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-this-goes-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where This Goes Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../licensing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#so-what" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        So What?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#temperature-decides-when-things-grow-and-what-they-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Temperature Decides When Things Grow and What They Cost
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pressure-predicts-and-keeps-aircraft-apart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pressure Predicts, and Keeps Aircraft Apart
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solar-radiation-sizes-the-grid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solar Radiation Sizes the Grid
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wind-and-ground-motion-are-written-into-buildings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wind and Ground Motion Are Written Into Buildings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cities-make-their-own-weather" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cities Make Their Own Weather
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cities Make Their Own Weather">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-measurement-to-decision-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Measurement to Decision Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-long-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Long Record
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-to-do-with-yours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What To Do With Yours
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What To Do With Yours">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-environmental-claim-checker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Environmental Claim Checker
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-this-goes-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where This Goes Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/iowerx/pi-env-monitor/blob/main/docs/chapters/17-measurement-to-consequence/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="from-measurement-to-consequence">From Measurement to Consequence<a class="headerlink" href="#from-measurement-to-consequence" title="Permanent link">¶</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
+<p>This chapter answers the question the whole book has been building toward: so what? It traces each measurement into the decisions it drives — weather forecasting and severe weather warnings, agricultural planning and evapotranspiration, energy demand and solar generation, aviation safety, building codes written from seismic and wind data, urban heat islands, air quality, wildfire risk, and flood and tsunami warning. It covers the long climate record that instrumental measurement makes possible, and closes with citizen science, data sharing, and communicating findings to people who were not there.</p>
+<h2 id="concepts-covered">Concepts Covered<a class="headerlink" href="#concepts-covered" title="Permanent link">¶</a></h2>
+<p>This chapter covers the following 17 concepts from the learning graph:</p>
+<ol>
+<li>Energy Demand</li>
+<li>Data Sharing</li>
+<li>Urban Heat Island</li>
+<li>Air Quality</li>
+<li>Citizen Science</li>
+<li>Wildfire Risk</li>
+<li>Tsunami Warning</li>
+<li>Science Communication</li>
+<li>Aviation Safety</li>
+<li>Climate Record</li>
+<li>Evapotranspiration</li>
+<li>Solar Energy Generation</li>
+<li>Weather Forecasting</li>
+<li>Agricultural Planning</li>
+<li>Building Code</li>
+<li>Severe Weather Warning</li>
+<li>Flood Warning</li>
+</ol>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-why-we-measure/">Chapter 1: Why We Measure the Natural Environment</a></li>
+<li><a href="../06-temperature/">Chapter 6: Temperature: From the Thermoscope to the Silicon Chip</a></li>
+<li><a href="../07-barometric-pressure/">Chapter 7: Barometric Pressure: The Weight of the Atmosphere</a></li>
+<li><a href="../08-humidity-and-dew-point/">Chapter 8: Humidity and Dew Point: The Water Hidden in the Air</a></li>
+<li><a href="../09-solar-radiation/">Chapter 9: Solar Radiation: The Energy That Drives the Weather</a></li>
+<li><a href="../10-wind/">Chapter 10: Wind: Measuring Air in Motion</a></li>
+<li><a href="../11-ground-motion/">Chapter 11: Ground Motion: Measuring Earthquakes</a></li>
+<li><a href="../14-data-logging/">Chapter 14: Logging Data: Timestamps, Intervals, and Files</a></li>
+<li><a href="../15-charting-and-analysis/">Chapter 15: Charting and Interpreting Your Data</a></li>
+<li><a href="../16-building-for-outdoors/">Chapter 16: Building the Station for the Outdoors</a></li>
+</ul>
+<hr>
+<h2 id="so-what">So What?<a class="headerlink" href="#so-what" title="Permanent link">¶</a></h2>
+<p>You have built a station. It sits outside and writes numbers to a file.</p>
+<p>It is entirely fair to ask what any of that is for.</p>
+<p>The answer is that decisions get made from numbers like yours, and the decisions are not small. Somebody decides whether your school cancels outdoor practice. Somebody decides how high a bridge deck sits above a river, how strong a roof has to be in your county, when a field gets irrigated, and whether a town evacuates.</p>
+<p>Every one of those decisions traces back through a chain: an instrument, a person who read it, a record kept over years, and a rule written from that record. This chapter follows those chains — one per measurement — and then asks what you should do with your own.</p>
+<h2 id="temperature-decides-when-things-grow-and-what-they-cost">Temperature Decides When Things Grow and What They Cost<a class="headerlink" href="#temperature-decides-when-things-grow-and-what-they-cost" title="Permanent link">¶</a></h2>
+<p><strong>Agricultural planning</strong> is the use of environmental measurements to decide what to plant, when to plant it, when to irrigate, and when to harvest.</p>
+<p>Almost all of it runs on temperature, through a calculation called growing degree days. Crops develop according to accumulated warmth rather than elapsed days, and a farmer tracks that accumulation:</p>
+<div class="arithmatex">\[ \text{GDD} = \frac{T_{\text{max}} + T_{\text{min}}}{2} - T_{\text{base}} \]</div>
+<p>where <span class="arithmatex">\(T_{\text{base}}\)</span> is the temperature below which that crop does not develop — about 10 °C for maize. Sum the daily values and you can predict flowering and harvest far more reliably than any calendar.</p>
+<p>Your station produces exactly the inputs this needs. A daily maximum and minimum, accumulated across a season, is a growing degree day record.</p>
+<p>Temperature also drives irrigation, through the water cycle from Chapter 8.</p>
+<p><strong>Evapotranspiration</strong> is the combined loss of water from a surface by evaporation from soil and transpiration from plants. It is what determines how much water a field actually needs.</p>
+<p>Calculating it requires four of your seven measurements — temperature, humidity, wind speed, and solar radiation — which is why a full weather station rather than a thermometer is the standard tool on modern farms. Warmer, drier, windier, and sunnier all increase water loss, and the standard method combines them into millimetres of water per day.</p>
+<p><strong>Energy demand</strong> is the electricity a region needs at a given moment, and it is largely a temperature problem.</p>
+<p>Utilities forecast it using heating degree days and cooling degree days, which are the same accumulation idea applied to buildings. Below about 18 °C, buildings need heating; above it, cooling. Grid operators run these forecasts continuously, because electricity cannot be stored at scale and generation has to match demand minute by minute. A forecast error of a degree or two across a large region translates into hundreds of megawatts.</p>
+<p>There is a particularly sharp case. On a hot afternoon, air conditioning demand peaks at the same time across an entire city, and if that peak exceeds capacity the result is rolling blackouts. The forecast that prevents them is built from temperature data.</p>
+<h2 id="pressure-predicts-and-keeps-aircraft-apart">Pressure Predicts, and Keeps Aircraft Apart<a class="headerlink" href="#pressure-predicts-and-keeps-aircraft-apart" title="Permanent link">¶</a></h2>
+<p><strong>Weather forecasting</strong> is the prediction of future atmospheric conditions from current measurements.</p>
+<p>Chapter 7 covered the mechanism at one station: falling pressure means deteriorating weather. A modern forecast does the same thing across a continent, feeding readings from thousands of surface stations, weather balloons, aircraft, buoys, and satellites into numerical models that solve the physics of the atmosphere forward in time.</p>
+<p>Those models cannot start from nothing. They need an accurate picture of the atmosphere <em>right now</em>, at as many points as possible — a process called data assimilation. Every reading improves the starting point, and the forecast is only as good as the observations underneath it. This is the direct answer to "what is one more station worth."</p>
+<p><strong>Severe weather warning</strong> is the alerting of the public to imminent dangerous conditions.</p>
+<p>The distinction the professionals draw is worth learning, because it is widely misunderstood:</p>
+<ul>
+<li>A <strong>watch</strong> means conditions are favourable for severe weather. Be prepared.</li>
+<li>A <strong>warning</strong> means severe weather is happening or imminent. Act now.</li>
+</ul>
+<p>Warnings are built from the signatures this book has taught you to recognize. Rapid pressure falls (Chapter 15's tendency), wind speeds crossing the Saffir-Simpson thresholds (Chapter 10), and the temperature-humidity combinations that produce dangerous heat index values (Chapter 8) all trigger specific warning products.</p>
+<p>Chapter 7's Admiral FitzRoy issued the first of these in the 1860s using nothing but a network of aneroid barometers and the telegraph. He was criticized for presuming to predict the weather at all. He was also right often enough to save lives, and the service he founded still exists.</p>
+<p><strong>Aviation safety</strong> depends on pressure in a way that is unforgiving of error.</p>
+<p>Chapter 7 explained that an aircraft altimeter is a barometer, and that flying from high pressure into low pressure without resetting it makes the aircraft lower than it reads. Airports therefore broadcast their current sea level pressure continuously, and pilots set it before approach. Above a defined transition altitude, all aircraft instead set a standard 1013.25 hPa — so their altimeters may all be slightly wrong in absolute terms but are wrong <em>identically</em>, which keeps them correctly separated from each other.</p>
+<p>Aviation also depends on the wind measurements of Chapter 10. Crosswind limits determine whether a runway can be used at all. Wind shear — a sudden change in wind with height — is dangerous during takeoff and landing, and airports operate dedicated detection systems for it.</p>
+<h2 id="solar-radiation-sizes-the-grid">Solar Radiation Sizes the Grid<a class="headerlink" href="#solar-radiation-sizes-the-grid" title="Permanent link">¶</a></h2>
+<p><strong>Solar energy generation</strong> is electricity produced from sunlight by the photovoltaic effect of Chapter 9.</p>
+<p>Before anyone builds a solar farm, somebody measures the site — often for a full year — because the economics depend entirely on insolation, the accumulated energy figure from Chapter 15. Two sites a hundred kilometres apart can differ by 20 percent in annual insolation, which is the difference between a viable project and a failed one.</p>
+<p>Once operating, solar generation creates a forecasting problem of its own. Output depends on cloud, which changes in minutes, and grid operators must balance supply and demand continuously. Networks of irradiance sensors now feed short-term generation forecasts so operators know when to bring other sources online.</p>
+<p>You have done this calculation already. Chapter 16 sized your station's panel from insolation and a loss factor. A utility-scale solar farm uses the same arithmetic with more zeros.</p>
+<p>Chapter 9's UV index feeds a different kind of decision. Public health agencies issue UV forecasts, schools schedule outdoor activity around them, and workplace rules for outdoor workers are written from them.</p>
+<h2 id="wind-and-ground-motion-are-written-into-buildings">Wind and Ground Motion Are Written Into Buildings<a class="headerlink" href="#wind-and-ground-motion-are-written-into-buildings" title="Permanent link">¶</a></h2>
+<p>A <strong>building code</strong> is a set of legal requirements for how structures must be designed and built.</p>
+<p>This is where environmental measurement becomes law, and it is the clearest example in this book of data turning into a rule that governs everyone.</p>
+<p>Codes specify a <strong>design wind speed</strong> for each region — the wind a structure must survive. That number comes from statistical analysis of decades of anemometer records, asking what wind speed has a defined probability of being exceeded in a given period. Chapter 10's wind load rule then converts it into forces: doubling the speed quadruples the force, so a coastal region's design speed produces requirements far beyond an inland one's.</p>
+<p>Codes also specify <strong>seismic design categories</strong>, derived from the same kind of analysis applied to Chapter 11's ground motion records. A building in a high-seismic zone needs bracing, ductile connections, and foundation details that would be pointless expense elsewhere.</p>
+<p>Both sets of requirements are revised as the record lengthens. A region that experiences an unprecedented event usually sees its code strengthened afterward, which is why building codes are, in a real sense, a written memory of past disasters.</p>
+<div class="admonition note">
+<p class="admonition-title">Your school was designed from data like yours</p>
+<p>The building you are sitting in has a roof rated for a wind speed somebody measured, and if you live in a seismic region, a structural system chosen from ground motion records. Neither number came from a computer model alone. Both trace back to instruments, in the ground and on masts, read over decades by people who kept showing up.</p>
+<p>That is what Chapter 1 meant by saying the patience is the point.</p>
+</div>
+<p><strong>Tsunami warning</strong> connects Chapter 11 to the ocean.</p>
+<p>Undersea earthquakes can displace enormous volumes of water. Warning systems detect the earthquake seismically within minutes, estimate its magnitude and mechanism, and issue an initial alert — then confirm or cancel it using deep-ocean pressure sensors called DART buoys that detect the passing wave directly.</p>
+<p>The timing works because seismic waves travel through rock far faster than tsunami waves travel through water. A tsunami crosses the deep Pacific at around 700 km/h, which sounds fast until you compare it to a seismic wave at 6 km/s, or an alert at the speed of light. That gap is measured in hours for a distant coastline — the same principle as Chapter 11's earthquake early warning, with a much larger margin.</p>
+<p><strong>Flood warning</strong> combines precipitation measurements with river gauges and models of how water moves through a catchment.</p>
+<p>The relevant quantities are rainfall rate and total, soil moisture from previous weeks, and river level. Flash flood warnings in particular depend on dense rainfall measurement, because a flash flood can result from an intense storm over a small area that a sparse gauge network misses entirely. This is precisely the gap that community rain-gauge networks were created to fill, and Chapter 16's argument for density over individual precision applies exactly.</p>
+<h2 id="cities-make-their-own-weather">Cities Make Their Own Weather<a class="headerlink" href="#cities-make-their-own-weather" title="Permanent link">¶</a></h2>
+<p>An <strong>urban heat island</strong> is a built-up area that is significantly warmer than the surrounding countryside.</p>
+<p>The difference is not small. Cities commonly run 2 to 5 °C warmer than nearby rural areas, and the gap can exceed 10 °C on clear calm nights.</p>
+<p>Every cause is something this book has measured:</p>
+<ul>
+<li><strong>Albedo</strong> (Chapter 9). Asphalt reflects about 8 percent of sunlight; grass reflects about 25 percent. Dark surfaces absorb the difference.</li>
+<li><strong>Thermal mass</strong> (Chapter 6). Concrete and brick store heat all day and release it all night, which is why the difference peaks after dark rather than at noon.</li>
+<li><strong>Reduced evapotranspiration</strong> (Chapter 8). Vegetation cools by transpiring; pavement does not. Removing plants removes a cooling mechanism.</li>
+<li><strong>Reduced wind</strong> (Chapter 10). Buildings block airflow that would otherwise carry heat away.</li>
+<li><strong>Waste heat.</strong> Air conditioning, vehicles, and industry all dump energy into the air, and air conditioning does so precisely when it is hottest.</li>
+</ul>
+<p>The consequences are unevenly distributed, and that is the part that makes this a policy question rather than a curiosity. Heat is the deadliest weather hazard in many countries, and within a single city the hottest neighbourhoods are frequently those with the least tree cover, the most pavement, and the fewest resources to adapt. Mapping the difference is the first step toward addressing it, and city governments now run tree-planting, cool-roof, and cooling-centre programmes based on exactly this kind of data.</p>
+<p>Here is the important part for you: <strong>an urban heat island is measured with stations like yours.</strong> Official networks are far too sparse to resolve differences between neighbourhoods. Dense volunteer and school networks are how these maps get made.</p>
+<p><strong>Air quality</strong> is another quantity your station influences without directly measuring.</p>
+<p>Your station does not have a pollution sensor. But Chapter 10's wind and Chapter 8's humidity largely determine what happens to pollution once it exists. Wind disperses it; calm conditions let it accumulate. A temperature inversion — warm air sitting above cool air, which suppresses the convection of Chapter 8 — traps pollution near the ground and is responsible for most severe urban smog episodes. Humidity affects particle formation and how far you can see.</p>
+<p><strong>Wildfire risk</strong> is assessed from a combination of measurements, and your station provides most of them.</p>
+<p>Fire danger indices combine:</p>
+<ul>
+<li><strong>Relative humidity</strong> (Chapter 8) — low humidity dries fuel and lets fire spread</li>
+<li><strong>Temperature</strong> (Chapter 6) — heat dries fuel further</li>
+<li><strong>Wind speed</strong> (Chapter 10) — the dominant factor in how fast a fire moves</li>
+<li><strong>Recent precipitation</strong> — how much moisture the fuel retains</li>
+<li><strong>Days since rain</strong> — the accumulation that turns vegetation into fuel</li>
+</ul>
+<p>The particularly dangerous combination has a name in several regions: hot, very dry, and windy at once. In California those are the Santa Ana and Diablo wind events; in Australia, the conditions preceding the worst fire days. Utilities now pre-emptively shut off power lines when these thresholds are crossed, because a spark under those conditions is likely to become a catastrophe. Those thresholds are defined in terms of measurements, and the decision is triggered by weather station data.</p>
+<h4 id="diagram-measurement-to-decision-explorer">Diagram: Measurement to Decision Explorer<a class="headerlink" href="#diagram-measurement-to-decision-explorer" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/measurement-to-decision-explorer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Measurement to Decision Explorer</summary>
+<p>Type: graph-model
+<strong>sim-id:</strong> measurement-to-decision-explorer<br>
+<strong>Library:</strong> vis-network<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Analyze (L4)
+Bloom Verb: organize</p>
+<p>Learning objective: The learner organizes the relationships between the seven measured quantities and the real-world decisions they drive, traces any decision back to the measurements it requires, and identifies which decisions depend on more than one quantity.</p>
+<p>Purpose: This is the capstone diagram of the whole book and the visual statement of the course's primary goal. Seventeen chapters have introduced measurements one at a time; this element assembles the whole dependency structure so the learner can see that most consequential decisions require several measurements together.</p>
+<p>Node types:
+1. <strong>Measurement nodes</strong> (seven, coloured by their taxonomy colour from the learning graph): Temperature, Barometric Pressure, Humidity, Solar Radiation, Wind Speed, Ground Motion, Location and Time
+2. <strong>Derived quantity nodes</strong> (mid-layer, neutral colour): Dew Point, Heat Index, Wind Chill, Pressure Tendency, Insolation, Evapotranspiration, Growing Degree Days, Fire Danger Index, Sustained Wind, Sea Level Pressure
+3. <strong>Decision nodes</strong> (outer layer, warm colour): Weather Forecasting, Severe Weather Warning, Agricultural Planning, Irrigation Scheduling, Energy Demand Forecast, Solar Energy Generation, Aviation Safety, Building Code Wind Design, Building Code Seismic Design, Urban Heat Island Mitigation, Air Quality Advisory, Wildfire Risk and Power Shutoff, Flood Warning, Tsunami Warning, Climate Record</p>
+<p>Edge types:
+- <strong>Solid arrow: "required by"</strong> — this measurement is necessary for that derived quantity or decision
+- <strong>Dashed arrow: "improves"</strong> — helpful but not strictly required
+- Edge thickness indicates how central the measurement is to that decision</p>
+<p>Layout: Three-layer hierarchical, measurements on the left, derived quantities in the middle, decisions on the right, with force-directed adjustment for readability.</p>
+<p>Interactive features:
+- <strong>Hover a node</strong>: show its properties — for measurements, the unit and the chapter that covers it; for decisions, a one-sentence description of who makes it and what is at stake
+- <strong>Click a measurement</strong>: highlight every downstream derived quantity and decision it feeds, and dim everything else. The panel states, e.g. "Wind speed feeds 9 of the 15 decisions in this diagram."
+- <strong>Click a decision</strong>: highlight every upstream measurement it requires, and list them. The panel states, e.g. "Wildfire risk requires temperature, humidity, wind speed, and precipitation history. No single measurement is sufficient."
+- <strong>Drag</strong> nodes; <strong>zoom</strong> with the wheel; <strong>pan</strong> by dragging the background
+- <strong>"What if this sensor failed?"</strong> mode: the learner disables one measurement node, and every decision that depended on it is marked as degraded or impossible, with a count. This is the most direct statement of why each sensor is on the station.
+- <strong>Filter</strong> by chapter, so a learner reading Chapter 10 can see only the wind subgraph</p>
+<p>Required legend explaining node colours, edge styles, and thickness.</p>
+<p>Required framing panel, always visible: "Every arrow here is a real dependency. Somewhere, someone makes this decision using this measurement."</p>
+<p>Instructional Rationale: The objective is Analyze/organize, which is precisely the task of assembling parts encountered separately into a structure. A graph model is the correct representation because the relationships are genuinely many-to-many — no table or list can show that wind speed feeds nine different decisions while also showing that wildfire risk needs four different inputs. The sensor-failure mode is included because the course's Evaluate-level outcome asks students to judge which measurement matters most for a given decision, and removing one is the sharpest way to answer that.</p>
+<p>Implementation: vis-network with a hierarchical layout, <code>layout.hierarchical.direction: 'LR'</code>. Store nodes and edges as data with chapter references so the filter and the highlight logic are data-driven rather than hard-coded.</p>
+</details>
+<h2 id="the-long-record">The Long Record<a class="headerlink" href="#the-long-record" title="Permanent link">¶</a></h2>
+<p>A <strong>climate record</strong> is a long series of environmental measurements used to describe conditions over decades or centuries.</p>
+<p>Chapter 1 drew the distinction: weather is what is happening, climate is the 30-year pattern. Only the second one requires patience.</p>
+<p>The global instrumental temperature record begins around 1850, which is when enough standardized stations existed worldwide to compute a meaningful global average. Before that, we rely on proxy records — tree rings, ice cores, coral bands, lake sediments — read by the climatologists of Chapter 1.</p>
+<p>Building a usable record out of a century of instruments is genuinely hard, and the difficulties are exactly the ones this book has covered in miniature:</p>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Chapter</th>
+<th>How it is handled</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Instruments changed</td>
+<td>6</td>
+<td>Overlap periods; compare old and new side by side</td>
+</tr>
+<tr>
+<td>Stations moved</td>
+<td>16</td>
+<td>Detect the discontinuity; document and adjust</td>
+</tr>
+<tr>
+<td>Cities grew around stations</td>
+<td>17</td>
+<td>Identify urban heat island contamination</td>
+</tr>
+<tr>
+<td>Observation times changed</td>
+<td>5</td>
+<td>Correct for the resulting bias</td>
+</tr>
+<tr>
+<td>Sensors drifted</td>
+<td>15</td>
+<td>Compare against neighbours; recalibrate</td>
+</tr>
+<tr>
+<td>Coverage was uneven</td>
+<td>16</td>
+<td>Weight by area; acknowledge uncertainty</td>
+</tr>
+</tbody>
+</table>
+<p>These corrections are sometimes accused of being manipulation. They are the opposite, and you are now in a position to see why. A record assembled from a hundred different instruments in a hundred changing locations means nothing <em>unless</em> those changes are found and accounted for. You will face the same problem the first time you move your own station or replace a sensor, and Chapter 15 already told you the answer: document every change, never edit historical data, record the correction separately.</p>
+<p>Your station cannot produce a climate record. A school year is weather. But every climate record that exists was built out of weather readings taken by people who kept showing up, one day at a time — and the ones taken in the 1880s were taken by people who had no idea what they would eventually be used for.</p>
+<h2 id="what-to-do-with-yours">What To Do With Yours<a class="headerlink" href="#what-to-do-with-yours" title="Permanent link">¶</a></h2>
+<p><strong>Citizen science</strong> is scientific work carried out wholly or partly by members of the public, often in collaboration with professional scientists.</p>
+<p>It is not a simplified imitation of real science. Several networks accept amateur data and feed it directly into professional products:</p>
+<table>
+<thead>
+<tr>
+<th>Network</th>
+<th>What it collects</th>
+<th>Who uses it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CoCoRaHS</td>
+<td>Daily precipitation from manual gauges</td>
+<td>US National Weather Service, researchers</td>
+</tr>
+<tr>
+<td>Weather Underground PWS</td>
+<td>Full station data</td>
+<td>Forecasters, the public, media</td>
+</tr>
+<tr>
+<td>Met Office WOW</td>
+<td>Full station data</td>
+<td>UK Met Office</td>
+</tr>
+<tr>
+<td>Raspberry Shake</td>
+<td>Seismic data</td>
+<td>Seismologists, earthquake catalogues</td>
+</tr>
+<tr>
+<td>MyShake</td>
+<td>Phone accelerometer data</td>
+<td>Earthquake early warning research</td>
+</tr>
+<tr>
+<td>USGS Did You Feel It?</td>
+<td>Felt reports after earthquakes</td>
+<td>Official intensity maps</td>
+</tr>
+</tbody>
+</table>
+<p>CoCoRaHS is worth singling out. It was founded after a 1997 flash flood in Fort Collins, Colorado, that a sparse official gauge network had entirely failed to capture — rainfall varied enormously across a few kilometres and the official gauges missed the intense core. The response was a volunteer network of simple manual gauges, and its data now feeds official forecasts and drought monitoring. It exists because density beat precision, which is Chapter 16's argument stated as history.</p>
+<p><strong>Data sharing</strong> is making your data available for others to use.</p>
+<p>To be useful to anyone else, shared data needs the things Chapter 14 covered:</p>
+<ul>
+<li><strong>A machine-readable format</strong> — CSV is ideal</li>
+<li><strong>A complete metadata file</strong> — location, elevation, sensor model, exposure, processing, calibration</li>
+<li><strong>Explicit units</strong> in every column name</li>
+<li><strong>Quality flags</strong> retained, not silently filtered</li>
+<li><strong>A stated licence</strong> so people know what they may do with it</li>
+<li><strong>A stable location</strong> — a GitHub repository, an institutional archive, a network's upload</li>
+</ul>
+<p>A useful standard is FAIR: Findable, Accessible, Interoperable, and Reusable. Your metadata file from Chapter 14 already does most of the work.</p>
+<div class="admonition tip">
+<p class="admonition-title">Share the problems too</p>
+<p>Publish the gaps, the flagged outliers, the day the sensor sat in the sun before you noticed, and the calibration offset you applied. Data with documented flaws is far more useful than data that has been quietly cleaned, because a user can decide for themselves what to exclude.</p>
+<p>Cleaned data with no record of what was removed is not more trustworthy. It is less, because nobody can check it.</p>
+</div>
+<p><strong>Science communication</strong> is explaining scientific work to people who were not involved in it.</p>
+<p>This is the final skill of the book, and the Create-level outcome of the course. A finding nobody understands changes nothing.</p>
+<p>What works, in order of importance:</p>
+<ol>
+<li><strong>Lead with the finding, not the method.</strong> "The parking lot runs 6 °C hotter than the field" is the story. How you wired the sensor is background.</li>
+<li><strong>Show one good chart.</strong> Chapter 15's rules apply: label the axes, give the units, be honest about the scale.</li>
+<li><strong>Give the number a comparison.</strong> "6 °C hotter" means little alone. "6 °C hotter — the difference between a comfortable day and a heat advisory" lands.</li>
+<li><strong>Say what you did not measure.</strong> Naming your limitations makes the rest more credible, not less.</li>
+<li><strong>State the uncertainty.</strong> Chapter 2 established that a number without an uncertainty claims more than you know.</li>
+<li><strong>Say what should happen next.</strong> A measurement that implies an action is more useful than one that does not.</li>
+</ol>
+<p>The structure that works for a project write-up:</p>
+<ul>
+<li><strong>The question</strong> — what did you want to know?</li>
+<li><strong>The method</strong> — station, sensors, siting, period, sampling interval</li>
+<li><strong>The data</strong> — one or two charts, honestly presented</li>
+<li><strong>The finding</strong> — what the data shows</li>
+<li><strong>The limitations</strong> — what could be wrong, what you could not measure</li>
+<li><strong>What it implies</strong> — why anyone should care</li>
+</ul>
+<h4 id="diagram-environmental-claim-checker">Diagram: Environmental Claim Checker<a class="headerlink" href="#diagram-environmental-claim-checker" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/environmental-claim-checker/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Environmental Claim Checker</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> environmental-claim-checker<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Evaluate (L5)
+Bloom Verb: critique</p>
+<p>Learning objective: The learner critiques environmental claims made in news articles, advertisements, and social media by asking what was measured, how, where, over what period, and with what uncertainty, and judges whether the evidence presented supports the conclusion drawn.</p>
+<p>Purpose: This is the transferable outcome of the entire book. Most students will not maintain a weather station for life; all of them will encounter environmental claims for the rest of it. Turning the book's measurement vocabulary into a diagnostic checklist is what makes the effort pay off beyond the project.</p>
+<p>Canvas layout:
+- Main area: a presented claim, styled as the medium it came from — a news headline with a paragraph, a product advertisement, a social media post with a chart, an official agency statement
+- Right or below (responsive): the six-question checklist, each with a verdict the learner sets to answered, unanswered, or misleading
+- Below: the verdict submission and feedback panel
+- Bottom: case selector and score
+- Responsive to window resize</p>
+<p>The six diagnostic questions, drawn from the book:
+1. <strong>What exactly was measured?</strong> Air temperature or surface temperature? Relative humidity or dew point? Magnitude or intensity?
+2. <strong>Where, and with what exposure?</strong> Was the sensor shielded? What was underneath it? How high?
+3. <strong>Over what period?</strong> Is this weather or climate? One reading, one day, or thirty years?
+4. <strong>What are the units, and is the scale honest?</strong> Is the axis truncated? Are the units stated?
+5. <strong>What is the uncertainty?</strong> How many digits are justified by the instrument's accuracy?
+6. <strong>Is a correlation being presented as causation?</strong> Is a physical mechanism named?</p>
+<p>Cases, each targeting a specific chapter's lesson:
+1. "Hottest day ever recorded at this location — 47 °C" — the sensor was unshielded on a rooftop. Targets Chapter 6.
+2. "City temperatures rising: a chart showing a dramatic climb" — y-axis runs from 14.2 to 14.6 °C over five years. Targets Chapter 15.
+3. "Earthquake measured 6.2 on the Richter scale" — the Richter scale has not been used for large events since 1979, and the reported value is a moment magnitude. Targets Chapter 11.
+4. "Barometric pressure 995 hPa — storm warning issued" — the station is at 400 m and the value is uncorrected. Targets Chapter 7.
+5. "50 percent humidity, so it is only half as humid as yesterday" — relative humidity is a ratio against a temperature-dependent maximum. Targets Chapter 8.
+6. "This sunscreen unnecessary today — it is cool and overcast" — UV transmission through light cloud stays high. Targets Chapter 9.
+7. "Our solar panels will produce 400 kWh a year, based on measurements taken in June" — sized for the best month. Targets Chapter 16.
+8. <strong>A well-supported claim</strong> — an agency statement with stated method, period, uncertainty, and mechanism. The learner must correctly judge this one as sound, so the exercise teaches discrimination rather than blanket scepticism.</p>
+<p>Interaction:
+- Read the claim; set a verdict on each of the six questions
+- Submit an overall judgment: "well supported", "overstated", "misleading", "cannot be evaluated from what is given"
+- Feedback scores both the overall judgment AND the per-question verdicts, and explains which specific question was decisive, with a link to the chapter that covers it
+- A "rewrite it" mode where the learner edits the claim to make it defensible, and the checker re-evaluates
+- Running score across cases, with a breakdown of which of the six questions the learner most often misses</p>
+<p>Instructional Rationale: The objective is Evaluate/critique against explicit criteria, and the six questions are those criteria made operable. Including one sound claim is essential: a checker where every case is misleading teaches cynicism rather than judgment, and the ability to recognize good evidence is as important as spotting bad. Scoring the per-question verdicts separately from the conclusion prevents guessing and diagnoses which specific skill is weak.</p>
+<p>Implementation: p5.js. Store each case as claim text, medium styling, per-question ground truth with explanation, overall verdict, and chapter reference. Render the social-media and news framing as styled panels to make the medium recognizable.</p>
+</details>
+<h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Agricultural planning</strong> uses accumulated temperature and <strong>evapotranspiration</strong> — which needs four of your seven measurements — to decide planting and irrigation.</li>
+<li><strong>Energy demand</strong> forecasting is largely temperature-driven, and errors of a degree translate into hundreds of megawatts.</li>
+<li><strong>Weather forecasting</strong> and <strong>severe weather warning</strong> rest on dense observation; every reading improves the model's starting point. <strong>Aviation safety</strong> depends on pressure for altimetry and on wind for runway operations.</li>
+<li><strong>Solar energy generation</strong> is sized from insolation, using the same arithmetic as Chapter 16's power budget.</li>
+<li>A <strong>building code</strong> turns decades of wind and seismic records into law. <strong>Tsunami warning</strong> and <strong>flood warning</strong> exploit the same speed gaps and density arguments as earthquake early warning.</li>
+<li><strong>Urban heat island</strong> effects are caused by albedo, thermal mass, reduced <strong>evapotranspiration</strong>, and blocked wind — and are mapped by dense volunteer networks, not official ones. <strong>Air quality</strong> and <strong>wildfire risk</strong> are governed by the wind and humidity your station measures.</li>
+<li>A <strong>climate record</strong> requires finding and correcting every instrument change, station move, and drift. That work is what makes a century of different instruments mean anything.</li>
+<li><strong>Citizen science</strong> networks accept and use amateur data. <strong>Data sharing</strong> requires format, metadata, units, flags, licence, and a stable home. <strong>Science communication</strong> leads with the finding, shows one honest chart, and states the limitations.</li>
+</ul>
+<h2 id="check-yourself">Check Yourself<a class="headerlink" href="#check-yourself" title="Permanent link">¶</a></h2>
+<details class="question">
+<summary>A news article says a city set a record at 47 °C. What should you ask before believing it? Click to check.</summary>
+<p>Run the six questions. <strong>What was measured</strong> — air temperature or a surface? <strong>Where and with what exposure</strong> — was it a properly shielded sensor at 1.5 m over grass, or an unshielded one on a dark rooftop? Chapter 6 showed those can differ by 20 °C or more. <strong>What uncertainty</strong> — is 47 stated to the whole degree with a known instrument accuracy? Official records come from stations with documented siting precisely so that this question has an answer. If the article does not say, the claim cannot be evaluated, which is itself a finding.</p>
+</details>
+<details class="question">
+<summary>Your data shows the school car park is 6 °C hotter than the field. What causes this, and what could be done? Click to check.</summary>
+<p>This is an <strong>urban heat island</strong> in miniature, and the causes are all measurable. Asphalt has an albedo around 0.08 versus grass at 0.25, so it absorbs far more solar radiation (Chapter 9). It has high thermal mass, storing heat and releasing it at night (Chapter 6). And it has no vegetation, so no <strong>evapotranspiration</strong> cooling (Chapter 8). Mitigations follow directly from the causes: lighter-coloured surfacing to raise albedo, tree planting for shade and transpiration, and permeable surfaces. Your measurement is exactly the evidence a school would need to argue for any of them.</p>
+</details>
+<details class="question">
+<summary>Why can't your station's data establish that the climate is warming? Click to check.</summary>
+<p>Because climate is defined over 30 years and your station has been running for months. A school year of readings is weather, and any trend within it is indistinguishable from ordinary variation — Chapter 1's Weather Versus Climate element demonstrated this directly. What your station <em>can</em> do is contribute to a record that becomes climate data if it is maintained, with documented changes, for decades. Every long climate record was built exactly that way, out of readings taken by people who did not know what they would be used for.</p>
+</details>
+<details class="question">
+<summary>You want to share your data. What must go with the CSV file? Click to check.</summary>
+<p>A metadata file, at minimum containing: location as latitude, longitude, and <strong>elevation</strong> — without which the pressure cannot be interpreted at all; the sensor model and its stated accuracy; the exposure, meaning shield type, mounting height, and surface beneath; the processing applied, including whether pressure is station or sea-level and which dew point formula was used; the calibration history with any offsets; and a licence. The CSV itself must carry units in every column name and retain quality flags rather than silently dropping flagged rows. Chapter 14's metadata example covers all of it.</p>
+</details>
+<hr>
+<h2 id="where-this-goes-next">Where This Goes Next<a class="headerlink" href="#where-this-goes-next" title="Permanent link">¶</a></h2>
+<p>That is the end of the book, but it should not be the end of the station.</p>
+<p>The most valuable thing you can do now is the least dramatic: <strong>leave it running.</strong> A station that operates for one term produces a school project. A station that operates for five years produces something no model can substitute for — a record of one particular place, kept honestly, that did not exist before.</p>
+<p>Some directions worth taking:</p>
+<ul>
+<li><strong>Add a sensor.</strong> Rainfall, soil moisture, air quality, or a proper UV sensor. Each one follows the same pattern this book has taught: what is the physical property, what is the transduction mechanism, what does the datasheet say, and how is it exposed?</li>
+<li><strong>Add a second station.</strong> Two stations answer questions one cannot — the car park versus the field, the north side versus the south, the valley floor versus the ridge.</li>
+<li><strong>Join a network.</strong> Contribute to CoCoRaHS, Weather Underground, or a local mesonet, and your readings become part of something that forecasts real weather for real people.</li>
+<li><strong>Answer a question you care about.</strong> Not a textbook question. Does the new tree planting actually cool the playground? Is the greenhouse holding temperature overnight? Does the creek respond to rainfall the same way in autumn as in spring?</li>
+<li><strong>Hand it on.</strong> The most useful thing a school station can have is a successor — a student a year below you who learns to maintain it, so the record does not stop when you leave.</li>
+</ul>
+<p>Chapter 1 said the difference between consuming data and understanding it is having wired a sensor, watched it drift, found a bad reading, and corrected it. You have now done all four.</p>
+<p>The instruments in this book were built by people who wanted to know something and had no way to find out. Torricelli wanted to know why pumps failed at ten metres. Herschel wanted to know which colour carried the most heat. Beaufort wanted ships to be able to compare notes. None of them had the equipment they needed, so they made it.</p>
+<p>You have the equipment. The questions are still open.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../16-building-for-outdoors/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 16. Building the Station for the Outdoors">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                16. Building the Station for the Outdoors
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../learning-graph/" class="md-footer__link md-footer__link--next" aria-label="Next: Introduction">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Introduction
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Hank R. Licensed under <a href="licensing/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

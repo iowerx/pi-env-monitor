@@ -1,0 +1,2489 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Pressure systems, fronts, and the gradient that drives wind; the weather vane and anemometer families; the Beaufort scale; and what wind does to people and structures.">
+      
+      
+        <meta name="author" content="Hank R.">
+      
+      
+        <link rel="canonical" href="https://iowerx.github.io/pi-env-monitor/chapters/10-wind/">
+      
+      
+        <link rel="prev" href="../09-solar-radiation/">
+      
+      
+        <link rel="next" href="../11-ground-motion/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Wind: Measuring Air in Motion - Raspberry Pi Environmental Monitoring: Grades 6–12</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website">
+<meta property="og:title" content="Wind: Measuring Air in Motion - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="og:description" content="Pressure systems, fronts, and the gradient that drives wind; the weather vane and anemometer families; the Beaufort scale; and what wind does to people and structures.">
+<meta property="og:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/10-wind/index.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://iowerx.github.io/pi-env-monitor/chapters/10-wind/">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Wind: Measuring Air in Motion - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="twitter:description" content="Pressure systems, fronts, and the gradient that drives wind; the weather vane and anemometer families; the Beaufort scale; and what wind does to people and structures.">
+<meta property="twitter:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/10-wind/index.png">
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#wind-measuring-air-in-motion" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Raspberry Pi Environmental Monitoring: Grades 6–12
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Wind: Measuring Air in Motion
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Raspberry Pi Environmental Monitoring: Grades 6–12
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components Used
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-why-we-measure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Why We Measure the Natural Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-language-of-measurement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. The Language of Measurement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-electricity-and-computer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Electricity and the Single-Board Computer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-how-sensors-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. How Sensors Turn the World Into Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-time-and-place/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Time and Place - Recording Where and When
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-temperature/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Temperature - From the Thermoscope to the Silicon Chip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-barometric-pressure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Barometric Pressure - The Weight of the Atmosphere
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-humidity-and-dew-point/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Humidity and Dew Point - The Water Hidden in the Air
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-solar-radiation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Solar Radiation - The Energy That Drives the Weather
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Wind - Measuring Air in Motion
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Wind - Measuring Air in Motion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#air-rolling-downhill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Air Rolling Downhill
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#highs-lows-and-fronts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Highs, Lows, and Fronts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-pressure-gradient" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Pressure Gradient
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Pressure Gradient">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-pressure-gradient-wind-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Pressure Gradient Wind Map
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#direction-and-the-vane" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Direction and the Vane
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#measuring-speed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Measuring Speed
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Measuring Speed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pressure-plates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pressure Plates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-beaufort-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Beaufort Scale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-cup-anemometer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Cup Anemometer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sonic-anemometers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sonic Anemometers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#units" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Units
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-wind-does-to-people" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Wind Does To People
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Wind Does To People">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-apparent-temperature-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Apparent Temperature Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-wind-does-to-structures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Wind Does To Structures
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Wind Does To Structures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-beaufort-scale-observation-trainer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Beaufort Scale Observation Trainer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-ground-motion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Ground Motion - Measuring Earthquakes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-os-and-sensor-buses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. The Station's Brain - Operating System, Command Line, and Sensor Buses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-python-programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Programming the Station in Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-data-logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Logging Data - Timestamps, Intervals, and Files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-charting-and-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Charting and Interpreting Your Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-building-for-outdoors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Building the Station for the Outdoors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-measurement-to-consequence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. From Measurement to Consequence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../licensing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#air-rolling-downhill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Air Rolling Downhill
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#highs-lows-and-fronts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Highs, Lows, and Fronts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-pressure-gradient" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Pressure Gradient
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Pressure Gradient">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-pressure-gradient-wind-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Pressure Gradient Wind Map
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#direction-and-the-vane" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Direction and the Vane
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#measuring-speed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Measuring Speed
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Measuring Speed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pressure-plates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pressure Plates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-beaufort-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Beaufort Scale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-cup-anemometer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Cup Anemometer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sonic-anemometers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sonic Anemometers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#units" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Units
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-wind-does-to-people" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Wind Does To People
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Wind Does To People">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-apparent-temperature-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Apparent Temperature Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-wind-does-to-structures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Wind Does To Structures
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Wind Does To Structures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-beaufort-scale-observation-trainer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Beaufort Scale Observation Trainer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/iowerx/pi-env-monitor/blob/main/docs/chapters/10-wind/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="wind-measuring-air-in-motion">Wind: Measuring Air in Motion<a class="headerlink" href="#wind-measuring-air-in-motion" title="Permanent link">¶</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
+<p>Wind is what happens when pressure is unequal, so this chapter opens with high and low pressure systems, fronts, and the pressure gradient that drives air from one to the other. It covers the weather vane and the anemometer families — cup, sonic — and the Beaufort scale, a measurement standard that required no instrument at all. It reconciles knots and meters per second, then turns to what wind does to people and structures through wind chill, apparent temperature, heat index, the Enhanced Fujita scale, and wind load.</p>
+<h2 id="concepts-covered">Concepts Covered<a class="headerlink" href="#concepts-covered" title="Permanent link">¶</a></h2>
+<p>This chapter covers the following 19 concepts from the learning graph:</p>
+<ol>
+<li>High Pressure System</li>
+<li>Low Pressure System</li>
+<li>Weather Front</li>
+<li>Pressure Gradient</li>
+<li>Wind</li>
+<li>Wind Speed</li>
+<li>Wind Direction</li>
+<li>Apparent Temperature</li>
+<li>Weather Vane</li>
+<li>Anemometer</li>
+<li>Beaufort Scale</li>
+<li>Knot Unit</li>
+<li>Meters Per Second</li>
+<li>Wind Chill</li>
+<li>Enhanced Fujita Scale</li>
+<li>Wind Load</li>
+<li>Heat Index</li>
+<li>Cup Anemometer</li>
+<li>Sonic Anemometer</li>
+</ol>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-why-we-measure/">Chapter 1: Why We Measure the Natural Environment</a></li>
+<li><a href="../02-language-of-measurement/">Chapter 2: The Language of Measurement</a></li>
+<li><a href="../04-how-sensors-work/">Chapter 4: How Sensors Turn the World Into Numbers</a></li>
+<li><a href="../06-temperature/">Chapter 6: Temperature: From the Thermoscope to the Silicon Chip</a></li>
+<li><a href="../07-barometric-pressure/">Chapter 7: Barometric Pressure: The Weight of the Atmosphere</a></li>
+<li><a href="../08-humidity-and-dew-point/">Chapter 8: Humidity and Dew Point: The Water Hidden in the Air</a></li>
+</ul>
+<hr>
+<h2 id="air-rolling-downhill">Air Rolling Downhill<a class="headerlink" href="#air-rolling-downhill" title="Permanent link">¶</a></h2>
+<p>Open a door between a warm room and a cold one and you feel a draught.</p>
+<p>That draught is wind, and it happens for the same reason all wind happens. The two rooms are at slightly different pressures, and air moves from the higher pressure to the lower one until the difference is gone.</p>
+<p><strong>Wind</strong> is the horizontal movement of air relative to the Earth's surface. It is not caused by anything mysterious. It is air rolling downhill — where "downhill" means from high pressure toward low.</p>
+<p>Everything in this chapter follows from that one sentence, and the chain that produces it runs back through the last three chapters:</p>
+<ol>
+<li>The Sun heats the ground unevenly (Chapter 9)</li>
+<li>Uneven heating makes some air warmer than other air (Chapter 6)</li>
+<li>Warm air expands, becomes less dense, and rises</li>
+<li>Rising air leaves lower pressure behind, and sinking air produces higher pressure (Chapter 7)</li>
+<li>Air flows from high pressure to low pressure — wind</li>
+</ol>
+<h2 id="highs-lows-and-fronts">Highs, Lows, and Fronts<a class="headerlink" href="#highs-lows-and-fronts" title="Permanent link">¶</a></h2>
+<p><strong>Pressure</strong> varies from place to place across a continent. Chapter 7 measured it at a point; here it becomes a landscape.</p>
+<p>A <strong>high pressure system</strong> is a region where atmospheric pressure is higher than in the surrounding area, produced by air sinking from above. As that air descends it is compressed and warms, and warming air moves <em>away</em> from saturation — so clouds evaporate rather than form. High pressure means fair, settled weather.</p>
+<p>A <strong>low pressure system</strong> is a region where pressure is lower than the surroundings, produced by air rising. Rising air expands and cools, moves <em>toward</em> saturation, and its moisture condenses. Low pressure means clouds, wind, and precipitation.</p>
+<p>That is the entire mechanism connecting Chapter 7's barometer to Chapter 8's water cycle:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>High pressure system</th>
+<th>Low pressure system</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Air motion</td>
+<td>Sinking</td>
+<td>Rising</td>
+</tr>
+<tr>
+<td>Air temperature change</td>
+<td>Warms by compression</td>
+<td>Cools by expansion</td>
+</tr>
+<tr>
+<td>Relative humidity trend</td>
+<td>Falls</td>
+<td>Rises toward saturation</td>
+</tr>
+<tr>
+<td>Cloud</td>
+<td>Dissipates</td>
+<td>Forms</td>
+</tr>
+<tr>
+<td>Typical weather</td>
+<td>Clear, settled, light wind</td>
+<td>Cloudy, windy, wet</td>
+</tr>
+<tr>
+<td>Typical pressure</td>
+<td>Above 1020 hPa</td>
+<td>Below 1000 hPa</td>
+</tr>
+<tr>
+<td>Rotation, northern hemisphere</td>
+<td>Clockwise</td>
+<td>Counter-clockwise</td>
+</tr>
+<tr>
+<td>Rotation, southern hemisphere</td>
+<td>Counter-clockwise</td>
+<td>Clockwise</td>
+</tr>
+</tbody>
+</table>
+<p>That rotation is worth a note. Air does not flow straight from high to low, because the Earth is turning underneath it. The apparent deflection this produces — to the right in the northern hemisphere, to the left in the southern — is called the Coriolis effect, and it turns what would be a straight rush into a spiral. It is why weather systems on satellite images are swirls rather than blobs.</p>
+<p>A <strong>weather front</strong> is the boundary between two air masses with different temperature and humidity. Chapter 1 introduced air masses; a front is where two of them meet and refuse to mix.</p>
+<ul>
+<li>A <strong>cold front</strong> occurs where advancing cold air pushes under warmer air. The cold air is denser, so it wedges beneath and forces the warm air up sharply. That rapid lift produces tall clouds, brief intense rain, gusty wind, and a sharp temperature drop. Cold fronts pass quickly.</li>
+<li>A <strong>warm front</strong> occurs where advancing warm air rides up over retreating cold air. The slope is gentle, so the lift is gradual: high thin cloud first, thickening over many hours, then steady light rain. Warm fronts pass slowly.</li>
+</ul>
+<p>Your station can identify a cold front passage from its own data with no radar and no forecast. The signature is unmistakable once you know it: pressure falls, then rises sharply; wind speed spikes and direction shifts abruptly; temperature drops several degrees within an hour; dew point drops too. Chapter 15 covers finding this in your logs.</p>
+<h2 id="the-pressure-gradient">The Pressure Gradient<a class="headerlink" href="#the-pressure-gradient" title="Permanent link">¶</a></h2>
+<p><strong>Pressure gradient</strong> is the rate at which pressure changes with horizontal distance. It is the <em>steepness</em> of the pressure landscape, not its height.</p>
+<p>This distinction is the key to predicting wind, and it is where beginners go wrong. Wind speed is not determined by how low the pressure is. It is determined by how rapidly pressure changes over distance.</p>
+<p>The analogy is a hill. A ball rolls fast down a steep slope and slowly down a gentle one, regardless of how high up it started. A deep low pressure system with gentle gradients around it produces light winds. A modest low with tight gradients produces strong ones.</p>
+<p>On a weather map, pressure is drawn as isobars — lines connecting points of equal pressure, exactly like contour lines on a topographic map. And they are read the same way:</p>
+<ul>
+<li><strong>Isobars close together</strong> — steep gradient — strong wind</li>
+<li><strong>Isobars far apart</strong> — gentle gradient — light wind</li>
+</ul>
+<p>This is genuinely useful. You can look at a pressure map with no wind information printed on it at all and read the wind straight off the spacing of the lines.</p>
+<h4 id="diagram-pressure-gradient-wind-map">Diagram: Pressure Gradient Wind Map<a class="headerlink" href="#diagram-pressure-gradient-wind-map" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/pressure-gradient-wind-map/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Pressure Gradient Wind Map</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> pressure-gradient-wind-map<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Analyze (L4)
+Bloom Verb: examine</p>
+<p>Learning objective: The learner examines an isobar map to predict wind speed and direction at any point, and differentiates the effect of gradient steepness from the effect of absolute pressure.</p>
+<p>Purpose: "Low pressure means strong wind" is a durable and wrong student belief. Building maps where a deep low has weak winds and a shallow low has strong ones is the only reliable way to break it, and it cannot be done with a fixed illustration.</p>
+<p>Canvas layout:
+- Main area: a plan-view synoptic map with drawn isobars labeled in hPa, a coastline outline for orientation, and pressure centers marked H and L
+- Overlay: wind arrows at grid points, with length proportional to speed
+- Right or below (responsive): a readout panel for the probed point
+- Bottom: controls and scenario selector
+- Responsive to window resize; the map preserves aspect ratio</p>
+<p>Data Visibility Requirements:
+  Stage 1: Show the isobar field with values labeled
+  Stage 2: On probing a point, show the local pressure in hPa
+  Stage 3: Show the gradient at that point as a pressure difference over a distance, e.g. "8 hPa over 200 km = 4 hPa per 100 km"
+  Stage 4: Show the resulting wind speed with the category and the Beaufort force
+  Stage 5: Show wind direction, including the Coriolis deflection, with an annotation stating that air crosses isobars at an angle rather than flowing straight downhill</p>
+<p>Scenarios, chosen specifically to separate depth from gradient:
+1. <strong>Deep low, gentle gradients</strong> — center at 970 hPa, isobars widely spaced. Winds light. Verdict text: "Very low pressure. Light wind. The value is not the signal."
+2. <strong>Shallow low, tight gradients</strong> — center at 1002 hPa, isobars close together. Winds strong. Verdict: "Higher central pressure than scenario 1, much stronger wind. The gradient is the signal."
+3. <strong>Strong high with tight gradients on one flank</strong> — shows that strong wind occurs around highs too, not only lows.
+4. <strong>Cold front passage</strong> — a kinked isobar pattern; probing points either side of the front shows an abrupt direction shift and a temperature and dew point change, matching the signature described in the chapter text.
+5. <strong>Two systems adjacent</strong> — a squeeze zone of very tight isobars between a high and a low, with the strongest winds on the map located between them rather than at either center.</p>
+<p>Interactive controls:
+- Click or drag anywhere on the map to probe that point
+- "Draw the gradient" toggle that renders a perpendicular arrow from the probed point across the isobars, with the distance and pressure difference labeled
+- Hemisphere toggle, which reverses the Coriolis deflection and the rotation of both systems
+- "Hide wind arrows" mode, in which the learner must predict where winds are strongest by reading isobar spacing alone, then reveal to check. Score across five attempts.</p>
+<p>Instructional Rationale: The objective is Analyze/examine, which requires reading structure out of a field rather than a single value. The hide-the-arrows prediction mode converts passive map reading into a testable claim. The scenario pairing of deep-but-gentle against shallow-but-tight is the specific configuration that makes the misconception fail, and it must be reachable in a single click for classroom use.</p>
+<p>Implementation: p5.js. Define pressure fields analytically as sums of Gaussian centers so gradients are exactly computable. Derive geostrophic wind speed from the gradient, then apply a surface friction factor and a cross-isobar angle of about 30 degrees over land.</p>
+</details>
+<h2 id="direction-and-the-vane">Direction and the Vane<a class="headerlink" href="#direction-and-the-vane" title="Permanent link">¶</a></h2>
+<p><strong>Wind direction</strong> is the compass direction the wind is coming <em>from</em>, not the direction it is going toward.</p>
+<p>This convention catches everybody once. A north wind blows from the north toward the south. A "westerly" comes from the west. The reason is practical and old: a sailor cares where the weather is arriving from, because that is where the next weather is coming from too.</p>
+<p>Direction is reported in degrees clockwise from true north, so 0 or 360 is north, 90 is east, 180 is south, and 270 is west. Storing degrees rather than compass points matters for your data, and Chapter 15 explains a subtlety in averaging them.</p>
+<p>A <strong>weather vane</strong> is an instrument that indicates wind direction by pivoting freely so its tail is pushed downwind and its pointer aims into the wind.</p>
+<p>The design is ancient. The Tower of the Winds in Athens, built around 50 BC by Andronicus of Cyrrhus, carried a bronze vane on its roof and personified the eight winds in relief carvings on its faces. Weather vanes have been on rooftops continuously since.</p>
+<p>The physics is simple asymmetry: a large tail surface and a small head. Wind pushes harder on the larger surface, swinging it downwind until the vane points into the wind and the forces balance.</p>
+<p>Modern electronic vanes replace the pointer with a position sensor — a potentiometer, a set of magnetic switches, or an optical encoder — that reports the angle as a number.</p>
+<h2 id="measuring-speed">Measuring Speed<a class="headerlink" href="#measuring-speed" title="Permanent link">¶</a></h2>
+<p><strong>Wind speed</strong> is how fast air is moving past a point. Measuring it took much longer to solve than direction did.</p>
+<p>An <strong>anemometer</strong> is an instrument that measures wind speed. The name is from the Greek <em>anemos</em>, wind.</p>
+<h3 id="pressure-plates">Pressure Plates<a class="headerlink" href="#pressure-plates" title="Permanent link">¶</a></h3>
+<p>Leon Battista Alberti built the first known anemometer around 1450: a flat plate hung so the wind pushed it up an arc, with the angle read against a scale. Robert Hooke reinvented the same design in the 1600s.</p>
+<p>The idea is sound — wind force does relate to speed — but the design is difficult to calibrate, sensitive to the plate's exact shape and weight, and it must be aimed into the wind to work at all. Swinging-plate anemometers survive today only as simple hand-held indicators.</p>
+<h3 id="the-beaufort-scale">The Beaufort Scale<a class="headerlink" href="#the-beaufort-scale" title="Permanent link">¶</a></h3>
+<p>The most durable solution to measuring wind was not an instrument at all. It was a set of words.</p>
+<p>In 1805 Francis Beaufort, a Royal Navy officer, wrote a scale describing wind by its observable effects. His original version was written for sailors and defined each force by how much sail a well-conditioned man-of-war could carry. It was later extended with descriptions of the sea state and, for land use, the behavior of smoke, trees, and structures. The Royal Navy adopted it officially in 1838.</p>
+<p>The <strong>Beaufort scale</strong> is a 13-point scale from 0 to 12 relating wind speed to observed conditions on land and at sea.</p>
+<table>
+<thead>
+<tr>
+<th>Force</th>
+<th>Description</th>
+<th>Speed (m/s)</th>
+<th>On land</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Calm</td>
+<td>0–0.2</td>
+<td>Smoke rises vertically</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Light air</td>
+<td>0.3–1.5</td>
+<td>Smoke drifts; vanes do not move</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Light breeze</td>
+<td>1.6–3.3</td>
+<td>Leaves rustle; wind felt on face</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Gentle breeze</td>
+<td>3.4–5.4</td>
+<td>Leaves and twigs in constant motion</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Moderate breeze</td>
+<td>5.5–7.9</td>
+<td>Dust and loose paper raised</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Fresh breeze</td>
+<td>8.0–10.7</td>
+<td>Small trees sway</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Strong breeze</td>
+<td>10.8–13.8</td>
+<td>Large branches move; umbrellas difficult</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Near gale</td>
+<td>13.9–17.1</td>
+<td>Whole trees move; walking is hard</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Gale</td>
+<td>17.2–20.7</td>
+<td>Twigs break off trees</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Strong gale</td>
+<td>20.8–24.4</td>
+<td>Slight structural damage</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Storm</td>
+<td>24.5–28.4</td>
+<td>Trees uprooted; considerable damage</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Violent storm</td>
+<td>28.5–32.6</td>
+<td>Widespread damage</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Hurricane</td>
+<td>32.7+</td>
+<td>Devastation</td>
+</tr>
+</tbody>
+</table>
+<p>It is worth appreciating what Beaufort actually achieved here, because it is a measurement-theory lesson as much as a meteorological one. He did not invent an instrument. He solved a <strong>standardization</strong> problem of exactly the kind Chapter 2 described: he made observations from thousands of ships comparable to one another, using equipment every ship already had — a person with eyes. It is one of the most successful measurement standards ever created, and it is still in daily use over two centuries later.</p>
+<p>Note from Chapter 2 that the Beaufort scale is ordinal. Force 8 is not twice force 4.</p>
+<h3 id="the-cup-anemometer">The Cup Anemometer<a class="headerlink" href="#the-cup-anemometer" title="Permanent link">¶</a></h3>
+<p>John Thomas Romney Robinson gave the world the standard instrument in 1846.</p>
+<p>A <strong>cup anemometer</strong> has three or four hemispherical cups on horizontal arms mounted on a vertical shaft. The cups catch more wind on their concave side than their convex side, so the assembly spins, and the rotation rate is proportional to wind speed.</p>
+<p>Its critical virtue is that it works regardless of wind direction. No aiming, no tracking, no moving parts to point. Robinson originally believed the cups always moved at one third of the wind speed regardless of size — that turned out to be wrong, and modern cup anemometers are individually calibrated — but the design has outlived the error and remains the world standard for surface weather stations.</p>
+<p>Its limitations are worth knowing, because they will show up in your data:</p>
+<ul>
+<li><strong>Inertia.</strong> The cups take time to spin up and, more importantly, take time to slow down. A cup anemometer over-reports in gusty conditions because it never fully slows between gusts.</li>
+<li><strong>Stall.</strong> Below roughly 0.5 m/s, friction prevents the cups from turning at all, and the instrument reads zero when the wind is merely light.</li>
+<li><strong>Wear.</strong> Bearings degrade outdoors. A gradually stiffening bearing produces a slow downward drift that looks exactly like the weather getting calmer.</li>
+</ul>
+<h3 id="sonic-anemometers">Sonic Anemometers<a class="headerlink" href="#sonic-anemometers" title="Permanent link">¶</a></h3>
+<p>A <strong>sonic anemometer</strong> measures wind speed by timing ultrasonic pulses between fixed transducers.</p>
+<p>The principle is elegant: sound travelling with the wind arrives sooner than sound travelling against it. Measure the difference in transit time along a known path and you get the wind component along that path. Use three pairs of transducers and you get all three components of the wind vector, including vertical motion.</p>
+<p>There is nothing that spins. That means no inertia, no stall speed, no bearings to wear out, and a response fast enough to resolve turbulence. Sonic anemometers can measure at 20 or more samples per second, which is what makes them the standard for research work.</p>
+<p>The trade is cost and fragility. They are expensive, and ice or heavy rain on the transducers disrupts the measurement — so heated versions exist and cost more still.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Cup anemometer</th>
+<th>Sonic anemometer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Moving parts</td>
+<td>Yes</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Stall speed</td>
+<td>About 0.5 m/s</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Response</td>
+<td>Seconds</td>
+<td>Milliseconds</td>
+</tr>
+<tr>
+<td>Measures vertical wind</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Affected by icing</td>
+<td>Yes</td>
+<td>Yes, differently</td>
+</tr>
+<tr>
+<td>Cost</td>
+<td>Low</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Typical use</td>
+<td>Weather stations</td>
+<td>Research, turbulence</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Your wind sensor is not chosen yet</p>
+<p><a href="../../components/">Components Used</a> has no wind sensor entry at all. This chapter is written to the physics so it stands whichever sensor is chosen, but there is a wiring consequence worth flagging now.</p>
+<p>Most affordable cup anemometers report speed as a <strong>pulse train</strong> — one or more electrical pulses per rotation — rather than as a digital value over I2C. That means the Raspberry Pi must count pulses on a GPIO pin over a timed interval, which is a different technique from the I2C reads in Chapter 12. A reed switch or Hall-effect anemometer needs a GPIO input, a pull-up resistor as described in Chapter 3, and software debouncing.</p>
+<p>Direction vanes are commonly potentiometer-based, producing an analog voltage — and Chapter 4 established that the Raspberry Pi has no built-in ADC, so an external one would be required. Choosing the parts changes what Chapter 12 has to teach.</p>
+</div>
+<h2 id="units">Units<a class="headerlink" href="#units" title="Permanent link">¶</a></h2>
+<p>Wind speed is reported in four units, divided by profession rather than by geography.</p>
+<p><strong>Meters per second</strong> (m/s) is the SI unit and the standard in scientific work. It is what your station should store.</p>
+<p>The <strong>knot unit</strong> (kn) is one nautical mile per hour, and a nautical mile is one minute of latitude — about 1852 metres. It is standard in marine and aviation use worldwide, and its persistence is not arbitrary: because it derives from latitude, speed in knots relates directly to position on a chart.</p>
+<p>Kilometres per hour and miles per hour are used in general public forecasts.</p>
+<table>
+<thead>
+<tr>
+<th>From m/s</th>
+<th>Multiply by</th>
+<th>To get</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>m/s</td>
+<td>3.6</td>
+<td>km/h</td>
+</tr>
+<tr>
+<td>m/s</td>
+<td>2.237</td>
+<td>mph</td>
+</tr>
+<tr>
+<td>m/s</td>
+<td>1.944</td>
+<td>knots</td>
+</tr>
+</tbody>
+</table>
+<p>A rough mental conversion worth having: <strong>m/s to knots, roughly double it.</strong> 10 m/s is about 19 knots.</p>
+<h2 id="what-wind-does-to-people">What Wind Does To People<a class="headerlink" href="#what-wind-does-to-people" title="Permanent link">¶</a></h2>
+<p>Wind changes how temperature feels, and in two opposite directions depending on humidity.</p>
+<p><strong>Apparent temperature</strong> is the temperature a human perceives, accounting for the combined effect of air temperature, humidity, wind, and sometimes solar radiation. It is what "feels like" means in a forecast.</p>
+<p><strong>Wind chill</strong> is apparent temperature in cold conditions, where wind makes it feel colder than the thermometer reads.</p>
+<p>The mechanism is a boundary layer. Your body warms a thin film of air right against your skin, and that warmed film insulates you. Wind strips it away and replaces it with cold air, which you then have to warm again. Faster wind removes heat faster.</p>
+<p>Paul Siple and Charles Passel published the first wind chill formula in 1945, based on measuring how quickly water froze in plastic cylinders in Antarctica. That method had known flaws — a plastic cylinder is not a face — and in 2001 the US National Weather Service and Environment Canada replaced it with a model based on heat transfer from a human face, validated with volunteers in a chilled wind tunnel.</p>
+<p>Two properties of wind chill are important to state clearly:</p>
+<ul>
+<li><strong>It only applies below about 10 °C.</strong> Above that, wind is pleasant rather than dangerous.</li>
+<li><strong>It does not cool objects below air temperature.</strong> A car left outside in a −5 °C wind reaches −5 °C, not the wind chill value. Wind chill describes the <em>rate</em> of heat loss from a warm body, not a temperature the air actually attains. Pipes freeze at the air temperature; people get frostbite at the wind chill rate.</li>
+</ul>
+<p><strong>Heat index</strong> is apparent temperature in hot conditions, combining air temperature and relative humidity.</p>
+<p>Here wind is not the main variable — humidity is, and Chapter 8 explained why. You cool yourself by evaporating sweat. High humidity means the air is already close to saturated, so sweat evaporates slowly, so cooling fails. At 32 °C the heat index is about 31 °C at 40 percent humidity and about 41 °C at 80 percent humidity. Same air temperature, ten degrees of difference in effect.</p>
+<p>And unlike wind chill, heat index describes a genuine danger with a physical limit. Chapter 8 introduced wet bulb temperature; when it approaches human body temperature, evaporative cooling stops working entirely and no amount of shade or water helps.</p>
+<h4 id="diagram-apparent-temperature-explorer">Diagram: Apparent Temperature Explorer<a class="headerlink" href="#diagram-apparent-temperature-explorer" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/apparent-temperature-explorer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Apparent Temperature Explorer</summary>
+<p>Type: chart
+<strong>sim-id:</strong> apparent-temperature-explorer<br>
+<strong>Library:</strong> Chart.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Apply (L3)
+Bloom Verb: calculate</p>
+<p>Learning objective: The learner calculates apparent temperature from air temperature, wind speed, and humidity, and explains why wind dominates in cold conditions while humidity dominates in hot conditions.</p>
+<p>Purpose: Wind chill and heat index are usually taught as two unrelated lookup tables. Presenting them as one continuous apparent-temperature surface, with the dominant variable switching at a threshold, shows that they are two regimes of one question: how fast can this body shed heat?</p>
+<p>Chart type: Heatmap with an overlaid probe point, plus a toggleable line-chart cross-section</p>
+<p>Primary view — heatmap:
+X-axis: Air temperature, −40 to 50 °C
+Y-axis: The secondary variable, which switches with regime — wind speed 0 to 30 m/s in the cold regime, relative humidity 0 to 100 percent in the hot regime
+Cell color: Apparent temperature, on a diverging scale centered on the air temperature so cells where it feels colder and warmer than actual are visually distinct</p>
+<p>A vertical band between about 10 °C and 27 °C is drawn in neutral gray and labeled "Neither correction applies. Wind is pleasant, humidity is tolerable."</p>
+<p>Secondary view — cross-section: fixing air temperature and sweeping the secondary variable, plotted as a line so the learner can read the magnitude of the effect directly.</p>
+<p>Data Visibility Requirements:
+  Stage 1: Show the probed air temperature and secondary variable
+  Stage 2: Show the apparent temperature
+  Stage 3: Show the difference from actual, e.g. "feels 11 degrees colder"
+  Stage 4: Show the risk category — frostbite time in minutes in the cold regime, heat illness risk in the hot regime
+  Stage 5: Show a plain-language mechanism sentence appropriate to the regime, e.g. "Wind is stripping away the warm air film against your skin" or "Humidity is preventing sweat from evaporating"</p>
+<p>Required teaching moments:
+- Probing a car or a water pipe rather than a person: a toggle labeled "What is being cooled?" with options Person, Car, Water pipe. For the non-human options the apparent temperature readout must be replaced with the air temperature and the caption "Objects cool to the air temperature, not to the wind chill. Wind chill is a rate of heat loss from a warm body, not a temperature the air reaches." This directly targets a common misconception.
+- A wet-bulb overlay in the hot regime marking the region where wet bulb temperature exceeds 35 °C, labeled "Evaporative cooling fails here. Survivable for only a few hours even at rest."
+- A comparison pin: the learner can pin one condition and probe another, with the two apparent temperatures displayed side by side.</p>
+<p>Interactive features:
+- Click or drag anywhere on the heatmap to probe
+- Regime toggle, or automatic switching based on the probed temperature with a visible notice when it switches
+- Cross-section toggle
+- Unit selector for wind speed: m/s, km/h, mph, knots — reinforcing the conversion table above
+- Preset conditions: "Minnesota January", "Gulf Coast August", "Sahara noon", "British autumn"</p>
+<p>Implementation: Chart.js matrix/heatmap plugin for the primary view and a line chart for cross-sections. Use the 2001 NWS wind chill formula and the Rothfusz heat index regression, and state both sources in the infobox.</p>
+</details>
+<h2 id="what-wind-does-to-structures">What Wind Does To Structures<a class="headerlink" href="#what-wind-does-to-structures" title="Permanent link">¶</a></h2>
+<p>Wind exerts force, and the relationship is not gentle.</p>
+<p><strong>Wind load</strong> is the force wind exerts on a structure. It scales with the <em>square</em> of wind speed:</p>
+<div class="arithmatex">\[ F \propto v^2 \]</div>
+<p>Doubling the wind speed quadruples the force. Tripling it multiplies the force by nine. This is why the difference between a 20 m/s storm and a 40 m/s hurricane is not "twice as bad" — it is four times the force on every wall, roof, and window.</p>
+<table>
+<thead>
+<tr>
+<th>Wind speed</th>
+<th>Relative force</th>
+<th>Typical effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10 m/s</td>
+<td>1×</td>
+<td>Branches move</td>
+</tr>
+<tr>
+<td>20 m/s</td>
+<td>4×</td>
+<td>Twigs break; walking difficult</td>
+</tr>
+<tr>
+<td>30 m/s</td>
+<td>9×</td>
+<td>Structural damage begins</td>
+</tr>
+<tr>
+<td>40 m/s</td>
+<td>16×</td>
+<td>Roofs fail</td>
+</tr>
+<tr>
+<td>60 m/s</td>
+<td>36×</td>
+<td>Severe destruction</td>
+</tr>
+</tbody>
+</table>
+<p>Building codes are written against wind speed records for a region, and Chapter 17 follows that thread. A building in coastal Florida and one in Ohio are designed to different wind loads because the historical wind data differs — data that came from stations like yours.</p>
+<p>Two rating scales quantify extreme wind by its damage. The Saffir-Simpson scale rates hurricanes by sustained wind speed, and Chapter 15 covers it alongside sustained-wind calculation. The other belongs here.</p>
+<p>The <strong>Enhanced Fujita scale</strong> rates tornado intensity from EF0 to EF5, based on the damage caused. Tetsuya Fujita created the original scale in 1971; it was revised in 2007 after engineering studies showed the original overestimated the wind speeds needed to cause given damage.</p>
+<table>
+<thead>
+<tr>
+<th>Rating</th>
+<th>Wind speed</th>
+<th>Typical damage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EF0</td>
+<td>29–38 m/s</td>
+<td>Branches broken, shingles peeled</td>
+</tr>
+<tr>
+<td>EF1</td>
+<td>38–49 m/s</td>
+<td>Roof surfaces stripped, windows broken</td>
+</tr>
+<tr>
+<td>EF2</td>
+<td>50–60 m/s</td>
+<td>Roofs torn off, mobile homes destroyed</td>
+</tr>
+<tr>
+<td>EF3</td>
+<td>61–74 m/s</td>
+<td>Exterior walls collapse</td>
+</tr>
+<tr>
+<td>EF4</td>
+<td>75–89 m/s</td>
+<td>Well-built houses levelled</td>
+</tr>
+<tr>
+<td>EF5</td>
+<td>Over 89 m/s</td>
+<td>Structures swept from foundations</td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-beaufort-scale-observation-trainer">Diagram: Beaufort Scale Observation Trainer<a class="headerlink" href="#diagram-beaufort-scale-observation-trainer" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/beaufort-observation-trainer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Beaufort Scale Observation Trainer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> beaufort-observation-trainer<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Understand (L2)
+Bloom Verb: classify</p>
+<p>Learning objective: The learner classifies a wind condition into a Beaufort force by observing its effects on trees, smoke, water, and loose objects, and converts that force into a wind speed range in m/s, km/h, and knots.</p>
+<p>Purpose: The Beaufort scale is the chapter's best illustration of a measurement standard that needs no instrument, and it is also a genuinely usable skill — a student whose anemometer has not arrived can still take comparable wind observations. Training the eye requires seeing the effects animated, which a table cannot do.</p>
+<p>Canvas layout:
+- Main area: a scene containing a deciduous tree, a chimney with smoke, a flag on a pole, loose paper on the ground, a small pond surface, and a person walking — every one of them responding to the current wind
+- Left: a Beaufort force selector, 0 through 12, with the standard description text
+- Right or below (responsive): the speed range for the selected force in four units, and a feedback panel
+- Bottom: mode controls
+- Responsive to window resize; the scene scales and reflows</p>
+<p>Visual response requirements — each element must behave distinguishably across the range:
+- <strong>Smoke</strong>: rises vertically at force 0, drifts at 1, bends progressively, becomes horizontal and torn by force 6
+- <strong>Tree</strong>: still at 0, leaves rustling at 2, twigs in constant motion at 3, small branches at 4, whole small trees swaying at 5, large branches at 6, whole trees moving at 7, twigs breaking off at 8, branches breaking at 9, uprooting at 10
+- <strong>Flag</strong>: hanging limp, lifting, extending, snapping and cracking
+- <strong>Loose paper</strong>: still, stirring at force 4, lifted and blown at 5 and above
+- <strong>Pond surface</strong>: glassy at 0, ripples at 1, small wavelets at 2, whitecaps beginning at 4
+- <strong>Person</strong>: walking normally, leaning slightly at 6, walking with difficulty at 7, unable to make headway at 8</p>
+<p>Two modes:
+1. <strong>Explore</strong> — the learner sets a force and watches all elements respond, with the description and speed ranges shown. Free exploration to build the association.
+2. <strong>Identify</strong> — the sim sets a hidden force and animates the scene. The learner must classify it. On answering, feedback names which cue was decisive: "Correct. Whole trees in motion and difficulty walking is force 7, near gale, 13.9 to 17.1 m/s." Wrong answers get a targeted hint: "Look at the smoke. It is fully horizontal, which rules out anything below force 5." Ten rounds with a score.</p>
+<p>Additional controls:
+- A "cheat sheet" toggle showing the full Beaufort table, off by default in Identify mode
+- Unit selector cycling the displayed speed range between m/s, km/h, mph, and knots
+- A "compare two forces" split-screen so the learner can see, for example, force 4 and force 6 side by side, since adjacent forces are the hard discriminations</p>
+<p>Instructional Rationale: The objective is Understand/classify, and classification is trained by exposure to varied instances with feedback, not by reading the criteria. Animating multiple independent cues simultaneously matters because real Beaufort estimation is a judgment across several weak signals rather than one strong one — and the hint system teaching learners to check the strongest available cue is the transferable skill.</p>
+<p>Implementation: p5.js. Drive every scene element from a single wind-speed value so they cannot disagree. Use simple procedural animation — sine-based sway with amplitude and frequency scaled by wind speed, particle drift for smoke — rather than sprite sheets, so there are no external assets.</p>
+</details>
+<p>The Enhanced Fujita scale works backwards from damage to wind speed, which is unusual among measurement scales. The reason is practical: tornadoes destroy anemometers. Direct measurement inside a violent tornado is nearly impossible, so engineers survey the damage afterward and infer the wind speed required to produce it. It is measurement by consequence rather than by instrument — an approach Chapter 11 will meet again in earthquake intensity scales.</p>
+<h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Wind</strong> is air moving from high to low pressure. <strong>High pressure systems</strong> have sinking air and fair weather; <strong>low pressure systems</strong> have rising air, cloud, and rain. A <strong>weather front</strong> is the boundary between air masses.</li>
+<li><strong>Pressure gradient</strong> — the rate of pressure change with distance — determines wind speed, not the absolute pressure. Tight isobars mean strong wind.</li>
+<li><strong>Wind direction</strong> is where wind comes <em>from</em>, in degrees clockwise from north. A <strong>weather vane</strong> points into the wind.</li>
+<li>An <strong>anemometer</strong> measures <strong>wind speed</strong>. The <strong>cup anemometer</strong> (1846) is the station standard; the <strong>sonic anemometer</strong> has no moving parts, no stall speed, and much faster response.</li>
+<li>The <strong>Beaufort scale</strong> solved standardization without an instrument, by describing observable effects. It is ordinal.</li>
+<li><strong>Meters per second</strong> is the SI unit; the <strong>knot unit</strong> derives from latitude and persists in marine and aviation use.</li>
+<li><strong>Apparent temperature</strong> covers both <strong>wind chill</strong> in the cold and <strong>heat index</strong> in the heat. Wind chill applies to warm bodies, not to objects.</li>
+<li><strong>Wind load</strong> scales with the square of wind speed. The <strong>Enhanced Fujita scale</strong> rates tornadoes by inferring wind speed from damage.</li>
+</ul>
+<h2 id="check-yourself">Check Yourself<a class="headerlink" href="#check-yourself" title="Permanent link">¶</a></h2>
+<details class="question">
+<summary>System A is a 970 hPa low with widely spaced isobars. System B is a 1002 hPa low with tightly packed isobars. Which has stronger winds? Click to check.</summary>
+<p><strong>System B.</strong> Wind speed depends on the pressure <em>gradient</em> — how fast pressure changes with distance — not on how low the central pressure is. B's tightly packed isobars mean a steep gradient and strong wind, despite its higher central pressure. This is the hill analogy: a ball rolls fast down a steep slope regardless of how high the hilltop was.</p>
+</details>
+<details class="question">
+<summary>The forecast says −20 °C with a wind chill of −35 °C. What temperature will an unheated water pipe reach? Click to check.</summary>
+<p><strong>−20 °C</strong>, the actual air temperature. Wind chill describes how fast a <em>warm body</em> loses heat, not a temperature the air attains. Wind cannot cool anything below the air temperature — it can only bring an object to air temperature faster. So the pipe will freeze, but at −20 °C and no colder. A person, however, will develop frostbite at the −35 °C rate, which is why the number is reported.</p>
+</details>
+<details class="question">
+<summary>Wind increases from 15 m/s to 30 m/s. How much does the force on a roof increase? Click to check.</summary>
+<p><strong>Four times.</strong> Wind load scales with the square of speed, so doubling the speed gives <span class="arithmatex">\(2^2 = 4\)</span> times the force. This is why building damage escalates so steeply with wind speed, and why a storm that is only modestly faster than the last one can be far more destructive.</p>
+</details>
+<details class="question">
+<summary>Your cup anemometer has read a steady 0.0 m/s all morning, but leaves are rustling outside. Broken? Click to check.</summary>
+<p>Not necessarily. Rustling leaves is Beaufort force 2, roughly 1.6 to 3.3 m/s, which should register. But check the stall speed first: cup anemometers stop turning below about 0.5 m/s, and a worn or dirty bearing raises that threshold considerably. A stiffening bearing produces exactly this failure — the instrument reads zero in light wind and under-reads in moderate wind, drifting downward over months in a way that mimics a genuinely calmer season. Spin the cups by hand and see whether they turn freely and coast.</p>
+</details>
+<hr>
+<h2 id="what-is-next">What Is Next<a class="headerlink" href="#what-is-next" title="Permanent link">¶</a></h2>
+<p>Six of the seven quantities so far have been properties of the air. The last measurement in this part of the book is not about the atmosphere at all.</p>
+<p>Chapter 11 goes underground. It covers ground motion — earthquakes, the seismic waves they send through the planet, and the instruments that detect them. The instrument lineage is the oldest in this book, beginning with a bronze vessel ringed with dragons in 138 AD, and the modern end of it is a chip small enough that a student station can afford one. Along the way it draws the distinction between magnitude and intensity, which is the most commonly confused pair of ideas in this entire book.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../09-solar-radiation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 9. Solar Radiation - The Energy That Drives the Weather">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                9. Solar Radiation - The Energy That Drives the Weather
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../11-ground-motion/" class="md-footer__link md-footer__link--next" aria-label="Next: 11. Ground Motion - Measuring Earthquakes">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                11. Ground Motion - Measuring Earthquakes
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Hank R. Licensed under <a href="licensing/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

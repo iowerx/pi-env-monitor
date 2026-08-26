@@ -1,0 +1,3147 @@
+{
+  "terms": [
+    {
+      "term": "Absolute Humidity",
+      "related_terms": [],
+      "contrasts_with": [
+        "Relative Humidity"
+      ],
+      "category": "Humidity And Dew Point",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Absolute Zero",
+      "related_terms": [
+        "Kelvin Scale",
+        "Kinetic Energy Of Atoms"
+      ],
+      "contrasts_with": [],
+      "category": "Temperature",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Acceleration",
+      "related_terms": [
+        "Accelerometer",
+        "Seismic Wave"
+      ],
+      "contrasts_with": [],
+      "category": "Ground Motion And Seismology",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Accelerometer",
+      "related_terms": [
+        "MEMS Accelerometer",
+        "Inertial Mass"
+      ],
+      "contrasts_with": [],
+      "category": "Ground Motion And Seismology",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Accuracy",
+      "related_terms": [
+        "Precision",
+        "Measurement Uncertainty",
+        "Calibration"
+      ],
+      "contrasts_with": [],
+      "category": "Measurement Foundations",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Agricultural Planning",
+      "related_terms": [
+        "Evapotranspiration",
+        "Air Temperature"
+      ],
+      "contrasts_with": [],
+      "category": "Environmental And Societal Impact",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Air Mass",
+      "related_terms": [
+        "Weather Front",
+        "Atmosphere"
+      ],
+      "contrasts_with": [],
+      "category": "Atmospheric Science",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Air Quality",
+      "related_terms": [
+        "Temperature Inversion",
+        "Wind"
+      ],
+      "contrasts_with": [],
+      "category": "Environmental And Societal Impact",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Air Temperature",
+      "related_terms": [
+        "Surface Temperature",
+        "Stevenson Screen"
+      ],
+      "contrasts_with": [],
+      "category": "Temperature",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Albedo",
+      "related_terms": [
+        "Solar Radiation",
+        "Urban Heat Island"
+      ],
+      "contrasts_with": [],
+      "category": "Solar Radiation",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Altimeter",
+      "related_terms": [
+        "Pressure Altitude",
+        "Sea Level Pressure"
+      ],
+      "contrasts_with": [],
+      "category": "Barometric Pressure",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Analog Signal",
+      "related_terms": [],
+      "contrasts_with": [
+        "Digital Signal"
+      ],
+      "category": "Sensors And Transduction",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Analog To Digital Conversion",
+      "related_terms": [
+        "Analog Signal",
+        "Digital Signal",
+        "Resolution"
+      ],
+      "contrasts_with": [],
+      "category": "Sensors And Transduction",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Anemometer",
+      "related_terms": [
+        "Cup Anemometer",
+        "Sonic Anemometer"
+      ],
+      "contrasts_with": [],
+      "category": "Wind",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Aneroid Barometer",
+      "related_terms": [
+        "Mercury Barometer",
+        "Barometric Pressure"
+      ],
+      "contrasts_with": [],
+      "category": "Barometric Pressure",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Apparent Temperature",
+      "related_terms": [
+        "Wind Chill",
+        "Heat Index"
+      ],
+      "contrasts_with": [],
+      "category": "Humidity And Dew Point",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Atmosphere",
+      "related_terms": [
+        "Atmospheric Layer",
+        "One Atmosphere"
+      ],
+      "contrasts_with": [],
+      "category": "Atmospheric Science",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Atmospheric Layer",
+      "related_terms": [
+        "Atmosphere"
+      ],
+      "contrasts_with": [],
+      "category": "Atmospheric Science",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Atomic Clock",
+      "related_terms": [
+        "GPS Satellite",
+        "Coordinated Universal Time"
+      ],
+      "contrasts_with": [],
+      "category": "Location Elevation And Time",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Aviation Safety",
+      "related_terms": [
+        "Altimeter",
+        "Wind Gust"
+      ],
+      "contrasts_with": [],
+      "category": "Environmental And Societal Impact",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Axis Labeling",
+      "related_terms": [
+        "Line Chart",
+        "Science Communication"
+      ],
+      "contrasts_with": [],
+      "category": "Data Logging And Analysis",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Barometric Forecasting",
+      "related_terms": [
+        "Pressure Tendency",
+        "Barometric Pressure"
+      ],
+      "contrasts_with": [],
+      "category": "Barometric Pressure",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Barometric Pressure",
+      "related_terms": [
+        "Pressure",
+        "Sea Level Pressure",
+        "One Atmosphere"
+      ],
+      "contrasts_with": [],
+      "category": "Barometric Pressure",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Base Station",
+      "related_terms": [
+        "Telemetry",
+        "Remote Station"
+      ],
+      "contrasts_with": [],
+      "category": "Field Deployment And Power",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Battery Capacity",
+      "related_terms": [
+        "Power Budget",
+        "Charge Controller"
+      ],
+      "contrasts_with": [],
+      "category": "Field Deployment And Power",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Beaufort Scale",
+      "related_terms": [
+        "Wind Speed",
+        "Measurement Scale"
+      ],
+      "contrasts_with": [],
+      "category": "Wind",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "BME280 Sensor",
+      "related_terms": [
+        "Piezoresistive Effect",
+        "Capacitive Humidity Sensor",
+        "Silicon Diode Sensor"
+      ],
+      "contrasts_with": [],
+      "category": "Sensors And Transduction",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Boiling Point Of Water",
+      "related_terms": [
+        "Celsius Scale",
+        "Freezing Point Of Water"
+      ],
+      "contrasts_with": [],
+      "category": "Temperature",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Bolometer",
+      "related_terms": [
+        "Pyrheliometer",
+        "Solar Constant"
+      ],
+      "contrasts_with": [],
+      "category": "Solar Radiation",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Boundary Layer",
+      "related_terms": [
+        "Wind Chill"
+      ],
+      "contrasts_with": [],
+      "category": "Supplementary Vocabulary",
+      "has_example": false,
+      "in_learning_graph": false
+    },
+    {
+      "term": "Breadboard",
+      "related_terms": [
+        "Jumper Wire",
+        "GPIO Pin"
+      ],
+      "contrasts_with": [],
+      "category": "Hardware And Interfacing",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Building Code",
+      "related_terms": [
+        "Wind Load",
+        "Magnitude Versus Intensity"
+      ],
+      "contrasts_with": [],
+      "category": "Environmental And Societal Impact",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Calibration",
+      "related_terms": [
+        "Reference Standard",
+        "Accuracy",
+        "Sensor Drift"
+      ],
+      "contrasts_with": [],
+      "category": "Measurement Foundations",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Capacitive Humidity Sensor",
+      "related_terms": [
+        "Capacitive Sensing",
+        "Relative Humidity"
+      ],
+      "contrasts_with": [],
+      "category": "Humidity And Dew Point",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Capacitive Sensing",
+      "related_terms": [
+        "Capacitive Humidity Sensor",
+        "Transduction"
+      ],
+      "contrasts_with": [],
+      "category": "Sensors And Transduction",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Cellular Data Link",
+      "related_terms": [
+        "Telemetry",
+        "SIM7600A Module"
+      ],
+      "contrasts_with": [],
+      "category": "Field Deployment And Power",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Celsius Scale",
+      "related_terms": [
+        "Fahrenheit Scale",
+        "Kelvin Scale",
+        "Temperature Conversion"
+      ],
+      "contrasts_with": [],
+      "category": "Temperature",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Charge Controller",
+      "related_terms": [
+        "Solar Panel",
+        "Battery Capacity"
+      ],
+      "contrasts_with": [],
+      "category": "Field Deployment And Power",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Chilled Mirror Hygrometer",
+      "related_terms": [
+        "Dew Point",
+        "Reference Standard"
+      ],
+      "contrasts_with": [],
+      "category": "Humidity And Dew Point",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Citizen Science",
+      "related_terms": [
+        "Data Sharing",
+        "Science Communication"
+      ],
+      "contrasts_with": [],
+      "category": "Environmental And Societal Impact",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Climate",
+      "related_terms": [],
+      "contrasts_with": [
+        "Weather"
+      ],
+      "category": "Atmospheric Science",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Climate Record",
+      "related_terms": [
+        "Climate",
+        "Sensor Drift"
+      ],
+      "contrasts_with": [],
+      "category": "Environmental And Societal Impact",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Climatologist",
+      "related_terms": [],
+      "contrasts_with": [
+        "Meteorologist"
+      ],
+      "category": "Atmospheric Science",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Cloud Formation",
+      "related_terms": [
+        "Condensation",
+        "Convection",
+        "Dew Point"
+      ],
+      "contrasts_with": [],
+      "category": "Atmospheric Science",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Command Line Interface",
+      "related_terms": [
+        "Shell Command",
+        "Operating System"
+      ],
+      "contrasts_with": [],
+      "category": "Computing And Programming",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Condensation",
+      "related_terms": [],
+      "contrasts_with": [
+        "Evaporation"
+      ],
+      "category": "Atmospheric Science",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Condensation Nuclei",
+      "related_terms": [
+        "Cloud Formation",
+        "Condensation"
+      ],
+      "contrasts_with": [],
+      "category": "Supplementary Vocabulary",
+      "has_example": false,
+      "in_learning_graph": false
+    },
+    {
+      "term": "Conditional Statement",
+      "related_terms": [
+        "Data Validation",
+        "Loop"
+      ],
+      "contrasts_with": [],
+      "category": "Computing And Programming",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Convection",
+      "related_terms": [
+        "Heat Transfer",
+        "Cloud Formation"
+      ],
+      "contrasts_with": [],
+      "category": "Atmospheric Science",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Coordinate System",
+      "related_terms": [
+        "Latitude",
+        "Longitude",
+        "WGS 84 Datum"
+      ],
+      "contrasts_with": [],
+      "category": "Location Elevation And Time",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Coordinated Universal Time",
+      "related_terms": [
+        "Timestamp",
+        "Time Zone"
+      ],
+      "contrasts_with": [],
+      "category": "Location Elevation And Time",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Coriolis Effect",
+      "related_terms": [
+        "Wind",
+        "Pressure Gradient"
+      ],
+      "contrasts_with": [],
+      "category": "Supplementary Vocabulary",
+      "has_example": false,
+      "in_learning_graph": false
+    },
+    {
+      "term": "Correlation",
+      "related_terms": [
+        "Scatter Plot",
+        "Trend"
+      ],
+      "contrasts_with": [],
+      "category": "Data Logging And Analysis",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "CSV File",
+      "related_terms": [
+        "Header Row",
+        "Data Record"
+      ],
+      "contrasts_with": [],
+      "category": "Data Logging And Analysis",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Cup Anemometer",
+      "related_terms": [
+        "Anemometer",
+        "Sonic Anemometer"
+      ],
+      "contrasts_with": [],
+      "category": "Wind",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Current",
+      "related_terms": [
+        "Voltage",
+        "Ground Connection"
+      ],
+      "contrasts_with": [],
+      "category": "Hardware And Interfacing",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Data Backup",
+      "related_terms": [
+        "Data Storage",
+        "File Rotation"
+      ],
+      "contrasts_with": [],
+      "category": "Data Logging And Analysis",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Data Field",
+      "related_terms": [
+        "Data Record",
+        "Header Row"
+      ],
+      "contrasts_with": [],
+      "category": "Data Logging And Analysis",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Data Logging",
+      "related_terms": [
+        "Sampling Interval",
+        "Time Series"
+      ],
+      "contrasts_with": [],
+      "category": "Data Logging And Analysis",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Data Record",
+      "related_terms": [
+        "Data Field",
+        "Time Series"
+      ],
+      "contrasts_with": [],
+      "category": "Data Logging And Analysis",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Data Sharing",
+      "related_terms": [
+        "Metadata",
+        "Citizen Science"
+      ],
+      "contrasts_with": [],
+      "category": "Environmental And Societal Impact",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Data Storage",
+      "related_terms": [
+        "File Rotation",
+        "Data Backup"
+      ],
+      "contrasts_with": [],
+      "category": "Data Logging And Analysis",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Data Type",
+      "related_terms": [
+        "Variable"
+      ],
+      "contrasts_with": [],
+      "category": "Computing And Programming",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Data Validation",
+      "related_terms": [
+        "Outlier",
+        "Quality Flag"
+      ],
+      "contrasts_with": [],
+      "category": "Data Logging And Analysis",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Database",
+      "related_terms": [],
+      "contrasts_with": [
+        "CSV File"
+      ],
+      "category": "Data Logging And Analysis",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Depth Of Discharge",
+      "related_terms": [
+        "Battery Capacity"
+      ],
+      "contrasts_with": [],
+      "category": "Supplementary Vocabulary",
+      "has_example": true,
+      "in_learning_graph": false
+    },
+    {
+      "term": "Dew And Frost Formation",
+      "related_terms": [
+        "Dew Point",
+        "Fog Formation"
+      ],
+      "contrasts_with": [],
+      "category": "Humidity And Dew Point",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Dew Point",
+      "related_terms": [
+        "Relative Humidity",
+        "Fog Formation"
+      ],
+      "contrasts_with": [],
+      "category": "Humidity And Dew Point",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Digital Signal",
+      "related_terms": [],
+      "contrasts_with": [
+        "Analog Signal"
+      ],
+      "category": "Sensors And Transduction",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Dilution Of Precision",
+      "related_terms": [
+        "Position Fix Accuracy"
+      ],
+      "contrasts_with": [],
+      "category": "Supplementary Vocabulary",
+      "has_example": false,
+      "in_learning_graph": false
+    },
+    {
+      "term": "Diurnal Cycle",
+      "related_terms": [
+        "Seasonal Variation",
+        "Solar Zenith Angle"
+      ],
+      "contrasts_with": [],
+      "category": "Atmospheric Science",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Duty Cycling",
+      "related_terms": [
+        "Power Budget"
+      ],
+      "contrasts_with": [],
+      "category": "Field Deployment And Power",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Earthquake",
+      "related_terms": [
+        "Fault",
+        "Seismic Wave"
+      ],
+      "contrasts_with": [],
+      "category": "Ground Motion And Seismology",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Earthquake Early Warning",
+      "related_terms": [
+        "P Wave",
+        "S Wave",
+        "Seismic Network"
+      ],
+      "contrasts_with": [],
+      "category": "Ground Motion And Seismology",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Electromagnetic Spectrum",
+      "related_terms": [
+        "Visible Light",
+        "Infrared Radiation",
+        "Ultraviolet Radiation"
+      ],
+      "contrasts_with": [],
+      "category": "Solar Radiation",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Electrostatic Discharge",
+      "related_terms": [
+        "Voltage"
+      ],
+      "contrasts_with": [],
+      "category": "Hardware And Interfacing",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Elevation",
+      "related_terms": [
+        "Sea Level Pressure",
+        "Coordinate System"
+      ],
+      "contrasts_with": [],
+      "category": "Location Elevation And Time",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Energy Demand",
+      "related_terms": [
+        "Air Temperature"
+      ],
+      "contrasts_with": [],
+      "category": "Environmental And Societal Impact",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Enhanced Fujita Scale",
+      "related_terms": [
+        "Wind Load",
+        "Saffir Simpson Scale"
+      ],
+      "contrasts_with": [],
+      "category": "Wind",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Environmental Monitoring",
+      "related_terms": [],
+      "contrasts_with": [],
+      "category": "Measurement Foundations",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Epicenter",
+      "related_terms": [
+        "Earthquake",
+        "Hypocenter"
+      ],
+      "contrasts_with": [],
+      "category": "Supplementary Vocabulary",
+      "has_example": false,
+      "in_learning_graph": false
+    },
+    {
+      "term": "Evaporation",
+      "related_terms": [],
+      "contrasts_with": [
+        "Condensation"
+      ],
+      "category": "Atmospheric Science",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Evapotranspiration",
+      "related_terms": [
+        "Evaporation",
+        "Agricultural Planning"
+      ],
+      "contrasts_with": [],
+      "category": "Environmental And Societal Impact",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Exception Handling",
+      "related_terms": [
+        "Loop",
+        "Script Execution"
+      ],
+      "contrasts_with": [],
+      "category": "Computing And Programming",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Fahrenheit Scale",
+      "related_terms": [
+        "Celsius Scale",
+        "Temperature Conversion"
+      ],
+      "contrasts_with": [],
+      "category": "Temperature",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Fault",
+      "related_terms": [
+        "Earthquake"
+      ],
+      "contrasts_with": [],
+      "category": "Ground Motion And Seismology",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "File Permissions",
+      "related_terms": [
+        "File System",
+        "Operating System"
+      ],
+      "contrasts_with": [],
+      "category": "Computing And Programming",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "File Rotation",
+      "related_terms": [
+        "Data Storage",
+        "CSV File"
+      ],
+      "contrasts_with": [],
+      "category": "Data Logging And Analysis",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "File System",
+      "related_terms": [
+        "Operating System",
+        "File Permissions"
+      ],
+      "contrasts_with": [],
+      "category": "Computing And Programming",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Flood Warning",
+      "related_terms": [
+        "Precipitation",
+        "Citizen Science"
+      ],
+      "contrasts_with": [],
+      "category": "Environmental And Societal Impact",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Fog Formation",
+      "related_terms": [
+        "Dew Point",
+        "Cloud Formation"
+      ],
+      "contrasts_with": [],
+      "category": "Humidity And Dew Point",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Freezing Point Of Water",
+      "related_terms": [
+        "Celsius Scale",
+        "Calibration"
+      ],
+      "contrasts_with": [],
+      "category": "Temperature",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Function",
+      "related_terms": [
+        "Variable",
+        "Python"
+      ],
+      "contrasts_with": [],
+      "category": "Computing And Programming",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "GNSS",
+      "related_terms": [
+        "GPS"
+      ],
+      "contrasts_with": [],
+      "category": "Location Elevation And Time",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "GPIO Pin",
+      "related_terms": [
+        "Pin Header",
+        "Voltage"
+      ],
+      "contrasts_with": [],
+      "category": "Hardware And Interfacing",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "GPS",
+      "related_terms": [
+        "Trilateration",
+        "GNSS"
+      ],
+      "contrasts_with": [],
+      "category": "Location Elevation And Time",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "GPS Satellite",
+      "related_terms": [
+        "Trilateration",
+        "Atomic Clock"
+      ],
+      "contrasts_with": [],
+      "category": "Location Elevation And Time",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Ground Connection",
+      "related_terms": [
+        "Voltage",
+        "Current"
+      ],
+      "contrasts_with": [],
+      "category": "Hardware And Interfacing",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Growing Degree Days",
+      "related_terms": [
+        "Agricultural Planning"
+      ],
+      "contrasts_with": [],
+      "category": "Supplementary Vocabulary",
+      "has_example": true,
+      "in_learning_graph": false
+    },
+    {
+      "term": "Hair Hygrometer",
+      "related_terms": [
+        "Psychrometer",
+        "Relative Humidity"
+      ],
+      "contrasts_with": [],
+      "category": "Humidity And Dew Point",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Header Row",
+      "related_terms": [
+        "CSV File",
+        "Metadata"
+      ],
+      "contrasts_with": [],
+      "category": "Data Logging And Analysis",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Heat Index",
+      "related_terms": [
+        "Apparent Temperature",
+        "Wet Bulb Temperature"
+      ],
+      "contrasts_with": [],
+      "category": "Humidity And Dew Point",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Heat Transfer",
+      "related_terms": [
+        "Convection",
+        "Infrared Radiation"
+      ],
+      "contrasts_with": [],
+      "category": "Temperature",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Hectopascal",
+      "related_terms": [
+        "Millibar",
+        "Pascal Unit"
+      ],
+      "contrasts_with": [],
+      "category": "Barometric Pressure",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Hexadecimal",
+      "related_terms": [
+        "I2C Device Address"
+      ],
+      "contrasts_with": [],
+      "category": "Supplementary Vocabulary",
+      "has_example": true,
+      "in_learning_graph": false
+    },
+    {
+      "term": "High Pressure System",
+      "related_terms": [],
+      "contrasts_with": [
+        "Low Pressure System"
+      ],
+      "category": "Atmospheric Science",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Humidity",
+      "related_terms": [
+        "Absolute Humidity",
+        "Relative Humidity",
+        "Dew Point"
+      ],
+      "contrasts_with": [],
+      "category": "Humidity And Dew Point",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Hydrostatic Pressure",
+      "related_terms": [
+        "Pressure",
+        "Barometric Pressure"
+      ],
+      "contrasts_with": [],
+      "category": "Barometric Pressure",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Hypocenter",
+      "related_terms": [
+        "Earthquake",
+        "Epicenter"
+      ],
+      "contrasts_with": [],
+      "category": "Supplementary Vocabulary",
+      "has_example": true,
+      "in_learning_graph": false
+    },
+    {
+      "term": "I2C Bus",
+      "related_terms": [
+        "I2C Device Address",
+        "Pull Up Resistor"
+      ],
+      "contrasts_with": [],
+      "category": "Hardware And Interfacing",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "I2C Device Address",
+      "related_terms": [
+        "I2C Bus",
+        "Hexadecimal"
+      ],
+      "contrasts_with": [],
+      "category": "Hardware And Interfacing",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Inches Of Mercury",
+      "related_terms": [
+        "Mercury Barometer",
+        "Hectopascal"
+      ],
+      "contrasts_with": [],
+      "category": "Barometric Pressure",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Inertial Mass",
+      "related_terms": [
+        "Seismometer",
+        "Accelerometer"
+      ],
+      "contrasts_with": [],
+      "category": "Ground Motion And Seismology",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Infrared Radiation",
+      "related_terms": [
+        "Electromagnetic Spectrum",
+        "Heat Transfer"
+      ],
+      "contrasts_with": [],
+      "category": "Temperature",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Ingress Protection Rating",
+      "related_terms": [
+        "Weatherproof Enclosure"
+      ],
+      "contrasts_with": [],
+      "category": "Field Deployment And Power",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Insolation",
+      "related_terms": [
+        "Irradiance",
+        "Solar Panel"
+      ],
+      "contrasts_with": [],
+      "category": "Solar Radiation",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Intermittent Connectivity",
+      "related_terms": [
+        "Telemetry",
+        "Data Storage"
+      ],
+      "contrasts_with": [],
+      "category": "Field Deployment And Power",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Interpolation",
+      "related_terms": [
+        "Missing Data"
+      ],
+      "contrasts_with": [],
+      "category": "Supplementary Vocabulary",
+      "has_example": true,
+      "in_learning_graph": false
+    },
+    {
+      "term": "Irradiance",
+      "related_terms": [
+        "Insolation",
+        "Watts Per Square Meter"
+      ],
+      "contrasts_with": [],
+      "category": "Solar Radiation",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Isobar",
+      "related_terms": [
+        "Pressure Gradient"
+      ],
+      "contrasts_with": [],
+      "category": "Supplementary Vocabulary",
+      "has_example": true,
+      "in_learning_graph": false
+    },
+    {
+      "term": "Jumper Wire",
+      "related_terms": [
+        "Breadboard",
+        "Pin Header"
+      ],
+      "contrasts_with": [],
+      "category": "Hardware And Interfacing",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Kelvin Scale",
+      "related_terms": [
+        "Absolute Zero",
+        "Measurement Scale"
+      ],
+      "contrasts_with": [],
+      "category": "Temperature",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Kinetic Energy Of Atoms",
+      "related_terms": [
+        "Temperature",
+        "Absolute Zero"
+      ],
+      "contrasts_with": [],
+      "category": "Temperature",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Knot Unit",
+      "related_terms": [
+        "Meters Per Second",
+        "Wind Speed"
+      ],
+      "contrasts_with": [],
+      "category": "Wind",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Latitude",
+      "related_terms": [],
+      "contrasts_with": [
+        "Longitude"
+      ],
+      "category": "Location Elevation And Time",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Line Chart",
+      "related_terms": [
+        "Axis Labeling",
+        "Missing Data"
+      ],
+      "contrasts_with": [],
+      "category": "Data Logging And Analysis",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Liquid In Glass Thermometer",
+      "related_terms": [
+        "Thermoscope",
+        "Fahrenheit Scale"
+      ],
+      "contrasts_with": [],
+      "category": "Temperature",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Logarithmic Scale",
+      "related_terms": [
+        "Order Of Magnitude",
+        "Moment Magnitude Scale"
+      ],
+      "contrasts_with": [],
+      "category": "Measurement Foundations",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Longitude",
+      "related_terms": [
+        "Prime Meridian",
+        "Longitude Problem"
+      ],
+      "contrasts_with": [],
+      "category": "Location Elevation And Time",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Longitude Problem",
+      "related_terms": [
+        "Marine Chronometer",
+        "Longitude"
+      ],
+      "contrasts_with": [],
+      "category": "Location Elevation And Time",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Loop",
+      "related_terms": [
+        "Conditional Statement",
+        "Function"
+      ],
+      "contrasts_with": [],
+      "category": "Computing And Programming",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Low Pressure System",
+      "related_terms": [],
+      "contrasts_with": [
+        "High Pressure System"
+      ],
+      "category": "Atmospheric Science",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Magnitude Versus Intensity",
+      "related_terms": [
+        "Moment Magnitude Scale",
+        "Mercalli Intensity Scale"
+      ],
+      "contrasts_with": [],
+      "category": "Ground Motion And Seismology",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Marine Chronometer",
+      "related_terms": [
+        "Longitude Problem"
+      ],
+      "contrasts_with": [],
+      "category": "Location Elevation And Time",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Measurement",
+      "related_terms": [
+        "Physical Property",
+        "Unit Of Measure",
+        "Quantitative Data"
+      ],
+      "contrasts_with": [],
+      "category": "Measurement Foundations",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Measurement Range",
+      "related_terms": [
+        "Sensor Datasheet",
+        "Resolution"
+      ],
+      "contrasts_with": [],
+      "category": "Measurement Foundations",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Measurement Scale",
+      "related_terms": [
+        "Kelvin Scale",
+        "Logarithmic Scale"
+      ],
+      "contrasts_with": [],
+      "category": "Measurement Foundations",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Measurement Uncertainty",
+      "related_terms": [
+        "Accuracy",
+        "Precision",
+        "Resolution"
+      ],
+      "contrasts_with": [],
+      "category": "Measurement Foundations",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "MEMS Accelerometer",
+      "related_terms": [
+        "MEMS Sensor",
+        "Seismic Network"
+      ],
+      "contrasts_with": [],
+      "category": "Ground Motion And Seismology",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "MEMS Sensor",
+      "related_terms": [
+        "MEMS Accelerometer",
+        "Semiconductor"
+      ],
+      "contrasts_with": [],
+      "category": "Sensors And Transduction",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Mercalli Intensity Scale",
+      "related_terms": [
+        "Magnitude Versus Intensity"
+      ],
+      "contrasts_with": [],
+      "category": "Ground Motion And Seismology",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Mercury Barometer",
+      "related_terms": [
+        "Torricelli Experiment",
+        "Aneroid Barometer"
+      ],
+      "contrasts_with": [],
+      "category": "Barometric Pressure",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Metadata",
+      "related_terms": [
+        "Data Sharing",
+        "Header Row"
+      ],
+      "contrasts_with": [],
+      "category": "Data Logging And Analysis",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Meteorologist",
+      "related_terms": [
+        "Weather Forecasting"
+      ],
+      "contrasts_with": [
+        "Climatologist"
+      ],
+      "category": "Atmospheric Science",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Meters Per Second",
+      "related_terms": [
+        "Knot Unit",
+        "Wind Speed"
+      ],
+      "contrasts_with": [],
+      "category": "Wind",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Millibar",
+      "related_terms": [
+        "Hectopascal"
+      ],
+      "contrasts_with": [],
+      "category": "Barometric Pressure",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Missing Data",
+      "related_terms": [
+        "Interpolation",
+        "Line Chart"
+      ],
+      "contrasts_with": [],
+      "category": "Data Logging And Analysis",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Moment Magnitude Scale",
+      "related_terms": [
+        "Richter Scale",
+        "Logarithmic Scale"
+      ],
+      "contrasts_with": [],
+      "category": "Ground Motion And Seismology",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Moving Average",
+      "related_terms": [
+        "Sensor Averaging",
+        "Trend"
+      ],
+      "contrasts_with": [],
+      "category": "Data Logging And Analysis",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Nautical Mile",
+      "related_terms": [
+        "Knot Unit",
+        "Latitude"
+      ],
+      "contrasts_with": [],
+      "category": "Supplementary Vocabulary",
+      "has_example": false,
+      "in_learning_graph": false
+    },
+    {
+      "term": "One Atmosphere",
+      "related_terms": [
+        "Sea Level Pressure",
+        "Barometric Pressure"
+      ],
+      "contrasts_with": [],
+      "category": "Barometric Pressure",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Operating System",
+      "related_terms": [
+        "Ubuntu Server",
+        "Raspberry Pi OS"
+      ],
+      "contrasts_with": [],
+      "category": "Computing And Programming",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Order Of Magnitude",
+      "related_terms": [
+        "Scientific Notation",
+        "Logarithmic Scale"
+      ],
+      "contrasts_with": [],
+      "category": "Measurement Foundations",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Outlier",
+      "related_terms": [
+        "Data Validation",
+        "Quality Flag"
+      ],
+      "contrasts_with": [],
+      "category": "Data Logging And Analysis",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "P Wave",
+      "related_terms": [],
+      "contrasts_with": [
+        "S Wave"
+      ],
+      "category": "Ground Motion And Seismology",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Partial Pressure Of Vapor",
+      "related_terms": [
+        "Saturation Vapor Pressure",
+        "Pressure"
+      ],
+      "contrasts_with": [],
+      "category": "Humidity And Dew Point",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Pascal Unit",
+      "related_terms": [
+        "Hectopascal",
+        "SI Units"
+      ],
+      "contrasts_with": [],
+      "category": "Barometric Pressure",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Photodiode",
+      "related_terms": [
+        "Photoelectric Effect",
+        "Pyranometer"
+      ],
+      "contrasts_with": [],
+      "category": "Solar Radiation",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Photoelectric Effect",
+      "related_terms": [
+        "Photodiode",
+        "Photovoltaic Effect"
+      ],
+      "contrasts_with": [],
+      "category": "Sensors And Transduction",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Photovoltaic Effect",
+      "related_terms": [
+        "Solar Cell",
+        "Photoelectric Effect"
+      ],
+      "contrasts_with": [],
+      "category": "Solar Radiation",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Physical Property",
+      "related_terms": [
+        "Measurement",
+        "Quantitative Data"
+      ],
+      "contrasts_with": [],
+      "category": "Measurement Foundations",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Piezoresistive Effect",
+      "related_terms": [
+        "Semiconductor",
+        "BME280 Sensor"
+      ],
+      "contrasts_with": [],
+      "category": "Sensors And Transduction",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Pin Header",
+      "related_terms": [
+        "GPIO Pin",
+        "Jumper Wire"
+      ],
+      "contrasts_with": [],
+      "category": "Hardware And Interfacing",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Position Fix Accuracy",
+      "related_terms": [
+        "GPS",
+        "Trilateration"
+      ],
+      "contrasts_with": [],
+      "category": "Location Elevation And Time",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Power Budget",
+      "related_terms": [
+        "Insolation",
+        "Duty Cycling",
+        "Battery Capacity"
+      ],
+      "contrasts_with": [],
+      "category": "Field Deployment And Power",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Precipitation",
+      "related_terms": [
+        "Condensation",
+        "Cloud Formation"
+      ],
+      "contrasts_with": [],
+      "category": "Atmospheric Science",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Precision",
+      "related_terms": [],
+      "contrasts_with": [
+        "Accuracy"
+      ],
+      "category": "Measurement Foundations",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Pressure",
+      "related_terms": [
+        "Barometric Pressure",
+        "Hydrostatic Pressure"
+      ],
+      "contrasts_with": [],
+      "category": "Barometric Pressure",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Pressure Altitude",
+      "related_terms": [
+        "Altimeter",
+        "Sea Level Pressure"
+      ],
+      "contrasts_with": [],
+      "category": "Barometric Pressure",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Pressure Gradient",
+      "related_terms": [
+        "Wind",
+        "Low Pressure System"
+      ],
+      "contrasts_with": [],
+      "category": "Wind",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Pressure Tendency",
+      "related_terms": [
+        "Barometric Forecasting",
+        "Time Series"
+      ],
+      "contrasts_with": [],
+      "category": "Barometric Pressure",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Prime Meridian",
+      "related_terms": [
+        "Longitude",
+        "Time Zone"
+      ],
+      "contrasts_with": [],
+      "category": "Location Elevation And Time",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Proof Mass",
+      "related_terms": [
+        "Inertial Mass",
+        "MEMS Accelerometer"
+      ],
+      "contrasts_with": [],
+      "category": "Supplementary Vocabulary",
+      "has_example": false,
+      "in_learning_graph": false
+    },
+    {
+      "term": "Psychrometer",
+      "related_terms": [
+        "Wet Bulb Temperature",
+        "Evaporation"
+      ],
+      "contrasts_with": [],
+      "category": "Humidity And Dew Point",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Pull Up Resistor",
+      "related_terms": [
+        "I2C Bus",
+        "Voltage"
+      ],
+      "contrasts_with": [],
+      "category": "Hardware And Interfacing",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Puy De Dome Experiment",
+      "related_terms": [
+        "Torricelli Experiment",
+        "Barometric Pressure"
+      ],
+      "contrasts_with": [],
+      "category": "Barometric Pressure",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Pyranometer",
+      "related_terms": [
+        "Thermopile",
+        "Pyrheliometer"
+      ],
+      "contrasts_with": [],
+      "category": "Solar Radiation",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Pyrheliometer",
+      "related_terms": [],
+      "contrasts_with": [
+        "Pyranometer"
+      ],
+      "category": "Solar Radiation",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Python",
+      "related_terms": [
+        "Python Library",
+        "Script Execution"
+      ],
+      "contrasts_with": [],
+      "category": "Computing And Programming",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Python Library",
+      "related_terms": [
+        "Python",
+        "Software Package"
+      ],
+      "contrasts_with": [],
+      "category": "Computing And Programming",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Qualitative Observation",
+      "related_terms": [],
+      "contrasts_with": [
+        "Quantitative Data"
+      ],
+      "category": "Measurement Foundations",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Quality Flag",
+      "related_terms": [
+        "Data Validation",
+        "Outlier"
+      ],
+      "contrasts_with": [],
+      "category": "Supplementary Vocabulary",
+      "has_example": true,
+      "in_learning_graph": false
+    },
+    {
+      "term": "Quantitative Data",
+      "related_terms": [
+        "Unit Of Measure",
+        "Qualitative Observation"
+      ],
+      "contrasts_with": [],
+      "category": "Measurement Foundations",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Raspberry Pi",
+      "related_terms": [
+        "Single Board Computer",
+        "Raspberry Pi Zero 2 W"
+      ],
+      "contrasts_with": [],
+      "category": "Hardware And Interfacing",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Raspberry Pi OS",
+      "related_terms": [
+        "Operating System",
+        "Ubuntu Server"
+      ],
+      "contrasts_with": [],
+      "category": "Computing And Programming",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Raspberry Pi Zero 2 W",
+      "related_terms": [
+        "Raspberry Pi",
+        "Single Board Computer"
+      ],
+      "contrasts_with": [],
+      "category": "Hardware And Interfacing",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Reference Standard",
+      "related_terms": [
+        "Standardization",
+        "Calibration"
+      ],
+      "contrasts_with": [],
+      "category": "Measurement Foundations",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Relative Humidity",
+      "related_terms": [
+        "Saturation Vapor Pressure",
+        "Dew Point"
+      ],
+      "contrasts_with": [],
+      "category": "Humidity And Dew Point",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Remote Station",
+      "related_terms": [
+        "Telemetry",
+        "Power Budget"
+      ],
+      "contrasts_with": [],
+      "category": "Field Deployment And Power",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Resistance Thermometer",
+      "related_terms": [
+        "Thermistor",
+        "Calibration"
+      ],
+      "contrasts_with": [],
+      "category": "Temperature",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Resolution",
+      "related_terms": [
+        "Accuracy",
+        "Measurement Uncertainty"
+      ],
+      "contrasts_with": [],
+      "category": "Measurement Foundations",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Richter Scale",
+      "related_terms": [
+        "Moment Magnitude Scale",
+        "Logarithmic Scale"
+      ],
+      "contrasts_with": [],
+      "category": "Ground Motion And Seismology",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "S Wave",
+      "related_terms": [],
+      "contrasts_with": [
+        "P Wave"
+      ],
+      "category": "Ground Motion And Seismology",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Saffir Simpson Scale",
+      "related_terms": [
+        "Sustained Wind Speed",
+        "Wind Load"
+      ],
+      "contrasts_with": [],
+      "category": "Wind",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Sampling Interval",
+      "related_terms": [
+        "Sensor Response Time",
+        "Time Series"
+      ],
+      "contrasts_with": [],
+      "category": "Data Logging And Analysis",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Saturation Vapor Pressure",
+      "related_terms": [
+        "Relative Humidity",
+        "Partial Pressure Of Vapor"
+      ],
+      "contrasts_with": [],
+      "category": "Humidity And Dew Point",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Scatter Plot",
+      "related_terms": [
+        "Correlation",
+        "Line Chart"
+      ],
+      "contrasts_with": [],
+      "category": "Data Logging And Analysis",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Science Communication",
+      "related_terms": [
+        "Data Sharing"
+      ],
+      "contrasts_with": [],
+      "category": "Environmental And Societal Impact",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Scientific Notation",
+      "related_terms": [
+        "Order Of Magnitude",
+        "SI Prefix"
+      ],
+      "contrasts_with": [],
+      "category": "Measurement Foundations",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Script Execution",
+      "related_terms": [
+        "Python",
+        "Shell Command"
+      ],
+      "contrasts_with": [],
+      "category": "Computing And Programming",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Sea Level Pressure",
+      "related_terms": [
+        "Elevation",
+        "Barometric Pressure"
+      ],
+      "contrasts_with": [],
+      "category": "Barometric Pressure",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Seasonal Variation",
+      "related_terms": [
+        "Solar Zenith Angle",
+        "Diurnal Cycle"
+      ],
+      "contrasts_with": [],
+      "category": "Atmospheric Science",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Seismic Network",
+      "related_terms": [
+        "Seismometer",
+        "Trilateration"
+      ],
+      "contrasts_with": [],
+      "category": "Ground Motion And Seismology",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Seismic Wave",
+      "related_terms": [
+        "P Wave",
+        "S Wave"
+      ],
+      "contrasts_with": [],
+      "category": "Ground Motion And Seismology",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Seismograph",
+      "related_terms": [
+        "Seismometer",
+        "Inertial Mass"
+      ],
+      "contrasts_with": [],
+      "category": "Ground Motion And Seismology",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Seismometer",
+      "related_terms": [
+        "Seismograph",
+        "Inertial Mass"
+      ],
+      "contrasts_with": [],
+      "category": "Ground Motion And Seismology",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Seismoscope",
+      "related_terms": [],
+      "contrasts_with": [
+        "Seismograph"
+      ],
+      "category": "Ground Motion And Seismology",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Selective Availability",
+      "related_terms": [
+        "GPS",
+        "Position Fix Accuracy"
+      ],
+      "contrasts_with": [],
+      "category": "Supplementary Vocabulary",
+      "has_example": false,
+      "in_learning_graph": false
+    },
+    {
+      "term": "Semiconductor",
+      "related_terms": [
+        "Silicon Diode Sensor",
+        "Piezoresistive Effect",
+        "MEMS Sensor"
+      ],
+      "contrasts_with": [],
+      "category": "Sensors And Transduction",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Sensor",
+      "related_terms": [
+        "Transduction",
+        "Physical Property"
+      ],
+      "contrasts_with": [],
+      "category": "Sensors And Transduction",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Sensor Averaging",
+      "related_terms": [
+        "Sensor Filtering",
+        "Moving Average"
+      ],
+      "contrasts_with": [],
+      "category": "Sensors And Transduction",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Sensor Datasheet",
+      "related_terms": [
+        "Measurement Range",
+        "Sensor Response Time"
+      ],
+      "contrasts_with": [],
+      "category": "Sensors And Transduction",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Sensor Drift",
+      "related_terms": [
+        "Calibration",
+        "Data Validation"
+      ],
+      "contrasts_with": [],
+      "category": "Data Logging And Analysis",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Sensor Exposure",
+      "related_terms": [
+        "Sensor Siting",
+        "Stevenson Screen"
+      ],
+      "contrasts_with": [],
+      "category": "Field Deployment And Power",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Sensor Filtering",
+      "related_terms": [
+        "Sensor Averaging",
+        "Moving Average"
+      ],
+      "contrasts_with": [],
+      "category": "Sensors And Transduction",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Sensor Response Time",
+      "related_terms": [
+        "Sampling Interval"
+      ],
+      "contrasts_with": [],
+      "category": "Sensors And Transduction",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Sensor Siting",
+      "related_terms": [
+        "Sensor Exposure",
+        "Urban Heat Island"
+      ],
+      "contrasts_with": [],
+      "category": "Field Deployment And Power",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Serial UART",
+      "related_terms": [
+        "SIM7600A Module",
+        "SPI Bus"
+      ],
+      "contrasts_with": [],
+      "category": "Hardware And Interfacing",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Severe Weather Warning",
+      "related_terms": [
+        "Weather Forecasting",
+        "Pressure Tendency"
+      ],
+      "contrasts_with": [],
+      "category": "Environmental And Societal Impact",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Sextant",
+      "related_terms": [
+        "Latitude"
+      ],
+      "contrasts_with": [],
+      "category": "Location Elevation And Time",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Shell Command",
+      "related_terms": [
+        "Command Line Interface",
+        "Script Execution"
+      ],
+      "contrasts_with": [],
+      "category": "Computing And Programming",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "SI Prefix",
+      "related_terms": [
+        "SI Units",
+        "Scientific Notation"
+      ],
+      "contrasts_with": [],
+      "category": "Measurement Foundations",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "SI Units",
+      "related_terms": [
+        "Unit Of Measure",
+        "Standardization"
+      ],
+      "contrasts_with": [],
+      "category": "Measurement Foundations",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Silicon Diode Sensor",
+      "related_terms": [
+        "Semiconductor",
+        "BME280 Sensor"
+      ],
+      "contrasts_with": [],
+      "category": "Sensors And Transduction",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "SIM7600A Module",
+      "related_terms": [
+        "Serial UART",
+        "Cellular Data Link"
+      ],
+      "contrasts_with": [],
+      "category": "Hardware And Interfacing",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Single Board Computer",
+      "related_terms": [
+        "Raspberry Pi",
+        "GPIO Pin"
+      ],
+      "contrasts_with": [],
+      "category": "Hardware And Interfacing",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Software Package",
+      "related_terms": [
+        "Operating System",
+        "Python Library"
+      ],
+      "contrasts_with": [],
+      "category": "Computing And Programming",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Solar Cell",
+      "related_terms": [
+        "Solar Panel",
+        "Photovoltaic Effect"
+      ],
+      "contrasts_with": [],
+      "category": "Solar Radiation",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Solar Constant",
+      "related_terms": [
+        "Irradiance",
+        "Solar Radiation"
+      ],
+      "contrasts_with": [],
+      "category": "Solar Radiation",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Solar Energy Generation",
+      "related_terms": [
+        "Solar Cell",
+        "Insolation"
+      ],
+      "contrasts_with": [],
+      "category": "Environmental And Societal Impact",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Solar Noon",
+      "related_terms": [
+        "Solar Zenith Angle",
+        "Diurnal Cycle"
+      ],
+      "contrasts_with": [],
+      "category": "Supplementary Vocabulary",
+      "has_example": false,
+      "in_learning_graph": false
+    },
+    {
+      "term": "Solar Panel",
+      "related_terms": [
+        "Charge Controller",
+        "Power Budget"
+      ],
+      "contrasts_with": [],
+      "category": "Field Deployment And Power",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Solar Radiation",
+      "related_terms": [
+        "Irradiance",
+        "Electromagnetic Spectrum"
+      ],
+      "contrasts_with": [],
+      "category": "Solar Radiation",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Solar Zenith Angle",
+      "related_terms": [
+        "Diurnal Cycle",
+        "Seasonal Variation"
+      ],
+      "contrasts_with": [],
+      "category": "Solar Radiation",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Sonic Anemometer",
+      "related_terms": [],
+      "contrasts_with": [
+        "Cup Anemometer"
+      ],
+      "category": "Wind",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "SPI Bus",
+      "related_terms": [],
+      "contrasts_with": [
+        "I2C Bus"
+      ],
+      "category": "Hardware And Interfacing",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Standardization",
+      "related_terms": [
+        "Reference Standard",
+        "SI Units"
+      ],
+      "contrasts_with": [],
+      "category": "Measurement Foundations",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Stevenson Screen",
+      "related_terms": [
+        "Air Temperature",
+        "Sensor Exposure"
+      ],
+      "contrasts_with": [],
+      "category": "Temperature",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Store And Forward",
+      "related_terms": [
+        "Intermittent Connectivity",
+        "Telemetry"
+      ],
+      "contrasts_with": [],
+      "category": "Supplementary Vocabulary",
+      "has_example": true,
+      "in_learning_graph": false
+    },
+    {
+      "term": "Surface Temperature",
+      "related_terms": [],
+      "contrasts_with": [
+        "Air Temperature"
+      ],
+      "category": "Temperature",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Sustained Wind Speed",
+      "related_terms": [
+        "Wind Gust",
+        "Saffir Simpson Scale"
+      ],
+      "contrasts_with": [],
+      "category": "Wind",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Systemd Service",
+      "related_terms": [
+        "Operating System",
+        "Script Execution"
+      ],
+      "contrasts_with": [],
+      "category": "Computing And Programming",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Telemetry",
+      "related_terms": [
+        "Cellular Data Link",
+        "Wi-Fi Network",
+        "Base Station"
+      ],
+      "contrasts_with": [],
+      "category": "Field Deployment And Power",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Temperature",
+      "related_terms": [
+        "Kinetic Energy Of Atoms",
+        "Heat Transfer"
+      ],
+      "contrasts_with": [],
+      "category": "Temperature",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Temperature Conversion",
+      "related_terms": [
+        "Unit Conversion",
+        "Measurement Scale"
+      ],
+      "contrasts_with": [],
+      "category": "Temperature",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Temperature Inversion",
+      "related_terms": [
+        "Convection",
+        "Air Quality"
+      ],
+      "contrasts_with": [],
+      "category": "Supplementary Vocabulary",
+      "has_example": false,
+      "in_learning_graph": false
+    },
+    {
+      "term": "Text Editor",
+      "related_terms": [
+        "Command Line Interface"
+      ],
+      "contrasts_with": [],
+      "category": "Computing And Programming",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Thermistor",
+      "related_terms": [
+        "Resistance Thermometer",
+        "Semiconductor"
+      ],
+      "contrasts_with": [],
+      "category": "Temperature",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Thermocouple",
+      "related_terms": [
+        "Thermoelectric Effect"
+      ],
+      "contrasts_with": [],
+      "category": "Temperature",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Thermoelectric Effect",
+      "related_terms": [
+        "Thermocouple",
+        "Thermopile"
+      ],
+      "contrasts_with": [],
+      "category": "Sensors And Transduction",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Thermopile",
+      "related_terms": [
+        "Thermocouple",
+        "Pyranometer"
+      ],
+      "contrasts_with": [],
+      "category": "Solar Radiation",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Thermoscope",
+      "related_terms": [],
+      "contrasts_with": [
+        "Liquid In Glass Thermometer"
+      ],
+      "category": "Temperature",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Time Constant",
+      "related_terms": [
+        "Sensor Response Time"
+      ],
+      "contrasts_with": [],
+      "category": "Supplementary Vocabulary",
+      "has_example": false,
+      "in_learning_graph": false
+    },
+    {
+      "term": "Time Series",
+      "related_terms": [
+        "Data Record",
+        "Timestamp"
+      ],
+      "contrasts_with": [],
+      "category": "Data Logging And Analysis",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Time Zone",
+      "related_terms": [
+        "Coordinated Universal Time",
+        "Prime Meridian"
+      ],
+      "contrasts_with": [],
+      "category": "Location Elevation And Time",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Timestamp",
+      "related_terms": [
+        "Coordinated Universal Time",
+        "Time Series"
+      ],
+      "contrasts_with": [],
+      "category": "Location Elevation And Time",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Torricelli Experiment",
+      "related_terms": [
+        "Mercury Barometer",
+        "Vacuum"
+      ],
+      "contrasts_with": [],
+      "category": "Barometric Pressure",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Traceability",
+      "related_terms": [
+        "Calibration",
+        "Reference Standard"
+      ],
+      "contrasts_with": [],
+      "category": "Supplementary Vocabulary",
+      "has_example": true,
+      "in_learning_graph": false
+    },
+    {
+      "term": "Transduction",
+      "related_terms": [
+        "Sensor",
+        "Physical Property"
+      ],
+      "contrasts_with": [],
+      "category": "Sensors And Transduction",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Trend",
+      "related_terms": [
+        "Moving Average",
+        "Climate Record"
+      ],
+      "contrasts_with": [],
+      "category": "Data Logging And Analysis",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Trilateration",
+      "related_terms": [
+        "GPS",
+        "Seismic Network"
+      ],
+      "contrasts_with": [],
+      "category": "Location Elevation And Time",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Tsunami Warning",
+      "related_terms": [
+        "Earthquake Early Warning",
+        "Seismic Network"
+      ],
+      "contrasts_with": [],
+      "category": "Environmental And Societal Impact",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Ubuntu Server",
+      "related_terms": [
+        "Operating System",
+        "Raspberry Pi OS"
+      ],
+      "contrasts_with": [],
+      "category": "Computing And Programming",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Ultraviolet Radiation",
+      "related_terms": [
+        "UV Index",
+        "Electromagnetic Spectrum"
+      ],
+      "contrasts_with": [],
+      "category": "Solar Radiation",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Unit Conversion",
+      "related_terms": [
+        "Unit Of Measure",
+        "Temperature Conversion"
+      ],
+      "contrasts_with": [],
+      "category": "Measurement Foundations",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Unit Of Measure",
+      "related_terms": [
+        "SI Units",
+        "Standardization",
+        "Quantitative Data"
+      ],
+      "contrasts_with": [],
+      "category": "Measurement Foundations",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Urban Heat Island",
+      "related_terms": [
+        "Albedo",
+        "Surface Temperature"
+      ],
+      "contrasts_with": [],
+      "category": "Environmental And Societal Impact",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "UV Index",
+      "related_terms": [
+        "Ultraviolet Radiation"
+      ],
+      "contrasts_with": [],
+      "category": "Solar Radiation",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Vacuum",
+      "related_terms": [
+        "Torricelli Experiment"
+      ],
+      "contrasts_with": [],
+      "category": "Barometric Pressure",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Variable",
+      "related_terms": [
+        "Data Type",
+        "Function"
+      ],
+      "contrasts_with": [],
+      "category": "Computing And Programming",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Visible Light",
+      "related_terms": [
+        "Electromagnetic Spectrum"
+      ],
+      "contrasts_with": [],
+      "category": "Solar Radiation",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Voltage",
+      "related_terms": [
+        "Current",
+        "Ground Connection"
+      ],
+      "contrasts_with": [],
+      "category": "Hardware And Interfacing",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Water Vapor",
+      "related_terms": [
+        "Humidity",
+        "Evaporation"
+      ],
+      "contrasts_with": [],
+      "category": "Atmospheric Science",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Watts Per Square Meter",
+      "related_terms": [
+        "Irradiance",
+        "SI Units"
+      ],
+      "contrasts_with": [],
+      "category": "Solar Radiation",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Weather",
+      "related_terms": [],
+      "contrasts_with": [
+        "Climate"
+      ],
+      "category": "Atmospheric Science",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Weather Forecasting",
+      "related_terms": [
+        "Barometric Forecasting",
+        "Meteorologist"
+      ],
+      "contrasts_with": [],
+      "category": "Environmental And Societal Impact",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Weather Front",
+      "related_terms": [
+        "Air Mass",
+        "High Pressure System"
+      ],
+      "contrasts_with": [],
+      "category": "Atmospheric Science",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Weather Vane",
+      "related_terms": [
+        "Wind Direction"
+      ],
+      "contrasts_with": [],
+      "category": "Wind",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Weatherproof Enclosure",
+      "related_terms": [
+        "Ingress Protection Rating",
+        "Sensor Exposure"
+      ],
+      "contrasts_with": [],
+      "category": "Field Deployment And Power",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Wet Bulb Temperature",
+      "related_terms": [
+        "Psychrometer",
+        "Heat Index"
+      ],
+      "contrasts_with": [],
+      "category": "Humidity And Dew Point",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "WGS 84 Datum",
+      "related_terms": [
+        "Coordinate System",
+        "GPS"
+      ],
+      "contrasts_with": [],
+      "category": "Location Elevation And Time",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Wi-Fi Network",
+      "related_terms": [
+        "Telemetry",
+        "Cellular Data Link"
+      ],
+      "contrasts_with": [],
+      "category": "Field Deployment And Power",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Wildfire Risk",
+      "related_terms": [
+        "Relative Humidity",
+        "Wind Speed"
+      ],
+      "contrasts_with": [],
+      "category": "Environmental And Societal Impact",
+      "has_example": true,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Wind",
+      "related_terms": [
+        "Pressure Gradient",
+        "Wind Speed"
+      ],
+      "contrasts_with": [],
+      "category": "Wind",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Wind Chill",
+      "related_terms": [
+        "Apparent Temperature",
+        "Boundary Layer"
+      ],
+      "contrasts_with": [],
+      "category": "Wind",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Wind Direction",
+      "related_terms": [
+        "Weather Vane"
+      ],
+      "contrasts_with": [],
+      "category": "Wind",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Wind Gust",
+      "related_terms": [
+        "Sustained Wind Speed"
+      ],
+      "contrasts_with": [],
+      "category": "Wind",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Wind Load",
+      "related_terms": [
+        "Building Code",
+        "Enhanced Fujita Scale"
+      ],
+      "contrasts_with": [],
+      "category": "Wind",
+      "has_example": false,
+      "in_learning_graph": true
+    },
+    {
+      "term": "Wind Speed",
+      "related_terms": [
+        "Anemometer",
+        "Meters Per Second",
+        "Beaufort Scale"
+      ],
+      "contrasts_with": [],
+      "category": "Wind",
+      "has_example": true,
+      "in_learning_graph": true
+    }
+  ]
+}

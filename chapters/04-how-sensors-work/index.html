@@ -1,0 +1,2358 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Transduction, analog and digital signals, analog-to-digital conversion, and the semiconductor, MEMS, and photoelectric mechanisms that make electronic sensing possible.">
+      
+      
+        <meta name="author" content="Hank R.">
+      
+      
+        <link rel="canonical" href="https://iowerx.github.io/pi-env-monitor/chapters/04-how-sensors-work/">
+      
+      
+        <link rel="prev" href="../03-electricity-and-computer/">
+      
+      
+        <link rel="next" href="../05-time-and-place/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>How Sensors Turn the World Into Numbers - Raspberry Pi Environmental Monitoring: Grades 6–12</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website">
+<meta property="og:title" content="How Sensors Turn the World Into Numbers - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="og:description" content="Transduction, analog and digital signals, analog-to-digital conversion, and the semiconductor, MEMS, and photoelectric mechanisms that make electronic sensing possible.">
+<meta property="og:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/04-how-sensors-work/index.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://iowerx.github.io/pi-env-monitor/chapters/04-how-sensors-work/">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="How Sensors Turn the World Into Numbers - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="twitter:description" content="Transduction, analog and digital signals, analog-to-digital conversion, and the semiconductor, MEMS, and photoelectric mechanisms that make electronic sensing possible.">
+<meta property="twitter:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/04-how-sensors-work/index.png">
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#how-sensors-turn-the-world-into-numbers" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Raspberry Pi Environmental Monitoring: Grades 6–12
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              How Sensors Turn the World Into Numbers
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Raspberry Pi Environmental Monitoring: Grades 6–12
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components Used
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-why-we-measure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Why We Measure the Natural Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-language-of-measurement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. The Language of Measurement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-electricity-and-computer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Electricity and the Single-Board Computer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. How Sensors Turn the World Into Numbers
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. How Sensors Turn the World Into Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem-with-computers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem With Computers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analog-and-digital" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analog and Digital
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analog-to-digital-conversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analog-to-Digital Conversion
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analog-to-Digital Conversion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-analog-to-digital-conversion-step-through" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Analog to Digital Conversion Step-Through
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-sensors-are-actually-made-of" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Sensors Are Actually Made Of
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Sensors Are Actually Made Of">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#semiconductors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semiconductors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MEMS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-photoelectric-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Photoelectric Effect
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Photoelectric Effect">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-transduction-mechanism-matcher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Transduction Mechanism Matcher
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensors-take-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sensors Take Time
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filtering-and-averaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtering and Averaging
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Filtering and Averaging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-noise-and-averaging-bench" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Noise and Averaging Bench
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-a-datasheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reading a Datasheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-time-and-place/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Time and Place - Recording Where and When
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-temperature/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Temperature - From the Thermoscope to the Silicon Chip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-barometric-pressure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Barometric Pressure - The Weight of the Atmosphere
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-humidity-and-dew-point/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Humidity and Dew Point - The Water Hidden in the Air
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-solar-radiation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Solar Radiation - The Energy That Drives the Weather
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-wind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Wind - Measuring Air in Motion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-ground-motion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Ground Motion - Measuring Earthquakes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-os-and-sensor-buses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. The Station's Brain - Operating System, Command Line, and Sensor Buses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-python-programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Programming the Station in Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-data-logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Logging Data - Timestamps, Intervals, and Files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-charting-and-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Charting and Interpreting Your Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-building-for-outdoors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Building the Station for the Outdoors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-measurement-to-consequence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. From Measurement to Consequence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../licensing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem-with-computers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem With Computers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analog-and-digital" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analog and Digital
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analog-to-digital-conversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analog-to-Digital Conversion
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analog-to-Digital Conversion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-analog-to-digital-conversion-step-through" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Analog to Digital Conversion Step-Through
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-sensors-are-actually-made-of" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Sensors Are Actually Made Of
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Sensors Are Actually Made Of">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#semiconductors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semiconductors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MEMS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-photoelectric-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Photoelectric Effect
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Photoelectric Effect">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-transduction-mechanism-matcher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Transduction Mechanism Matcher
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensors-take-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sensors Take Time
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filtering-and-averaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtering and Averaging
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Filtering and Averaging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-noise-and-averaging-bench" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Noise and Averaging Bench
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-a-datasheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reading a Datasheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/iowerx/pi-env-monitor/blob/main/docs/chapters/04-how-sensors-work/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="how-sensors-turn-the-world-into-numbers">How Sensors Turn the World Into Numbers<a class="headerlink" href="#how-sensors-turn-the-world-into-numbers" title="Permanent link">¶</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
+<p>A computer can only store numbers, so something has to convert a physical property into one. This chapter introduces transduction as the central idea, then follows a measurement from an analog signal through analog-to-digital conversion into a digital value. It covers the materials that make this possible — semiconductors, MEMS structures, and the photoelectric effect — along with sensor response time, filtering, and averaging. Readers learn to read a datasheet, which is how every later sensor chapter is grounded.</p>
+<h2 id="concepts-covered">Concepts Covered<a class="headerlink" href="#concepts-covered" title="Permanent link">¶</a></h2>
+<p>This chapter covers the following 13 concepts from the learning graph:</p>
+<ol>
+<li>Electromagnetic Spectrum</li>
+<li>Sensor</li>
+<li>Transduction</li>
+<li>Sensor Response Time</li>
+<li>Semiconductor</li>
+<li>Analog Signal</li>
+<li>Photoelectric Effect</li>
+<li>MEMS Sensor</li>
+<li>Digital Signal</li>
+<li>Sensor Filtering</li>
+<li>Analog To Digital Conversion</li>
+<li>Sensor Datasheet</li>
+<li>Sensor Averaging</li>
+</ol>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-why-we-measure/">Chapter 1: Why We Measure the Natural Environment</a></li>
+<li><a href="../02-language-of-measurement/">Chapter 2: The Language of Measurement</a></li>
+<li><a href="../03-electricity-and-computer/">Chapter 3: Electricity and the Single-Board Computer</a></li>
+</ul>
+<hr>
+<h2 id="the-problem-with-computers">The Problem With Computers<a class="headerlink" href="#the-problem-with-computers" title="Permanent link">¶</a></h2>
+<p>A computer cannot feel anything.</p>
+<p>It has no skin, no eyes, and no sense of hot or cold. It can do exactly one thing: move numbers around and do arithmetic on them. Everything a computer appears to do — show a photograph, play a song, warn you about a storm — is numbers underneath.</p>
+<p>So there is a gap. On one side is the physical world, full of warmth and pressure and light. On the other is a machine that only understands numbers. Something has to bridge that gap, and that something is a sensor.</p>
+<p>A <strong>sensor</strong> is a device that detects a physical property and converts it into a signal that can be recorded, displayed, or acted on. Every measurement in this entire book passes through one.</p>
+<p>The word "converts" is the important one. A sensor does not observe temperature the way you observe a sunset. It undergoes a physical change <em>because of</em> the temperature, and that change is something electrical.</p>
+<h2 id="transduction">Transduction<a class="headerlink" href="#transduction" title="Permanent link">¶</a></h2>
+<p><strong>Transduction</strong> is the conversion of one form of energy or signal into another. In a sensor, it means converting a physical property into an electrical property.</p>
+<p>You already own several transducers.</p>
+<ul>
+<li>A microphone converts sound pressure into a voltage.</li>
+<li>A speaker converts a voltage back into sound pressure.</li>
+<li>A camera sensor converts light into electric charge.</li>
+<li>Your ear converts sound pressure into nerve signals.</li>
+</ul>
+<p>The trick of building a sensor is finding a material whose <em>electrical</em> behavior changes reliably when some <em>physical</em> property changes. Engineers have collected a handful of these material behaviors over the past two centuries, and nearly every sensor in the world is built on one of them.</p>
+<p>There are three electrical properties that usually do the changing:</p>
+<table>
+<thead>
+<tr>
+<th>Electrical property</th>
+<th>What it means</th>
+<th>A sensor that uses it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Resistance</td>
+<td>How hard it is for current to flow</td>
+<td>A thermistor: resistance falls as temperature rises</td>
+</tr>
+<tr>
+<td>Capacitance</td>
+<td>How much charge a gap can store</td>
+<td>A humidity sensor: a polymer film absorbs water, changing the gap</td>
+</tr>
+<tr>
+<td>Voltage generated</td>
+<td>The material produces a voltage itself</td>
+<td>A thermocouple: two joined metals produce a voltage that depends on temperature</td>
+</tr>
+</tbody>
+</table>
+<p>Two of the three need to be <em>asked</em>. A resistance change does nothing on its own — you have to pass a current through the material and measure what happens. Only the third kind generates a signal by itself.</p>
+<p>That is why a sensor needs power. The 3.3 V line from Chapter 3 is not powering a little computer inside the sensor. It is providing the current that makes an invisible resistance change visible as a voltage.</p>
+<div class="admonition note">
+<p class="admonition-title">A sensor is not a meter</p>
+<p>A common misconception is that a temperature sensor "knows" the temperature. It does not. A chunk of silicon inside it has a resistance that happens to depend on temperature in a well-documented way. Everything else — the conversion to degrees, the decimal point, the units — is arithmetic done afterward by the computer, using a formula from the manufacturer. The sensor supplies physics. The number is your job.</p>
+</div>
+<h2 id="analog-and-digital">Analog and Digital<a class="headerlink" href="#analog-and-digital" title="Permanent link">¶</a></h2>
+<p>The signal that comes out of a transducer is almost always analog.</p>
+<p>An <strong>analog signal</strong> is one that varies smoothly and can take any value within its range. Temperature is analog. So is the voltage from a thermocouple. Between 1.000 V and 1.001 V there are infinitely many possible values, and a true analog signal passes through all of them.</p>
+<p>A <strong>digital signal</strong> has only a limited set of possible values, usually just two: high and low, on and off, 1 and 0. It does not slide smoothly between them. It steps.</p>
+<p>Both kinds have real advantages, and the difference matters for how your station behaves:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Analog signal</th>
+<th>Digital signal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Possible values</td>
+<td>Infinitely many</td>
+<td>A fixed, countable set</td>
+</tr>
+<tr>
+<td>Behaves like</td>
+<td>A dimmer switch</td>
+<td>A light switch</td>
+</tr>
+<tr>
+<td>Noise picked up on a wire</td>
+<td>Adds to the signal permanently</td>
+<td>Usually ignored — a slightly noisy 1 is still a 1</td>
+</tr>
+<tr>
+<td>Copying it</td>
+<td>Degrades every time</td>
+<td>Perfect, every time</td>
+</tr>
+<tr>
+<td>A computer can store it</td>
+<td>No, not directly</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>That noise row is why the world went digital. Nudge an analog signal by 0.01 V and you have permanently changed the measurement, and nothing downstream can tell that it happened. Nudge a digital signal by 0.01 V and it is still unambiguously a 1. The information survives.</p>
+<p>So a computer needs a digital signal, and physics hands us an analog one. Something has to translate.</p>
+<h2 id="analog-to-digital-conversion">Analog-to-Digital Conversion<a class="headerlink" href="#analog-to-digital-conversion" title="Permanent link">¶</a></h2>
+<p><strong>Analog-to-digital conversion</strong> is the process of measuring an analog signal at particular moments and representing each measurement as a number. The circuit that does it is called an ADC.</p>
+<p>Conversion involves two separate approximations, and confusing them is a common source of error later.</p>
+<p><strong>Sampling</strong> happens in time. Instead of watching the signal continuously, the ADC looks at it at regular instants and ignores everything in between. Sample once per second and you have one value per second — whatever happened during that second is gone.</p>
+<p><strong>Quantization</strong> happens in value. The ADC must round each sample to one of a fixed set of levels. The number of available levels is set by the converter's bit depth. An 8-bit ADC has <span class="arithmatex">\(2^8 = 256\)</span> levels. A 12-bit ADC has <span class="arithmatex">\(2^{12} = 4096\)</span>. A 16-bit ADC has <span class="arithmatex">\(2^{16} = 65536\)</span>.</p>
+<p>More levels means finer resolution — and resolution is the word you met in Chapter 2, meaning the smallest change that can be detected and reported. Suppose an ADC covers a 0 to 3.3 V range:</p>
+<table>
+<thead>
+<tr>
+<th>Bit depth</th>
+<th>Levels</th>
+<th>Smallest step it can report</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8-bit</td>
+<td>256</td>
+<td>12.9 mV</td>
+</tr>
+<tr>
+<td>10-bit</td>
+<td>1024</td>
+<td>3.2 mV</td>
+</tr>
+<tr>
+<td>12-bit</td>
+<td>4096</td>
+<td>0.81 mV</td>
+</tr>
+<tr>
+<td>16-bit</td>
+<td>65536</td>
+<td>0.05 mV</td>
+</tr>
+</tbody>
+</table>
+<p>Notice that resolution is not accuracy. A 16-bit ADC reports very fine steps, but if the sensor feeding it is 2 degrees off, the reading is still 2 degrees off — just expressed with a great many digits. Chapter 2's warning applies directly here.</p>
+<p>Here is a piece of good news about your specific hardware. The Raspberry Pi has no built-in ADC at all, which sounds like a serious limitation. It does not matter for this project, because the BME280 has its own ADC on the chip and sends the Pi a digital signal directly. The conversion happens inside the sensor package, before the wire.</p>
+<h4 id="diagram-analog-to-digital-conversion-step-through">Diagram: Analog to Digital Conversion Step-Through<a class="headerlink" href="#diagram-analog-to-digital-conversion-step-through" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/analog-to-digital-stepthrough/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Analog to Digital Conversion Step-Through</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> analog-to-digital-stepthrough<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Understand (L2)
+Bloom Verb: explain</p>
+<p>Learning objective: The learner explains how a smooth analog signal becomes a sequence of numbers, and distinguishes information lost to sampling in time from information lost to quantization in value.</p>
+<p>Purpose: Students routinely merge sampling and quantization into one vague idea called "digitizing." Separating them into two independently adjustable controls, applied to the same waveform, is the clearest way to show that they are different losses with different consequences.</p>
+<p>Canvas layout:
+- Top panel: the original smooth analog waveform drawn as a continuous curve
+- Middle panel: the same waveform with sample instants marked as vertical drop lines and dots
+- Bottom panel: the quantized digital result drawn as a stair-step, with horizontal quantization levels shown as faint gridlines
+- Right or below (responsive): a data table showing the last eight samples with their exact analog value, their quantized value, and the error between them
+- Controls at bottom
+- Fully responsive to window resize; all three panels stack and scale</p>
+<p>Data Visibility Requirements:
+  Stage 1: Show the raw analog waveform with its true value at the cursor position, e.g. "1.8347 V"
+  Stage 2: Show the sample instants; at the cursor, display which sample is nearest and what moment it was taken
+  Stage 3: Show the quantization levels as gridlines and, at the cursor, which level the sample rounds to, e.g. "1.8347 V rounds to level 2276 of 4096 = 1.8329 V"
+  Stage 4: Show the quantization error explicitly, e.g. "error: 0.0018 V"
+  Stage 5: In the data table, show all four columns for the recent samples so the pattern of errors is visible rather than a single instance</p>
+<p>Interactive controls:
+- Waveform selector: "slow sine (like a daily temperature cycle)", "fast sine", "step change (like a cold front arriving)", "noisy signal"
+- Sample rate slider: 1 to 100 samples per waveform cycle, default 20
+- Bit depth selector: 2, 4, 8, 12, 16 bits, default 8. Two bits is included deliberately so the stair-step becomes absurdly coarse and the idea is unmistakable.
+- Step-through buttons: "Next sample" and "Previous sample", which move a cursor one sample at a time and update every readout
+- "Play" advances samples slowly; the learner can pause at any point</p>
+<p>Required demonstration case: with the "step change" waveform and a low sample rate, the sim must show the step occurring BETWEEN two samples, and display a message: "The signal changed at 4.3 seconds. The next sample was at 5.0 seconds. Between those moments, nothing was recorded. Sampling loses time, not just value."</p>
+<p>Instructional Rationale: The objective is Understand/explain, so this is specified as a step-through with concrete values visible at every stage, not a continuous animation. A learner must be able to stop on one sample and read its exact analog value, its quantized value, and the difference — those three numbers side by side are the explanation. Continuous animation would show motion but hide the arithmetic.</p>
+<p>Implementation: p5.js. Generate the analog waveform as a mathematical function so the true value at any time is exactly computable. Quantize with floor((v/vmax) * levels). Keep the recent-sample table as a rolling buffer of eight entries.</p>
+</details>
+<h2 id="what-sensors-are-actually-made-of">What Sensors Are Actually Made Of<a class="headerlink" href="#what-sensors-are-actually-made-of" title="Permanent link">¶</a></h2>
+<p>Three materials and structures account for nearly every sensor in this book. You met the first briefly in Chapter 3.</p>
+<h3 id="semiconductors">Semiconductors<a class="headerlink" href="#semiconductors" title="Permanent link">¶</a></h3>
+<p>A <strong>semiconductor</strong> is a material that conducts electricity better than an insulator like glass but worse than a conductor like copper — and, crucially, whose conductivity can be changed. Silicon is the semiconductor that built the modern world.</p>
+<p>The useful thing about semiconductors is not that they conduct moderately well. It is that their conduction responds to things. Heat a piece of silicon and its conductivity changes in a predictable way. Squeeze it and its resistance changes. Shine light on it and it produces a current. Each of those responses is a sensor waiting to be packaged.</p>
+<p>Better still, semiconductors can be manufactured in enormous quantities by the same processes that make computer chips. That is why a sensor measuring three separate quantities costs a few dollars instead of a few hundred.</p>
+<h3 id="mems">MEMS<a class="headerlink" href="#mems" title="Permanent link">¶</a></h3>
+<p>A <strong>MEMS sensor</strong> — Micro-Electro-Mechanical System — is a device with microscopic moving mechanical parts built onto a silicon chip using chip-manufacturing techniques.</p>
+<p>Read that again, because it is genuinely strange. There are real moving parts, etched into silicon, measured in micrometers. A tiny beam that bends. A tiny mass on tiny springs. A diaphragm thinner than a hair that flexes under pressure.</p>
+<p>MEMS devices are all around you:</p>
+<ul>
+<li>The accelerometer that rotates your phone's screen</li>
+<li>The sensor that decides when a car airbag should fire</li>
+<li>The pressure element inside the BME280 on your desk</li>
+<li>The microphone in wireless earbuds</li>
+</ul>
+<p>The airbag application is what created the industry. Cars needed a crash sensor that was cheap enough to put in every vehicle and reliable enough to be trusted with a life. Analog Devices shipped the ADXL50 in 1991, and within a decade the manufacturing volume had driven prices low enough that MEMS sensors became worth putting into everything. Chapter 11 returns to this, because a MEMS accelerometer is how a student station can detect an earthquake at all.</p>
+<h3 id="the-photoelectric-effect">The Photoelectric Effect<a class="headerlink" href="#the-photoelectric-effect" title="Permanent link">¶</a></h3>
+<p>The third mechanism concerns light, so it needs one idea from physics first.</p>
+<p>The <strong>electromagnetic spectrum</strong> is the full range of electromagnetic radiation, ordered by wavelength. Visible light is a narrow band in the middle of it. On the long-wavelength side sit infrared, microwaves, and radio waves. On the short-wavelength side sit ultraviolet, X-rays, and gamma rays.</p>
+<p>It is all the same phenomenon. Radio waves and gamma rays differ only in wavelength, the way a low note and a high note differ only in frequency. Your eyes happen to respond to one narrow slice, and everything else is invisible to you without an instrument.</p>
+<table>
+<thead>
+<tr>
+<th>Region</th>
+<th>Roughly</th>
+<th>Your station's connection</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Radio</td>
+<td>1 mm and longer</td>
+<td>Wi-Fi and cellular telemetry (Chapter 16)</td>
+</tr>
+<tr>
+<td>Infrared</td>
+<td>700 nm to 1 mm</td>
+<td>Heat radiation (Chapter 6)</td>
+</tr>
+<tr>
+<td>Visible</td>
+<td>400 to 700 nm</td>
+<td>What the solar sensor mostly sees (Chapter 9)</td>
+</tr>
+<tr>
+<td>Ultraviolet</td>
+<td>10 to 400 nm</td>
+<td>The UV index (Chapter 9)</td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>photoelectric effect</strong> is the release of electrons from a material when light strikes it. Heinrich Hertz noticed it in 1887, and it turned out to be deeply puzzling: the effect depended on the light's <em>color</em> rather than its brightness, which classical physics could not explain. Albert Einstein explained it in 1905 by proposing that light arrives in discrete packets, and it was that paper — not relativity — that won him the Nobel Prize.</p>
+<p>For your purposes the consequence is practical. A piece of silicon exposed to light produces a current proportional to how much light lands on it. That is a photodiode, and it is how the solar radiation sensor in Chapter 9 works. It is also how a solar panel works, running the same physics at larger scale.</p>
+<h4 id="diagram-transduction-mechanism-matcher">Diagram: Transduction Mechanism Matcher<a class="headerlink" href="#diagram-transduction-mechanism-matcher" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/transduction-mechanism-matcher/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Transduction Mechanism Matcher</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> transduction-mechanism-matcher<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Analyze (L4)
+Bloom Verb: attribute</p>
+<p>Learning objective: The learner attributes each of the station's sensors to the physical mechanism it uses, and explains the chain from physical property through material change to electrical output.</p>
+<p>Purpose: The book's seven measurement chapters each introduce a mechanism in isolation. This element assembles them into one picture early, so that when Chapter 7 introduces the piezoresistive effect the learner recognizes it as one branch of a structure they have already seen.</p>
+<p>Canvas layout:
+- Left column: cards for physical properties — Temperature, Pressure, Humidity, Light, Acceleration
+- Center column: cards for material mechanisms — Diode voltage shift, Piezoresistive effect, Capacitance change, Photoelectric effect, MEMS proof mass on springs
+- Right column: cards for electrical outputs — Voltage change, Resistance change, Capacitance change, Current generated
+- The learner draws connections between columns
+- Responsive: columns stack into rows on narrow canvases and the connection metaphor switches from lines to sequential selection</p>
+<p>Correct chains the sim must accept and explain:
+1. Temperature -&gt; Diode voltage shift -&gt; Voltage change. Explanation: "A silicon diode's forward voltage falls by about 2 mV per degree Celsius. Measure the voltage, compute the temperature. This is the temperature element inside the BME280." Chapter 6.
+2. Pressure -&gt; Piezoresistive effect -&gt; Resistance change. Explanation: "A thin silicon diaphragm flexes under air pressure. Flexing changes its resistance. This is the pressure element inside the BME280." Chapter 7.
+3. Humidity -&gt; Capacitance change -&gt; Capacitance change. Explanation: "A polymer film between two electrodes absorbs water vapor, changing how much charge the gap can store." Chapter 8.
+4. Light -&gt; Photoelectric effect -&gt; Current generated. Explanation: "Light striking silicon frees electrons, producing a current proportional to the light. This is a photodiode, and at larger scale, a solar cell." Chapter 9.
+5. Acceleration -&gt; MEMS proof mass on springs -&gt; Capacitance change. Explanation: "A microscopic mass on microscopic springs shifts when the ground moves. The shift changes the gap between plates, changing capacitance." Chapter 11.</p>
+<p>Interaction:
+- Drag from a property card to a mechanism card to an output card to build a three-link chain
+- On completing a correct chain, the three cards lock together, glow, and the explanation appears with its chapter reference
+- On an incorrect link, the connection springs back and a hint appears naming what to reconsider, e.g. "Humidity does change something in a polymer, but not its resistance. What property describes storing charge across a gap?"
+- Progress indicator: "3 of 5 chains complete"
+- A "Show me one" button completes a single chain as a worked example for a stuck learner</p>
+<p>Default parameters:
+- All cards unconnected, shuffled within their columns
+- Hints enabled</p>
+<p>Instructional Rationale: The objective is Analyze/attribute, which requires the learner to decompose a sensor into property, mechanism, and output rather than treat it as a black box. A three-column matching task makes that decomposition the literal interaction. Hints that name the missing idea rather than the answer keep the task diagnostic rather than trial-and-error.</p>
+<p>Implementation: p5.js with drag-to-connect between card anchors. Store chains as arrays of three ids with an explanation string; validate a link only when all three are present.</p>
+</details>
+<h2 id="sensors-take-time">Sensors Take Time<a class="headerlink" href="#sensors-take-time" title="Permanent link">¶</a></h2>
+<p>A sensor does not respond instantly. Nothing physical does.</p>
+<p><strong>Sensor response time</strong> is how long a sensor takes to reflect a change in the thing it is measuring. It is usually quoted as the time to reach 63 percent of the way to the new value, a figure engineers call the time constant.</p>
+<p>The reason is physical, not electronic. A temperature sensor is a small object with mass. When the air around it warms, heat has to actually flow into that object before its silicon warms up. A sensor in a thick plastic housing responds more slowly than a bare one, because the housing has to warm up too.</p>
+<p>Typical figures for the sensors in this book:</p>
+<table>
+<thead>
+<tr>
+<th>Sensor</th>
+<th>Typical response time</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BME280 temperature</td>
+<td>About 1 second</td>
+<td>Fine for weather; too slow to catch a gust of warm air</td>
+</tr>
+<tr>
+<td>BME280 humidity</td>
+<td>About 1 second</td>
+<td>Fast enough for most outdoor use</td>
+</tr>
+<tr>
+<td>BME280 pressure</td>
+<td>Nearly instant</td>
+<td>Pressure equalizes very quickly</td>
+</tr>
+<tr>
+<td>Cup anemometer</td>
+<td>A few seconds</td>
+<td>Cups have inertia; slow to spin up and slow to stop</td>
+</tr>
+<tr>
+<td>MEMS accelerometer</td>
+<td>Under a millisecond</td>
+<td>Must be fast enough to catch a seismic P wave</td>
+</tr>
+</tbody>
+</table>
+<p>This produces a rule you will use in Chapter 14: <strong>never sample faster than your sensor can respond.</strong> If a sensor needs a second to settle and you read it ten times per second, nine of those readings are the sensor still catching up to the previous change. You get more data and less information.</p>
+<h2 id="filtering-and-averaging">Filtering and Averaging<a class="headerlink" href="#filtering-and-averaging" title="Permanent link">¶</a></h2>
+<p>Real sensor readings are noisy. Take a hundred readings of an unchanging temperature and you will get a hundred slightly different values, scattered around the truth. That is the imprecision described in Chapter 2, and it comes from thermal noise in the electronics, tiny voltage fluctuations, and rounding in the ADC.</p>
+<p>Two related techniques reduce it.</p>
+<p><strong>Sensor averaging</strong> takes several readings and reports their mean. This works because random noise is as likely to be positive as negative, so it partially cancels when you add readings together. The improvement follows a specific rule: averaging <span class="arithmatex">\(N\)</span> readings reduces the random noise by a factor of <span class="arithmatex">\(\sqrt{N}\)</span>.</p>
+<div class="arithmatex">\[ \text{noise after averaging} = \frac{\text{noise of one reading}}{\sqrt{N}} \]</div>
+<p>That square root is important, and slightly disappointing. To cut noise in half you need 4 readings. To cut it to a tenth you need 100. There are diminishing returns, and beyond a point you are burning power and battery for very little gain.</p>
+<table>
+<thead>
+<tr>
+<th>Readings averaged</th>
+<th>Noise reduced to</th>
+<th>Worth it?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>100%</td>
+<td>Baseline</td>
+</tr>
+<tr>
+<td>4</td>
+<td>50%</td>
+<td>Yes — cheap and effective</td>
+</tr>
+<tr>
+<td>16</td>
+<td>25%</td>
+<td>Usually yes</td>
+</tr>
+<tr>
+<td>100</td>
+<td>10%</td>
+<td>Only if noise is your limiting problem</td>
+</tr>
+<tr>
+<td>400</td>
+<td>5%</td>
+<td>Rarely worth the power</td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-noise-and-averaging-bench">Diagram: Noise and Averaging Bench<a class="headerlink" href="#diagram-noise-and-averaging-bench" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/noise-and-averaging-bench/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Noise and Averaging Bench</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> noise-and-averaging-bench<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Evaluate (L5)
+Bloom Verb: justify</p>
+<p>Learning objective: The learner justifies a choice of averaging depth for a given sensor and purpose, weighing noise reduction against power cost and against the risk of smoothing away a real event.</p>
+<p>Purpose: The square-root rule is easy to state and hard to feel. This bench lets the learner discover the diminishing return themselves, then confronts them with the cost side — a real event that heavy averaging destroys — so the choice becomes a genuine judgment rather than "more is better."</p>
+<p>Canvas layout:
+- Upper panel: a live scrolling plot of raw sensor readings against time, with the true underlying value drawn as a dashed reference line
+- Lower panel: the same signal after averaging, on identical axes and an identical fixed y-range so the two are directly comparable
+- Right or below (responsive): statistics panel and a power-cost readout
+- Bottom: controls
+- Responsive to window resize; panels stack and rescale, y-range stays fixed</p>
+<p>Data Visibility Requirements:
+  Stage 1: Show raw readings scattering around the true value, with the measured standard deviation displayed as a number
+  Stage 2: Show the averaged output on the same scale, with its own standard deviation displayed
+  Stage 3: Show the predicted improvement from the square-root rule alongside the measured improvement, e.g. "Predicted: noise / sqrt(16) = 25%. Measured: 26%." so the learner sees theory and observation agree
+  Stage 4: Show a power-cost readout: readings per measurement, microamp-seconds consumed, and estimated battery days at that rate, forward-referencing Chapter 16
+  Stage 5: In event mode, show the true event and the averaged output side by side with the peak amplitude of each labeled</p>
+<p>Interactive controls:
+- Averaging depth selector: 1, 4, 16, 64, 256 readings, default 1
+- Noise level slider: low, typical, high
+- Signal mode selector:
+  - "Steady value" — a constant true value, for exploring pure noise reduction
+  - "Slow change" — a gentle ramp like a daily temperature cycle; averaging costs nothing here
+  - "Sudden event" — a sharp 6 hPa pressure drop lasting 30 seconds, like a squall line. This is the critical mode.
+- "Reset statistics" button</p>
+<p>Required demonstration in Sudden event mode: at averaging depth 256, the sim must display the message "The true pressure dropped 6 hPa. Your averaged output shows a drop of 0.9 hPa. Averaging removed the noise and most of the event with it." The exact attenuation figure must be computed from the actual filter, not hard-coded.</p>
+<p>Default parameters:
+- Averaging depth: 1
+- Noise: typical
+- Mode: Steady value</p>
+<p>Instructional Rationale: The objective is Evaluate/justify, which requires a trade-off with real costs on both sides. Showing only noise reduction would teach "average more," which is wrong. Pairing the noise statistic with a power cost and an event-attenuation figure forces the learner to weigh three quantities, which is what the actual engineering decision involves. Predicted-versus-measured display is included so the square-root rule is verified rather than asserted.</p>
+<p>Implementation: p5.js. Generate readings as trueValue(t) + gaussianRandom() * noiseLevel. Implement averaging as a boxcar over the last N readings. Compute standard deviations over a rolling window of at least 200 output values so the statistics are stable.</p>
+</details>
+<p><strong>Sensor filtering</strong> is the broader family of techniques for removing unwanted parts of a signal while keeping the part you care about. Averaging is the simplest filter. Others include the moving average of Chapter 15, and the internal filter built into the BME280 itself, which can be configured to smooth pressure readings before the chip even reports them.</p>
+<p>Filtering always involves a trade, and the trade is worth stating plainly.</p>
+<div class="admonition warning">
+<p class="admonition-title">Filtering hides real events too</p>
+<p>A filter cannot tell the difference between noise you want gone and a real, fast change you want to keep. Average heavily and a genuine sudden pressure drop — the kind that signals a squall line arriving — gets smoothed into a gentle slope. Your data will look beautifully clean and will have lost the event you most wanted to catch.</p>
+<p>The BME280's own datasheet addresses this directly: it recommends a strong filter for indoor use where conditions change slowly, and a weaker one for weather monitoring where sudden changes are the point. Match the filter to the question you are asking.</p>
+</div>
+<h2 id="reading-a-datasheet">Reading a Datasheet<a class="headerlink" href="#reading-a-datasheet" title="Permanent link">¶</a></h2>
+<p>A <strong>sensor datasheet</strong> is the manufacturer's technical document describing exactly what a sensor does, how accurate it is, what it needs to operate, and how to talk to it.</p>
+<p>Datasheets look intimidating. The BME280's runs to about 60 pages of tables and timing diagrams. But you do not read a datasheet the way you read a book. You look up specific facts, and there are seven that matter before you buy or wire anything.</p>
+<ol>
+<li><strong>Measurement range</strong> — the span it can read at all. BME280 pressure: 300 to 1100 hPa. If your readings would fall outside, the sensor is wrong for the job.</li>
+<li><strong>Accuracy</strong> — how close to truth. BME280 pressure: ±1 hPa. Temperature: ±1.0 °C. Humidity: ±3 percent relative humidity.</li>
+<li><strong>Resolution</strong> — smallest reportable step. BME280 pressure: 0.18 Pa. Note how much finer this is than the accuracy figure — a direct example of Chapter 2's warning about reporting more digits than you know.</li>
+<li><strong>Supply voltage</strong> — what it needs to run. BME280: 1.71 to 3.6 V, which is why it is safe on the Pi's 3.3 V pin and would be destroyed by 5 V.</li>
+<li><strong>Current draw</strong> — how much it consumes. BME280: about 3.6 microamperes in normal weather-monitoring mode. That figure becomes very important in Chapter 16's power budget.</li>
+<li><strong>Interface</strong> — how it communicates. BME280: I2C or SPI. This determines which pins you wire it to, and is covered in Chapter 12.</li>
+<li><strong>Response time</strong> — how fast it settles. BME280 humidity: about 1 second.</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">The datasheet answers the question before you ask it</p>
+<p>When a sensor gives an implausible reading, the first move is not to rewrite your code. It is to open the datasheet and check whether the value you expected is even inside the sensor's range, and whether the difference you are worried about is larger than the stated accuracy. A great many hours of debugging end the moment someone reads that the sensor is only accurate to ±1 °C and the "error" being chased is 0.4 °C.</p>
+</div>
+<h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">¶</a></h2>
+<ul>
+<li>A <strong>sensor</strong> detects a physical property and converts it into an electrical signal. <strong>Transduction</strong> is the name for that conversion.</li>
+<li>Sensors work because certain materials change an electrical property — resistance, capacitance, or generated voltage — in response to a physical one.</li>
+<li>An <strong>analog signal</strong> varies smoothly; a <strong>digital signal</strong> has a limited set of values. Digital survives noise and copying; analog does not.</li>
+<li><strong>Analog-to-digital conversion</strong> samples in time and quantizes in value. Both steps discard information, and they discard different information.</li>
+<li><strong>Semiconductors</strong> change their electrical behavior in response to heat, pressure, and light. <strong>MEMS sensors</strong> add microscopic moving parts on a silicon chip. The <strong>photoelectric effect</strong> turns light into current.</li>
+<li>The <strong>electromagnetic spectrum</strong> runs from radio through infrared, visible light, and ultraviolet. Visible light is a narrow slice.</li>
+<li><strong>Sensor response time</strong> is how long a sensor takes to reflect a change. Never sample faster than the sensor can respond.</li>
+<li><strong>Sensor averaging</strong> cuts random noise by <span class="arithmatex">\(\sqrt{N}\)</span>. <strong>Sensor filtering</strong> removes unwanted signal — including, if overdone, real events.</li>
+<li>A <strong>sensor datasheet</strong> answers seven questions: range, accuracy, resolution, supply voltage, current draw, interface, and response time.</li>
+</ul>
+<h2 id="check-yourself">Check Yourself<a class="headerlink" href="#check-yourself" title="Permanent link">¶</a></h2>
+<details class="question">
+<summary>Why can't a Raspberry Pi read a thermistor directly, but it can read a BME280 directly? Click to check.</summary>
+<p>A thermistor produces an analog signal — a resistance that varies smoothly — and the Raspberry Pi has no built-in analog-to-digital converter, so it cannot turn that into a number. The BME280 contains its own ADC on the chip. It does the conversion internally and sends the Pi a digital signal, which the Pi can read directly over I2C. To use a bare thermistor you would need to add an external ADC chip.</p>
+</details>
+<details class="question">
+<summary>You average 100 readings instead of 4. How much better is your noise? Click to check.</summary>
+<p>Averaging reduces random noise by <span class="arithmatex">\(\sqrt{N}\)</span>. With 4 readings, noise falls to <span class="arithmatex">\(1/\sqrt{4} = 1/2\)</span>, or 50 percent. With 100 readings, it falls to <span class="arithmatex">\(1/\sqrt{100} = 1/10\)</span>, or 10 percent. So going from 4 to 100 readings — 25 times the work — improves noise by a factor of 5, not 25. That is the diminishing return the square root imposes.</p>
+</details>
+<details class="question">
+<summary>A sensor has a response time of 1 second and you sample it 10 times per second. What is wrong? Click to check.</summary>
+<p>Nine out of every ten readings are the sensor still moving toward the value it should have reported for the previous change. Those readings are not independent measurements — they are a record of the sensor catching up. You get ten times the data volume with essentially no additional information, and you burn ten times the power collecting it.</p>
+</details>
+<details class="question">
+<summary>Your BME280 reports 1013.247 hPa but the datasheet says accuracy is ±1 hPa. Are the extra digits useful? Click to check.</summary>
+<p>They are real output, but they are not information about the atmosphere. The resolution of 0.18 Pa means the sensor can <em>report</em> very fine steps; the accuracy of ±1 hPa means the true pressure could be anywhere from 1012.2 to 1014.2. The fine digits are useful for one thing only: detecting small <em>changes</em> over a short time, where the constant part of the error cancels out. For reporting absolute pressure, round to 1013 hPa.</p>
+</details>
+<hr>
+<h2 id="what-is-next">What Is Next<a class="headerlink" href="#what-is-next" title="Permanent link">¶</a></h2>
+<p>You now understand how a physical property becomes a number, and you have hardware that can receive one. There is one thing still missing before any of it counts as data.</p>
+<p>Chapter 5 supplies it: where and when. A temperature reading with no location and no timestamp cannot be compared to any other reading, cannot be plotted against time, and cannot be combined with anyone else's data. That chapter covers coordinate systems, the centuries-long struggle to measure longitude at sea, how GPS actually determines a position, and why every remote station records its times in UTC rather than local time.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../03-electricity-and-computer/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 3. Electricity and the Single-Board Computer">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                3. Electricity and the Single-Board Computer
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../05-time-and-place/" class="md-footer__link md-footer__link--next" aria-label="Next: 5. Time and Place - Recording Where and When">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                5. Time and Place - Recording Where and When
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Hank R. Licensed under <a href="licensing/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

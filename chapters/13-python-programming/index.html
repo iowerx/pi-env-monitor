@@ -1,0 +1,2289 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Enough Python to read a sensor and act on the result - variables, data types, functions, loops, conditionals, libraries, exception handling, and running a script.">
+      
+      
+        <meta name="author" content="Hank R.">
+      
+      
+        <link rel="canonical" href="https://iowerx.github.io/pi-env-monitor/chapters/13-python-programming/">
+      
+      
+        <link rel="prev" href="../12-os-and-sensor-buses/">
+      
+      
+        <link rel="next" href="../14-data-logging/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Programming the Station in Python - Raspberry Pi Environmental Monitoring: Grades 6–12</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website">
+<meta property="og:title" content="Programming the Station in Python - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="og:description" content="Enough Python to read a sensor and act on the result - variables, data types, functions, loops, conditionals, libraries, exception handling, and running a script.">
+<meta property="og:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/13-python-programming/index.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://iowerx.github.io/pi-env-monitor/chapters/13-python-programming/">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Programming the Station in Python - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="twitter:description" content="Enough Python to read a sensor and act on the result - variables, data types, functions, loops, conditionals, libraries, exception handling, and running a script.">
+<meta property="twitter:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/13-python-programming/index.png">
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#programming-the-station-in-python" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Raspberry Pi Environmental Monitoring: Grades 6–12
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Programming the Station in Python
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Raspberry Pi Environmental Monitoring: Grades 6–12
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components Used
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-why-we-measure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Why We Measure the Natural Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-language-of-measurement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. The Language of Measurement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-electricity-and-computer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Electricity and the Single-Board Computer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-how-sensors-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. How Sensors Turn the World Into Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-time-and-place/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Time and Place - Recording Where and When
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-temperature/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Temperature - From the Thermoscope to the Silicon Chip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-barometric-pressure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Barometric Pressure - The Weight of the Atmosphere
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-humidity-and-dew-point/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Humidity and Dew Point - The Water Hidden in the Air
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-solar-radiation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Solar Radiation - The Energy That Drives the Weather
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-wind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Wind - Measuring Air in Motion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-ground-motion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Ground Motion - Measuring Earthquakes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-os-and-sensor-buses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. The Station's Brain - Operating System, Command Line, and Sensor Buses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Programming the Station in Python
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Programming the Station in Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instructions-for-a-machine-that-does-not-guess" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instructions for a Machine That Does Not Guess
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables-and-data-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variables and Data Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conditionals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conditionals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loops
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Loops">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-python-code-tracer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Python Code Tracer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Libraries
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-things-go-wrong" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When Things Go Wrong
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="When Things Go Wrong">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-resilient-logger-fault-bench" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Resilient Logger Fault Bench
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-your-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running Your Program
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-data-logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Logging Data - Timestamps, Intervals, and Files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-charting-and-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Charting and Interpreting Your Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-building-for-outdoors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Building the Station for the Outdoors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-measurement-to-consequence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. From Measurement to Consequence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../licensing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instructions-for-a-machine-that-does-not-guess" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instructions for a Machine That Does Not Guess
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables-and-data-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variables and Data Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conditionals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conditionals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loops
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Loops">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-python-code-tracer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Python Code Tracer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Libraries
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-things-go-wrong" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When Things Go Wrong
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="When Things Go Wrong">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-resilient-logger-fault-bench" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Resilient Logger Fault Bench
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-your-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running Your Program
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/iowerx/pi-env-monitor/blob/main/docs/chapters/13-python-programming/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="programming-the-station-in-python">Programming the Station in Python<a class="headerlink" href="#programming-the-station-in-python" title="Permanent link">¶</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
+<p>This chapter teaches enough Python to read a sensor and act on the result. It covers variables and data types, functions, loops, and conditional statements, then libraries — which is how a sensor becomes three lines of code instead of three hundred. It closes with exception handling, because a sensor that fails to respond at three in the morning should not stop the station, and with running a script from the command line. Readers finish able to write and modify the program that the next chapter turns into a data logger.</p>
+<h2 id="concepts-covered">Concepts Covered<a class="headerlink" href="#concepts-covered" title="Permanent link">¶</a></h2>
+<p>This chapter covers the following 9 concepts from the learning graph:</p>
+<ol>
+<li>Python</li>
+<li>Variable</li>
+<li>Script Execution</li>
+<li>Data Type</li>
+<li>Function</li>
+<li>Conditional Statement</li>
+<li>Loop</li>
+<li>Python Library</li>
+<li>Exception Handling</li>
+</ol>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../12-os-and-sensor-buses/">Chapter 12: The Station's Brain: Operating System, Command Line, and Sensor Buses</a></li>
+</ul>
+<hr>
+<h2 id="instructions-for-a-machine-that-does-not-guess">Instructions for a Machine That Does Not Guess<a class="headerlink" href="#instructions-for-a-machine-that-does-not-guess" title="Permanent link">¶</a></h2>
+<p>You now have a sensor the Pi can see on the bus. Nobody has told the Pi what to do with it.</p>
+<p>That is the job of a program: a list of instructions, written in a language the computer can follow exactly. And "exactly" is the operative word. A computer does precisely what you wrote, not what you meant. That sounds like a limitation, and mostly it is the reason programming is frustrating on your first day and reliable on your hundredth.</p>
+<p><strong>Python</strong> is a programming language designed to be readable, created by Guido van Rossum and first released in 1991. It is named after the comedy troupe Monty Python, not the snake, which is why the official documentation contains more jokes about spam than about reptiles.</p>
+<p>Python is the right language for this project for reasons that are practical rather than sentimental:</p>
+<ul>
+<li><strong>It reads close to English.</strong> A person who has never programmed can often guess what a Python program does.</li>
+<li><strong>It is already installed</strong> on both Raspberry Pi OS and Ubuntu Server.</li>
+<li><strong>Sensor libraries exist for almost everything</strong>, including the BME280.</li>
+<li><strong>It is forgiving.</strong> You do not have to declare types or manage memory, which removes two entire categories of beginner error.</li>
+<li><strong>It is widely used in science</strong>, so the skill transfers directly to data analysis and research work.</li>
+</ul>
+<p>The trade is speed. Python runs more slowly than languages like C, and for something like video processing that matters. For reading a sensor once a minute it is irrelevant — your program will spend virtually all of its life waiting.</p>
+<div class="admonition note">
+<p class="admonition-title">This chapter is not a complete Python course</p>
+<p>You are learning nine concepts, chosen because they are exactly what a data logger needs. There is a great deal more to Python — classes, comprehensions, decorators, generators — and none of it is required to build a working station. If you find you enjoy this, the language rewards going deeper. If you do not, what is here is sufficient.</p>
+</div>
+<h2 id="variables-and-data-types">Variables and Data Types<a class="headerlink" href="#variables-and-data-types" title="Permanent link">¶</a></h2>
+<p>A <strong>variable</strong> is a named place to store a value so it can be used later.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">temperature</span> <span class="o">=</span> <span class="mf">21.4</span>
+</span></code></pre></div>
+<p>That line creates a variable called <code>temperature</code> and puts the value 21.4 in it. The <code>=</code> is not a statement of equality — it is an instruction: "take the value on the right and store it under the name on the left."</p>
+<p>You use the name wherever you want the value:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">temperature</span> <span class="o">=</span> <span class="mf">21.4</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">temperature</span> <span class="o">=</span> <span class="mf">22.1</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span>
+</span></code></pre></div>
+<p>That prints <code>21.4</code> and then <code>22.1</code>. Variables vary; that is the point.</p>
+<p>Naming matters more than beginners expect, because you will read your own code months later with no memory of writing it. The conventions in Python are lowercase words joined by underscores, and names that say what the value means:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Clear</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">station_elevation_m</span> <span class="o">=</span> <span class="mi">152</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">pressure_hpa</span> <span class="o">=</span> <span class="mf">1013.2</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">sample_interval_seconds</span> <span class="o">=</span> <span class="mi">60</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># Unclear</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">x</span> <span class="o">=</span> <span class="mi">152</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">p</span> <span class="o">=</span> <span class="mf">1013.2</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="n">n</span> <span class="o">=</span> <span class="mi">60</span>
+</span></code></pre></div>
+<p>Notice something the good names are doing beyond being readable: <strong>they carry the unit</strong>. <code>pressure_hpa</code> cannot be silently confused with a pressure in pascals. Given Chapter 2's Mars Climate Orbiter story, putting units in variable names is a cheap defence against an expensive class of bug.</p>
+<p>A <strong>data type</strong> is the kind of value a variable holds. Python determines it automatically from what you assign, but you need to know the types because they behave differently.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Name</th>
+<th>Example</th>
+<th>Used in this project for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Integer</td>
+<td><code>int</code></td>
+<td><code>60</code></td>
+<td>Counts, intervals in whole seconds</td>
+</tr>
+<tr>
+<td>Float</td>
+<td><code>float</code></td>
+<td><code>21.4</code></td>
+<td>All sensor readings</td>
+</tr>
+<tr>
+<td>String</td>
+<td><code>str</code></td>
+<td><code>"2026-08-25T14:30:00Z"</code></td>
+<td>Timestamps, file names, CSV lines</td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td><code>bool</code></td>
+<td><code>True</code></td>
+<td>Yes or no flags</td>
+</tr>
+<tr>
+<td>List</td>
+<td><code>list</code></td>
+<td><code>[21.4, 21.5, 21.3]</code></td>
+<td>Several readings for averaging</td>
+</tr>
+<tr>
+<td>Dictionary</td>
+<td><code>dict</code></td>
+<td><code>{"temp": 21.4, "rh": 62}</code></td>
+<td>One complete reading with named fields</td>
+</tr>
+</tbody>
+</table>
+<p>Two type behaviours will trip you up, and both are worth meeting deliberately rather than at 2 am.</p>
+<p><strong>Strings and numbers are not interchangeable.</strong> The value <code>"21.4"</code> in quotes is a string — a piece of text that happens to look like a number. You cannot do arithmetic on it:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">reading</span> <span class="o">=</span> <span class="s2">"21.4"</span>        <span class="c1"># a string, from a file or a sensor library</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">result</span> <span class="o">=</span> <span class="n">reading</span> <span class="o">+</span> <span class="mi">1</span>    <span class="c1"># TypeError: can only concatenate str to str</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">result</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">reading</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>   <span class="c1"># 22.4 — convert first</span>
+</span></code></pre></div>
+<p>This matters immediately in Chapter 14, because everything read back from a CSV file arrives as a string.</p>
+<p><strong>Floats are approximations.</strong> Computers store decimals in binary, and some decimal values have no exact binary representation, exactly as one third has no exact decimal representation.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">print</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">)</span>        <span class="c1"># 0.30000000000000004</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">print</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">==</span> <span class="mf">0.3</span><span class="p">)</span> <span class="c1"># False</span>
+</span></code></pre></div>
+<p>This is not a Python bug; it is how binary floating point works everywhere. The consequence for your code is a rule: <strong>never test floating point values for exact equality.</strong> Test whether the difference is small enough:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">temperature</span> <span class="o">-</span> <span class="mf">21.4</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.001</span><span class="p">:</span>
+</span></code></pre></div>
+<h2 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">¶</a></h2>
+<p>A <strong>function</strong> is a named block of code that performs a task, can accept inputs, and can return a result.</p>
+<p>You have already used one. <code>print()</code> is a function: you give it a value and it displays it.</p>
+<p>Writing your own looks like this:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">celsius_to_fahrenheit</span><span class="p">(</span><span class="n">celsius</span><span class="p">):</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="n">fahrenheit</span> <span class="o">=</span> <span class="n">celsius</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">/</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">32</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="k">return</span> <span class="n">fahrenheit</span>
+</span></code></pre></div>
+<p>Taking it apart:</p>
+<ul>
+<li><code>def</code> starts a function definition</li>
+<li><code>celsius_to_fahrenheit</code> is the name</li>
+<li><code>(celsius)</code> is the parameter — the input the function expects</li>
+<li>The indented lines are the body</li>
+<li><code>return</code> sends a value back to whoever called the function</li>
+</ul>
+<p>Call it by name:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">temp_c</span> <span class="o">=</span> <span class="mf">21.4</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">temp_f</span> <span class="o">=</span> <span class="n">celsius_to_fahrenheit</span><span class="p">(</span><span class="n">temp_c</span><span class="p">)</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">temp_f</span><span class="p">)</span>    <span class="c1"># 70.52</span>
+</span></code></pre></div>
+<p>That indentation is not decoration. <strong>Python uses indentation to determine structure</strong>, where most languages use braces. The indented lines belong to the function; the unindented lines that follow do not. Inconsistent indentation is a syntax error, and mixing tabs with spaces produces errors that are invisible on screen. Configure your editor to insert four spaces when you press Tab, and the problem disappears permanently.</p>
+<p>Functions earn their place for three reasons:</p>
+<ul>
+<li><strong>They avoid repetition.</strong> Write the conversion once, use it everywhere.</li>
+<li><strong>They can be tested alone.</strong> You can check <code>celsius_to_fahrenheit(0)</code> returns 32 without running the whole station.</li>
+<li><strong>They name an idea.</strong> <code>calculate_dew_point(temp, humidity)</code> tells a reader what is happening far better than four lines of arithmetic.</li>
+</ul>
+<p>Here is the Chapter 8 dew point formula as a function. Before the code: the parameters are <code>temperature_c</code>, the air temperature in degrees Celsius, and <code>relative_humidity</code>, in percent from 0 to 100. The constants <code>a</code> and <code>b</code> are the standard Magnus coefficients. The function returns the dew point in degrees Celsius. <code>math.log</code> is the natural logarithm.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">calculate_dew_point</span><span class="p">(</span><span class="n">temperature_c</span><span class="p">,</span> <span class="n">relative_humidity</span><span class="p">):</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="sd">"""Return dew point in Celsius using the Magnus formula."""</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="n">a</span> <span class="o">=</span> <span class="mf">17.27</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    <span class="n">b</span> <span class="o">=</span> <span class="mf">237.7</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    <span class="n">gamma</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">temperature_c</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="n">temperature_c</span><span class="p">)</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">relative_humidity</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">)</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    <span class="n">dew_point_c</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">gamma</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">gamma</span><span class="p">)</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>    <span class="k">return</span> <span class="n">dew_point_c</span>
+</span></code></pre></div>
+<p>The text in triple quotes is a docstring — a short description of what the function does. It is optional and worth writing every time, because it is what <code>help()</code> shows and what you will read when you come back to this in six months.</p>
+<h2 id="conditionals">Conditionals<a class="headerlink" href="#conditionals" title="Permanent link">¶</a></h2>
+<p>A <strong>conditional statement</strong> runs different code depending on whether something is true.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">if</span> <span class="n">temperature_c</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">:</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Heat warning"</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Add alternatives with <code>elif</code> and <code>else</code>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">if</span> <span class="n">temperature_c</span> <span class="o">&gt;</span> <span class="mi">35</span><span class="p">:</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Extreme heat"</span><span class="p">)</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="k">elif</span> <span class="n">temperature_c</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">:</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Hot"</span><span class="p">)</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="k">elif</span> <span class="n">temperature_c</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Below freezing"</span><span class="p">)</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="k">else</span><span class="p">:</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Normal"</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Python checks each condition in order and runs the <strong>first</strong> one that is true, then skips the rest. Order matters: if the <code>&gt; 30</code> test came first, a temperature of 40 would report "Hot" and never reach "Extreme heat."</p>
+<p>The comparison operators:</p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>==</code></td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td><code>!=</code></td>
+<td>Not equal to</td>
+</tr>
+<tr>
+<td><code>&lt;</code> <code>&gt;</code></td>
+<td>Less than, greater than</td>
+</tr>
+<tr>
+<td><code>&lt;=</code> <code>&gt;=</code></td>
+<td>Less than or equal, greater than or equal</td>
+</tr>
+<tr>
+<td><code>and</code></td>
+<td>Both must be true</td>
+</tr>
+<tr>
+<td><code>or</code></td>
+<td>Either may be true</td>
+</tr>
+<tr>
+<td><code>not</code></td>
+<td>Reverses a condition</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">One equals sign assigns, two compare</p>
+<p><code>=</code> stores a value. <code>==</code> asks whether two values are equal. Writing <code>if temperature = 30:</code> is a syntax error in Python — which is good news, because in some other languages it silently assigns 30 to the variable and evaluates as true, producing a bug that is genuinely difficult to find.</p>
+</div>
+<p>Conditionals are what let your station make decisions rather than merely record. The most valuable use is validating readings before you trust them:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">if</span> <span class="n">pressure_hpa</span> <span class="o">&lt;</span> <span class="mi">800</span> <span class="ow">or</span> <span class="n">pressure_hpa</span> <span class="o">&gt;</span> <span class="mi">1100</span><span class="p">:</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Pressure outside plausible range - check the sensor"</span><span class="p">)</span>
+</span></code></pre></div>
+<p>That is Chapter 2's measurement range check written as code, and Chapter 15 builds on it.</p>
+<h2 id="loops">Loops<a class="headerlink" href="#loops" title="Permanent link">¶</a></h2>
+<p>A <strong>loop</strong> repeats a block of code.</p>
+<p>A monitoring station is essentially one enormous loop: read the sensors, write the values, wait, repeat, for months.</p>
+<p>Two kinds are worth knowing.</p>
+<p>A <code>for</code> loop repeats a known number of times, or once for each item in a collection:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">readings</span> <span class="o">=</span> <span class="p">[</span><span class="mf">21.4</span><span class="p">,</span> <span class="mf">21.5</span><span class="p">,</span> <span class="mf">21.3</span><span class="p">,</span> <span class="mf">21.6</span><span class="p">]</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">for</span> <span class="n">reading</span> <span class="ow">in</span> <span class="n">readings</span><span class="p">:</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">reading</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Or a fixed count with <code>range()</code>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>    <span class="c1"># prints 0, 1, 2, 3</span>
+</span></code></pre></div>
+<p>Note that <code>range(4)</code> produces 0, 1, 2, 3 — four values starting at zero, not ending at four. Counting from zero is standard in programming and it catches everyone at least once.</p>
+<p>A <code>while</code> loop repeats as long as a condition stays true:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Taking a reading"</span><span class="p">)</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+</span></code></pre></div>
+<p><code>while True:</code> never ends on its own, which is exactly what a monitoring station wants. Stop it with Ctrl-C from the command line, or let the systemd service from Chapter 12 manage it.</p>
+<p>The Chapter 4 averaging technique becomes a loop:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">average_reading</span><span class="p">(</span><span class="n">sensor</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">16</span><span class="p">):</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">    </span><span class="sd">"""Take count readings and return their mean."""</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>        <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">sensor</span><span class="o">.</span><span class="n">temperature</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>    <span class="k">return</span> <span class="n">total</span> <span class="o">/</span> <span class="n">count</span>
+</span></code></pre></div>
+<p>The <code>count=16</code> gives the parameter a default value, so <code>average_reading(sensor)</code> uses 16 while <code>average_reading(sensor, 64)</code> uses 64. Recall from Chapter 4 that 16 readings cuts random noise to a quarter.</p>
+<h4 id="diagram-python-code-tracer">Diagram: Python Code Tracer<a class="headerlink" href="#diagram-python-code-tracer" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/python-code-tracer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Python Code Tracer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> python-code-tracer<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Apply (L3)
+Bloom Verb: execute</p>
+<p>Learning objective: The learner executes a Python program mentally by stepping through it line by line, predicting the value of each variable before it is revealed, and explains how loops and conditionals change the order of execution.</p>
+<p>Purpose: Beginners read code as text rather than as a sequence of state changes, which is why they cannot find their own bugs. A tracer that makes execution order and variable state visible builds the mental model that debugging requires, and prediction-before-reveal is what turns watching into learning.</p>
+<p>Canvas layout:
+- Left two-thirds: the program listing with line numbers and a highlighted current line
+- Right: a variables panel showing every variable currently in scope, its value, and its data type, with recently changed values flagged
+- Below the variables panel: a simulated console output area
+- Bottom: step controls and a program selector
+- Responsive to window resize; the variables panel moves below the listing on narrow canvases</p>
+<p>Data Visibility Requirements:
+  Stage 1: Highlight the line about to execute
+  Stage 2: Before executing, in prediction mode, ask "What will the value of X be after this line?" and accept a typed answer
+  Stage 3: Execute the line and update the variables panel, marking changed values
+  Stage 4: Show the data type alongside each value, so type changes are visible, e.g. <code>reading: "21.4" (str)</code> becoming <code>reading: 21.4 (float)</code>
+  Stage 5: For loops, show the iteration counter and how many iterations remain
+  Stage 6: For conditionals, show each condition being evaluated as True or False, and which branch was taken</p>
+<p>Programs the tracer must include, in increasing difficulty:
+1. <strong>Variables and types</strong> — assignment, reassignment, and a deliberate <code>"21.4" + 1</code> that raises a TypeError, with the error shown in the console exactly as Python would print it
+2. <strong>A function call</strong> — celsius_to_fahrenheit, tracing into the function body, showing the parameter binding, and returning
+3. <strong>A conditional ladder</strong> — the temperature warning example, run at several input values so the learner sees different branches taken
+4. <strong>A for loop with accumulation</strong> — the averaging function, showing <code>total</code> growing each iteration and the division at the end
+5. <strong>An off-by-one bug</strong> — <code>range(4)</code> where the author expected 1 through 4; the trace makes the zero-start visible
+6. <strong>A float equality trap</strong> — <code>0.1 + 0.2 == 0.3</code> evaluating False, with the full <code>0.30000000000000004</code> shown in the variables panel</p>
+<p>Interactive controls:
+- Step forward, step back, run to end, reset
+- Prediction mode toggle, on by default, which pauses before each state change and requests a prediction; score tracked across the program
+- Editable input values for programs that take one, so the learner can re-run a conditional ladder at a different temperature
+- Breakpoint setting by clicking a line number</p>
+<p>Instructional Rationale: The objective is Apply/execute, and mentally executing code is precisely the skill being trained. Stepping backward is included because understanding often arrives one line after the confusion, and being able to reverse is what lets a learner re-examine the moment it went wrong. Prediction mode is the mechanism that prevents passive watching, which is the failure mode of every code-animation tool.</p>
+<p>Implementation: p5.js. Do not attempt to interpret arbitrary Python. Pre-author each program as an explicit sequence of steps, each recording the line number, the resulting variable state, any console output, and any error. The tracer replays that sequence forward and backward.</p>
+</details>
+<h2 id="libraries">Libraries<a class="headerlink" href="#libraries" title="Permanent link">¶</a></h2>
+<p>A <strong>Python library</strong> is a collection of pre-written code that you can use in your own program.</p>
+<p>This is where a project like this becomes possible for a beginner. Reading a BME280 from scratch means writing I2C transactions, reading calibration registers, and implementing Bosch's compensation formulas — several hundred lines, and every one a chance to introduce a subtle error. Somebody has already done that work correctly.</p>
+<p>Bring a library in with <code>import</code>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+</span></code></pre></div>
+<p>Install libraries that are not built in using <code>pip</code>, Python's package installer, which Chapter 12's <code>apt install python3-pip</code> provided:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>pip3 install adafruit-circuitpython-bme280
+</span></code></pre></div>
+<p>Libraries this project uses:</p>
+<table>
+<thead>
+<tr>
+<th>Library</th>
+<th>Provides</th>
+<th>Built in?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>time</code></td>
+<td>Delays and clock access</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>math</code></td>
+<td>Logarithms, square roots</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>csv</code></td>
+<td>Reading and writing CSV files</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>datetime</code></td>
+<td>Timestamps and time arithmetic</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>board</code>, <code>busio</code></td>
+<td>Access to the Pi's I2C pins</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>adafruit_bme280</code></td>
+<td>Talking to the BME280</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p>Here is the whole point of libraries. Before the code: <code>busio.I2C</code> opens the I2C bus using the Pi's standard clock and data pins, which Chapter 12 identified as pins 5 and 3. The <code>Adafruit_BME280_I2C</code> line creates an object representing the sensor at address <code>0x76</code> — change to <code>0x77</code> if <code>i2cdetect</code> showed that instead. After that, the sensor's readings are available as ordinary attributes.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">board</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">busio</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">adafruit_bme280</span><span class="w"> </span><span class="kn">import</span> <span class="n">basic</span> <span class="k">as</span> <span class="n">adafruit_bme280</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="n">i2c</span> <span class="o">=</span> <span class="n">busio</span><span class="o">.</span><span class="n">I2C</span><span class="p">(</span><span class="n">board</span><span class="o">.</span><span class="n">SCL</span><span class="p">,</span> <span class="n">board</span><span class="o">.</span><span class="n">SDA</span><span class="p">)</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="n">sensor</span> <span class="o">=</span> <span class="n">adafruit_bme280</span><span class="o">.</span><span class="n">Adafruit_BME280_I2C</span><span class="p">(</span><span class="n">i2c</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="mh">0x76</span><span class="p">)</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">sensor</span><span class="o">.</span><span class="n">temperature</span><span class="p">)</span>     <span class="c1"># degrees Celsius</span>
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">sensor</span><span class="o">.</span><span class="n">pressure</span><span class="p">)</span>        <span class="c1"># hectopascals</span>
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">sensor</span><span class="o">.</span><span class="n">humidity</span><span class="p">)</span>        <span class="c1"># percent relative humidity</span>
+</span></code></pre></div>
+<p>Seven lines. Behind them sit the register reads, the calibration constants, and the compensation arithmetic described in Chapter 12 — all handled, all tested by thousands of users.</p>
+<p>Note that this particular library returns pressure already converted to hectopascals, so the divide-by-100 warning from Chapter 7 does not apply here. Other libraries return pascals. <strong>Check what units your library returns</strong>, print one reading, and confirm it falls in the 980 to 1040 range before you build anything on top of it.</p>
+<h2 id="when-things-go-wrong">When Things Go Wrong<a class="headerlink" href="#when-things-go-wrong" title="Permanent link">¶</a></h2>
+<p>Here is the situation that separates a demonstration from a station.</p>
+<p>Your logger has been running for three weeks. At 03:17 on a Tuesday, a temperature swing causes a marginal solder joint to open briefly. The sensor does not respond. Your program crashes. It is 03:17, nobody notices, and you lose eleven days of data before anyone checks.</p>
+<p><strong>Exception handling</strong> is a way of catching errors when they occur and deciding what to do about them, instead of letting the program stop.</p>
+<p>An exception is Python's way of reporting that something went wrong. Without handling, it prints a message and terminates:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>OSError: [Errno 121] Remote I/O error
+</span></code></pre></div>
+<p>With handling, you decide:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">try</span><span class="p">:</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>    <span class="n">temperature</span> <span class="o">=</span> <span class="n">sensor</span><span class="o">.</span><span class="n">temperature</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Sensor did not respond"</span><span class="p">)</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>    <span class="n">temperature</span> <span class="o">=</span> <span class="kc">None</span>
+</span></code></pre></div>
+<p>The <code>try</code> block contains code that might fail. The <code>except</code> block runs only if that specific error occurs. Either way, the program continues.</p>
+<p>For a logger that must survive unattended, the pattern is a loop plus handling:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>        <span class="n">temperature</span> <span class="o">=</span> <span class="n">sensor</span><span class="o">.</span><span class="n">temperature</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>        <span class="n">pressure</span> <span class="o">=</span> <span class="n">sensor</span><span class="o">.</span><span class="n">pressure</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>        <span class="n">humidity</span> <span class="o">=</span> <span class="n">sensor</span><span class="o">.</span><span class="n">humidity</span>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">temperature</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> C  </span><span class="si">{</span><span class="n">pressure</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> hPa  </span><span class="si">{</span><span class="n">humidity</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> %"</span><span class="p">)</span>
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>    <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Sensor read failed: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+</span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Unexpected error: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-21-13"><a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Two things in that code need explaining before you use it.</p>
+<p>The <code>f"..."</code> is an f-string — a string with <code>{}</code> placeholders that get replaced by variable values. Inside a placeholder, <code>:.1f</code> means "format as a floating point number with one decimal place," which is how you avoid printing <code>21.399999999999999</code>.</p>
+<p>The two <code>except</code> blocks catch different things. The first catches <code>OSError</code> specifically, the error an I2C failure produces, and reports it clearly. The second catches anything else. Order matters — Python uses the first matching handler, so specific exceptions must come before general ones.</p>
+<div class="admonition warning">
+<p class="admonition-title">Do not silently swallow errors</p>
+<p>This is a real temptation and it produces the worst kind of failure:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="k">try</span><span class="p">:</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>    <span class="n">temperature</span> <span class="o">=</span> <span class="n">sensor</span><span class="o">.</span><span class="n">temperature</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="k">except</span><span class="p">:</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>    <span class="k">pass</span>    <span class="c1"># never do this</span>
+</span></code></pre></div>
+<p>A bare <code>except:</code> catches everything, including your own typos and Ctrl-C. Combined with <code>pass</code>, it discards the error entirely. Your station appears to run perfectly while recording nothing, and there is no record of anything having gone wrong.</p>
+<p>Always catch specific exceptions where you can, and <strong>always log what happened</strong>. A gap in your data with a matching line in the log is a solvable mystery. A gap with no explanation is not.</p>
+</div>
+<h4 id="diagram-resilient-logger-fault-bench">Diagram: Resilient Logger Fault Bench<a class="headerlink" href="#diagram-resilient-logger-fault-bench" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/resilient-logger-bench/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Resilient Logger Fault Bench</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> resilient-logger-bench<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Evaluate (L5)
+Bloom Verb: critique</p>
+<p>Learning objective: The learner critiques four versions of a logger loop against injected faults, and judges which error-handling strategy preserves both data and diagnosability.</p>
+<p>Purpose: Students accept "use try/except" as a rule and then write bare <code>except: pass</code>, which is worse than no handling at all because it hides the failure. Running four strategies against the same fault sequence and comparing the resulting data files and logs makes the difference concrete rather than stylistic.</p>
+<p>Canvas layout:
+- Left: four side-by-side logger panels, each showing its code strategy in brief and its running state
+- Center: a shared fault timeline the learner controls, applying identical faults to all four simultaneously
+- Right or below (responsive): for each logger, the resulting data file contents and log file contents, scrollable
+- Bottom: fault controls and a scoreboard
+- Responsive to window resize; loggers stack into two columns then one on narrow canvases</p>
+<p>The four strategies, all running the same read-and-append loop:
+1. <strong>No handling</strong> — any exception terminates the program. Shows the traceback and then a permanently stopped logger with no further data.
+2. <strong>Bare except with pass</strong> — <code>except: pass</code>. Never crashes, never records the failure. The data file simply has gaps and the log file is empty.
+3. <strong>Specific except with logging</strong> — catches <code>OSError</code>, writes a log entry with a timestamp and the error text, continues. This is the chapter's recommended pattern.
+4. <strong>Specific except with logging and retry</strong> — as above, but retries the read up to three times with a short delay before giving up on that interval.</p>
+<p>Data Visibility Requirements:
+  Stage 1: All four logging normally, files filling with identical rows
+  Stage 2: On a fault, show each logger's immediate reaction — traceback, silence, log line, or retry attempts
+  Stage 3: Show the resulting data file for each, with gaps visible as missing timestamps
+  Stage 4: Show the log file for each, empty or populated
+  Stage 5: At the end of the run, a comparison table: readings captured, readings lost, faults recorded, time offline</p>
+<p>Injectable faults, applied to all four at once:
+- <strong>Transient I2C error</strong> — one failed read. Logger 1 dies; logger 4 recovers with no data loss at all.
+- <strong>Sustained sensor failure, 30 minutes</strong> — all four lose data, but only 3 and 4 leave any record of why.
+- <strong>Disk full</strong> — a different exception type. Logger 3's <code>except OSError</code> catches it; a version catching only a sensor-specific exception would not, which the feedback must point out.
+- <strong>Ctrl-C from the operator</strong> — the crucial case for logger 2, whose bare <code>except:</code> catches KeyboardInterrupt and refuses to stop. Feedback: "A bare except catches your attempt to quit. This logger cannot be stopped normally."
+- <strong>A typo in the logging code itself</strong> — an exception raised inside the handler, showing that handlers can fail too</p>
+<p>Required end-of-run verdict for each logger, e.g.: "Logger 2 captured 412 of 480 readings and recorded zero faults. Its data has 68 unexplained gaps. Six months from now nobody will be able to tell whether those gaps were weather, hardware, or a bug."</p>
+<p>Interactive controls:
+- Fault buttons applying each scenario at the current time
+- Run speed control, from step-by-step to fast-forward
+- A "write your own" panel where the learner selects which exception types to catch and whether to log and retry, producing a fifth logger scored alongside the others</p>
+<p>Instructional Rationale: The objective is Evaluate/critique, which requires comparing alternatives against criteria. The criteria here are two and they conflict for the naive learner: keep running, and keep a record. Running identical faults through all four strategies simultaneously isolates the strategy as the only variable. The Ctrl-C case is included specifically because it is the argument against bare except that students find most persuasive — a program they cannot stop.</p>
+<p>Implementation: p5.js. Simulate the loop as discrete ticks; represent each logger as a state machine with a strategy parameter governing its response to an injected fault. Render data and log files as scrollable text buffers.</p>
+</details>
+<h2 id="running-your-program">Running Your Program<a class="headerlink" href="#running-your-program" title="Permanent link">¶</a></h2>
+<p><strong>Script execution</strong> is running a Python program as a file rather than typing statements one at a time.</p>
+<p>Write your code in a file ending <code>.py</code>, then run it:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>python3 logger.py
+</span></code></pre></div>
+<p>There is an alternative that makes the file behave like a command in its own right. Put this as the very first line of the file:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="ch">#!/usr/bin/env python3</span>
+</span></code></pre></div>
+<p>That is called a shebang, and it tells the system which interpreter to use. Combined with the execute permission from Chapter 12:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>chmod +x logger.py
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>./logger.py
+</span></code></pre></div>
+<p>The <code>./</code> is required and means "in the current directory." Without it, the shell searches its list of standard program locations, does not find <code>logger.py</code>, and reports "command not found" — which is a confusing message when the file is plainly right there.</p>
+<p>One more convention appears in nearly every Python program you will read:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>    <span class="c1"># the program's work goes here</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>    <span class="k">pass</span>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>    <span class="n">main</span><span class="p">()</span>
+</span></code></pre></div>
+<p>That conditional means "only run <code>main()</code> if this file is being executed directly, not if it is being imported by another file." It lets a file work both as a runnable program and as a library of functions another program can import — and it is why Chapter 14's logger can share its dew point function with an analysis script.</p>
+<h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Python</strong> is readable, pre-installed, and well supplied with sensor libraries. It is slower than compiled languages, which does not matter for reading a sensor once a minute.</li>
+<li>A <strong>variable</strong> is a named store. Put units in the name — <code>pressure_hpa</code>, not <code>p</code>.</li>
+<li>A <strong>data type</strong> determines behaviour. Strings that look like numbers are not numbers. Floats are approximations, so never test them for exact equality.</li>
+<li>A <strong>function</strong> names an idea, avoids repetition, and can be tested alone. Indentation defines structure in Python, so configure your editor for four spaces.</li>
+<li>A <strong>conditional statement</strong> runs the first matching branch. <code>=</code> assigns, <code>==</code> compares.</li>
+<li>A <strong>loop</strong> repeats. <code>for</code> runs a known number of times; <code>while True:</code> runs forever, which is what a station wants.</li>
+<li>A <strong>Python library</strong> is pre-written code. Seven lines with <code>adafruit_bme280</code> replace several hundred written from scratch. Always check what units a library returns.</li>
+<li><strong>Exception handling</strong> keeps a station alive through a transient fault. Catch specific errors, never use a bare <code>except: pass</code>, and always log the failure.</li>
+<li><strong>Script execution</strong> runs a <code>.py</code> file. A shebang plus execute permission makes it runnable directly.</li>
+</ul>
+<h2 id="check-yourself">Check Yourself<a class="headerlink" href="#check-yourself" title="Permanent link">¶</a></h2>
+<details class="question">
+<summary>Why does <code>print(0.1 + 0.2 == 0.3)</code> print False? Click to check.</summary>
+<p>Because floats are binary approximations of decimal values, and 0.1 and 0.2 have no exact binary representation — just as one third has no exact decimal representation. The sum comes to 0.30000000000000004, which is not equal to 0.3. This is not a Python quirk; it is how binary floating point works in every language. The rule that follows: compare floats by checking whether the difference is small, <code>abs(a - b) &lt; 0.001</code>, not with <code>==</code>.</p>
+</details>
+<details class="question">
+<summary>Your logger crashed at 03:17 and lost eleven days of data. What should the code have had? Click to check.</summary>
+<p>Exception handling around the sensor read, inside the main loop. A <code>try</code>/<code>except OSError</code> block would have caught the transient I2C failure, logged it, and let the loop continue to the next reading. The failure would have cost one reading instead of eleven days. Note that the handler must also <strong>log</strong> the error — a gap in the data with a matching log entry is diagnosable; a gap with no record is not.</p>
+</details>
+<details class="question">
+<summary>What does <code>for i in range(4):</code> print if the body is <code>print(i)</code>? Click to check.</summary>
+<p><code>0</code>, <code>1</code>, <code>2</code>, <code>3</code> — four values, starting at zero and stopping before four. <code>range(n)</code> produces n values beginning at 0. This catches essentially everyone once, usually as an off-by-one error where a loop runs one time too few or an index reaches past the end of a list.</p>
+</details>
+<details class="question">
+<summary>You read a temperature from a CSV file and add 1. You get an error. Why? Click to check.</summary>
+<p>Everything read from a file arrives as a <strong>string</strong>, so the value is <code>"21.4"</code> rather than <code>21.4</code>. Python will not add a number to a string and raises a TypeError rather than guessing what you meant. Convert first: <code>float(reading) + 1</code>. This will come up constantly in Chapter 15 when you read back your own logged data for analysis.</p>
+</details>
+<hr>
+<h2 id="what-is-next">What Is Next<a class="headerlink" href="#what-is-next" title="Permanent link">¶</a></h2>
+<p>You can now read a sensor and act on what it says. What you cannot yet do is remember any of it — every reading so far has been printed to a screen and then lost forever.</p>
+<p>Chapter 14 fixes that. It covers choosing a sampling interval against your sensor's response time, building a time series from timestamped readings, and the structure of a CSV file down to the header row that names the units. It covers storage, file rotation, and backup for a dataset that grows every minute of every day, and it closes with metadata — the record of what was measured, where, and with what instrument, without which your data cannot be understood by anyone but you.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../12-os-and-sensor-buses/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 12. The Station's Brain - Operating System, Command Line, and Sensor Buses">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                12. The Station's Brain - Operating System, Command Line, and Sensor Buses
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../14-data-logging/" class="md-footer__link md-footer__link--next" aria-label="Next: 14. Logging Data - Timestamps, Intervals, and Files">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                14. Logging Data - Timestamps, Intervals, and Files
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Hank R. Licensed under <a href="licensing/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

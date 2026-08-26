@@ -1,0 +1,2570 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="What an operating system does, the Linux command line, running a program as a service, and the I2C, SPI, and UART buses that carry sensor data - ending at the BME280.">
+      
+      
+        <meta name="author" content="Hank R.">
+      
+      
+        <link rel="canonical" href="https://iowerx.github.io/pi-env-monitor/chapters/12-os-and-sensor-buses/">
+      
+      
+        <link rel="prev" href="../11-ground-motion/">
+      
+      
+        <link rel="next" href="../13-python-programming/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>The Station's Brain: Operating System, Command Line, and Sensor Buses - Raspberry Pi Environmental Monitoring: Grades 6–12</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Station's Brain: Operating System, Command Line, and Sensor Buses - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="og:description" content="What an operating system does, the Linux command line, running a program as a service, and the I2C, SPI, and UART buses that carry sensor data - ending at the BME280.">
+<meta property="og:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/12-os-and-sensor-buses/index.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://iowerx.github.io/pi-env-monitor/chapters/12-os-and-sensor-buses/">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="The Station's Brain: Operating System, Command Line, and Sensor Buses - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="twitter:description" content="What an operating system does, the Linux command line, running a program as a service, and the I2C, SPI, and UART buses that carry sensor data - ending at the BME280.">
+<meta property="twitter:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/12-os-and-sensor-buses/index.png">
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-stations-brain-operating-system-command-line-and-sensor-buses" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Raspberry Pi Environmental Monitoring: Grades 6–12
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              The Station's Brain: Operating System, Command Line, and Sensor Buses
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Raspberry Pi Environmental Monitoring: Grades 6–12
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components Used
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-why-we-measure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Why We Measure the Natural Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-language-of-measurement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. The Language of Measurement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-electricity-and-computer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Electricity and the Single-Board Computer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-how-sensors-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. How Sensors Turn the World Into Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-time-and-place/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Time and Place - Recording Where and When
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-temperature/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Temperature - From the Thermoscope to the Silicon Chip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-barometric-pressure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Barometric Pressure - The Weight of the Atmosphere
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-humidity-and-dew-point/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Humidity and Dew Point - The Water Hidden in the Air
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-solar-radiation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Solar Radiation - The Energy That Drives the Weather
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-wind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Wind - Measuring Air in Motion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-ground-motion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Ground Motion - Measuring Earthquakes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. The Station's Brain - Operating System, Command Line, and Sensor Buses
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. The Station's Brain - Operating System, Command Line, and Sensor Buses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#no-desktop-no-icons-no-mouse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        No Desktop, No Icons, No Mouse
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-an-operating-system-actually-does" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What an Operating System Actually Does
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-command-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Command Line
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Command Line">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-file-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The File System
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Permissions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="File Permissions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-command-line-sandbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Command Line Sandbox
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editing-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Editing Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing Software
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#making-it-run-forever" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Making It Run Forever
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#buses-how-sensors-talk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Buses: How Sensors Talk
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Buses: How Sensors Talk">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i2c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I2C
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spi-and-uart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SPI and UART
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SPI and UART">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-i2c-bus-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: I2C Bus Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-bme280" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The BME280
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The BME280">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-inside-the-bme280" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Inside the BME280
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-python-programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Programming the Station in Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-data-logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Logging Data - Timestamps, Intervals, and Files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-charting-and-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Charting and Interpreting Your Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-building-for-outdoors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Building the Station for the Outdoors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-measurement-to-consequence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. From Measurement to Consequence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../licensing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#no-desktop-no-icons-no-mouse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        No Desktop, No Icons, No Mouse
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-an-operating-system-actually-does" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What an Operating System Actually Does
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-command-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Command Line
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Command Line">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-file-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The File System
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Permissions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="File Permissions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-command-line-sandbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Command Line Sandbox
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editing-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Editing Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing Software
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#making-it-run-forever" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Making It Run Forever
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#buses-how-sensors-talk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Buses: How Sensors Talk
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Buses: How Sensors Talk">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i2c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I2C
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spi-and-uart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SPI and UART
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SPI and UART">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-i2c-bus-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: I2C Bus Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-bme280" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The BME280
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The BME280">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-inside-the-bme280" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Inside the BME280
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/iowerx/pi-env-monitor/blob/main/docs/chapters/12-os-and-sensor-buses/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="the-stations-brain-operating-system-command-line-and-sensor-buses">The Station's Brain: Operating System, Command Line, and Sensor Buses<a class="headerlink" href="#the-stations-brain-operating-system-command-line-and-sensor-buses" title="Permanent link">¶</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
+<p>This chapter turns the board from Chapter 3 into a working computer. It explains what an operating system does, introduces Ubuntu Server and Raspberry Pi OS, and teaches the command line: the file system, permissions, editors, shell commands, packages, and running a program as a systemd service so it survives a reboot. The second half covers the buses that carry sensor data — I2C with its device addressing, SPI, and serial UART — and ends at the BME280 itself, a single chip that combines three different sensing mechanisms from three earlier chapters.</p>
+<h2 id="concepts-covered">Concepts Covered<a class="headerlink" href="#concepts-covered" title="Permanent link">¶</a></h2>
+<p>This chapter covers the following 17 concepts from the learning graph:</p>
+<ol>
+<li>Operating System</li>
+<li>Ubuntu Server</li>
+<li>Raspberry Pi OS</li>
+<li>Command Line Interface</li>
+<li>File System</li>
+<li>File Permissions</li>
+<li>Text Editor</li>
+<li>Shell Command</li>
+<li>Silicon Diode Sensor</li>
+<li>Software Package</li>
+<li>Systemd Service</li>
+<li>BME280 Sensor</li>
+<li>I2C Bus</li>
+<li>SPI Bus</li>
+<li>Serial UART</li>
+<li>I2C Device Address</li>
+<li>SIM7600A Module</li>
+</ol>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../03-electricity-and-computer/">Chapter 3: Electricity and the Single-Board Computer</a></li>
+<li><a href="../04-how-sensors-work/">Chapter 4: How Sensors Turn the World Into Numbers</a></li>
+<li><a href="../05-time-and-place/">Chapter 5: Time and Place: Recording Where and When</a></li>
+<li><a href="../06-temperature/">Chapter 6: Temperature: From the Thermoscope to the Silicon Chip</a></li>
+<li><a href="../07-barometric-pressure/">Chapter 7: Barometric Pressure: The Weight of the Atmosphere</a></li>
+<li><a href="../08-humidity-and-dew-point/">Chapter 8: Humidity and Dew Point: The Water Hidden in the Air</a></li>
+</ul>
+<hr>
+<h2 id="no-desktop-no-icons-no-mouse">No Desktop, No Icons, No Mouse<a class="headerlink" href="#no-desktop-no-icons-no-mouse" title="Permanent link">¶</a></h2>
+<p>Plug in the Raspberry Pi and connect to it. What you get is a screen that looks like this:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ubuntu@station01:~$
+</span></code></pre></div>
+<p>That is it. No windows. No icons. A blinking cursor.</p>
+<p>This is not a stripped-down or broken version of a computer. It is what a computer looks like when nobody has bolted a picture of a desk onto the front of it. Most of the world's web servers present exactly this view, and they run everything you use.</p>
+<p>For a monitoring station this is the right choice, and not only for tradition:</p>
+<ul>
+<li><strong>A graphical desktop wastes resources.</strong> Drawing windows takes memory and processing power that a station in a box on a pole does not have to spare.</li>
+<li><strong>It wastes power</strong>, which Chapter 16 will show is the scarcest resource in the whole project.</li>
+<li><strong>Nobody is looking at it.</strong> A screen that no one will ever see is not worth generating.</li>
+<li><strong>It can be worked on remotely.</strong> You connect over the network from your own laptop, and the command line works perfectly over a slow, unreliable link where a remote desktop would crawl.</li>
+</ul>
+<p>This chapter is where you learn to work in that environment. It is genuinely different from using a phone or a laptop, and it is worth saying plainly: it feels awkward for about a week and then it feels faster than clicking.</p>
+<h2 id="what-an-operating-system-actually-does">What an Operating System Actually Does<a class="headerlink" href="#what-an-operating-system-actually-does" title="Permanent link">¶</a></h2>
+<p>An <strong>operating system</strong> is the software that manages a computer's hardware and provides services that other programs use.</p>
+<p>Without one, a program would have to know how to talk to every possible piece of hardware directly, manage its own memory, and take turns with other programs by mutual agreement. The operating system takes those jobs so that programs do not have to.</p>
+<p>Its main responsibilities:</p>
+<ul>
+<li><strong>Managing hardware</strong> — the processor, memory, storage, network, and the GPIO pins from Chapter 3</li>
+<li><strong>Running programs</strong> — starting them, stopping them, and dividing processor time among them</li>
+<li><strong>Managing files</strong> — organizing storage so programs can save and find data</li>
+<li><strong>Controlling access</strong> — deciding which users and programs may do what</li>
+<li><strong>Providing an interface</strong> — a way for a human to give instructions</li>
+</ul>
+<p>Your station will run Linux, which is not exactly an operating system but a <em>kernel</em> — the core that manages hardware and processes. A complete usable system pairs that kernel with a large collection of supporting software, and such a combination is called a distribution.</p>
+<p>Two distributions matter here.</p>
+<p><strong>Raspberry Pi OS</strong> is the official distribution from the Raspberry Pi Foundation, based on Debian Linux. It is tuned specifically for Raspberry Pi hardware and ships with excellent driver support for the GPIO, camera, and display connectors. It comes in a desktop version and a Lite version with no graphical interface at all. This is the friendliest starting point, and it is what this project's base station uses.</p>
+<p><strong>Ubuntu Server</strong> is a distribution from Canonical, also based on Debian, aimed at servers rather than desktops. It ships with no graphical interface at all. It has a large software ecosystem, long-term support releases with five or more years of security updates, and it is what a very large share of professional deployments run — so the skills transfer directly.</p>
+<p><a href="../../components/">Components Used</a> specifies Ubuntu 24.04 Server for the remote station and Raspberry Pi OS for the base station.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Raspberry Pi OS</th>
+<th>Ubuntu Server</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Maintained by</td>
+<td>Raspberry Pi Foundation</td>
+<td>Canonical</td>
+</tr>
+<tr>
+<td>Based on</td>
+<td>Debian</td>
+<td>Debian</td>
+</tr>
+<tr>
+<td>Graphical desktop</td>
+<td>Optional</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Hardware support on Pi</td>
+<td>Best available</td>
+<td>Very good</td>
+</tr>
+<tr>
+<td>Support period</td>
+<td>Follows Debian</td>
+<td>5+ years on LTS releases</td>
+</tr>
+<tr>
+<td>Used in this project for</td>
+<td>Base station</td>
+<td>Remote station</td>
+</tr>
+<tr>
+<td>Best for</td>
+<td>Getting started; unusual Pi hardware</td>
+<td>Long unattended deployment</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Either one works for learning</p>
+<p>Almost everything in this chapter and the next is identical between them, because both are Debian underneath. If you already have Raspberry Pi OS running, do not reinstall — the commands are the same. The choice matters for a station meant to run untouched for years, where Ubuntu's long support window is worth having.</p>
+</div>
+<h2 id="the-command-line">The Command Line<a class="headerlink" href="#the-command-line" title="Permanent link">¶</a></h2>
+<p>A <strong>command line interface</strong> is a way of controlling a computer by typing commands as text rather than clicking on graphical objects.</p>
+<p>Take the prompt apart:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ubuntu@station01:~$
+</span></code></pre></div>
+<ul>
+<li><code>ubuntu</code> — the user you are logged in as</li>
+<li><code>@</code> — separator</li>
+<li><code>station01</code> — the name of this computer</li>
+<li><code>:</code> — separator</li>
+<li><code>~</code> — where you currently are; the tilde means your home directory</li>
+<li><code>$</code> — ready for a command. A <code>#</code> here would mean you are the superuser, which is worth noticing before you type anything.</li>
+</ul>
+<p>A <strong>shell command</strong> is an instruction typed at the command line. The program that reads and runs them is called the shell, and the usual one is called bash.</p>
+<p>Commands follow a consistent pattern:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>command -options arguments
+</span></code></pre></div>
+<p>For example, <code>ls -l /home</code> runs the <code>ls</code> command with the <code>-l</code> option on the argument <code>/home</code>.</p>
+<p>Here are the commands you will actually use in this project. This is not a complete list of anything — it is the working set.</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Does</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pwd</code></td>
+<td>Print working directory — where am I?</td>
+<td><code>pwd</code></td>
+</tr>
+<tr>
+<td><code>ls</code></td>
+<td>List files</td>
+<td><code>ls -l</code></td>
+</tr>
+<tr>
+<td><code>cd</code></td>
+<td>Change directory</td>
+<td><code>cd /home/ubuntu</code></td>
+</tr>
+<tr>
+<td><code>mkdir</code></td>
+<td>Make a directory</td>
+<td><code>mkdir station-data</code></td>
+</tr>
+<tr>
+<td><code>cat</code></td>
+<td>Show a file's contents</td>
+<td><code>cat readings.csv</code></td>
+</tr>
+<tr>
+<td><code>head</code></td>
+<td>Show the first lines of a file</td>
+<td><code>head -5 readings.csv</code></td>
+</tr>
+<tr>
+<td><code>tail</code></td>
+<td>Show the last lines</td>
+<td><code>tail -f readings.csv</code></td>
+</tr>
+<tr>
+<td><code>cp</code></td>
+<td>Copy</td>
+<td><code>cp a.csv backup.csv</code></td>
+</tr>
+<tr>
+<td><code>mv</code></td>
+<td>Move or rename</td>
+<td><code>mv old.csv new.csv</code></td>
+</tr>
+<tr>
+<td><code>rm</code></td>
+<td>Remove — permanently</td>
+<td><code>rm junk.csv</code></td>
+</tr>
+<tr>
+<td><code>nano</code></td>
+<td>Edit a text file</td>
+<td><code>nano logger.py</code></td>
+</tr>
+<tr>
+<td><code>sudo</code></td>
+<td>Run a command as superuser</td>
+<td><code>sudo apt update</code></td>
+</tr>
+<tr>
+<td><code>df -h</code></td>
+<td>Show free disk space</td>
+<td><code>df -h</code></td>
+</tr>
+<tr>
+<td><code>man</code></td>
+<td>Show the manual for a command</td>
+<td><code>man ls</code></td>
+</tr>
+</tbody>
+</table>
+<p>Two of those deserve immediate warnings.</p>
+<div class="admonition danger">
+<p class="admonition-title">rm does not have an undo</p>
+<p>There is no recycle bin at the command line. <code>rm</code> deletes immediately and permanently. <code>rm -r</code> deletes a directory and everything inside it without asking. The command <code>sudo rm -rf /</code> will attempt to erase the entire system, and it is not a joke that people tell beginners for fun.</p>
+<p>Two habits worth forming now: before deleting anything, run <code>ls</code> on it first to confirm what you are about to remove; and use <code>rm -i</code>, which asks for confirmation on each file, until the command line feels natural.</p>
+</div>
+<p>The <code>tail -f</code> entry is the one you will use most while debugging. The <code>-f</code> means "follow" — it prints the end of a file and then keeps printing new lines as they are added. Point it at your data file and you can watch readings arrive live.</p>
+<h3 id="the-file-system">The File System<a class="headerlink" href="#the-file-system" title="Permanent link">¶</a></h3>
+<p>A <strong>file system</strong> is the way an operating system organizes and stores files. Linux organizes everything into a single tree that starts at <code>/</code>, called the root.</p>
+<p>There is no <code>C:</code> drive. Every storage device, including USB sticks and network shares, is attached somewhere into that one tree.</p>
+<p>The directories that matter for this project:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>/
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>├── home/
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>│   └── ubuntu/          &lt;- your files live here; "~" means this
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>│       └── station/     &lt;- where your logger and data will go
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>├── etc/                 &lt;- system configuration files
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>│   └── systemd/system/  &lt;- service definitions, later in this chapter
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>├── var/
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>│   └── log/             &lt;- system log files
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>├── dev/                 &lt;- devices appear here as files
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>│   ├── i2c-1            &lt;- the I2C bus
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>│   └── ttyS0            &lt;- a serial port
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>└── usr/                 &lt;- installed programs
+</span></code></pre></div>
+<p>That <code>/dev</code> directory is worth pausing on, because it is a genuinely elegant idea. In Linux, <strong>hardware devices appear as files</strong>. The I2C bus shows up as <code>/dev/i2c-1</code>, and a program talks to it by opening and reading that file. A serial port is <code>/dev/ttyS0</code>. This means that the same read and write operations a program uses for data files also work for hardware, and it is why sensor code in Chapter 13 will look so much like file handling.</p>
+<h3 id="file-permissions">File Permissions<a class="headerlink" href="#file-permissions" title="Permanent link">¶</a></h3>
+<p><strong>File permissions</strong> control which users can read, write, or execute each file.</p>
+<p>Every file has three permission groups, each with three permissions:</p>
+<ul>
+<li><strong>Owner</strong> — the user who owns the file</li>
+<li><strong>Group</strong> — a named group of users</li>
+<li><strong>Others</strong> — everyone else</li>
+</ul>
+<p>And for each: <strong>r</strong> for read, <strong>w</strong> for write, <strong>x</strong> for execute.</p>
+<p>Running <code>ls -l</code> shows them:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>-rw-r--r-- 1 ubuntu ubuntu 2048 Aug 25 14:30 readings.csv
+</span></code></pre></div>
+<p>Reading the permission block <code>-rw-r--r--</code> from left to right: the first character is the file type (<code>-</code> for a normal file, <code>d</code> for a directory). Then three characters for owner (<code>rw-</code> — read and write, no execute), three for group (<code>r--</code> — read only), and three for others (<code>r--</code> — read only).</p>
+<p>Two permission problems will bite you in this project, and both look like software bugs:</p>
+<ol>
+<li><strong>Your Python script will not run</strong> because it lacks execute permission. Fix with <code>chmod +x logger.py</code>.</li>
+<li><strong>Your program cannot read the I2C device</strong> because your user is not in the <code>i2c</code> group. Fix with <code>sudo usermod -aG i2c ubuntu</code>, then log out and back in — group membership only takes effect on a new login, which is a detail that wastes a lot of time when overlooked.</li>
+</ol>
+<h4 id="diagram-command-line-sandbox">Diagram: Command Line Sandbox<a class="headerlink" href="#diagram-command-line-sandbox" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/command-line-sandbox/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Command Line Sandbox</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> command-line-sandbox<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Apply (L3)
+Bloom Verb: execute</p>
+<p>Learning objective: The learner executes shell commands to navigate a file system, inspect permissions, and locate station files, and applies the permission model to diagnose why a script will not run.</p>
+<p>Purpose: The command line is unforgiving and beginners are afraid of it, which is rational given that <code>rm</code> has no undo. A sandbox with a realistic station file system lets students build fluency and make destructive mistakes with no consequences, before they touch a real Pi.</p>
+<p>Canvas layout:
+- Main area: a terminal emulator with the prompt <code>ubuntu@station01:~$</code>, command history, and scrollback
+- Right or below (responsive): a live file-tree panel showing the simulated file system, with the current working directory highlighted so the learner can see where <code>cd</code> moved them
+- Bottom: task list and a Reset button
+- Responsive to window resize; the tree panel collapses under the terminal on narrow canvases</p>
+<p>Simulated file system, matching the chapter's tree:
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>/
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>├── home/ubuntu/station/  containing logger.py (not executable), readings.csv, config.json
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>├── etc/systemd/system/   containing station-logger.service
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>├── var/log/
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>├── dev/                  containing i2c-1, ttyS0
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>└── usr/bin/
+</span></code></pre></div><p></p>
+<p>Supported commands, each producing realistic output: <code>pwd</code>, <code>ls</code>, <code>ls -l</code>, <code>cd</code>, <code>cat</code>, <code>head</code>, <code>tail</code>, <code>mkdir</code>, <code>cp</code>, <code>mv</code>, <code>rm</code>, <code>rm -r</code>, <code>chmod</code>, <code>df -h</code>, <code>man</code>, <code>clear</code>. Unsupported commands must return a helpful message naming the supported set rather than a bare error.</p>
+<p>Data Visibility Requirements:
+  Stage 1: <code>ls -l</code> output must render the full permission block, owner, group, size, and date in correct columns
+  Stage 2: Hovering any permission block character shows a tooltip naming it, e.g. "w — the owner may write to this file"
+  Stage 3: The file-tree panel highlights the current directory and updates on every <code>cd</code>
+  Stage 4: After <code>chmod +x logger.py</code>, the permission block visibly changes and the tree marks the file as executable</p>
+<p>Guided task list, checked off as completed:
+1. Find out where you are (<code>pwd</code>)
+2. Navigate to the station directory
+3. List the files with their permissions
+4. Show the last 5 lines of readings.csv
+5. Discover why logger.py will not run, and fix it with chmod
+6. Find the systemd service file
+7. Check free disk space</p>
+<p>Required safety demonstration: typing <code>rm readings.csv</code> must delete it from the simulated tree immediately with no confirmation, and display a red message: "Deleted. There is no recycle bin at the command line. In the sandbox you can press Reset. On a real station, that data is gone." Typing <code>rm -rf /</code> must trigger a full-screen warning explaining what that command does on a real system, without simulating it.</p>
+<p>Instructional Rationale: The objective is Apply/execute, so the learner must type real commands and read real output rather than click through a demonstration. The paired terminal and file-tree view is the specific design choice that teaches navigation — beginners lose track of where they are, and seeing the tree highlight move with each <code>cd</code> builds the spatial model that <code>pwd</code> alone does not. The deletion demonstration is included because the consequence is the lesson, and a sandbox is the only safe place to experience it.</p>
+<p>Implementation: p5.js with a text input field and a scrolling output buffer. Model the file system as a nested object with name, type, permissions, owner, size, and contents. Parse commands with a simple tokenizer; no real shell involved.</p>
+</details>
+<h3 id="editing-files">Editing Files<a class="headerlink" href="#editing-files" title="Permanent link">¶</a></h3>
+<p>A <strong>text editor</strong> is a program for creating and modifying plain text files. Your code, your configuration, and your service definitions are all plain text.</p>
+<p>Use <code>nano</code>. It is simple, it ships with both distributions, and it shows its own keyboard shortcuts along the bottom of the screen.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>nano logger.py
+</span></code></pre></div>
+<p>The essential keys, where <code>^</code> means the Ctrl key:</p>
+<ul>
+<li><code>^O</code> then Enter — write out (save)</li>
+<li><code>^X</code> — exit</li>
+<li><code>^K</code> — cut the current line</li>
+<li><code>^W</code> — search</li>
+<li><code>^G</code> — help</li>
+</ul>
+<p>You will hear about <code>vim</code> and <code>emacs</code>, which are powerful and have devoted followings. Neither is worth learning while you are also learning Linux, electronics, and Python. Use nano.</p>
+<h3 id="installing-software">Installing Software<a class="headerlink" href="#installing-software" title="Permanent link">¶</a></h3>
+<p>A <strong>software package</strong> is a bundle containing a program, its configuration, and a description of what else it needs to run.</p>
+<p>Debian-based systems use <code>apt</code> to manage packages, and it handles dependencies automatically — if the thing you asked for needs three other things, apt installs those too.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo apt update
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>sudo apt install python3-pip i2c-tools
+</span></code></pre></div>
+<p>The first line refreshes the list of what is available. The second installs two packages. <strong>Always run <code>apt update</code> before installing</strong>, or apt will work from a stale catalogue and may fail to find a package that exists.</p>
+<p>The <code>i2c-tools</code> package matters immediately: it contains <code>i2cdetect</code>, the utility that tells you whether your sensor is wired correctly, which is the single most useful debugging tool in this project.</p>
+<h2 id="making-it-run-forever">Making It Run Forever<a class="headerlink" href="#making-it-run-forever" title="Permanent link">¶</a></h2>
+<p>Here is a problem you will hit as soon as your logger works.</p>
+<p>You start the program from the command line. It runs beautifully. Then you close your connection to the Pi, and the program stops. Or the power flickers, the Pi reboots, and nothing restarts.</p>
+<p>A station that only runs while you are watching it is not a station.</p>
+<p>A <strong>systemd service</strong> is a program managed by the operating system's service manager, which can start it automatically at boot, restart it if it crashes, and keep it running after you disconnect.</p>
+<p>Systemd is the program that manages everything running on a modern Linux system. You describe your program to it in a small text file called a unit file, placed in <code>/etc/systemd/system/</code>.</p>
+<p>Before the file below, here is what each part will do. <code>Description</code> is a human-readable label. <code>After=network.target</code> tells systemd to wait until networking is available. <code>ExecStart</code> is the exact command to run. <code>Restart=always</code> tells systemd to start the program again if it ever exits. <code>RestartSec=10</code> waits ten seconds before retrying, so a program failing instantly does not spin the processor. <code>WantedBy=multi-user.target</code> means "start this when the system reaches normal running state."</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">[Unit]</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="na">Description</span><span class="o">=</span><span class="s">Environmental Monitoring Station Logger</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="na">After</span><span class="o">=</span><span class="s">network.target</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="k">[Service]</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="na">Type</span><span class="o">=</span><span class="s">simple</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="na">User</span><span class="o">=</span><span class="s">ubuntu</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="na">WorkingDirectory</span><span class="o">=</span><span class="s">/home/ubuntu/station</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/bin/python3 /home/ubuntu/station/logger.py</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="na">Restart</span><span class="o">=</span><span class="s">always</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="na">RestartSec</span><span class="o">=</span><span class="s">10</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="k">[Install]</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
+</span></code></pre></div>
+<p>Save that as <code>/etc/systemd/system/station-logger.service</code>, then:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo systemctl daemon-reload
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>sudo systemctl enable station-logger
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>sudo systemctl start station-logger
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>sudo systemctl status station-logger
+</span></code></pre></div>
+<p>Those four commands, in order: reload systemd's configuration so it notices the new file; mark the service to start at boot; start it now; and show whether it is running.</p>
+<p><code>journalctl -u station-logger -f</code> shows the service's live output, which is where anything your program prints will end up once it is no longer attached to your terminal.</p>
+<div class="admonition tip">
+<p class="admonition-title">Test the reboot before you trust it</p>
+<p>The whole point of a service is surviving a restart, so verify that it does. Run <code>sudo reboot</code>, wait a minute, reconnect, and run <code>systemctl status station-logger</code>. If it is running, your station will come back on its own after a power cut in the field. If you skip this test, you will find out the hard way, three weeks later, with a gap in your data.</p>
+</div>
+<h2 id="buses-how-sensors-talk">Buses: How Sensors Talk<a class="headerlink" href="#buses-how-sensors-talk" title="Permanent link">¶</a></h2>
+<p>Chapter 3 introduced GPIO pins as software-controlled connections. Reading a sensor through raw pins would mean managing voltage timing yourself, which is possible and unpleasant. A <strong>bus</strong> removes that work: it is a shared set of wires plus an agreed protocol for how devices take turns talking on them.</p>
+<p>Three buses are available on the Raspberry Pi's header.</p>
+<h3 id="i2c">I2C<a class="headerlink" href="#i2c" title="Permanent link">¶</a></h3>
+<p>The <strong>I2C bus</strong> — Inter-Integrated Circuit, pronounced "eye-squared-see" — is a two-wire bus that lets one controller communicate with many devices.</p>
+<p>The two wires:</p>
+<ul>
+<li><strong>SDA</strong> (Serial Data) — carries the data, in both directions</li>
+<li><strong>SCL</strong> (Serial Clock) — carries the timing signal the controller generates</li>
+</ul>
+<p>Both need the pull-up resistors from Chapter 3, and both are usually supplied on the breakout board.</p>
+<p>I2C is the right choice for this project because it is economical with pins. Two wires plus power and ground handle every sensor you might add, however many there are.</p>
+<p>That works because of addressing. An <strong>I2C device address</strong> is a number, usually 7 bits, that uniquely identifies a device on the bus. The controller broadcasts an address, and only the device with that address responds. Everything else stays silent.</p>
+<p>This creates the one rule that matters: <strong>no two devices on the same bus may share an address.</strong> Most sensor chips offer a choice of two addresses, selected by tying a pin high or low, so you can run two identical sensors. Beyond two, you need a second bus or an I2C multiplexer.</p>
+<p>The BME280 uses address <code>0x76</code> or <code>0x77</code> — hexadecimal, base 16, which is the conventional way to write these. Which one depends on how the breakout board wires its address pin, and it varies by manufacturer.</p>
+<p>Enable I2C and check your wiring in two commands:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo raspi-config      # Interface Options -&gt; I2C -&gt; Enable
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>i2cdetect -y 1
+</span></code></pre></div>
+<p>The output is a grid of addresses, with detected devices shown:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>00:                         -- -- -- -- -- -- -- --
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>...
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>70: -- -- -- -- -- -- 76 --
+</span></code></pre></div>
+<p>That <code>76</code> is your BME280 answering. This one command is the fastest possible answer to "is my sensor wired correctly," and it separates a wiring problem from a code problem in about two seconds.</p>
+<div class="admonition warning">
+<p class="admonition-title">If i2cdetect shows nothing</p>
+<p>An empty grid means the Pi cannot see the sensor at all, and the cause is almost always physical rather than software. Check in this order:</p>
+<ol>
+<li><strong>Ground.</strong> As Chapter 3 said, check ground first. It is the most common fault.</li>
+<li><strong>Power.</strong> Is the red wire on pin 1 (3.3 V), and is it seated firmly?</li>
+<li><strong>SDA and SCL swapped.</strong> Pin 3 is SDA, pin 5 is SCL. They are adjacent and easy to reverse.</li>
+<li><strong>I2C not enabled.</strong> Run <code>sudo raspi-config</code> and check.</li>
+<li><strong>Wrong bus number.</strong> Try <code>i2cdetect -y 0</code> as well as <code>-y 1</code>.</li>
+<li><strong>Missing pull-up resistors</strong> on a bare chip without a breakout board.</li>
+</ol>
+<p>If <code>i2cdetect</code> shows the device, your wiring is correct and any remaining problem is in your code. That is a genuinely valuable thing to know before you start debugging Python.</p>
+</div>
+<h3 id="spi-and-uart">SPI and UART<a class="headerlink" href="#spi-and-uart" title="Permanent link">¶</a></h3>
+<p>Two other buses exist on the same header, and it is worth knowing when each is right.</p>
+<p>The <strong>SPI bus</strong> — Serial Peripheral Interface — uses four wires: data out, data in, a clock, and a separate chip-select line per device. It is considerably faster than I2C and it is full duplex, meaning data can travel both directions at once. The cost is pins: every additional device needs its own chip-select line. SPI is the right choice for high-speed devices like displays and SD cards. The BME280 supports it as an alternative.</p>
+<p><strong>Serial UART</strong> — Universal Asynchronous Receiver/Transmitter — is the oldest of the three and uses two wires, transmit and receive. There is no shared clock; both ends must be configured to the same speed, called the baud rate. It is a point-to-point connection between exactly two devices, not a shared bus.</p>
+<p>UART matters here because of one specific part. The <strong>SIM7600A module</strong> is the cellular and GNSS module in this project's parts list. It provides the mobile data link that Chapter 16 uses for telemetry and the GPS receiver that Chapter 5 described, and it communicates over serial UART using AT commands — text instructions sent as plain strings, a convention inherited from telephone modems of the 1980s.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>I2C</th>
+<th>SPI</th>
+<th>UART</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wires</td>
+<td>2</td>
+<td>4 or more</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Devices per bus</td>
+<td>Many, by address</td>
+<td>Many, one select pin each</td>
+<td>Exactly 2</td>
+</tr>
+<tr>
+<td>Speed</td>
+<td>100–400 kHz typical</td>
+<td>Several MHz</td>
+<td>9,600–115,200 baud typical</td>
+</tr>
+<tr>
+<td>Shared clock</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Needs pull-ups</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Pin cost</td>
+<td>Very low</td>
+<td>High</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Used in this project for</td>
+<td>BME280 and other sensors</td>
+<td>Not used</td>
+<td>SIM7600A cellular and GPS</td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-i2c-bus-explorer">Diagram: I2C Bus Explorer<a class="headerlink" href="#diagram-i2c-bus-explorer" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/i2c-bus-explorer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>I2C Bus Explorer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> i2c-bus-explorer<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Analyze (L4)
+Bloom Verb: examine</p>
+<p>Learning objective: The learner examines an I2C transaction to explain how addressing lets many devices share two wires, and diagnoses common bus faults from the resulting symptoms.</p>
+<p>Purpose: I2C is invisible — two wires and nothing observable. When a sensor fails to appear, students have no mental model to debug against. Making the address broadcast and the device responses visible turns i2cdetect output from a mystery into a readable result.</p>
+<p>Canvas layout:
+- Upper area: a schematic showing the Raspberry Pi as controller, two SDA and SCL lines running horizontally, pull-up resistors to 3.3 V, and three sensor devices tapped onto the lines, each labeled with its address
+- Middle: a logic-analyzer style timing view showing SDA and SCL as square waves for the current transaction, with each phase labeled
+- Lower: a simulated i2cdetect output grid that updates to match the current bus configuration
+- Right or below (responsive): a step description panel and fault controls
+- Responsive to window resize</p>
+<p>Data Visibility Requirements:
+  Stage 1: Idle. Both lines held high by the pull-ups. Caption: "Pull-up resistors hold both lines high when nobody is talking."
+  Stage 2: Start condition. Show SDA going low while SCL is high, labeled "START — the controller claims the bus"
+  Stage 3: Address broadcast. Show the 7 address bits clocked out one at a time, with the binary value building up and its hex equivalent displayed, e.g. "1110110 = 0x76"
+  Stage 4: Every device compares. Highlight all three devices, showing each one's address next to the broadcast address, with two greying out and one lighting up. Caption: "Only the device whose address matches will answer."
+  Stage 5: Acknowledge. Show the matched device pulling SDA low for one clock, labeled "ACK — device 0x76 is here"
+  Stage 6: Data transfer, then a STOP condition</p>
+<p>Fault injection controls, each producing a realistic symptom and a diagnostic message:
+- <strong>Remove ground wire</strong> — no device responds; i2cdetect grid goes empty. Message: "No ground means no complete circuit. Check ground first, always."
+- <strong>Swap SDA and SCL</strong> — no response; grid empty. Message: "Pin 3 is SDA, pin 5 is SCL. They are adjacent on the header."
+- <strong>Remove pull-up resistors</strong> — lines float; the timing view shows erratic levels; detection is unreliable. Message: "Without pull-ups, the lines never settle high. Most breakout boards include these."
+- <strong>Set two devices to the same address</strong> — both acknowledge simultaneously, the timing view shows a collision, and reads return corrupted data. Message: "Two devices answering at once. Every device on a bus needs a unique address."
+- <strong>Unpowered device</strong> — that device disappears from the grid while others remain, which is the fault that looks most like a code bug.</p>
+<p>Interactive controls:
+- Add or remove devices, and set each device's address from a dropdown of realistic sensor addresses
+- Speed control for stepping through the transaction: step-by-step, slow, or normal
+- "Run i2cdetect" button that sweeps all addresses and fills in the grid, exactly as the real tool does</p>
+<p>Instructional Rationale: The objective is Analyze/examine, which requires inspecting a process rather than watching it. Step-by-step control with the address building bit by bit is what makes "the controller broadcasts an address" concrete. The fault injection set is chosen to match the numbered troubleshooting list in the chapter text, so the learner practises the same diagnostic sequence they will use at the bench.</p>
+<p>Implementation: p5.js. Model the transaction as a state machine over discrete bit-clock steps so the learner can step forward and backward. Render SDA and SCL as square waveforms built from the same state sequence.</p>
+</details>
+<h2 id="the-bme280">The BME280<a class="headerlink" href="#the-bme280" title="Permanent link">¶</a></h2>
+<p>Everything now converges on one chip.</p>
+<p>The <strong>BME280 sensor</strong> is a combined environmental sensor from Bosch Sensortec that measures temperature, barometric pressure, and relative humidity in a single package about 2.5 mm square.</p>
+<p>Inside it are three separate sensing elements, each of which you have already met:</p>
+<ol>
+<li><strong>Pressure</strong> — a MEMS silicon diaphragm using the <strong>piezoresistive effect</strong> from Chapter 7. Air pressure flexes the diaphragm; flexing changes resistance.</li>
+<li><strong>Humidity</strong> — a <strong>capacitive humidity sensor</strong> from Chapter 8. A polymer film absorbs water vapor, changing the capacitance between electrodes.</li>
+<li><strong>Temperature</strong> — a <strong>silicon diode sensor</strong>, the mechanism Chapter 6 identified. A diode's forward voltage falls by roughly 2 millivolts per degree Celsius, a small and highly predictable shift.</li>
+</ol>
+<p>The temperature element has a second job that is easy to miss. Both the pressure and humidity elements are themselves temperature-sensitive, so their raw readings would drift with temperature even at constant pressure and humidity. The chip measures its own temperature and uses it to compensate the other two. This means <strong>the temperature reading is not optional</strong> — even a program that only wants pressure must read temperature first, because the pressure compensation formula requires it.</p>
+<p>Key specifications, which are the Chapter 4 datasheet questions answered:</p>
+<table>
+<thead>
+<tr>
+<th>Specification</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Temperature range</td>
+<td>−40 to 85 °C</td>
+</tr>
+<tr>
+<td>Temperature accuracy</td>
+<td>±1.0 °C</td>
+</tr>
+<tr>
+<td>Pressure range</td>
+<td>300 to 1100 hPa</td>
+</tr>
+<tr>
+<td>Pressure accuracy</td>
+<td>±1 hPa</td>
+</tr>
+<tr>
+<td>Pressure resolution</td>
+<td>0.18 Pa</td>
+</tr>
+<tr>
+<td>Humidity range</td>
+<td>0 to 100 percent RH</td>
+</tr>
+<tr>
+<td>Humidity accuracy</td>
+<td>±3 percent RH</td>
+</tr>
+<tr>
+<td>Humidity response time</td>
+<td>About 1 second</td>
+</tr>
+<tr>
+<td>Supply voltage</td>
+<td>1.71 to 3.6 V</td>
+</tr>
+<tr>
+<td>Current, weather mode</td>
+<td>About 3.6 µA</td>
+</tr>
+<tr>
+<td>Interface</td>
+<td>I2C or SPI</td>
+</tr>
+<tr>
+<td>I2C address</td>
+<td>0x76 or 0x77</td>
+</tr>
+</tbody>
+</table>
+<p>Two of those rows deserve comment.</p>
+<p>The pressure resolution of 0.18 Pa alongside an accuracy of ±1 hPa is exactly the situation Chapter 2 warned about. The sensor reports steps 500 times finer than its absolute accuracy. Those fine steps are genuinely useful for detecting small <em>changes</em> over minutes, where the constant part of the error cancels — which is what Chapter 15's pressure tendency calculation relies on. They are not useful for reporting absolute pressure to three decimal places.</p>
+<p>The current draw of about 3.6 microamperes is remarkably low, and Chapter 16 will show why that matters. A sensor that sips power is a sensor that can run on a small solar panel through a week of overcast weather.</p>
+<h4 id="diagram-inside-the-bme280">Diagram: Inside the BME280<a class="headerlink" href="#diagram-inside-the-bme280" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/inside-the-bme280/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Inside the BME280</summary>
+<p>Type: infographic
+<strong>sim-id:</strong> inside-the-bme280<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Understand (L2)
+Bloom Verb: summarize</p>
+<p>Learning objective: The learner summarizes how three separate transduction mechanisms coexist on one chip, and explains why the temperature element is required even by a program that only wants pressure.</p>
+<p>Purpose: This is the payoff diagram for Chapters 6, 7, and 8. Each mechanism was taught in isolation; here the learner sees all three in one package and, critically, sees the temperature compensation path that connects them — which is the source of a real and confusing class of bug.</p>
+<p>Layout: A cutaway view of the BME280 package, drawn schematically and not to scale, with three sensing elements arranged inside, a shared ADC block, a compensation block, and an I2C/SPI interface block. Signal paths are drawn as arrows between blocks. All positions computed as fractions of canvas dimensions; responsive to window resize.</p>
+<p>Clickable hotspots, each opening an infobox:
+1. <strong>Pressure element</strong> — "A silicon diaphragm a few micrometres thick over a sealed cavity. Air pressure flexes it; the piezoresistive effect turns that flex into a resistance change. Chapter 7."
+2. <strong>Humidity element</strong> — "A polymer film between two electrodes. It absorbs water vapor from the air, changing the capacitance. Chapter 8."
+3. <strong>Temperature element</strong> — "A silicon diode. Its forward voltage falls about 2 mV per degree Celsius. Chapter 6." The infobox must add: "This element has a second job. See the compensation path."
+4. <strong>ADC block</strong> — "One analog-to-digital converter, shared. Each element is sampled in turn and quantized to a digital value. Chapter 4."
+5. <strong>Calibration registers</strong> — "Factory-measured constants unique to this individual chip, burned in at manufacture. Your code must read these before any reading means anything."
+6. <strong>Compensation block</strong> — "Raw counts are not physical units. The compensation formulas turn them into hPa, percent RH, and degrees Celsius — and they need the temperature as an input."
+7. <strong>Interface block</strong> — "Speaks I2C at address 0x76 or 0x77, or SPI. Chapter 12."</p>
+<p>Required interactive demonstration — "Trace a reading": a step-through that follows one measurement end to end, with concrete values shown at each stage:
+  Stage 1: "Air at 1013.2 hPa presses on the diaphragm"
+  Stage 2: "Diaphragm flexes; piezoresistive elements change resistance"
+  Stage 3: "ADC samples: raw value 415,148 counts"
+  Stage 4: "Raw counts mean nothing yet. Read calibration registers dig_P1 through dig_P9."
+  Stage 5: "Compensation formula needs t_fine, derived from the temperature reading. Temperature is 21.4 °C."
+  Stage 6: "Compensated result: 101,320 Pa = 1013.2 hPa"
+  Stage 7: "Divide by 100 for hPa. Store with units."</p>
+<p>Required fault demonstration — a "skip the temperature read" toggle. With it on, the trace must show the compensation step using a stale or default temperature, and the final pressure output drifting as the simulated ambient temperature is changed with a slider. Caption: "The pressure element is temperature-sensitive by design. Skip the temperature read and your pressure will drift with the room. This looks like a broken sensor and is not."</p>
+<p>Interactive features:
+- Hover any block: it highlights along with every signal path connected to it
+- Click: infobox opens; explored blocks are marked
+- "Trace a reading" step-through with Next and Previous
+- "Skip the temperature read" fault toggle with an ambient temperature slider
+- A package-size overlay showing the chip drawn at true scale beside a grain of rice, since students consistently overestimate its size</p>
+<p>Instructional Rationale: The objective is Understand/summarize, and summarizing across three prior chapters requires seeing the parts in one frame. The step-through trace with real numeric values at every stage is what turns "the chip does compensation" into something the learner can reason about. The skip-the-temperature fault is included because it is a genuine bug students hit, it produces a symptom that looks like hardware failure, and experiencing it here is far cheaper than debugging it in the field.</p>
+<p>Implementation: p5.js. Draw blocks as labeled rectangles with bezier signal paths. Implement the compensation trace with the actual Bosch compensation formula structure so the intermediate values are realistic.</p>
+</details>
+<div class="admonition warning">
+<p class="admonition-title">BMP280 is not BME280</p>
+<p>Bosch makes a closely related part called the <strong>BMP280</strong>. It looks nearly identical, uses the same addresses, and works with similar code. It has <strong>no humidity sensor</strong>.</p>
+<p>Cheap listings sometimes mislabel one as the other, and the symptom is confusing: temperature and pressure work perfectly while humidity returns zero or nonsense. The chip's ID register distinguishes them — 0x60 for the BME280 and 0x58 for the BMP280 — and most Python libraries will report it. Check this before assuming your humidity code is broken.</p>
+</div>
+<h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">¶</a></h2>
+<ul>
+<li>An <strong>operating system</strong> manages hardware, runs programs, organizes files, and controls access. <strong>Raspberry Pi OS</strong> and <strong>Ubuntu Server</strong> are both Debian-based; this project uses Ubuntu Server on the remote station.</li>
+<li>The <strong>command line interface</strong> is faster over slow links and wastes no power drawing a desktop nobody sees.</li>
+<li>The <strong>file system</strong> is a single tree from <code>/</code>. Hardware devices appear as files under <code>/dev</code>, which is why sensor code resembles file handling.</li>
+<li><strong>File permissions</strong> control read, write, and execute for owner, group, and others. Group membership changes require a new login.</li>
+<li>A <strong>text editor</strong> — use <code>nano</code> — edits the plain text files that hold your code and configuration. A <strong>software package</strong> is installed with <code>apt</code>, always after <code>apt update</code>.</li>
+<li>A <strong>systemd service</strong> starts your logger at boot, restarts it on failure, and keeps it running after you disconnect. Test it by rebooting.</li>
+<li>The <strong>I2C bus</strong> carries data on two wires using an <strong>I2C device address</strong> per device. <code>i2cdetect</code> separates wiring faults from code faults instantly. <strong>SPI bus</strong> is faster but pin-hungry; <strong>serial UART</strong> is point-to-point and connects the <strong>SIM7600A module</strong>.</li>
+<li>The <strong>BME280 sensor</strong> combines a piezoresistive pressure element, a capacitive humidity element, and a <strong>silicon diode sensor</strong> for temperature — which also compensates the other two.</li>
+</ul>
+<h2 id="check-yourself">Check Yourself<a class="headerlink" href="#check-yourself" title="Permanent link">¶</a></h2>
+<details class="question">
+<summary>Your program runs fine, but stops when you close your terminal. Why, and what fixes it? Click to check.</summary>
+<p>The program is a child of your login session, so when the session ends the program is terminated with it. The fix is a <strong>systemd service</strong>: define a unit file in <code>/etc/systemd/system/</code>, then <code>enable</code> it so it starts at boot and <code>start</code> it now. Systemd owns the process instead of your session, so it survives disconnection, and with <code>Restart=always</code> it also survives crashes and reboots.</p>
+</details>
+<details class="question">
+<summary><code>i2cdetect -y 1</code> shows an empty grid. Is your Python code broken? Click to check.</summary>
+<p>Almost certainly not — the problem is physical. <code>i2cdetect</code> talks to the bus directly and never touches your code, so an empty grid means the Pi cannot see the sensor at all. Work through the list: ground first, then power, then whether SDA and SCL are swapped, then whether I2C is enabled in <code>raspi-config</code>. Debugging Python before <code>i2cdetect</code> shows the device is wasted effort.</p>
+</details>
+<details class="question">
+<summary>You want to add a second BME280. What is the constraint? Click to check.</summary>
+<p>Both devices must have <strong>different I2C addresses</strong>, because two devices answering the same address collide and corrupt the data. The BME280 offers 0x76 and 0x77, selected by tying its address pin high or low, so two are possible. A third would require a second I2C bus or an I2C multiplexer chip.</p>
+</details>
+<details class="question">
+<summary>Your pressure readings drift with the temperature of the room. Is the pressure sensor faulty? Click to check.</summary>
+<p>Probably not — it may be a code problem. The BME280's pressure element is temperature-sensitive by design, and the chip provides a compensation formula that requires the current temperature reading as an input. If your code reads pressure without first reading temperature, or ignores the compensation parameters stored in the chip's calibration registers, the output will drift with temperature exactly as described. Read temperature first, always.</p>
+</details>
+<hr>
+<h2 id="what-is-next">What Is Next<a class="headerlink" href="#what-is-next" title="Permanent link">¶</a></h2>
+<p>You have a computer that boots, a command line to work in, a service manager to keep programs running, and a sensor the Pi can see on the bus. The remaining gap is the program itself.</p>
+<p>Chapter 13 teaches enough Python to read that sensor and act on the result: variables and data types, functions, loops, conditionals, and libraries — which is how a sensor becomes three lines of code instead of three hundred. It closes with exception handling, because a sensor that fails to respond at three in the morning should not take down the whole station.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../11-ground-motion/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 11. Ground Motion - Measuring Earthquakes">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                11. Ground Motion - Measuring Earthquakes
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../13-python-programming/" class="md-footer__link md-footer__link--next" aria-label="Next: 13. Programming the Station in Python">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                13. Programming the Station in Python
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Hank R. Licensed under <a href="licensing/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

@@ -1,0 +1,2353 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Units, the SI system, prefixes and conversion, scientific notation and orders of magnitude, and the vocabulary of measurement quality - resolution, accuracy, precision, uncertainty, and calibration.">
+      
+      
+        <meta name="author" content="Hank R.">
+      
+      
+        <link rel="canonical" href="https://iowerx.github.io/pi-env-monitor/chapters/02-language-of-measurement/">
+      
+      
+        <link rel="prev" href="../01-why-we-measure/">
+      
+      
+        <link rel="next" href="../03-electricity-and-computer/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>The Language of Measurement - Raspberry Pi Environmental Monitoring: Grades 6–12</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Language of Measurement - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="og:description" content="Units, the SI system, prefixes and conversion, scientific notation and orders of magnitude, and the vocabulary of measurement quality - resolution, accuracy, precision, uncertainty, and calibration.">
+<meta property="og:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/02-language-of-measurement/index.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://iowerx.github.io/pi-env-monitor/chapters/02-language-of-measurement/">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="The Language of Measurement - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="twitter:description" content="Units, the SI system, prefixes and conversion, scientific notation and orders of magnitude, and the vocabulary of measurement quality - resolution, accuracy, precision, uncertainty, and calibration.">
+<meta property="twitter:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/02-language-of-measurement/index.png">
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-language-of-measurement" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Raspberry Pi Environmental Monitoring: Grades 6–12
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              The Language of Measurement
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Raspberry Pi Environmental Monitoring: Grades 6–12
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components Used
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-why-we-measure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Why We Measure the Natural Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. The Language of Measurement
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. The Language of Measurement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-327-million-unit-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The $327 Million Unit Error
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-unit-is-an-agreement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Unit Is an Agreement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-si-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The SI System
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefixes-and-very-large-or-very-small-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prefixes and Very Large or Very Small Numbers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prefixes and Very Large or Very Small Numbers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-si-prefix-and-scale-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: SI Prefix and Scale Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#converting-between-units" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Converting Between Units
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Converting Between Units">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-unit-conversion-workbench" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Unit Conversion Workbench
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scales-and-what-numbers-mean" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scales and What Numbers Mean
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scales and What Numbers Mean">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-linear-versus-logarithmic-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Linear Versus Logarithmic Scale
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-makes-a-measurement-good" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Makes a Measurement Good
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Makes a Measurement Good">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-accuracy-versus-precision-target-range" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Accuracy Versus Precision Target Range
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-electricity-and-computer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Electricity and the Single-Board Computer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-how-sensors-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. How Sensors Turn the World Into Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-time-and-place/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Time and Place - Recording Where and When
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-temperature/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Temperature - From the Thermoscope to the Silicon Chip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-barometric-pressure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Barometric Pressure - The Weight of the Atmosphere
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-humidity-and-dew-point/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Humidity and Dew Point - The Water Hidden in the Air
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-solar-radiation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Solar Radiation - The Energy That Drives the Weather
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-wind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Wind - Measuring Air in Motion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-ground-motion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Ground Motion - Measuring Earthquakes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-os-and-sensor-buses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. The Station's Brain - Operating System, Command Line, and Sensor Buses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-python-programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Programming the Station in Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-data-logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Logging Data - Timestamps, Intervals, and Files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-charting-and-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Charting and Interpreting Your Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-building-for-outdoors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Building the Station for the Outdoors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-measurement-to-consequence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. From Measurement to Consequence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../licensing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-327-million-unit-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The $327 Million Unit Error
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-unit-is-an-agreement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Unit Is an Agreement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-si-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The SI System
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefixes-and-very-large-or-very-small-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prefixes and Very Large or Very Small Numbers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prefixes and Very Large or Very Small Numbers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-si-prefix-and-scale-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: SI Prefix and Scale Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#converting-between-units" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Converting Between Units
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Converting Between Units">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-unit-conversion-workbench" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Unit Conversion Workbench
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scales-and-what-numbers-mean" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scales and What Numbers Mean
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scales and What Numbers Mean">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-linear-versus-logarithmic-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Linear Versus Logarithmic Scale
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-makes-a-measurement-good" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Makes a Measurement Good
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Makes a Measurement Good">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-accuracy-versus-precision-target-range" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Accuracy Versus Precision Target Range
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/iowerx/pi-env-monitor/blob/main/docs/chapters/02-language-of-measurement/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="the-language-of-measurement">The Language of Measurement<a class="headerlink" href="#the-language-of-measurement" title="Permanent link">¶</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
+<p>Every number in this book carries a unit, and every unit is an agreement between people. This chapter covers the SI system, prefixes, and unit conversion, then scientific notation and orders of magnitude for numbers too large or small to write out. The second half introduces the vocabulary of measurement quality — resolution, accuracy, precision, uncertainty, range, and calibration against a reference standard — which every later chapter relies on. After this chapter, readers can explain why accuracy and precision are not the same thing.</p>
+<h2 id="concepts-covered">Concepts Covered<a class="headerlink" href="#concepts-covered" title="Permanent link">¶</a></h2>
+<p>This chapter covers the following 16 concepts from the learning graph:</p>
+<ol>
+<li>Unit Of Measure</li>
+<li>Measurement Scale</li>
+<li>Standardization</li>
+<li>SI Units</li>
+<li>Resolution</li>
+<li>Accuracy</li>
+<li>SI Prefix</li>
+<li>Unit Conversion</li>
+<li>Precision</li>
+<li>Reference Standard</li>
+<li>Measurement Range</li>
+<li>Scientific Notation</li>
+<li>Measurement Uncertainty</li>
+<li>Calibration</li>
+<li>Order Of Magnitude</li>
+<li>Logarithmic Scale</li>
+</ol>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-why-we-measure/">Chapter 1: Why We Measure the Natural Environment</a></li>
+</ul>
+<hr>
+<h2 id="the-327-million-unit-error">The $327 Million Unit Error<a class="headerlink" href="#the-327-million-unit-error" title="Permanent link">¶</a></h2>
+<p>On 11 December 1998, NASA launched the Mars Climate Orbiter. It was a small spacecraft with a straightforward job: circle Mars and study its atmosphere and weather.</p>
+<p>It flew for nine and a half months without serious trouble. On 23 September 1999 it fired its engine to slip into orbit around Mars, passed behind the planet, and was never heard from again.</p>
+<p>The investigation found the cause quickly, and it was not a broken part. Two teams had written two pieces of software. One team's program reported the force of the spacecraft's small thrusters in pound-force seconds, an American unit. The other team's program read those numbers and assumed they were newton-seconds, the metric unit. Nobody checked.</p>
+<p>A pound-force is about 4.45 newtons. So every thruster firing was off by a factor of about 4.45, and the errors quietly accumulated across nine months of flight. The orbiter was supposed to pass about 226 kilometers above the Martian surface. It came in at roughly 57 kilometers instead, deep enough into the atmosphere that it either burned up or bounced off into space.</p>
+<p>The mission cost about $327 million. It was destroyed because two groups of intelligent, careful engineers did not agree on a unit.</p>
+<div class="admonition warning">
+<p class="admonition-title">The lesson for your station</p>
+<p>Your station will not cost $327 million. But it will produce thousands of numbers, and every one of them is worthless — or worse, misleading — if the unit is missing or wrong. This is the single most common way that student data becomes unusable. Every reading gets a unit. Every column in every file gets a unit in its header. No exceptions.</p>
+</div>
+<h2 id="a-unit-is-an-agreement">A Unit Is an Agreement<a class="headerlink" href="#a-unit-is-an-agreement" title="Permanent link">¶</a></h2>
+<p>A <strong>unit of measure</strong> is an agreed-upon amount of some physical property that other amounts get compared to.</p>
+<p>When you say a table is 2 meters long, you are saying the table is twice as long as a thing everybody has agreed to call a meter. The number 2 is meaningless by itself. The meter carries all the information about <em>how much</em>.</p>
+<p>For most of human history, these agreements were local and inconsistent. A "foot" was somebody's foot. A "cubit" was the distance from an elbow to a fingertip — whose elbow depending on where you were standing. Grain was measured in whatever basket the local merchant owned. This worked well enough when you only ever traded with your neighbors. It fell apart the moment anyone needed to compare across distances.</p>
+<p><strong>Standardization</strong> is the process of getting many people to agree on one definition and then stick to it. It is not a scientific discovery. It is a social achievement, and often a hard-won political one. France had roughly a quarter of a million different local units in use before the French Revolution. Sorting that out took decades and considerable argument.</p>
+<p>Standardization needs something to point at. A <strong>reference standard</strong> is the physical object or reproducible procedure that defines a unit. It is the thing everyone else's instruments get compared to, directly or through a chain of comparisons.</p>
+<p>The history of the meter shows how these have changed:</p>
+<table>
+<thead>
+<tr>
+<th>Year</th>
+<th>The meter was defined as</th>
+<th>Problem with it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1793</td>
+<td>One ten-millionth of the distance from the equator to the North Pole</td>
+<td>Nobody could go measure that again to check</td>
+</tr>
+<tr>
+<td>1889</td>
+<td>The length of a specific platinum-iridium bar kept near Paris</td>
+<td>Only one bar; a fire or theft would destroy the definition</td>
+</tr>
+<tr>
+<td>1960</td>
+<td>1,650,763.73 wavelengths of orange light from krypton-86</td>
+<td>Reproducible anywhere, but awkward</td>
+</tr>
+<tr>
+<td>1983</td>
+<td>The distance light travels in 1/299,792,458 of a second</td>
+<td>None — this is still the definition</td>
+</tr>
+</tbody>
+</table>
+<p>Notice the direction of travel. Standards moved from <em>an object somebody owns</em> to <em>a procedure anyone can repeat</em>. That matters because an object can be scratched, stolen, or slowly drift.</p>
+<p>That is not hypothetical. Until 2019 the kilogram was defined by a single platinum-iridium cylinder in a vault outside Paris, nicknamed Le Grand K. Official copies were distributed worldwide. When they were periodically compared, they had drifted apart by roughly 50 micrograms over a century. The unsettling part is that nobody could say which one had changed — because by definition, Le Grand K weighed exactly one kilogram no matter what happened to it. In 2019 the kilogram was redefined in terms of a fixed constant of nature, and the vault became a museum piece.</p>
+<h2 id="the-si-system">The SI System<a class="headerlink" href="#the-si-system" title="Permanent link">¶</a></h2>
+<p><strong>SI units</strong> are the International System of Units, the modern worldwide standard for measurement in science and commerce. The name comes from the French <em>Système International d'Unités</em>, and it was formally established in 1960.</p>
+<p>SI is built on seven base units. Everything else is derived from combinations of them.</p>
+<table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>SI base unit</th>
+<th>Symbol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Length</td>
+<td>meter</td>
+<td>m</td>
+</tr>
+<tr>
+<td>Mass</td>
+<td>kilogram</td>
+<td>kg</td>
+</tr>
+<tr>
+<td>Time</td>
+<td>second</td>
+<td>s</td>
+</tr>
+<tr>
+<td>Electric current</td>
+<td>ampere</td>
+<td>A</td>
+</tr>
+<tr>
+<td>Temperature</td>
+<td>kelvin</td>
+<td>K</td>
+</tr>
+<tr>
+<td>Amount of substance</td>
+<td>mole</td>
+<td>mol</td>
+</tr>
+<tr>
+<td>Luminous intensity</td>
+<td>candela</td>
+<td>cd</td>
+</tr>
+</tbody>
+</table>
+<p>Your station touches most of this list. It measures temperature in kelvins or degrees Celsius, time in seconds, and pressure in pascals — and a pascal is a derived unit, built from the base units as one newton per square meter.</p>
+<p>Two SI conventions are worth learning now, because getting them wrong makes your data harder for other people to read:</p>
+<ul>
+<li>Unit symbols are not abbreviations, so they take no period. Write <code>m</code>, not <code>m.</code></li>
+<li>Symbols named after a person are capitalized; the written-out name is not. It is 20 pascals or 20 Pa, never 20 Pascals. Same for the kelvin, the newton, and the ampere.</li>
+</ul>
+<p>Before the next section, one term you will need. A <strong>power of ten</strong> means ten multiplied by itself some number of times. <span class="arithmatex">\(10^3\)</span> means <span class="arithmatex">\(10 \times 10 \times 10 = 1000\)</span>. A negative power means division: <span class="arithmatex">\(10^{-3}\)</span> means <span class="arithmatex">\(1/1000 = 0.001\)</span>.</p>
+<h2 id="prefixes-and-very-large-or-very-small-numbers">Prefixes and Very Large or Very Small Numbers<a class="headerlink" href="#prefixes-and-very-large-or-very-small-numbers" title="Permanent link">¶</a></h2>
+<p>An <strong>SI prefix</strong> is a syllable attached to the front of a unit that multiplies it by a power of ten. This is why you never need to write "0.000001 meters" — you write one micrometer instead.</p>
+<p>Here are the prefixes you will actually meet in this book:</p>
+<table>
+<thead>
+<tr>
+<th>Prefix</th>
+<th>Symbol</th>
+<th>Multiplier</th>
+<th>Power of ten</th>
+<th>Where you meet it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nano</td>
+<td>n</td>
+<td>0.000000001</td>
+<td><span class="arithmatex">\(10^{-9}\)</span></td>
+<td>Wavelengths of light</td>
+</tr>
+<tr>
+<td>micro</td>
+<td>µ</td>
+<td>0.000001</td>
+<td><span class="arithmatex">\(10^{-6}\)</span></td>
+<td>Micrograms; microseconds in GPS timing</td>
+</tr>
+<tr>
+<td>milli</td>
+<td>m</td>
+<td>0.001</td>
+<td><span class="arithmatex">\(10^{-3}\)</span></td>
+<td>Millibars; millimeters of rain</td>
+</tr>
+<tr>
+<td>centi</td>
+<td>c</td>
+<td>0.01</td>
+<td><span class="arithmatex">\(10^{-2}\)</span></td>
+<td>Centimeters</td>
+</tr>
+<tr>
+<td>kilo</td>
+<td>k</td>
+<td>1000</td>
+<td><span class="arithmatex">\(10^{3}\)</span></td>
+<td>Kilometers; kilopascals</td>
+</tr>
+<tr>
+<td>hecto</td>
+<td>h</td>
+<td>100</td>
+<td><span class="arithmatex">\(10^{2}\)</span></td>
+<td>Hectopascals — the standard pressure unit</td>
+</tr>
+<tr>
+<td>mega</td>
+<td>M</td>
+<td>1,000,000</td>
+<td><span class="arithmatex">\(10^{6}\)</span></td>
+<td>Megabytes of logged data</td>
+</tr>
+<tr>
+<td>giga</td>
+<td>G</td>
+<td>1,000,000,000</td>
+<td><span class="arithmatex">\(10^{9}\)</span></td>
+<td>Gigahertz; gigabytes</td>
+</tr>
+</tbody>
+</table>
+<p>The hecto prefix is unusual — it is rarely used anywhere except atmospheric pressure, where it is used constantly. One hectopascal happens to equal one millibar exactly, which is why weather reports around the world switched from millibars to hectopascals without changing a single number.</p>
+<p><strong>Scientific notation</strong> is a way of writing very large or very small numbers as a number between 1 and 10 multiplied by a power of ten.</p>
+<p>The rule is simple. Move the decimal point until exactly one non-zero digit sits to its left, then count how many places you moved it. That count is the exponent. Moving left gives a positive exponent; moving right gives a negative one.</p>
+<div class="arithmatex">\[ 101325 = 1.01325 \times 10^{5} \]</div>
+<div class="arithmatex">\[ 0.000001 = 1 \times 10^{-6} \]</div>
+<p>The advantage is not just brevity. It makes the <em>size</em> of a number obvious at a glance. Compare 0.00000000012 with <span class="arithmatex">\(1.2 \times 10^{-10}\)</span>. The second one you can read instantly.</p>
+<p>An <strong>order of magnitude</strong> is a factor of ten. Two numbers are one order of magnitude apart if one is roughly ten times the other, and three orders of magnitude apart if one is roughly a thousand times the other.</p>
+<p>This is how scientists talk about size when precision does not matter but scale does. Saying "the atmosphere is three orders of magnitude thicker than the tallest building" is more useful in conversation than any exact figure, because it tells you the comparison is not close.</p>
+<h4 id="diagram-si-prefix-and-scale-explorer">Diagram: SI Prefix and Scale Explorer<a class="headerlink" href="#diagram-si-prefix-and-scale-explorer" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/si-prefix-scale-explorer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>SI Prefix and Scale Explorer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> si-prefix-scale-explorer<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Understand (L2)
+Bloom Verb: interpret</p>
+<p>Learning objective: The learner interprets a value written in scientific notation by connecting it to an SI prefix and a familiar physical object at that scale, and explains what "one order of magnitude" means in concrete terms.</p>
+<p>Purpose: Students can memorize the prefix table and still have no feel for what <span class="arithmatex">\(10^{-6}\)</span> means. Anchoring every power of ten to an object they recognize converts a lookup table into intuition, which is what they need when a sensor reports 101325 Pa and they must decide whether that is plausible.</p>
+<p>Canvas layout:
+- Left: a vertical scale bar spanning <span class="arithmatex">\(10^{-9}\)</span> to <span class="arithmatex">\(10^{12}\)</span> meters, with a draggable marker
+- Center: the currently selected magnitude rendered three ways — plain decimal, scientific notation, and with the SI prefix
+- Right: an illustration and name of a real object at that scale
+- Below canvas: the magnitude slider and a "quantity" selector
+- Responsive: object panel moves below the scale on narrow canvases; all positions computed as fractions of canvas size so window resize works correctly</p>
+<p>Data Visibility Requirements:
+  Stage 1: Show the raw decimal value, e.g. 0.000001
+  Stage 2: Show the same value in scientific notation, e.g. 1 x 10^-6
+  Stage 3: Show the same value with its prefix, e.g. 1 micrometer
+  Stage 4: Show a real object at that scale with its name
+  Stage 5: Show a comparison line: "This is N orders of magnitude smaller than [the previously selected value]"</p>
+<p>Reference objects along the length scale:
+- 10^-9 m: a single atom, roughly
+- 10^-6 m: a bacterium; also the width of a spider silk strand
+- 10^-3 m: the thickness of a credit card
+- 10^-2 m: a fingernail
+- 10^0 m: a doorknob height
+- 10^1 m: a two-story house
+- 10^3 m: a fifteen-minute walk
+- 10^4 m: cruising altitude of an airliner; also the top of the troposphere
+- 10^6 m: the width of Texas
+- 10^7 m: the diameter of the Earth
+- 10^12 m: roughly the distance from the Sun to Saturn</p>
+<p>Quantity selector: switching from "length" to "pressure" or "time" re-anchors the object list to that quantity, so the same scale machinery teaches hectopascals and microseconds. Pressure anchors must include 10^5 Pa labeled "sea level air pressure" and 10^2 Pa labeled "one hectopascal — the unit on every weather report."</p>
+<p>Interaction:
+- Drag the marker along the scale bar; all four readouts update live
+- Click any object illustration to pin it as the comparison baseline, so the order-of-magnitude line becomes meaningful
+- A "step by one order of magnitude" pair of buttons for learners who want to move in exact decade jumps rather than dragging</p>
+<p>Default parameters:
+- Quantity: length
+- Marker: 10^0 m
+- Comparison baseline: none until an object is pinned</p>
+<p>Instructional Rationale: The objective is Understand/interpret, so this is specified as step-controlled exploration with all three notations visible simultaneously, not as an animated zoom. A continuous animated zoom looks impressive but hides the discrete decade structure that the prefix system is built on. Showing decimal, scientific, and prefix forms of the SAME value side by side is what teaches that they are three names for one thing.</p>
+<p>Implementation: p5.js. Store reference objects as arrays of {exponent, name, drawFunction} per quantity. Draw objects with p5 primitives rather than image files so they scale cleanly and the sim has no external assets.</p>
+</details>
+<h2 id="converting-between-units">Converting Between Units<a class="headerlink" href="#converting-between-units" title="Permanent link">¶</a></h2>
+<p><strong>Unit conversion</strong> is changing a measurement from one unit to another without changing the amount it represents.</p>
+<p>The safest way to do this is to multiply by a fraction that equals one. Since 1 inch equals 2.54 centimeters, the fraction <span class="arithmatex">\(\frac{2.54\ \text{cm}}{1\ \text{in}}\)</span> equals one. Multiplying by one never changes a value — it only changes how the value is written.</p>
+<p>Suppose you want to convert 12 inches to centimeters:</p>
+<div class="arithmatex">\[ 12\ \text{in} \times \frac{2.54\ \text{cm}}{1\ \text{in}} = 30.48\ \text{cm} \]</div>
+<p>The inches cancel, top and bottom, leaving centimeters. If you set the fraction up upside down, the units will not cancel — you would get inches squared per centimeter, which is nonsense. That failure is the method's best feature. Watching the units cancel tells you whether you set the problem up correctly <em>before</em> you do any arithmetic.</p>
+<p>Temperature is the awkward exception. Celsius and Fahrenheit do not share a zero point, so you cannot convert them by multiplying alone:</p>
+<div class="arithmatex">\[ °F = °C \times \frac{9}{5} + 32 \]</div>
+<div class="arithmatex">\[ °C = (°F - 32) \times \frac{5}{9} \]</div>
+<p>Kelvin and Celsius have the same size degree but different zeros, so that conversion is just addition:</p>
+<div class="arithmatex">\[ K = °C + 273.15 \]</div>
+<p>Here are the conversions this book uses constantly. You do not need to memorize them, but you should know they exist and where to find them:</p>
+<table>
+<thead>
+<tr>
+<th>From</th>
+<th>To</th>
+<th>Multiply by</th>
+<th>Used in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>inches of mercury</td>
+<td>hectopascals</td>
+<td>33.8639</td>
+<td>Chapter 7</td>
+</tr>
+<tr>
+<td>hectopascals</td>
+<td>millibars</td>
+<td>1 (identical)</td>
+<td>Chapter 7</td>
+</tr>
+<tr>
+<td>meters per second</td>
+<td>kilometers per hour</td>
+<td>3.6</td>
+<td>Chapter 10</td>
+</tr>
+<tr>
+<td>meters per second</td>
+<td>knots</td>
+<td>1.94384</td>
+<td>Chapter 10</td>
+</tr>
+<tr>
+<td>meters</td>
+<td>feet</td>
+<td>3.28084</td>
+<td>Chapter 5</td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-unit-conversion-workbench">Diagram: Unit Conversion Workbench<a class="headerlink" href="#diagram-unit-conversion-workbench" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/unit-conversion-workbench/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Unit Conversion Workbench</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> unit-conversion-workbench<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Apply (L3)
+Bloom Verb: calculate</p>
+<p>Learning objective: The learner calculates unit conversions for the quantities this station measures, and demonstrates the cancellation method by watching units cancel step by step rather than by applying a memorized formula.</p>
+<p>Purpose: Students who convert units by remembering "multiply by 3.6" break the moment they meet a conversion they have not memorized. This workbench makes the cancellation visible so the method transfers to any conversion, including the ones in later chapters.</p>
+<p>Canvas layout:
+- Top: quantity tabs — Temperature, Pressure, Speed, Length
+- Upper middle: input value field and "from" unit dropdown
+- Center: the worked conversion, displayed as a fraction chain with units struck through as they cancel
+- Lower middle: result and "to" unit dropdown
+- Bottom: a "Show me why" toggle and a "Quiz me" button
+- Responsive to window resize; the fraction chain wraps rather than overflowing on narrow canvases</p>
+<p>Data Visibility Requirements:
+  Stage 1: Show the input as a value with its unit, e.g. "24 m/s"
+  Stage 2: Show the conversion fraction chosen, e.g. "x (3.6 km/h) / (1 m/s)"
+  Stage 3: Strike through the units that cancel, in a contrasting color, so m/s visibly disappears from both places
+  Stage 4: Show the surviving unit and the arithmetic, e.g. "24 x 3.6 = 86.4 km/h"
+  Stage 5: On temperature conversions only, show the offset step separately from the scaling step, since this is where students go wrong</p>
+<p>Unit sets:
+- Temperature: degrees Celsius, degrees Fahrenheit, kelvin. Must display the offset explicitly and warn when a learner tries to convert a temperature DIFFERENCE rather than a temperature, since a 5-degree Celsius change is a 9-degree Fahrenheit change, not 41.
+- Pressure: hectopascals, millibars, inches of mercury, pascals, atmospheres
+- Speed: meters per second, kilometers per hour, miles per hour, knots
+- Length: meters, feet, kilometers, miles</p>
+<p>Interaction:
+- Type a value or drag a slider; the chain updates live
+- "Show me why" toggles between the finished answer and the full cancellation chain
+- "Quiz me" generates a conversion problem, hides the chain, and accepts a typed answer with tolerance of 0.1 percent; on a wrong answer it reveals the chain rather than just the number
+- A deliberate "upside-down fraction" demo button flips the conversion fraction so the learner can see the units fail to cancel and the result come out in nonsense units like "m squared per second per kilometer"</p>
+<p>Default parameters:
+- Quantity: Pressure
+- Input: 29.92 inches of mercury (so the first thing a learner sees converts to 1013.25 hPa, the number they will meet in Chapter 7)
+- Show me why: on</p>
+<p>Instructional Rationale: The objective is Apply/calculate, so parameter entry with immediate worked output is the correct pattern. The upside-down demo is included deliberately: seeing the method FAIL is what teaches that unit cancellation is a check, not a ritual. Hiding the chain during quiz mode and revealing it on a wrong answer keeps the scaffold available exactly when it is needed.</p>
+<p>Implementation: p5.js with text layout for the fraction chain. Store conversions as {from, to, factor, offset} so temperature is handled by the same engine with a non-zero offset.</p>
+</details>
+<h2 id="scales-and-what-numbers-mean">Scales and What Numbers Mean<a class="headerlink" href="#scales-and-what-numbers-mean" title="Permanent link">¶</a></h2>
+<p>A <strong>measurement scale</strong> is the set of rules that says what the numbers in a measurement actually mean — where zero sits, whether the spacing between numbers is even, and which comparisons are valid.</p>
+<p>This sounds abstract until it bites you. Consider two questions:</p>
+<ul>
+<li>Is 20 °C twice as warm as 10 °C?</li>
+<li>Is 20 kg twice as heavy as 10 kg?</li>
+</ul>
+<p>The second is yes. The first is no, and the reason is the scale. The Celsius scale puts its zero at the freezing point of water, which is an arbitrary choice, not an absence of temperature. Since zero does not mean "none," ratios do not work. Convert both to kelvin — 293.15 K and 283.15 K — and you can see they are only about 3.5 percent apart, nowhere near double.</p>
+<p>Scales come in a few kinds, and knowing which kind you are holding tells you what arithmetic is legal:</p>
+<ul>
+<li><strong>Ordinal scale</strong> — the order means something, but the gaps do not. The Beaufort wind scale is ordinal: force 6 is windier than force 3, but not "twice as windy."</li>
+<li><strong>Interval scale</strong> — the gaps are even, but zero is arbitrary. Celsius and Fahrenheit are interval scales. You can subtract, but not divide.</li>
+<li><strong>Ratio scale</strong> — the gaps are even and zero means none. Kelvin, meters, pascals, and kilograms are ratio scales. All arithmetic is legal.</li>
+</ul>
+<p>A <strong>logarithmic scale</strong> is a scale where each step multiplies rather than adds. On a normal scale, the marks go 1, 2, 3, 4. On a logarithmic scale, they go 1, 10, 100, 1000.</p>
+<p>Logarithmic scales exist because some quantities in nature span an absurd range. Earthquakes are the classic case. The ground motion of a barely-detectable tremor and that of a catastrophic quake differ by a factor of millions. Plotted on a normal scale, every earthquake except the largest would be an invisible flat line at the bottom.</p>
+<p>You will meet logarithmic scales twice more in this book: in Chapter 11 for earthquake magnitude, and in Chapter 9 where light intensity spans many orders of magnitude.</p>
+<h4 id="diagram-linear-versus-logarithmic-scale">Diagram: Linear Versus Logarithmic Scale<a class="headerlink" href="#diagram-linear-versus-logarithmic-scale" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/linear-versus-log-scale/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Linear Versus Logarithmic Scale</summary>
+<p>Type: chart
+<strong>sim-id:</strong> linear-versus-log-scale<br>
+<strong>Library:</strong> Chart.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Analyze (L4)
+Bloom Verb: compare</p>
+<p>Learning objective: The learner compares the same dataset plotted on linear and logarithmic axes, and explains why a logarithmic scale is necessary when values span many orders of magnitude.</p>
+<p>Purpose: The need for log scales cannot be argued in prose — it has to be seen. Plotting real earthquake data on a linear axis produces a chart where every event except the largest is flat on the baseline, and that visual failure is the argument.</p>
+<p>Chart type: Bar chart with a toggleable y-axis scale type</p>
+<p>Data: Ground motion amplitude for eight real, well-known earthquakes, plotted as relative amplitude rather than absolute units. Each bar is labeled with the event name, year, and moment magnitude:
+- Magnitude 2.0 — a tremor most people never feel
+- Magnitude 3.0 — felt indoors, no damage
+- Magnitude 4.1 — rattles windows
+- Magnitude 5.0 — furniture moves
+- Magnitude 6.0 — damage to poorly built structures
+- Magnitude 7.0 — serious damage over a wide area
+- Magnitude 8.0 — great earthquake
+- Magnitude 9.1 — 2011 Tohoku, Japan</p>
+<p>Amplitude values follow the standard relationship that each whole magnitude step is a factor of ten in ground motion, so the magnitude 2.0 bar and the magnitude 9.1 bar differ by a factor of roughly 12.6 million.</p>
+<p>X-axis: Earthquake, labeled by magnitude
+Y-axis: Relative ground motion amplitude. The scale TYPE is what the learner toggles.</p>
+<p>Toggle control: two buttons, "Linear axis" and "Logarithmic axis"</p>
+<p>Interactive features:
+- Hover any bar: tooltip shows the magnitude, the relative amplitude in scientific notation, and a plain-language description of what that shaking feels like
+- Click any bar: infobox states how many times larger this event's ground motion is than the magnitude 2.0 baseline, written both as a plain number and in scientific notation
+- Toggle the axis type: the same data redraws. On the linear axis, all bars below magnitude 8 are visually indistinguishable from zero. On the logarithmic axis, all eight become readable and the even spacing reveals the underlying factor-of-ten structure.</p>
+<p>Annotations:
+- On the linear view: a caption reading "Seven of these eight earthquakes look identical here. They are not."
+- On the logarithmic view: a caption reading "Each step up is ten times the ground motion."</p>
+<p>Color scheme: A single sequential ramp from pale to dark by magnitude, so the eye reads severity from color even when the linear axis flattens the bars.</p>
+<p>Implementation: Chart.js with <code>type: 'logarithmic'</code> swapped on the y-axis scale config. Keep the dataset identical between views so it is unambiguous that only the axis changed.</p>
+</details>
+<h2 id="what-makes-a-measurement-good">What Makes a Measurement Good<a class="headerlink" href="#what-makes-a-measurement-good" title="Permanent link">¶</a></h2>
+<p>The rest of this chapter is vocabulary you will use in every remaining chapter. These words get used loosely in conversation. They mean specific and different things here.</p>
+<p><strong>Resolution</strong> is the smallest change an instrument can detect and report. A thermometer that displays 21.3 °C has a resolution of 0.1 °C. If the true temperature rises by 0.04 °C, that thermometer will not notice.</p>
+<p>Resolution is about the <em>display</em>, not about correctness. A thermometer can have wonderful resolution and still be badly wrong. Reporting 21.347 °C when the truth is 25 °C is high resolution and terrible accuracy at the same time.</p>
+<p><strong>Accuracy</strong> is how close a measurement is to the true value. An accurate thermometer reads close to the real temperature.</p>
+<p><strong>Precision</strong> is how close repeated measurements are to each other. A precise thermometer gives you nearly the same reading every time, whether or not that reading is right.</p>
+<p>Those two are different, and the difference is the most important idea in this chapter. A thermometer that reads 25.1, 25.1, 25.0, 25.1 when the true temperature is 21 °C is extremely precise and badly inaccurate. It is consistently wrong. A thermometer that reads 19, 23, 20, 22 when the truth is 21 °C is fairly accurate on average and very imprecise.</p>
+<p>The good news is that of the two problems, being consistently wrong is the easier one to fix. If you know a sensor always reads 4 degrees high, you can subtract 4. There is no such fix for a sensor that scatters randomly.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Accurate</th>
+<th>Not accurate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Precise</strong></td>
+<td>The goal. Readings cluster tightly on the true value.</td>
+<td>Consistently wrong. Fixable by calibration.</td>
+</tr>
+<tr>
+<td><strong>Not precise</strong></td>
+<td>Right on average, noisy individually. Fixable by averaging many readings.</td>
+<td>Broken. Replace the sensor.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Measurement uncertainty</strong> is an honest statement of how much a measurement could be off. It is usually written with a plus-or-minus, like 21.3 ± 0.5 °C, which means the true value is very likely between 20.8 and 21.8.</p>
+<p>Uncertainty is not an admission of failure. It is the opposite — reporting a number without an uncertainty is claiming more than you know. A reading of "21.3 °C" with nothing after it implies you are certain to a tenth of a degree, and with a cheap sensor you are not.</p>
+<h4 id="diagram-accuracy-versus-precision-target-range">Diagram: Accuracy Versus Precision Target Range<a class="headerlink" href="#diagram-accuracy-versus-precision-target-range" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/accuracy-versus-precision-targets/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Accuracy Versus Precision Target Range</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> accuracy-versus-precision-targets<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Analyze (L4)
+Bloom Verb: differentiate</p>
+<p>Learning objective: The learner differentiates accuracy from precision by independently controlling bias and scatter, predicts which fault a given sensor has, and identifies which fault calibration can repair.</p>
+<p>Purpose: The four-quadrant target diagram is the standard way this distinction is taught, but as a static image it is quickly memorized and poorly understood. Making bias and scatter into two independent sliders lets the learner produce all four quadrants themselves, which is what converts the picture into a working idea.</p>
+<p>Canvas layout:
+- Left half: a circular target with concentric rings and a center marked "true value"
+- Right half: two histograms — one of the readings, and one of the errors — plus computed statistics
+- Below canvas: bias slider, scatter slider, "Take 1 reading", "Take 20 readings", "Clear", and a "Calibrate" button
+- Fully responsive to window resize; target radius scales with the smaller canvas dimension</p>
+<p>Visual elements:
+- Target center = the true value
+- Each simulated reading appears as a small dot on the target
+- Dots fade with age so the most recent readings are visually distinct
+- A crosshair marks the mean of all current readings
+- A dashed circle shows the spread (one standard deviation)</p>
+<p>Interactive controls:
+- Bias slider (-10 to +10 units, default 0): shifts the CENTER of the dot cloud away from the true value. This is inaccuracy.
+- Scatter slider (0 to 10 units, default 2): controls how widely dots spread around their center. This is imprecision.
+- "Take 1 reading" adds one dot
+- "Take 20 readings" adds twenty at once, so the learner can see that averaging shrinks scatter but does nothing to bias
+- "Calibrate" subtracts the measured bias from all future readings, and displays a message: "Calibration removed the bias. Notice that the scatter is unchanged — calibration cannot fix imprecision."</p>
+<p>Live statistics panel:
+- Mean of readings
+- True value
+- Difference between them, labeled "bias (inaccuracy)"
+- Standard deviation, labeled "scatter (imprecision)"
+- A plain-language verdict updating live: "Precise but inaccurate", "Accurate but imprecise", "Accurate and precise", or "Neither"</p>
+<p>Preset buttons that jump to each quadrant, each labeled with a real scenario:
+- "Good sensor" — bias 0, scatter 1
+- "Uncalibrated sensor" — bias 7, scatter 1, described as "reads consistently 7 units high"
+- "Noisy sensor" — bias 0, scatter 8, described as "right on average, unreliable one reading at a time"
+- "Broken sensor" — bias 7, scatter 8</p>
+<p>Instructional Rationale: The objective is Analyze/differentiate, which requires the learner to isolate two variables that students routinely conflate. Two independent sliders make the variables physically separate in the interface, which is the clearest possible statement that they are separate ideas. The Calibrate button is the pedagogical payoff: it visibly fixes one fault and visibly fails to fix the other.</p>
+<p>Implementation: p5.js. Generate readings as trueValue + bias + gaussianRandom() * scatter. Recompute mean and standard deviation on every reading. Do not animate dots flying to position; place them immediately so the statistical picture stays legible.</p>
+</details>
+<p><strong>Measurement range</strong> is the span between the smallest and largest values an instrument can measure at all. The BME280 sensor in this book measures pressure from 300 to 1100 hPa. Outside that range it does not give a bad reading — it gives no useful reading whatsoever.</p>
+<p>Range matters more than beginners expect. A sensor that is beautifully accurate across the wrong range is useless. Before choosing any sensor, check that the values you expect sit comfortably inside its range, not at the edge.</p>
+<p><strong>Calibration</strong> is the process of comparing an instrument to a reference standard and correcting it, either by adjusting the instrument or by recording an offset to apply to its readings.</p>
+<p>Calibration is what connects your inexpensive sensor to the worldwide system of standards described earlier in this chapter. You compare your thermometer to a better thermometer, which was compared to a better one still, and so on up a chain that ends at a national standards laboratory. That chain is called traceability, and it is the reason a reading taken in your backyard can be compared to a reading taken anywhere else on Earth.</p>
+<p>Calibration is not permanent. Sensors drift as they age, and Chapter 15 covers how to spot drift in your own logs and correct for it.</p>
+<h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">¶</a></h2>
+<ul>
+<li>A <strong>unit of measure</strong> is an agreed amount that other amounts are compared to. Without a unit, a number means nothing.</li>
+<li><strong>Standardization</strong> is the social work of getting everyone to use the same definitions; a <strong>reference standard</strong> is the physical object or procedure those definitions point at.</li>
+<li><strong>SI units</strong> are the worldwide standard, built on seven base units. <strong>SI prefixes</strong> scale them by powers of ten.</li>
+<li><strong>Scientific notation</strong> writes numbers as a value between 1 and 10 times a power of ten. An <strong>order of magnitude</strong> is one factor of ten.</li>
+<li><strong>Unit conversion</strong> works by multiplying by a fraction equal to one; watching the units cancel is your check that the setup is right.</li>
+<li>A <strong>measurement scale</strong> determines what arithmetic is legal. Celsius has an arbitrary zero, so 20 °C is not twice 10 °C. A <strong>logarithmic scale</strong> steps by multiplication, and is needed when values span many orders of magnitude.</li>
+<li><strong>Resolution</strong> is the smallest change detectable. <strong>Accuracy</strong> is closeness to truth. <strong>Precision</strong> is consistency between repeats. They are independent.</li>
+<li><strong>Measurement uncertainty</strong> states honestly how far off a reading might be. <strong>Measurement range</strong> is what the instrument can read at all. <strong>Calibration</strong> compares against a standard and corrects the difference.</li>
+</ul>
+<h2 id="check-yourself">Check Yourself<a class="headerlink" href="#check-yourself" title="Permanent link">¶</a></h2>
+<details class="question">
+<summary>A thermometer reads 25.1, 25.1, 25.0, 25.1 °C. The true temperature is 21.0 °C. Is this thermometer precise? Accurate? Click to check.</summary>
+<p>It is very precise and very inaccurate. The four readings agree with each other to within 0.1 °C, which is precision. They are all about 4 °C above the truth, which is inaccuracy. This is the fixable kind of problem: calibrate by recording a -4.1 °C offset and applying it to every future reading.</p>
+</details>
+<details class="question">
+<summary>Convert 29.92 inches of mercury to hectopascals, and show the units cancelling. Click to check.</summary>
+<p>[ 29.92\ \text{inHg} \times \frac{33.8639\ \text{hPa}}{1\ \text{inHg}} = 1013.2\ \text{hPa} ]
+The inHg cancels top and bottom, leaving hPa. This is the standard sea level pressure you will meet constantly in Chapter 7 — the same physical pressure written in two different units.</p>
+</details>
+<details class="question">
+<summary>Why can't you say that a magnitude 6.0 earthquake is twice as strong as a magnitude 3.0? Click to check.</summary>
+<p>Because magnitude is a logarithmic scale, where each whole step is a factor of ten in ground motion. Three steps up means <span class="arithmatex">\(10 \times 10 \times 10 = 1000\)</span> times the ground motion, not double. The numbers on a logarithmic scale are exponents in disguise, so ordinary ratio arithmetic does not apply to them.</p>
+</details>
+<details class="question">
+<summary>Your sensor reports 1013.247 hPa. Its datasheet lists an accuracy of ±1 hPa. How should you report this reading? Click to check.</summary>
+<p>As about 1013 hPa, or 1013.2 ± 1 hPa. Writing 1013.247 claims you know the pressure to a thousandth of a hectopascal, when the datasheet says you are only confident to within one whole hectopascal. The extra digits are real output from the sensor, but they are not real information — reporting them overstates what you know.</p>
+</details>
+<hr>
+<h2 id="what-is-next">What Is Next<a class="headerlink" href="#what-is-next" title="Permanent link">¶</a></h2>
+<p>You now have the vocabulary. The next chapter moves from ideas to hardware.</p>
+<p>Chapter 3 introduces the Raspberry Pi and the electrical basics needed to connect anything to it safely: voltage, current, ground, and the GPIO pins that sensors plug into. It also covers static discipline — the short set of habits that keeps you from destroying a board by touching it on a dry day. Nothing in this book gets measured until that hardware is working, so the next chapter is where the boxes come open.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../01-why-we-measure/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 1. Why We Measure the Natural Environment">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                1. Why We Measure the Natural Environment
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../03-electricity-and-computer/" class="md-footer__link md-footer__link--next" aria-label="Next: 3. Electricity and the Single-Board Computer">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                3. Electricity and the Single-Board Computer
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Hank R. Licensed under <a href="licensing/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

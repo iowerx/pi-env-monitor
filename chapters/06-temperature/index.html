@@ -1,0 +1,2344 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="What temperature physically is, the instrument lineage from Galileo's thermoscope to the thermistor, the Fahrenheit, Celsius, and Kelvin scales, and why the Stevenson screen matters as much as the sensor.">
+      
+      
+        <meta name="author" content="Hank R.">
+      
+      
+        <link rel="canonical" href="https://iowerx.github.io/pi-env-monitor/chapters/06-temperature/">
+      
+      
+        <link rel="prev" href="../05-time-and-place/">
+      
+      
+        <link rel="next" href="../07-barometric-pressure/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Temperature: From the Thermoscope to the Silicon Chip - Raspberry Pi Environmental Monitoring: Grades 6–12</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website">
+<meta property="og:title" content="Temperature: From the Thermoscope to the Silicon Chip - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="og:description" content="What temperature physically is, the instrument lineage from Galileo's thermoscope to the thermistor, the Fahrenheit, Celsius, and Kelvin scales, and why the Stevenson screen matters as much as the sensor.">
+<meta property="og:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/06-temperature/index.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://iowerx.github.io/pi-env-monitor/chapters/06-temperature/">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Temperature: From the Thermoscope to the Silicon Chip - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="twitter:description" content="What temperature physically is, the instrument lineage from Galileo's thermoscope to the thermistor, the Fahrenheit, Celsius, and Kelvin scales, and why the Stevenson screen matters as much as the sensor.">
+<meta property="twitter:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/06-temperature/index.png">
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#temperature-from-the-thermoscope-to-the-silicon-chip" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Raspberry Pi Environmental Monitoring: Grades 6–12
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Temperature: From the Thermoscope to the Silicon Chip
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Raspberry Pi Environmental Monitoring: Grades 6–12
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components Used
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-why-we-measure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Why We Measure the Natural Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-language-of-measurement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. The Language of Measurement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-electricity-and-computer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Electricity and the Single-Board Computer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-how-sensors-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. How Sensors Turn the World Into Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-time-and-place/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Time and Place - Recording Where and When
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Temperature - From the Thermoscope to the Silicon Chip
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Temperature - From the Thermoscope to the Silicon Chip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-actually-happening-when-something-is-hot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Actually Happening When Something Is Hot
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#radiation-you-cannot-see" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Radiation You Cannot See
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-instrument-lineage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Instrument Lineage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Instrument Lineage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-thermoscope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Thermoscope
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-a-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting a Scale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#three-scales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Three Scales
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#converting-between-scales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Converting Between Scales
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Converting Between Scales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-three-scales-thermometer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Three Scales Thermometer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#electrical-thermometers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Electrical Thermometers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Electrical Thermometers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-thermocouple" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Thermocouple
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-resistance-thermometer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Resistance Thermometer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-thermistor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Thermistor
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Thermistor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-temperature-sensor-comparison-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Temperature Sensor Comparison Chart
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-you-put-it-matters-as-much-as-what-you-buy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where You Put It Matters as Much as What You Buy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Where You Put It Matters as Much as What You Buy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-radiation-shield-comparison-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Radiation Shield Comparison Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-barometric-pressure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Barometric Pressure - The Weight of the Atmosphere
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-humidity-and-dew-point/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Humidity and Dew Point - The Water Hidden in the Air
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-solar-radiation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Solar Radiation - The Energy That Drives the Weather
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-wind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Wind - Measuring Air in Motion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-ground-motion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Ground Motion - Measuring Earthquakes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-os-and-sensor-buses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. The Station's Brain - Operating System, Command Line, and Sensor Buses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-python-programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Programming the Station in Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-data-logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Logging Data - Timestamps, Intervals, and Files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-charting-and-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Charting and Interpreting Your Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-building-for-outdoors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Building the Station for the Outdoors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-measurement-to-consequence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. From Measurement to Consequence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../licensing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-actually-happening-when-something-is-hot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Actually Happening When Something Is Hot
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#radiation-you-cannot-see" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Radiation You Cannot See
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-instrument-lineage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Instrument Lineage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Instrument Lineage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-thermoscope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Thermoscope
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-a-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting a Scale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#three-scales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Three Scales
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#converting-between-scales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Converting Between Scales
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Converting Between Scales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-three-scales-thermometer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Three Scales Thermometer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#electrical-thermometers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Electrical Thermometers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Electrical Thermometers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-thermocouple" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Thermocouple
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-resistance-thermometer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Resistance Thermometer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-thermistor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Thermistor
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Thermistor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-temperature-sensor-comparison-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Temperature Sensor Comparison Chart
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-you-put-it-matters-as-much-as-what-you-buy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where You Put It Matters as Much as What You Buy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Where You Put It Matters as Much as What You Buy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-radiation-shield-comparison-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Radiation Shield Comparison Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/iowerx/pi-env-monitor/blob/main/docs/chapters/06-temperature/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="temperature-from-the-thermoscope-to-the-silicon-chip">Temperature: From the Thermoscope to the Silicon Chip<a class="headerlink" href="#temperature-from-the-thermoscope-to-the-silicon-chip" title="Permanent link">¶</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
+<p>Temperature is the motion of atoms, not a substance called heat, and this chapter starts there. It follows the instrument lineage from Galileo's thermoscope through sealed liquid-in-glass thermometers to the thermocouple, resistance thermometer, and thermistor, and covers the Fahrenheit, Celsius, and Kelvin scales with their fixed points and conversions. It ends with the Stevenson screen, because how a thermometer is exposed to the air is part of the measurement. After this chapter, readers can convert between all three scales and explain why absolute zero exists.</p>
+<h2 id="concepts-covered">Concepts Covered<a class="headerlink" href="#concepts-covered" title="Permanent link">¶</a></h2>
+<p>This chapter covers the following 20 concepts from the learning graph:</p>
+<ol>
+<li>Temperature</li>
+<li>Kinetic Energy Of Atoms</li>
+<li>Thermoscope</li>
+<li>Resistance Thermometer</li>
+<li>Air Temperature</li>
+<li>Thermoelectric Effect</li>
+<li>Heat Transfer</li>
+<li>Infrared Radiation</li>
+<li>Liquid In Glass Thermometer</li>
+<li>Absolute Zero</li>
+<li>Thermistor</li>
+<li>Stevenson Screen</li>
+<li>Fahrenheit Scale</li>
+<li>Celsius Scale</li>
+<li>Kelvin Scale</li>
+<li>Thermocouple</li>
+<li>Surface Temperature</li>
+<li>Freezing Point Of Water</li>
+<li>Boiling Point Of Water</li>
+<li>Temperature Conversion</li>
+</ol>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-why-we-measure/">Chapter 1: Why We Measure the Natural Environment</a></li>
+<li><a href="../02-language-of-measurement/">Chapter 2: The Language of Measurement</a></li>
+<li><a href="../03-electricity-and-computer/">Chapter 3: Electricity and the Single-Board Computer</a></li>
+<li><a href="../04-how-sensors-work/">Chapter 4: How Sensors Turn the World Into Numbers</a></li>
+</ul>
+<hr>
+<h2 id="what-is-actually-happening-when-something-is-hot">What Is Actually Happening When Something Is Hot<a class="headerlink" href="#what-is-actually-happening-when-something-is-hot" title="Permanent link">¶</a></h2>
+<p>Everything is vibrating.</p>
+<p>The atoms in this page, in the air around you, and in your own hand are in constant motion — jiggling, colliding, bouncing off one another. They never stop. In a solid they vibrate in place; in a gas they fly around and crash into things.</p>
+<p><strong>Temperature</strong> is a measure of the average kinetic energy of the atoms or molecules in a substance. Kinetic energy is the energy of motion, so the <strong>kinetic energy of atoms</strong> is simply how vigorously they are moving.</p>
+<p>Hot means the atoms are moving fast. Cold means they are moving slowly. That is the whole idea, and it is worth pausing on because it replaces something most people believe instead.</p>
+<p>For most of history, heat was thought to be a substance. Eighteenth-century scientists called it caloric — an invisible, weightless fluid that flowed from hot objects into cold ones. It was a reasonable theory. It explained why a hot poker cools down, why objects reach the same temperature when left together, and it made correct predictions for a long time.</p>
+<p>It was wrong, and the person who broke it was making cannons. In the 1790s Count Rumford noticed that boring cannon barrels produced apparently unlimited heat as long as the boring continued. If heat were a fluid stored in the metal, it should eventually run out. It never did. Heat was not a substance being released; it was motion being created by friction.</p>
+<p>So there is no such thing as "cold" as a separate entity. Cold is just less motion. When you open a freezer, cold does not flow out. Heat flows in.</p>
+<div class="admonition note">
+<p class="admonition-title">The word average is load-bearing</p>
+<p>Temperature is the <em>average</em> kinetic energy, not the total. A cup of boiling water and a swimming pool at the same temperature have atoms moving at the same average speed, but the pool contains vastly more atoms and therefore vastly more total energy. This is why a spark at 1000 °C landing on your hand barely registers, while a splash of 60 °C water burns you. Temperature and total heat energy are different quantities, and confusing them is common.</p>
+</div>
+<p><strong>Heat transfer</strong> is the movement of thermal energy from a warmer object to a cooler one. It always runs in that direction on its own, and it happens three ways:</p>
+<ul>
+<li><strong>Conduction</strong> — energy passing through direct contact, as fast-moving atoms collide with slower neighbors. This is why a metal spoon in soup gets hot.</li>
+<li><strong>Convection</strong> — energy carried by moving fluid. Warm air rises, cool air sinks, and the circulation carries energy with it. This drives most weather.</li>
+<li><strong>Radiation</strong> — energy carried by electromagnetic waves, needing no material at all. This is how the Sun's energy crosses empty space.</li>
+</ul>
+<p>All three matter to your station. Conduction is how the sensor reaches the air's temperature. Convection is why a shielded sensor needs airflow. Radiation is the reason a thermometer in direct sunlight lies to you, which is the subject at the end of this chapter.</p>
+<h2 id="radiation-you-cannot-see">Radiation You Cannot See<a class="headerlink" href="#radiation-you-cannot-see" title="Permanent link">¶</a></h2>
+<p>One form of heat transfer deserves its own section, because it produced an accidental discovery that opened up a whole region of physics.</p>
+<p><strong>Infrared radiation</strong> is electromagnetic radiation with wavelengths longer than visible red light, roughly 700 nanometers to 1 millimeter. You met the electromagnetic spectrum in Chapter 4; infrared sits just past the red end of the visible band.</p>
+<p>Every object warmer than absolute zero emits infrared radiation. You are emitting it right now. The amount and the wavelength depend on temperature: hotter objects emit more, and at shorter wavelengths. Heat an iron bar and it first emits invisible infrared you can feel as warmth, then glows dull red, then orange, then white as its atoms move fast enough to emit visible light.</p>
+<p>William Herschel found infrared in 1800 without looking for it. He was measuring how much heat different colors of sunlight carried, using a prism to spread sunlight into a spectrum and placing thermometers in each color band. He put one thermometer just past the red end as a control, expecting it to read room temperature.</p>
+<p>It read higher than any of the colored bands.</p>
+<p>There was something beyond red carrying more energy than visible light did, and no eye could see it. Herschel called it "calorific rays." We call it infrared, and it is the basis of thermal cameras, non-contact thermometers, night vision, and the greenhouse effect.</p>
+<p>This gives your station two distinct temperatures to keep straight:</p>
+<p><strong>Air temperature</strong> is the temperature of the air itself, measured in shade with good airflow. This is the number in every weather report, and it is what your station is built to measure.</p>
+<p><strong>Surface temperature</strong> is the temperature of a solid surface — asphalt, grass, a roof, soil. It is measured either by contact or by reading the infrared a surface emits.</p>
+<p>They can differ enormously. On a clear summer afternoon with an air temperature of 30 °C, asphalt can reach 60 °C and dry sand can exceed 50 °C. Chapter 17 returns to this, because that gap is exactly what makes cities hotter than the countryside around them.</p>
+<h2 id="the-instrument-lineage">The Instrument Lineage<a class="headerlink" href="#the-instrument-lineage" title="Permanent link">¶</a></h2>
+<p>Warmth was something people could feel long before it was something they could count. Turning it into a number took about 150 years and several separate inventions.</p>
+<h3 id="the-thermoscope">The Thermoscope<a class="headerlink" href="#the-thermoscope" title="Permanent link">¶</a></h3>
+<p>Around 1592, Galileo built a <strong>thermoscope</strong>: a device that shows temperature <em>changes</em> without giving a numerical value.</p>
+<p>His version was a glass bulb with a long thin stem, inverted with the stem standing in a dish of water. The air trapped in the bulb expanded when warmed and contracted when cooled, pushing the water level down or letting it rise.</p>
+<p>It worked, and it had two serious problems. It had no scale, so it could only tell you <em>warmer</em> or <em>cooler</em> — the same limitation your hands have. Worse, because the stem was open to the air, the water level also responded to changes in atmospheric pressure. A thermoscope reading could change because the weather was changing rather than because the temperature was.</p>
+<p>This is the difference between the thermoscope and everything that came after. A thermoscope tells you <em>different</em>. A thermometer tells you <em>how much</em>.</p>
+<h3 id="getting-a-scale">Getting a Scale<a class="headerlink" href="#getting-a-scale" title="Permanent link">¶</a></h3>
+<p>Santorio Santorio put graduated marks on a thermoscope around 1612 and used it on medical patients, which is arguably the first clinical thermometer. In 1654 Ferdinand II of Tuscany sealed the liquid inside the glass, eliminating the pressure problem in a single stroke.</p>
+<p>That produced the <strong>liquid in glass thermometer</strong>: a sealed glass tube with a bulb of liquid at one end and a narrow bore for the liquid to expand into. The liquid expands more than the glass does when warmed, so it rises up the bore.</p>
+<p>The narrow bore is the clever part. A small change in the bulb's volume produces a large, easily-read movement in a thin tube — a mechanical amplifier made of glass.</p>
+<p>But a remaining problem was worse than either of the first two: <strong>no two makers agreed on the scale.</strong> One person's thermometer read 20 and another's read 60 for the same room. The instruments worked. They simply could not be compared, which is the Chapter 2 standardization problem in its purest form.</p>
+<h3 id="three-scales">Three Scales<a class="headerlink" href="#three-scales" title="Permanent link">¶</a></h3>
+<p>Daniel Gabriel Fahrenheit fixed the comparability problem in 1724. Working with mercury in glass, he produced the first temperature scale that different instruments could reproduce — meaning two thermometers made to his specification would agree.</p>
+<p>The <strong>Fahrenheit scale</strong> set 0 °F at the temperature of a stable mixture of ice, water, and ammonium chloride salt, which was the coldest temperature he could reliably reproduce in a lab. He put 32 °F at the freezing point of pure water. Eventually the scale settled with 180 degrees between the freezing and boiling points of water.</p>
+<p>Anders Celsius, a Swedish astronomer, proposed a hundred-step scale in 1742. There is a detail here that surprises people: <strong>his original scale ran backwards</strong>, with 0 at the boiling point of water and 100 at freezing. It was inverted to the modern arrangement shortly after his death, and later renamed in his honor. The <strong>Celsius scale</strong> as used today puts 0 °C at the <strong>freezing point of water</strong> and 100 °C at the <strong>boiling point of water</strong>, both at standard atmospheric pressure.</p>
+<p>Both of those scales share a limitation. Their zeros are arbitrary — chosen for convenience, not because anything physical happens there. As Chapter 2 explained, that makes them interval scales, so 20 °C is not twice as warm as 10 °C.</p>
+<p>In 1848 William Thomson, later Lord Kelvin, reasoned toward a fix. If temperature is atomic motion, there must be a temperature at which that motion reaches its minimum. You cannot have less than no motion. That point is <strong>absolute zero</strong>, and nothing can be colder.</p>
+<p>Absolute zero sits at −273.15 °C, or −459.67 °F. It has never been reached, and by the laws of thermodynamics it cannot be, though laboratories have come within a few billionths of a degree.</p>
+<p>The <strong>Kelvin scale</strong> starts there. Its zero is absolute zero, and its degree is exactly the same size as a Celsius degree. Because its zero means "none," kelvin is a ratio scale: 200 K genuinely is twice as hot as 100 K, in the sense that the atoms carry twice the average kinetic energy.</p>
+<p>Note the convention: it is written "300 K", not "300 °K" and not "300 degrees Kelvin". The kelvin is a unit in its own right, not a degree on someone's scale.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Fahrenheit</th>
+<th>Celsius</th>
+<th>Kelvin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Proposed</td>
+<td>1724</td>
+<td>1742</td>
+<td>1848</td>
+</tr>
+<tr>
+<td>Water freezes</td>
+<td>32 °F</td>
+<td>0 °C</td>
+<td>273.15 K</td>
+</tr>
+<tr>
+<td>Water boils</td>
+<td>212 °F</td>
+<td>100 °C</td>
+<td>373.15 K</td>
+</tr>
+<tr>
+<td>Absolute zero</td>
+<td>−459.67 °F</td>
+<td>−273.15 °C</td>
+<td>0 K</td>
+</tr>
+<tr>
+<td>Degrees between freezing and boiling</td>
+<td>180</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>Zero means</td>
+<td>Ice and salt mixture</td>
+<td>Water freezes</td>
+<td>No atomic motion</td>
+</tr>
+<tr>
+<td>Scale type</td>
+<td>Interval</td>
+<td>Interval</td>
+<td>Ratio</td>
+</tr>
+<tr>
+<td>Used for</td>
+<td>US weather and daily life</td>
+<td>Most of the world; science</td>
+<td>Physics and engineering</td>
+</tr>
+</tbody>
+</table>
+<h2 id="converting-between-scales">Converting Between Scales<a class="headerlink" href="#converting-between-scales" title="Permanent link">¶</a></h2>
+<p><strong>Temperature conversion</strong> is the arithmetic of moving between these three scales. Because their zeros differ, conversion needs both a multiplication and an addition — unlike the pure multiplications of Chapter 2.</p>
+<p>Fahrenheit and Celsius differ in both degree size and zero point:</p>
+<div class="arithmatex">\[ °F = °C \times \frac{9}{5} + 32 \]</div>
+<div class="arithmatex">\[ °C = (°F - 32) \times \frac{5}{9} \]</div>
+<p>The fraction <span class="arithmatex">\(9/5\)</span> is there because 180 Fahrenheit degrees span the same range as 100 Celsius degrees, and <span class="arithmatex">\(180/100 = 9/5\)</span>. The 32 shifts the zero.</p>
+<p>Kelvin and Celsius share a degree size, so only the offset is needed:</p>
+<div class="arithmatex">\[ K = °C + 273.15 \]</div>
+<div class="arithmatex">\[ °C = K - 273.15 \]</div>
+<p>There is one trap worth naming now, because it catches people every time they meet it. <strong>A temperature and a temperature difference convert differently.</strong></p>
+<p>If the temperature rises by 5 °C, it has risen by 9 °F, not 41 °F. For a <em>change</em>, you apply only the ratio, never the offset — the two zero points cancel out when you subtract. Confusing a value with a difference produces answers that are wrong by exactly 32, which is a recognizable fingerprint when you see it in someone's data.</p>
+<p>A useful rough conversion for mental arithmetic: double the Celsius value and add 30. For 20 °C that gives 70 °F, and the exact answer is 68 °F. Close enough to decide about a jacket.</p>
+<h4 id="diagram-three-scales-thermometer">Diagram: Three Scales Thermometer<a class="headerlink" href="#diagram-three-scales-thermometer" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/three-scales-thermometer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Three Scales Thermometer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> three-scales-thermometer<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Apply (L3)
+Bloom Verb: convert</p>
+<p>Learning objective: The learner converts a temperature between Fahrenheit, Celsius, and Kelvin, and distinguishes converting a temperature value from converting a temperature difference.</p>
+<p>Purpose: Students memorize the formula and still cannot say why 5 °C of warming is not 41 °F of warming. Showing all three scales on one shared physical column, with a second marker for a difference, makes the offset visible as a physical alignment rather than a term in an equation.</p>
+<p>Canvas layout:
+- Center: a single tall thermometer column with three graduated scales running alongside it — Fahrenheit left, Celsius center, Kelvin right — all aligned to the same physical temperature
+- A draggable marker that slides up and down the column; all three readouts update together
+- Left panel: named reference temperatures the learner can jump to
+- Right or below (responsive): the worked conversion arithmetic for the current value
+- Bottom: mode toggle and controls
+- Responsive to window resize; the column scales vertically with canvas height</p>
+<p>Data Visibility Requirements:
+  Stage 1: Show the current temperature simultaneously in all three units, to one decimal place
+  Stage 2: Show the worked Celsius-to-Fahrenheit arithmetic with each step separate: the multiplication by 9/5, then the addition of 32
+  Stage 3: Show the Celsius-to-Kelvin arithmetic as a single addition of 273.15
+  Stage 4: In difference mode, show a SECOND marker and display the interval between the two markers in all three units, with the arithmetic showing that the offset drops out</p>
+<p>Reference temperature presets (clicking jumps the marker and labels it):
+- Absolute zero: 0 K, −273.15 °C, −459.67 °F — "Atomic motion at its minimum. Never reached."
+- Coldest recorded on Earth: −89.2 °C, Vostok Station, Antarctica, 1983
+- Water freezes: 0 °C, 32 °F, 273.15 K
+- A cool day: 10 °C, 50 °F
+- Comfortable room: 21 °C, 70 °F
+- Human body: 37 °C, 98.6 °F
+- Hot summer day: 32 °C, 90 °F
+- Heat advisory: 38 °C, 100 °F
+- Hottest recorded on Earth: 56.7 °C, Death Valley, 1913
+- Water boils: 100 °C, 212 °F, 373.15 K</p>
+<p>Mode toggle:
+- <strong>Value mode</strong> — one marker, converts a temperature
+- <strong>Difference mode</strong> — two markers; the readout shows the interval and explicitly displays the message: "A difference of 5 °C is a difference of 9 °F, not 41 °F. The +32 offset cancels when you subtract."</p>
+<p>Interactive controls:
+- Drag either marker along the column
+- Type a value into any of the three unit boxes; the other two and the marker update
+- Preset buttons jump to named temperatures
+- A "scale below absolute zero" attempt: dragging below 0 K is blocked, and a message appears reading "There is no temperature below absolute zero. Atoms cannot move less than not at all."</p>
+<p>Instructional Rationale: The objective is Apply/convert, so direct parameter entry with immediately visible worked arithmetic is the right pattern. Aligning all three scales on one shared column is the specific design choice that teaches the offset: the learner can see that 0 °C and 32 °F are the same height, which is what "different zero points" physically means. Difference mode exists because that misconception is otherwise invisible until it appears in a student's data.</p>
+<p>Implementation: p5.js. Store the current temperature internally in kelvin and derive all displays from it, so the three scales cannot drift out of agreement. Map kelvin to pixel height with a fixed range from 0 K to 400 K.</p>
+</details>
+<h2 id="electrical-thermometers">Electrical Thermometers<a class="headerlink" href="#electrical-thermometers" title="Permanent link">¶</a></h2>
+<p>Liquid in glass is accurate and needs no power, but a person has to walk over and read it. An automatic station needs a thermometer that produces an electrical signal.</p>
+<p>Chapter 4 introduced the general idea. Here are the three specific mechanisms, in the order they were discovered.</p>
+<h3 id="the-thermocouple">The Thermocouple<a class="headerlink" href="#the-thermocouple" title="Permanent link">¶</a></h3>
+<p>In 1821 Thomas Seebeck found that when two different metals are joined at both ends and one junction is hotter than the other, a small voltage appears in the circuit. This is the <strong>thermoelectric effect</strong>, sometimes called the Seebeck effect.</p>
+<p>A <strong>thermocouple</strong> is a temperature sensor built from that effect: two wires of different metals welded together at one end. The voltage across the free ends depends on the temperature at the joined end.</p>
+<p>Thermocouples produce very small voltages — typically tens of microvolts per degree — which means they need careful amplification. What they offer in return is range. Some types work from −200 °C to over 1700 °C, far beyond anything liquid in glass can survive. They are the standard for furnaces, engines, and kilns.</p>
+<h3 id="the-resistance-thermometer">The Resistance Thermometer<a class="headerlink" href="#the-resistance-thermometer" title="Permanent link">¶</a></h3>
+<p>A <strong>resistance thermometer</strong> works from the fact that the electrical resistance of a metal rises predictably as it gets hotter. Pass a small known current through it, measure the voltage, and the resistance tells you the temperature.</p>
+<p>Platinum is the usual metal because its resistance-versus-temperature relationship is exceptionally linear and stable. The most common type is called a Pt100, meaning platinum with 100 ohms of resistance at 0 °C. These devices are so stable and reproducible that they serve as reference standards — the calibration chain from Chapter 2 often passes through one.</p>
+<h3 id="the-thermistor">The Thermistor<a class="headerlink" href="#the-thermistor" title="Permanent link">¶</a></h3>
+<p>A <strong>thermistor</strong> is a resistance-based temperature sensor made from a semiconductor rather than a metal. Semiconductors, as Chapter 4 explained, change conductivity sharply with temperature.</p>
+<p>That word "sharply" is the whole point. A thermistor's resistance changes far more per degree than platinum's does — often by several percent per degree — which makes small temperature changes easy to detect with simple circuitry. The cost is linearity: the relationship is strongly curved, so converting resistance to temperature requires a more complicated formula than a straight line.</p>
+<p>Most thermistors are NTC types, meaning negative temperature coefficient: resistance <em>falls</em> as temperature rises. That is the opposite of a metal, and it catches people out.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Thermocouple</th>
+<th>Resistance thermometer</th>
+<th>Thermistor</th>
+<th>Silicon diode (BME280)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Based on</td>
+<td>Thermoelectric effect</td>
+<td>Metal resistance</td>
+<td>Semiconductor resistance</td>
+<td>Diode voltage shift</td>
+</tr>
+<tr>
+<td>Typical range</td>
+<td>−200 to 1700 °C</td>
+<td>−200 to 850 °C</td>
+<td>−50 to 150 °C</td>
+<td>−40 to 85 °C</td>
+</tr>
+<tr>
+<td>Sensitivity</td>
+<td>Low</td>
+<td>Moderate</td>
+<td>High</td>
+<td>Moderate</td>
+</tr>
+<tr>
+<td>Linearity</td>
+<td>Fair</td>
+<td>Excellent</td>
+<td>Poor</td>
+<td>Good</td>
+</tr>
+<tr>
+<td>Needs power</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Cost</td>
+<td>Low</td>
+<td>High</td>
+<td>Very low</td>
+<td>Very low</td>
+</tr>
+<tr>
+<td>Where you meet it</td>
+<td>Furnaces, engines</td>
+<td>Laboratory standards</td>
+<td>Thermostats, battery packs</td>
+<td>Your station</td>
+</tr>
+</tbody>
+</table>
+<p>The sensor in your station uses the fourth column. The BME280 contains a silicon diode whose forward voltage drops by roughly 2 millivolts for every degree Celsius of warming — a small, consistent, and easily measured shift. It is not the most accurate mechanism ever devised. It is accurate enough for weather, it costs almost nothing, and it fits on a chip beside the pressure and humidity elements. Chapter 12 wires it up.</p>
+<h4 id="diagram-temperature-sensor-comparison-chart">Diagram: Temperature Sensor Comparison Chart<a class="headerlink" href="#diagram-temperature-sensor-comparison-chart" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/temperature-sensor-comparison/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Temperature Sensor Comparison Chart</summary>
+<p>Type: chart
+<strong>sim-id:</strong> temperature-sensor-comparison<br>
+<strong>Library:</strong> Chart.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Evaluate (L5)
+Bloom Verb: recommend</p>
+<p>Learning objective: The learner recommends a temperature sensor for a stated application by comparing measurement range, sensitivity, linearity, and cost against the requirements of the task.</p>
+<p>Purpose: Chapter 2 introduced measurement range as a specification that rules sensors in or out. This element makes that concrete by plotting all four sensor types on a shared temperature axis, so a range mismatch becomes visually obvious rather than a number to look up.</p>
+<p>Chart type: Horizontal range bars on a shared temperature axis, with a secondary toggleable view showing a response curve</p>
+<p>Primary view — range comparison:
+X-axis: Temperature in degrees Celsius, from −250 to 1800, on a scale that keeps the −50 to 150 region readable (a symlog or broken axis is acceptable if labeled)
+Y-axis: Four categories — Thermocouple, Resistance thermometer, Thermistor, Silicon diode (BME280)
+Each bar spans that sensor's usable measurement range.</p>
+<p>Overlay markers on the temperature axis, drawn as vertical reference lines:
+- −89.2 °C: coldest temperature recorded on Earth
+- −40 °C: lower limit of the BME280
+- 0 °C: water freezes
+- 56.7 °C: hottest temperature recorded on Earth
+- 85 °C: upper limit of the BME280
+- 1085 °C: copper melts</p>
+<p>Secondary view — response curves:
+X-axis: Temperature, −50 to 150 °C
+Y-axis: Normalized sensor output
+Plots the response of each sensor type so the learner can see that platinum is nearly straight while the thermistor curves strongly. Caption: "High sensitivity and good linearity pull in opposite directions."</p>
+<p>Application scenarios (selector buttons). Choosing one dims sensors that cannot do the job and displays the reason:
+1. "Outdoor weather station in Minnesota" — expected range −40 to 40 °C. All four are technically in range; the verdict panel recommends the silicon diode on cost and integration, and notes the BME280's −40 °C lower limit is uncomfortably close to record local lows.
+2. "Kiln monitor, up to 1200 °C" — only the thermocouple survives. Others are shown greyed with the message "outside measurement range — this sensor would be destroyed, not merely inaccurate."
+3. "Laboratory calibration reference" — recommends the platinum resistance thermometer for stability and linearity, noting it is the most expensive.
+4. "Battery pack over-temperature cutoff" — recommends the thermistor for high sensitivity near room temperature and very low cost.</p>
+<p>Interactive features:
+- Hover any range bar: tooltip gives the exact range, sensitivity, linearity rating, and typical cost
+- Click a bar: infobox explains the underlying mechanism and links to the section of this chapter that covers it
+- Toggle between range view and response-curve view
+- Scenario buttons as described, with a written verdict for each</p>
+<p>Implementation: Chart.js horizontal bar chart with a custom axis for the range view and a line chart for the curve view. Keep the scenario logic as data so new scenarios can be added without code changes.</p>
+</details>
+<h2 id="where-you-put-it-matters-as-much-as-what-you-buy">Where You Put It Matters as Much as What You Buy<a class="headerlink" href="#where-you-put-it-matters-as-much-as-what-you-buy" title="Permanent link">¶</a></h2>
+<p>Here is an experiment that will change how you read every weather report.</p>
+<p>Put a thermometer in direct sunlight on a clear day and let it settle. Then put an identical thermometer a meter away in the shade. Wait, and compare.</p>
+<p>The difference will commonly be 10 °C or more. Neither thermometer is broken. Neither is lying.</p>
+<p>The reason is radiation, the third mode of heat transfer. The sunlit thermometer is absorbing solar energy directly and heating up above the air around it. It is faithfully reporting its own temperature — it just is not reporting the air's.</p>
+<p>This means an important thing about the phrase "air temperature." <strong>There is no such thing as the temperature outside.</strong> There is the temperature at a particular height, with particular shading, with particular airflow, over a particular surface. Change any of those and the number changes.</p>
+<p>Which is a problem for a worldwide record. If every station shields its thermometer differently, no two stations can be compared, and Chapter 1's whole premise falls apart.</p>
+<p>The solution was designed in 1864 by Thomas Stevenson, a Scottish lighthouse engineer better known today as the father of the novelist Robert Louis Stevenson.</p>
+<p>A <strong>Stevenson screen</strong> is a louvered white box that houses meteorological instruments, shielding them from direct sunlight and precipitation while allowing air to circulate freely.</p>
+<p>Every feature does a specific job:</p>
+<ul>
+<li><strong>White paint</strong> reflects solar radiation instead of absorbing it</li>
+<li><strong>Double louvers</strong> block direct and reflected sunlight while letting air pass through</li>
+<li><strong>A double roof</strong> with an air gap keeps the interior from being heated from above</li>
+<li><strong>An open slatted floor</strong> lets air enter from below and stops heat radiating up from the ground</li>
+<li><strong>Mounting at 1.25 to 2 metres</strong> above ground, over natural surface, is the international convention — most commonly about 1.5 m</li>
+</ul>
+<p>That last one is a standardization decision exactly like the prime meridian. There is nothing physically special about 1.5 metres. It matters only because <em>everyone</em> uses it, which is what makes readings comparable across the world.</p>
+<h4 id="diagram-radiation-shield-comparison-lab">Diagram: Radiation Shield Comparison Lab<a class="headerlink" href="#diagram-radiation-shield-comparison-lab" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/radiation-shield-lab/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Radiation Shield Comparison Lab</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> radiation-shield-lab<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Analyze (L4)
+Bloom Verb: differentiate</p>
+<p>Learning objective: The learner differentiates the effect of solar radiation, mounting surface, and airflow on a temperature reading, and attributes an error in a day's data to a specific siting fault.</p>
+<p>Purpose: Siting error is the highest-consequence and least-visible mistake a student station can make, because the resulting data looks entirely plausible. Running four differently-sited sensors through the same simulated day, against a known true air temperature, makes the error measurable rather than theoretical.</p>
+<p>Canvas layout:
+- Upper area: a scene showing four sensors sited differently against a common sky, with a Sun that moves across the day
+- Lower area: a chart plotting all four sensors' readings against time, with the true air temperature drawn as a dashed reference line, on a fixed shared y-axis
+- Right or below (responsive): statistics panel showing each sensor's current reading, its error against truth, and its maximum error so far
+- Bottom: controls
+- Responsive to window resize; scene and chart stack vertically on narrow canvases</p>
+<p>The four sensor sitings, which must be visually distinct in the scene:
+1. <strong>Bare sensor in full sun, on a dark asphalt roof</strong> — reads far too high during the day, peaking mid-afternoon
+2. <strong>Bare sensor mounted on a south-facing wall</strong> — reads high, peaking later than the roof sensor as the wall re-radiates stored heat into the evening
+3. <strong>Sensor under a simple sunshade, no airflow</strong> — better, but still reads high because trapped air heats up under the shade
+4. <strong>Sensor in a louvered white Stevenson screen at 1.5 m over grass</strong> — tracks the true air temperature closely</p>
+<p>Data Visibility Requirements:
+  Stage 1: Show the true air temperature curve for the simulated day as the dashed reference
+  Stage 2: Show each sensor's reading as a separate colored line on the same axes
+  Stage 3: At the current time cursor, display a table: sensor, reading, true value, error in degrees Celsius
+  Stage 4: On completing a simulated day, display each sensor's maximum error and daily mean error, and rank them
+  Stage 5: In diagnosis mode, hide the labels, present one sensor's curve alone, and ask the learner to identify the siting fault from the shape of the error</p>
+<p>Interactive controls:
+- Time-of-day slider spanning 00:00 to 24:00, and a "Run the day" button that steps through it
+- Weather selector: "Clear and calm" (worst case, largest errors), "Clear and breezy" (airflow reduces the shaded-but-unventilated error), "Overcast" (all four nearly agree — the important null result)
+- Season selector: summer or winter, changing solar elevation and day length
+- Toggle individual sensors on and off to reduce clutter
+- Diagnosis mode as described above, with three rounds and feedback naming the fault</p>
+<p>Required teaching moment: in the "Overcast" setting, all four sensors must agree closely, and the panel must display: "On a cloudy day, bad siting is invisible. This is why siting errors go unnoticed for months — they only appear when the sun is out."</p>
+<p>Instructional Rationale: The objective is Analyze/differentiate, which requires isolating multiple interacting causes. Running four sitings side by side against a known truth on the same axes is what makes the causes separable. Diagnosis mode inverts the task from "watch the effect" to "identify the cause," which is the skill a student needs when looking at their own suspicious data in Chapter 15. The overcast null result is included deliberately because absence of an error under some conditions is what makes the fault deceptive.</p>
+<p>Implementation: p5.js. Model each sensor's reading as trueAirTemp + solarLoad x absorptionFactor x shieldFactor - ventilationCooling, with per-siting coefficients. Do not attempt real radiative physics; the goal is a correct qualitative ordering with plausible magnitudes.</p>
+</details>
+<div class="admonition warning">
+<p class="admonition-title">This is the mistake that will ruin your data</p>
+<p>Of everything in this book, sensor exposure is where student stations most often go wrong, and the failure is invisible in the data. A station on a sunlit wall reads high all afternoon and looks fine — the numbers are plausible, the graph is smooth, nothing is obviously broken. You are simply measuring the wall.</p>
+<p>A cheap radiation shield costs a few dollars, or you can build one from stacked plastic plant saucers. Do not skip it. Chapter 16 covers siting in full, but the rule starts here: <strong>shade, airflow, and standard height.</strong></p>
+</div>
+<h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Temperature</strong> is the average <strong>kinetic energy of atoms</strong>. Cold is not a substance; it is less motion.</li>
+<li><strong>Heat transfer</strong> runs from hot to cold by conduction, convection, and <strong>infrared radiation</strong>. Herschel found infrared in 1800 with a thermometer past the red end of a spectrum.</li>
+<li><strong>Air temperature</strong> and <strong>surface temperature</strong> are different quantities and can differ by 30 °C on a summer afternoon.</li>
+<li>A <strong>thermoscope</strong> shows change without a number. The sealed <strong>liquid in glass thermometer</strong> added a scale and removed the pressure error.</li>
+<li>The <strong>Fahrenheit scale</strong> (1724) made thermometers reproducible. The <strong>Celsius scale</strong> (1742) uses the <strong>freezing point of water</strong> and <strong>boiling point of water</strong> as its fixed points. The <strong>Kelvin scale</strong> (1848) starts at <strong>absolute zero</strong>, −273.15 °C, making it a ratio scale.</li>
+<li><strong>Temperature conversion</strong> between Fahrenheit and Celsius needs both a ratio and an offset. A temperature <em>difference</em> uses the ratio only.</li>
+<li>The <strong>thermoelectric effect</strong> gives us the <strong>thermocouple</strong>; metal resistance gives the <strong>resistance thermometer</strong>; semiconductors give the <strong>thermistor</strong>. Your station uses a silicon diode inside the BME280.</li>
+<li>The <strong>Stevenson screen</strong> standardizes exposure. Without shade, airflow, and a standard height, a thermometer measures itself rather than the air.</li>
+</ul>
+<h2 id="check-yourself">Check Yourself<a class="headerlink" href="#check-yourself" title="Permanent link">¶</a></h2>
+<details class="question">
+<summary>Two thermometers a meter apart read 22 °C and 34 °C. Both are working correctly. How? Click to check.</summary>
+<p>One is in shade and the other is in sunlight. The sunlit thermometer is absorbing solar radiation directly and heating above the surrounding air, so it correctly reports its own temperature — which is not the air temperature. This is precisely the problem the Stevenson screen was designed to solve, and it is why "shade" is part of the definition of air temperature rather than an optional extra.</p>
+</details>
+<details class="question">
+<summary>The temperature rises from 15 °C to 20 °C. What is that rise in Fahrenheit? Click to check.</summary>
+<p>Nine Fahrenheit degrees. This is a <em>difference</em>, so only the 9/5 ratio applies: <span class="arithmatex">\(5 \times 9/5 = 9\)</span>. Do not add 32. As a check, convert both values separately: 15 °C is 59 °F and 20 °C is 68 °F, and <span class="arithmatex">\(68 - 59 = 9\)</span>. Applying the offset to a difference would give 41, which is the classic wrong answer.</p>
+</details>
+<details class="question">
+<summary>Why is 0 K a real physical boundary but 0 °C is not? Click to check.</summary>
+<p>Because 0 K is absolute zero, the temperature at which atomic motion reaches its minimum — you cannot have less motion than none, so nothing can be colder. 0 °C is the freezing point of water, which is a useful and convenient reference but nothing fundamental: temperatures below it exist in abundance. This is why kelvin is a ratio scale where 200 K really is twice 100 K, and Celsius is not.</p>
+</details>
+<details class="question">
+<summary>Your BME280 is rated −40 to 85 °C. You are building a station in Fairbanks, Alaska, where −45 °C happens. What is the problem? Click to check.</summary>
+<p>The expected conditions fall outside the sensor's measurement range. Below −40 °C the BME280 does not return a slightly-worse reading — it returns no trustworthy reading at all, and the datasheet makes no promises about its behavior there. Worse, the failure comes exactly when the data would be most interesting. This is the range check from Chapter 2 applied for real: check that your expected values sit comfortably inside the range, not at its edge.</p>
+</details>
+<hr>
+<h2 id="what-is-next">What Is Next<a class="headerlink" href="#what-is-next" title="Permanent link">¶</a></h2>
+<p>Temperature is the quantity people find most intuitive, which is why it comes first. The next one is the quantity people find least intuitive, and it has the best story in the book.</p>
+<p>Chapter 7 covers barometric pressure — the weight of the air stacked above you, which nobody believed in for two thousand years. It runs from Aristotle's insistence that a vacuum could not exist, through Torricelli's tube of mercury and Pascal's brother-in-law carrying a barometer up a mountain, to the silicon diaphragm inside your own sensor. Along the way it explains why weather forecasting became possible at all.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../05-time-and-place/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 5. Time and Place - Recording Where and When">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                5. Time and Place - Recording Where and When
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../07-barometric-pressure/" class="md-footer__link md-footer__link--next" aria-label="Next: 7. Barometric Pressure - The Weight of the Atmosphere">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                7. Barometric Pressure - The Weight of the Atmosphere
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Hank R. Licensed under <a href="licensing/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

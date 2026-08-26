@@ -1,0 +1,3326 @@
+{
+  "metadata": {
+    "title": "Raspberry Pi Environmental Monitoring: Grades 6-12",
+    "description": "A learning graph for an intelligent textbook in which students in grades 6-12 build a Raspberry Pi environmental monitoring station. The primary goal is to understand what is being measured in the natural environment - temperature, barometric pressure, humidity, solar radiation, wind speed, ground motion, and location - and how those measurements affect the natural and man-made environments. The graph covers the history, physics, units, and instruments of each measurement, together with the hardware, Linux, Python, data logging, analysis, and field deployment skills needed to take the readings.",
+    "creator": "Hank R.",
+    "date": "2026-08-25",
+    "version": "1.0",
+    "format": "Learning Graph JSON v1.0",
+    "schema": "https://raw.githubusercontent.com/dmccreary/learning-graphs/refs/heads/main/src/schema/learning-graph-schema.json",
+    "license": "CC BY-NC-SA 4.0 DEED"
+  },
+  "groups": {
+    "FOUND": {
+      "classifierName": "Measurement Foundations",
+      "color": "SteelBlue",
+      "font": {
+        "color": "white"
+      }
+    },
+    "SENSE": {
+      "classifierName": "Sensors And Transduction",
+      "color": "DarkSlateBlue",
+      "font": {
+        "color": "white"
+      }
+    },
+    "ATMOS": {
+      "classifierName": "Atmospheric Science",
+      "color": "DarkGreen",
+      "font": {
+        "color": "white"
+      }
+    },
+    "TEMP": {
+      "classifierName": "Temperature",
+      "color": "LimeGreen",
+      "font": {
+        "color": "black"
+      }
+    },
+    "PRESS": {
+      "classifierName": "Barometric Pressure",
+      "color": "Gold",
+      "font": {
+        "color": "black"
+      }
+    },
+    "HUMID": {
+      "classifierName": "Humidity And Dew Point",
+      "color": "DarkGoldenrod",
+      "font": {
+        "color": "white"
+      }
+    },
+    "SOLAR": {
+      "classifierName": "Solar Radiation",
+      "color": "Khaki",
+      "font": {
+        "color": "black"
+      }
+    },
+    "WIND": {
+      "classifierName": "Wind",
+      "color": "Teal",
+      "font": {
+        "color": "white"
+      }
+    },
+    "SEIS": {
+      "classifierName": "Ground Motion And Seismology",
+      "color": "DodgerBlue",
+      "font": {
+        "color": "white"
+      }
+    },
+    "GEO": {
+      "classifierName": "Location Elevation And Time",
+      "color": "LightSkyBlue",
+      "font": {
+        "color": "black"
+      }
+    },
+    "HW": {
+      "classifierName": "Hardware And Interfacing",
+      "color": "Crimson",
+      "font": {
+        "color": "white"
+      }
+    },
+    "SYS": {
+      "classifierName": "Computing And Programming",
+      "color": "MediumPurple",
+      "font": {
+        "color": "white"
+      }
+    },
+    "DATA": {
+      "classifierName": "Data Logging And Analysis",
+      "color": "Indigo",
+      "font": {
+        "color": "white"
+      }
+    },
+    "DEPLOY": {
+      "classifierName": "Field Deployment And Power",
+      "color": "DarkOrchid",
+      "font": {
+        "color": "white"
+      }
+    },
+    "IMPACT": {
+      "classifierName": "Environmental And Societal Impact",
+      "color": "Orange",
+      "font": {
+        "color": "black"
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "label": "Environmental Monitoring",
+      "group": "FOUND",
+      "shape": "box"
+    },
+    {
+      "id": 2,
+      "label": "Physical Property",
+      "group": "FOUND",
+      "shape": "box"
+    },
+    {
+      "id": 3,
+      "label": "Measurement",
+      "group": "FOUND"
+    },
+    {
+      "id": 4,
+      "label": "Quantitative Data",
+      "group": "FOUND"
+    },
+    {
+      "id": 5,
+      "label": "Qualitative Observation",
+      "group": "FOUND"
+    },
+    {
+      "id": 6,
+      "label": "Unit Of Measure",
+      "group": "FOUND"
+    },
+    {
+      "id": 7,
+      "label": "SI Units",
+      "group": "FOUND"
+    },
+    {
+      "id": 8,
+      "label": "SI Prefix",
+      "group": "FOUND"
+    },
+    {
+      "id": 9,
+      "label": "Unit Conversion",
+      "group": "FOUND"
+    },
+    {
+      "id": 10,
+      "label": "Scientific Notation",
+      "group": "FOUND"
+    },
+    {
+      "id": 11,
+      "label": "Order Of Magnitude",
+      "group": "FOUND"
+    },
+    {
+      "id": 12,
+      "label": "Logarithmic Scale",
+      "group": "FOUND"
+    },
+    {
+      "id": 13,
+      "label": "Measurement Scale",
+      "group": "FOUND"
+    },
+    {
+      "id": 14,
+      "label": "Resolution",
+      "group": "FOUND"
+    },
+    {
+      "id": 15,
+      "label": "Accuracy",
+      "group": "FOUND"
+    },
+    {
+      "id": 16,
+      "label": "Precision",
+      "group": "FOUND"
+    },
+    {
+      "id": 17,
+      "label": "Measurement Uncertainty",
+      "group": "FOUND"
+    },
+    {
+      "id": 18,
+      "label": "Calibration",
+      "group": "FOUND"
+    },
+    {
+      "id": 19,
+      "label": "Reference Standard",
+      "group": "FOUND"
+    },
+    {
+      "id": 20,
+      "label": "Measurement Range",
+      "group": "FOUND"
+    },
+    {
+      "id": 21,
+      "label": "Standardization",
+      "group": "FOUND"
+    },
+    {
+      "id": 22,
+      "label": "Sensor",
+      "group": "SENSE"
+    },
+    {
+      "id": 23,
+      "label": "Transduction",
+      "group": "SENSE"
+    },
+    {
+      "id": 24,
+      "label": "Analog Signal",
+      "group": "SENSE"
+    },
+    {
+      "id": 25,
+      "label": "Digital Signal",
+      "group": "SENSE"
+    },
+    {
+      "id": 26,
+      "label": "Analog To Digital Conversion",
+      "group": "SENSE"
+    },
+    {
+      "id": 27,
+      "label": "Sensor Response Time",
+      "group": "SENSE"
+    },
+    {
+      "id": 28,
+      "label": "Piezoresistive Effect",
+      "group": "SENSE"
+    },
+    {
+      "id": 29,
+      "label": "Capacitive Sensing",
+      "group": "SENSE"
+    },
+    {
+      "id": 30,
+      "label": "Thermoelectric Effect",
+      "group": "SENSE"
+    },
+    {
+      "id": 31,
+      "label": "Photoelectric Effect",
+      "group": "SENSE"
+    },
+    {
+      "id": 32,
+      "label": "Semiconductor",
+      "group": "SENSE"
+    },
+    {
+      "id": 33,
+      "label": "Silicon Diode Sensor",
+      "group": "SENSE"
+    },
+    {
+      "id": 34,
+      "label": "MEMS Sensor",
+      "group": "SENSE"
+    },
+    {
+      "id": 35,
+      "label": "Sensor Filtering",
+      "group": "SENSE"
+    },
+    {
+      "id": 36,
+      "label": "Sensor Averaging",
+      "group": "SENSE"
+    },
+    {
+      "id": 37,
+      "label": "BME280 Sensor",
+      "group": "SENSE"
+    },
+    {
+      "id": 38,
+      "label": "Sensor Datasheet",
+      "group": "SENSE"
+    },
+    {
+      "id": 39,
+      "label": "Atmosphere",
+      "group": "ATMOS",
+      "shape": "box"
+    },
+    {
+      "id": 40,
+      "label": "Air Mass",
+      "group": "ATMOS"
+    },
+    {
+      "id": 41,
+      "label": "Atmospheric Layer",
+      "group": "ATMOS"
+    },
+    {
+      "id": 42,
+      "label": "Weather",
+      "group": "ATMOS"
+    },
+    {
+      "id": 43,
+      "label": "Climate",
+      "group": "ATMOS"
+    },
+    {
+      "id": 44,
+      "label": "Meteorologist",
+      "group": "ATMOS"
+    },
+    {
+      "id": 45,
+      "label": "Climatologist",
+      "group": "ATMOS"
+    },
+    {
+      "id": 46,
+      "label": "High Pressure System",
+      "group": "ATMOS"
+    },
+    {
+      "id": 47,
+      "label": "Low Pressure System",
+      "group": "ATMOS"
+    },
+    {
+      "id": 48,
+      "label": "Weather Front",
+      "group": "ATMOS"
+    },
+    {
+      "id": 49,
+      "label": "Convection",
+      "group": "ATMOS"
+    },
+    {
+      "id": 50,
+      "label": "Evaporation",
+      "group": "ATMOS"
+    },
+    {
+      "id": 51,
+      "label": "Condensation",
+      "group": "ATMOS"
+    },
+    {
+      "id": 52,
+      "label": "Precipitation",
+      "group": "ATMOS"
+    },
+    {
+      "id": 53,
+      "label": "Cloud Formation",
+      "group": "ATMOS"
+    },
+    {
+      "id": 54,
+      "label": "Water Vapor",
+      "group": "ATMOS"
+    },
+    {
+      "id": 55,
+      "label": "Diurnal Cycle",
+      "group": "ATMOS"
+    },
+    {
+      "id": 56,
+      "label": "Seasonal Variation",
+      "group": "ATMOS"
+    },
+    {
+      "id": 57,
+      "label": "Temperature",
+      "group": "TEMP"
+    },
+    {
+      "id": 58,
+      "label": "Kinetic Energy Of Atoms",
+      "group": "TEMP"
+    },
+    {
+      "id": 59,
+      "label": "Heat Transfer",
+      "group": "TEMP"
+    },
+    {
+      "id": 60,
+      "label": "Infrared Radiation",
+      "group": "TEMP"
+    },
+    {
+      "id": 61,
+      "label": "Thermoscope",
+      "group": "TEMP"
+    },
+    {
+      "id": 62,
+      "label": "Liquid In Glass Thermometer",
+      "group": "TEMP"
+    },
+    {
+      "id": 63,
+      "label": "Fahrenheit Scale",
+      "group": "TEMP"
+    },
+    {
+      "id": 64,
+      "label": "Celsius Scale",
+      "group": "TEMP"
+    },
+    {
+      "id": 65,
+      "label": "Kelvin Scale",
+      "group": "TEMP"
+    },
+    {
+      "id": 66,
+      "label": "Absolute Zero",
+      "group": "TEMP"
+    },
+    {
+      "id": 67,
+      "label": "Freezing Point Of Water",
+      "group": "TEMP"
+    },
+    {
+      "id": 68,
+      "label": "Boiling Point Of Water",
+      "group": "TEMP"
+    },
+    {
+      "id": 69,
+      "label": "Thermocouple",
+      "group": "TEMP"
+    },
+    {
+      "id": 70,
+      "label": "Resistance Thermometer",
+      "group": "TEMP"
+    },
+    {
+      "id": 71,
+      "label": "Thermistor",
+      "group": "TEMP"
+    },
+    {
+      "id": 72,
+      "label": "Stevenson Screen",
+      "group": "TEMP"
+    },
+    {
+      "id": 73,
+      "label": "Air Temperature",
+      "group": "TEMP"
+    },
+    {
+      "id": 74,
+      "label": "Surface Temperature",
+      "group": "TEMP"
+    },
+    {
+      "id": 75,
+      "label": "Temperature Conversion",
+      "group": "TEMP"
+    },
+    {
+      "id": 76,
+      "label": "Pressure",
+      "group": "PRESS"
+    },
+    {
+      "id": 77,
+      "label": "Barometric Pressure",
+      "group": "PRESS"
+    },
+    {
+      "id": 78,
+      "label": "Vacuum",
+      "group": "PRESS"
+    },
+    {
+      "id": 79,
+      "label": "Mercury Barometer",
+      "group": "PRESS"
+    },
+    {
+      "id": 80,
+      "label": "Torricelli Experiment",
+      "group": "PRESS"
+    },
+    {
+      "id": 81,
+      "label": "Puy De Dome Experiment",
+      "group": "PRESS"
+    },
+    {
+      "id": 82,
+      "label": "Aneroid Barometer",
+      "group": "PRESS"
+    },
+    {
+      "id": 83,
+      "label": "Inches Of Mercury",
+      "group": "PRESS"
+    },
+    {
+      "id": 84,
+      "label": "Millibar",
+      "group": "PRESS"
+    },
+    {
+      "id": 85,
+      "label": "Hectopascal",
+      "group": "PRESS"
+    },
+    {
+      "id": 86,
+      "label": "Pascal Unit",
+      "group": "PRESS"
+    },
+    {
+      "id": 87,
+      "label": "One Atmosphere",
+      "group": "PRESS"
+    },
+    {
+      "id": 88,
+      "label": "Sea Level Pressure",
+      "group": "PRESS"
+    },
+    {
+      "id": 89,
+      "label": "Pressure Altitude",
+      "group": "PRESS"
+    },
+    {
+      "id": 90,
+      "label": "Altimeter",
+      "group": "PRESS"
+    },
+    {
+      "id": 91,
+      "label": "Pressure Tendency",
+      "group": "PRESS"
+    },
+    {
+      "id": 92,
+      "label": "Barometric Forecasting",
+      "group": "PRESS"
+    },
+    {
+      "id": 93,
+      "label": "Hydrostatic Pressure",
+      "group": "PRESS"
+    },
+    {
+      "id": 94,
+      "label": "Humidity",
+      "group": "HUMID"
+    },
+    {
+      "id": 95,
+      "label": "Absolute Humidity",
+      "group": "HUMID"
+    },
+    {
+      "id": 96,
+      "label": "Relative Humidity",
+      "group": "HUMID"
+    },
+    {
+      "id": 97,
+      "label": "Dew Point",
+      "group": "HUMID"
+    },
+    {
+      "id": 98,
+      "label": "Partial Pressure Of Vapor",
+      "group": "HUMID"
+    },
+    {
+      "id": 99,
+      "label": "Saturation Vapor Pressure",
+      "group": "HUMID"
+    },
+    {
+      "id": 100,
+      "label": "Hair Hygrometer",
+      "group": "HUMID"
+    },
+    {
+      "id": 101,
+      "label": "Psychrometer",
+      "group": "HUMID"
+    },
+    {
+      "id": 102,
+      "label": "Wet Bulb Temperature",
+      "group": "HUMID"
+    },
+    {
+      "id": 103,
+      "label": "Chilled Mirror Hygrometer",
+      "group": "HUMID"
+    },
+    {
+      "id": 104,
+      "label": "Capacitive Humidity Sensor",
+      "group": "HUMID"
+    },
+    {
+      "id": 105,
+      "label": "Dew And Frost Formation",
+      "group": "HUMID"
+    },
+    {
+      "id": 106,
+      "label": "Fog Formation",
+      "group": "HUMID"
+    },
+    {
+      "id": 107,
+      "label": "Apparent Temperature",
+      "group": "HUMID"
+    },
+    {
+      "id": 108,
+      "label": "Heat Index",
+      "group": "HUMID"
+    },
+    {
+      "id": 109,
+      "label": "Solar Radiation",
+      "group": "SOLAR"
+    },
+    {
+      "id": 110,
+      "label": "Electromagnetic Spectrum",
+      "group": "SOLAR",
+      "shape": "box"
+    },
+    {
+      "id": 111,
+      "label": "Ultraviolet Radiation",
+      "group": "SOLAR"
+    },
+    {
+      "id": 112,
+      "label": "Visible Light",
+      "group": "SOLAR"
+    },
+    {
+      "id": 113,
+      "label": "Irradiance",
+      "group": "SOLAR"
+    },
+    {
+      "id": 114,
+      "label": "Solar Constant",
+      "group": "SOLAR"
+    },
+    {
+      "id": 115,
+      "label": "Insolation",
+      "group": "SOLAR"
+    },
+    {
+      "id": 116,
+      "label": "Watts Per Square Meter",
+      "group": "SOLAR"
+    },
+    {
+      "id": 117,
+      "label": "Pyrheliometer",
+      "group": "SOLAR"
+    },
+    {
+      "id": 118,
+      "label": "Pyranometer",
+      "group": "SOLAR"
+    },
+    {
+      "id": 119,
+      "label": "Bolometer",
+      "group": "SOLAR"
+    },
+    {
+      "id": 120,
+      "label": "Thermopile",
+      "group": "SOLAR"
+    },
+    {
+      "id": 121,
+      "label": "Photodiode",
+      "group": "SOLAR"
+    },
+    {
+      "id": 122,
+      "label": "Photovoltaic Effect",
+      "group": "SOLAR"
+    },
+    {
+      "id": 123,
+      "label": "Solar Cell",
+      "group": "SOLAR"
+    },
+    {
+      "id": 124,
+      "label": "UV Index",
+      "group": "SOLAR"
+    },
+    {
+      "id": 125,
+      "label": "Solar Zenith Angle",
+      "group": "SOLAR"
+    },
+    {
+      "id": 126,
+      "label": "Albedo",
+      "group": "SOLAR"
+    },
+    {
+      "id": 127,
+      "label": "Wind",
+      "group": "WIND"
+    },
+    {
+      "id": 128,
+      "label": "Wind Speed",
+      "group": "WIND"
+    },
+    {
+      "id": 129,
+      "label": "Wind Direction",
+      "group": "WIND"
+    },
+    {
+      "id": 130,
+      "label": "Weather Vane",
+      "group": "WIND"
+    },
+    {
+      "id": 131,
+      "label": "Pressure Gradient",
+      "group": "WIND"
+    },
+    {
+      "id": 132,
+      "label": "Anemometer",
+      "group": "WIND"
+    },
+    {
+      "id": 133,
+      "label": "Cup Anemometer",
+      "group": "WIND"
+    },
+    {
+      "id": 134,
+      "label": "Sonic Anemometer",
+      "group": "WIND"
+    },
+    {
+      "id": 135,
+      "label": "Beaufort Scale",
+      "group": "WIND"
+    },
+    {
+      "id": 136,
+      "label": "Knot Unit",
+      "group": "WIND"
+    },
+    {
+      "id": 137,
+      "label": "Meters Per Second",
+      "group": "WIND"
+    },
+    {
+      "id": 138,
+      "label": "Wind Gust",
+      "group": "WIND"
+    },
+    {
+      "id": 139,
+      "label": "Sustained Wind Speed",
+      "group": "WIND"
+    },
+    {
+      "id": 140,
+      "label": "Wind Chill",
+      "group": "WIND"
+    },
+    {
+      "id": 141,
+      "label": "Saffir Simpson Scale",
+      "group": "WIND"
+    },
+    {
+      "id": 142,
+      "label": "Enhanced Fujita Scale",
+      "group": "WIND"
+    },
+    {
+      "id": 143,
+      "label": "Wind Load",
+      "group": "WIND"
+    },
+    {
+      "id": 144,
+      "label": "Earthquake",
+      "group": "SEIS"
+    },
+    {
+      "id": 145,
+      "label": "Seismic Wave",
+      "group": "SEIS"
+    },
+    {
+      "id": 146,
+      "label": "P Wave",
+      "group": "SEIS"
+    },
+    {
+      "id": 147,
+      "label": "S Wave",
+      "group": "SEIS"
+    },
+    {
+      "id": 148,
+      "label": "Fault",
+      "group": "SEIS",
+      "shape": "box"
+    },
+    {
+      "id": 149,
+      "label": "Seismoscope",
+      "group": "SEIS"
+    },
+    {
+      "id": 150,
+      "label": "Seismograph",
+      "group": "SEIS"
+    },
+    {
+      "id": 151,
+      "label": "Seismometer",
+      "group": "SEIS"
+    },
+    {
+      "id": 152,
+      "label": "Inertial Mass",
+      "group": "SEIS"
+    },
+    {
+      "id": 153,
+      "label": "Accelerometer",
+      "group": "SEIS"
+    },
+    {
+      "id": 154,
+      "label": "MEMS Accelerometer",
+      "group": "SEIS"
+    },
+    {
+      "id": 155,
+      "label": "Acceleration",
+      "group": "SEIS"
+    },
+    {
+      "id": 156,
+      "label": "Richter Scale",
+      "group": "SEIS"
+    },
+    {
+      "id": 157,
+      "label": "Moment Magnitude Scale",
+      "group": "SEIS"
+    },
+    {
+      "id": 158,
+      "label": "Mercalli Intensity Scale",
+      "group": "SEIS"
+    },
+    {
+      "id": 159,
+      "label": "Magnitude Versus Intensity",
+      "group": "SEIS"
+    },
+    {
+      "id": 160,
+      "label": "Earthquake Early Warning",
+      "group": "SEIS"
+    },
+    {
+      "id": 161,
+      "label": "Seismic Network",
+      "group": "SEIS"
+    },
+    {
+      "id": 162,
+      "label": "Latitude",
+      "group": "GEO"
+    },
+    {
+      "id": 163,
+      "label": "Longitude",
+      "group": "GEO"
+    },
+    {
+      "id": 164,
+      "label": "Elevation",
+      "group": "GEO"
+    },
+    {
+      "id": 165,
+      "label": "Coordinate System",
+      "group": "GEO"
+    },
+    {
+      "id": 166,
+      "label": "Sextant",
+      "group": "GEO"
+    },
+    {
+      "id": 167,
+      "label": "Marine Chronometer",
+      "group": "GEO"
+    },
+    {
+      "id": 168,
+      "label": "Longitude Problem",
+      "group": "GEO"
+    },
+    {
+      "id": 169,
+      "label": "Prime Meridian",
+      "group": "GEO"
+    },
+    {
+      "id": 170,
+      "label": "Trilateration",
+      "group": "GEO"
+    },
+    {
+      "id": 171,
+      "label": "GPS",
+      "group": "GEO"
+    },
+    {
+      "id": 172,
+      "label": "GNSS",
+      "group": "GEO"
+    },
+    {
+      "id": 173,
+      "label": "GPS Satellite",
+      "group": "GEO"
+    },
+    {
+      "id": 174,
+      "label": "Atomic Clock",
+      "group": "GEO"
+    },
+    {
+      "id": 175,
+      "label": "WGS 84 Datum",
+      "group": "GEO"
+    },
+    {
+      "id": 176,
+      "label": "Position Fix Accuracy",
+      "group": "GEO"
+    },
+    {
+      "id": 177,
+      "label": "Coordinated Universal Time",
+      "group": "GEO"
+    },
+    {
+      "id": 178,
+      "label": "Time Zone",
+      "group": "GEO"
+    },
+    {
+      "id": 179,
+      "label": "Timestamp",
+      "group": "GEO"
+    },
+    {
+      "id": 180,
+      "label": "Raspberry Pi",
+      "group": "HW"
+    },
+    {
+      "id": 181,
+      "label": "Single Board Computer",
+      "group": "HW",
+      "shape": "box"
+    },
+    {
+      "id": 182,
+      "label": "Raspberry Pi Zero 2 W",
+      "group": "HW"
+    },
+    {
+      "id": 183,
+      "label": "GPIO Pin",
+      "group": "HW"
+    },
+    {
+      "id": 184,
+      "label": "Pin Header",
+      "group": "HW"
+    },
+    {
+      "id": 185,
+      "label": "Voltage",
+      "group": "HW"
+    },
+    {
+      "id": 186,
+      "label": "Current",
+      "group": "HW"
+    },
+    {
+      "id": 187,
+      "label": "Ground Connection",
+      "group": "HW"
+    },
+    {
+      "id": 188,
+      "label": "Jumper Wire",
+      "group": "HW"
+    },
+    {
+      "id": 189,
+      "label": "Breadboard",
+      "group": "HW"
+    },
+    {
+      "id": 190,
+      "label": "Pull Up Resistor",
+      "group": "HW"
+    },
+    {
+      "id": 191,
+      "label": "I2C Bus",
+      "group": "HW"
+    },
+    {
+      "id": 192,
+      "label": "I2C Device Address",
+      "group": "HW"
+    },
+    {
+      "id": 193,
+      "label": "SPI Bus",
+      "group": "HW"
+    },
+    {
+      "id": 194,
+      "label": "Serial UART",
+      "group": "HW"
+    },
+    {
+      "id": 195,
+      "label": "Electrostatic Discharge",
+      "group": "HW"
+    },
+    {
+      "id": 196,
+      "label": "SIM7600A Module",
+      "group": "HW"
+    },
+    {
+      "id": 197,
+      "label": "Operating System",
+      "group": "SYS"
+    },
+    {
+      "id": 198,
+      "label": "Ubuntu Server",
+      "group": "SYS"
+    },
+    {
+      "id": 199,
+      "label": "Raspberry Pi OS",
+      "group": "SYS"
+    },
+    {
+      "id": 200,
+      "label": "Command Line Interface",
+      "group": "SYS"
+    },
+    {
+      "id": 201,
+      "label": "File System",
+      "group": "SYS"
+    },
+    {
+      "id": 202,
+      "label": "File Permissions",
+      "group": "SYS"
+    },
+    {
+      "id": 203,
+      "label": "Text Editor",
+      "group": "SYS"
+    },
+    {
+      "id": 204,
+      "label": "Shell Command",
+      "group": "SYS"
+    },
+    {
+      "id": 205,
+      "label": "Software Package",
+      "group": "SYS"
+    },
+    {
+      "id": 206,
+      "label": "Systemd Service",
+      "group": "SYS"
+    },
+    {
+      "id": 207,
+      "label": "Python",
+      "group": "SYS"
+    },
+    {
+      "id": 208,
+      "label": "Variable",
+      "group": "SYS"
+    },
+    {
+      "id": 209,
+      "label": "Data Type",
+      "group": "SYS"
+    },
+    {
+      "id": 210,
+      "label": "Function",
+      "group": "SYS"
+    },
+    {
+      "id": 211,
+      "label": "Loop",
+      "group": "SYS"
+    },
+    {
+      "id": 212,
+      "label": "Conditional Statement",
+      "group": "SYS"
+    },
+    {
+      "id": 213,
+      "label": "Python Library",
+      "group": "SYS"
+    },
+    {
+      "id": 214,
+      "label": "Exception Handling",
+      "group": "SYS"
+    },
+    {
+      "id": 215,
+      "label": "Script Execution",
+      "group": "SYS"
+    },
+    {
+      "id": 216,
+      "label": "Data Logging",
+      "group": "DATA"
+    },
+    {
+      "id": 217,
+      "label": "Sampling Interval",
+      "group": "DATA"
+    },
+    {
+      "id": 218,
+      "label": "Time Series",
+      "group": "DATA"
+    },
+    {
+      "id": 219,
+      "label": "CSV File",
+      "group": "DATA"
+    },
+    {
+      "id": 220,
+      "label": "Data Record",
+      "group": "DATA"
+    },
+    {
+      "id": 221,
+      "label": "Data Field",
+      "group": "DATA"
+    },
+    {
+      "id": 222,
+      "label": "Header Row",
+      "group": "DATA"
+    },
+    {
+      "id": 223,
+      "label": "File Rotation",
+      "group": "DATA"
+    },
+    {
+      "id": 224,
+      "label": "Data Storage",
+      "group": "DATA"
+    },
+    {
+      "id": 225,
+      "label": "Database",
+      "group": "DATA"
+    },
+    {
+      "id": 226,
+      "label": "Data Backup",
+      "group": "DATA"
+    },
+    {
+      "id": 227,
+      "label": "Line Chart",
+      "group": "DATA"
+    },
+    {
+      "id": 228,
+      "label": "Scatter Plot",
+      "group": "DATA"
+    },
+    {
+      "id": 229,
+      "label": "Axis Labeling",
+      "group": "DATA"
+    },
+    {
+      "id": 230,
+      "label": "Moving Average",
+      "group": "DATA"
+    },
+    {
+      "id": 231,
+      "label": "Trend",
+      "group": "DATA"
+    },
+    {
+      "id": 232,
+      "label": "Correlation",
+      "group": "DATA"
+    },
+    {
+      "id": 233,
+      "label": "Outlier",
+      "group": "DATA"
+    },
+    {
+      "id": 234,
+      "label": "Missing Data",
+      "group": "DATA"
+    },
+    {
+      "id": 235,
+      "label": "Sensor Drift",
+      "group": "DATA"
+    },
+    {
+      "id": 236,
+      "label": "Data Validation",
+      "group": "DATA"
+    },
+    {
+      "id": 237,
+      "label": "Metadata",
+      "group": "DATA"
+    },
+    {
+      "id": 238,
+      "label": "Remote Station",
+      "group": "DEPLOY"
+    },
+    {
+      "id": 239,
+      "label": "Sensor Siting",
+      "group": "DEPLOY"
+    },
+    {
+      "id": 240,
+      "label": "Weatherproof Enclosure",
+      "group": "DEPLOY"
+    },
+    {
+      "id": 241,
+      "label": "Ingress Protection Rating",
+      "group": "DEPLOY"
+    },
+    {
+      "id": 242,
+      "label": "Sensor Exposure",
+      "group": "DEPLOY"
+    },
+    {
+      "id": 243,
+      "label": "Power Budget",
+      "group": "DEPLOY"
+    },
+    {
+      "id": 244,
+      "label": "Battery Capacity",
+      "group": "DEPLOY"
+    },
+    {
+      "id": 245,
+      "label": "Solar Panel",
+      "group": "DEPLOY"
+    },
+    {
+      "id": 246,
+      "label": "Charge Controller",
+      "group": "DEPLOY"
+    },
+    {
+      "id": 247,
+      "label": "Duty Cycling",
+      "group": "DEPLOY"
+    },
+    {
+      "id": 248,
+      "label": "Telemetry",
+      "group": "DEPLOY"
+    },
+    {
+      "id": 249,
+      "label": "Cellular Data Link",
+      "group": "DEPLOY"
+    },
+    {
+      "id": 250,
+      "label": "Wi-Fi Network",
+      "group": "DEPLOY"
+    },
+    {
+      "id": 251,
+      "label": "Base Station",
+      "group": "DEPLOY"
+    },
+    {
+      "id": 252,
+      "label": "Intermittent Connectivity",
+      "group": "DEPLOY"
+    },
+    {
+      "id": 253,
+      "label": "Weather Forecasting",
+      "group": "IMPACT"
+    },
+    {
+      "id": 254,
+      "label": "Severe Weather Warning",
+      "group": "IMPACT"
+    },
+    {
+      "id": 255,
+      "label": "Agricultural Planning",
+      "group": "IMPACT"
+    },
+    {
+      "id": 256,
+      "label": "Evapotranspiration",
+      "group": "IMPACT"
+    },
+    {
+      "id": 257,
+      "label": "Energy Demand",
+      "group": "IMPACT"
+    },
+    {
+      "id": 258,
+      "label": "Solar Energy Generation",
+      "group": "IMPACT"
+    },
+    {
+      "id": 259,
+      "label": "Aviation Safety",
+      "group": "IMPACT"
+    },
+    {
+      "id": 260,
+      "label": "Building Code",
+      "group": "IMPACT"
+    },
+    {
+      "id": 261,
+      "label": "Urban Heat Island",
+      "group": "IMPACT"
+    },
+    {
+      "id": 262,
+      "label": "Air Quality",
+      "group": "IMPACT"
+    },
+    {
+      "id": 263,
+      "label": "Wildfire Risk",
+      "group": "IMPACT"
+    },
+    {
+      "id": 264,
+      "label": "Flood Warning",
+      "group": "IMPACT"
+    },
+    {
+      "id": 265,
+      "label": "Tsunami Warning",
+      "group": "IMPACT"
+    },
+    {
+      "id": 266,
+      "label": "Climate Record",
+      "group": "IMPACT"
+    },
+    {
+      "id": 267,
+      "label": "Citizen Science",
+      "group": "IMPACT"
+    },
+    {
+      "id": 268,
+      "label": "Data Sharing",
+      "group": "IMPACT"
+    },
+    {
+      "id": 269,
+      "label": "Science Communication",
+      "group": "IMPACT"
+    }
+  ],
+  "edges": [
+    {
+      "from": 3,
+      "to": 2
+    },
+    {
+      "from": 4,
+      "to": 3
+    },
+    {
+      "from": 5,
+      "to": 3
+    },
+    {
+      "from": 6,
+      "to": 3
+    },
+    {
+      "from": 7,
+      "to": 6
+    },
+    {
+      "from": 7,
+      "to": 21
+    },
+    {
+      "from": 8,
+      "to": 7
+    },
+    {
+      "from": 9,
+      "to": 6
+    },
+    {
+      "from": 9,
+      "to": 7
+    },
+    {
+      "from": 10,
+      "to": 8
+    },
+    {
+      "from": 11,
+      "to": 10
+    },
+    {
+      "from": 12,
+      "to": 11
+    },
+    {
+      "from": 13,
+      "to": 3
+    },
+    {
+      "from": 13,
+      "to": 6
+    },
+    {
+      "from": 14,
+      "to": 3
+    },
+    {
+      "from": 14,
+      "to": 13
+    },
+    {
+      "from": 15,
+      "to": 3
+    },
+    {
+      "from": 15,
+      "to": 13
+    },
+    {
+      "from": 16,
+      "to": 3
+    },
+    {
+      "from": 16,
+      "to": 14
+    },
+    {
+      "from": 17,
+      "to": 15
+    },
+    {
+      "from": 17,
+      "to": 16
+    },
+    {
+      "from": 18,
+      "to": 15
+    },
+    {
+      "from": 18,
+      "to": 19
+    },
+    {
+      "from": 19,
+      "to": 6
+    },
+    {
+      "from": 19,
+      "to": 15
+    },
+    {
+      "from": 20,
+      "to": 13
+    },
+    {
+      "from": 20,
+      "to": 14
+    },
+    {
+      "from": 21,
+      "to": 6
+    },
+    {
+      "from": 22,
+      "to": 2
+    },
+    {
+      "from": 22,
+      "to": 3
+    },
+    {
+      "from": 23,
+      "to": 2
+    },
+    {
+      "from": 23,
+      "to": 22
+    },
+    {
+      "from": 24,
+      "to": 23
+    },
+    {
+      "from": 25,
+      "to": 4
+    },
+    {
+      "from": 25,
+      "to": 24
+    },
+    {
+      "from": 26,
+      "to": 24
+    },
+    {
+      "from": 26,
+      "to": 25
+    },
+    {
+      "from": 27,
+      "to": 22
+    },
+    {
+      "from": 28,
+      "to": 23
+    },
+    {
+      "from": 28,
+      "to": 32
+    },
+    {
+      "from": 29,
+      "to": 23
+    },
+    {
+      "from": 29,
+      "to": 32
+    },
+    {
+      "from": 30,
+      "to": 23
+    },
+    {
+      "from": 30,
+      "to": 185
+    },
+    {
+      "from": 31,
+      "to": 23
+    },
+    {
+      "from": 31,
+      "to": 110
+    },
+    {
+      "from": 32,
+      "to": 185
+    },
+    {
+      "from": 32,
+      "to": 186
+    },
+    {
+      "from": 33,
+      "to": 32
+    },
+    {
+      "from": 33,
+      "to": 57
+    },
+    {
+      "from": 34,
+      "to": 22
+    },
+    {
+      "from": 34,
+      "to": 32
+    },
+    {
+      "from": 35,
+      "to": 22
+    },
+    {
+      "from": 35,
+      "to": 24
+    },
+    {
+      "from": 36,
+      "to": 17
+    },
+    {
+      "from": 36,
+      "to": 35
+    },
+    {
+      "from": 37,
+      "to": 28
+    },
+    {
+      "from": 37,
+      "to": 29
+    },
+    {
+      "from": 37,
+      "to": 33
+    },
+    {
+      "from": 38,
+      "to": 20
+    },
+    {
+      "from": 38,
+      "to": 22
+    },
+    {
+      "from": 40,
+      "to": 39
+    },
+    {
+      "from": 41,
+      "to": 39
+    },
+    {
+      "from": 42,
+      "to": 39
+    },
+    {
+      "from": 42,
+      "to": 40
+    },
+    {
+      "from": 43,
+      "to": 42
+    },
+    {
+      "from": 44,
+      "to": 42
+    },
+    {
+      "from": 45,
+      "to": 43
+    },
+    {
+      "from": 46,
+      "to": 40
+    },
+    {
+      "from": 46,
+      "to": 77
+    },
+    {
+      "from": 47,
+      "to": 40
+    },
+    {
+      "from": 47,
+      "to": 77
+    },
+    {
+      "from": 48,
+      "to": 46
+    },
+    {
+      "from": 48,
+      "to": 47
+    },
+    {
+      "from": 49,
+      "to": 39
+    },
+    {
+      "from": 49,
+      "to": 59
+    },
+    {
+      "from": 50,
+      "to": 54
+    },
+    {
+      "from": 50,
+      "to": 59
+    },
+    {
+      "from": 51,
+      "to": 54
+    },
+    {
+      "from": 51,
+      "to": 59
+    },
+    {
+      "from": 52,
+      "to": 51
+    },
+    {
+      "from": 53,
+      "to": 51
+    },
+    {
+      "from": 53,
+      "to": 97
+    },
+    {
+      "from": 54,
+      "to": 39
+    },
+    {
+      "from": 55,
+      "to": 42
+    },
+    {
+      "from": 55,
+      "to": 109
+    },
+    {
+      "from": 56,
+      "to": 43
+    },
+    {
+      "from": 56,
+      "to": 55
+    },
+    {
+      "from": 57,
+      "to": 2
+    },
+    {
+      "from": 57,
+      "to": 3
+    },
+    {
+      "from": 58,
+      "to": 57
+    },
+    {
+      "from": 59,
+      "to": 58
+    },
+    {
+      "from": 60,
+      "to": 58
+    },
+    {
+      "from": 60,
+      "to": 110
+    },
+    {
+      "from": 61,
+      "to": 22
+    },
+    {
+      "from": 61,
+      "to": 57
+    },
+    {
+      "from": 62,
+      "to": 13
+    },
+    {
+      "from": 62,
+      "to": 61
+    },
+    {
+      "from": 63,
+      "to": 13
+    },
+    {
+      "from": 63,
+      "to": 62
+    },
+    {
+      "from": 64,
+      "to": 13
+    },
+    {
+      "from": 64,
+      "to": 62
+    },
+    {
+      "from": 65,
+      "to": 58
+    },
+    {
+      "from": 65,
+      "to": 66
+    },
+    {
+      "from": 66,
+      "to": 58
+    },
+    {
+      "from": 67,
+      "to": 63
+    },
+    {
+      "from": 67,
+      "to": 64
+    },
+    {
+      "from": 68,
+      "to": 63
+    },
+    {
+      "from": 68,
+      "to": 64
+    },
+    {
+      "from": 69,
+      "to": 30
+    },
+    {
+      "from": 70,
+      "to": 57
+    },
+    {
+      "from": 70,
+      "to": 186
+    },
+    {
+      "from": 71,
+      "to": 32
+    },
+    {
+      "from": 71,
+      "to": 70
+    },
+    {
+      "from": 72,
+      "to": 21
+    },
+    {
+      "from": 72,
+      "to": 73
+    },
+    {
+      "from": 73,
+      "to": 39
+    },
+    {
+      "from": 73,
+      "to": 57
+    },
+    {
+      "from": 74,
+      "to": 57
+    },
+    {
+      "from": 74,
+      "to": 60
+    },
+    {
+      "from": 75,
+      "to": 9
+    },
+    {
+      "from": 75,
+      "to": 63
+    },
+    {
+      "from": 75,
+      "to": 64
+    },
+    {
+      "from": 75,
+      "to": 65
+    },
+    {
+      "from": 76,
+      "to": 2
+    },
+    {
+      "from": 76,
+      "to": 3
+    },
+    {
+      "from": 77,
+      "to": 39
+    },
+    {
+      "from": 77,
+      "to": 76
+    },
+    {
+      "from": 78,
+      "to": 39
+    },
+    {
+      "from": 78,
+      "to": 76
+    },
+    {
+      "from": 79,
+      "to": 77
+    },
+    {
+      "from": 79,
+      "to": 78
+    },
+    {
+      "from": 80,
+      "to": 78
+    },
+    {
+      "from": 80,
+      "to": 79
+    },
+    {
+      "from": 81,
+      "to": 80
+    },
+    {
+      "from": 81,
+      "to": 164
+    },
+    {
+      "from": 82,
+      "to": 79
+    },
+    {
+      "from": 83,
+      "to": 6
+    },
+    {
+      "from": 83,
+      "to": 79
+    },
+    {
+      "from": 84,
+      "to": 6
+    },
+    {
+      "from": 84,
+      "to": 77
+    },
+    {
+      "from": 85,
+      "to": 7
+    },
+    {
+      "from": 85,
+      "to": 84
+    },
+    {
+      "from": 86,
+      "to": 7
+    },
+    {
+      "from": 86,
+      "to": 76
+    },
+    {
+      "from": 87,
+      "to": 83
+    },
+    {
+      "from": 87,
+      "to": 85
+    },
+    {
+      "from": 87,
+      "to": 88
+    },
+    {
+      "from": 88,
+      "to": 77
+    },
+    {
+      "from": 88,
+      "to": 164
+    },
+    {
+      "from": 89,
+      "to": 81
+    },
+    {
+      "from": 89,
+      "to": 88
+    },
+    {
+      "from": 90,
+      "to": 82
+    },
+    {
+      "from": 90,
+      "to": 89
+    },
+    {
+      "from": 91,
+      "to": 77
+    },
+    {
+      "from": 91,
+      "to": 218
+    },
+    {
+      "from": 92,
+      "to": 48
+    },
+    {
+      "from": 92,
+      "to": 91
+    },
+    {
+      "from": 93,
+      "to": 76
+    },
+    {
+      "from": 93,
+      "to": 88
+    },
+    {
+      "from": 94,
+      "to": 3
+    },
+    {
+      "from": 94,
+      "to": 54
+    },
+    {
+      "from": 95,
+      "to": 94
+    },
+    {
+      "from": 96,
+      "to": 94
+    },
+    {
+      "from": 96,
+      "to": 99
+    },
+    {
+      "from": 97,
+      "to": 51
+    },
+    {
+      "from": 97,
+      "to": 96
+    },
+    {
+      "from": 98,
+      "to": 54
+    },
+    {
+      "from": 98,
+      "to": 76
+    },
+    {
+      "from": 99,
+      "to": 57
+    },
+    {
+      "from": 99,
+      "to": 98
+    },
+    {
+      "from": 100,
+      "to": 22
+    },
+    {
+      "from": 100,
+      "to": 94
+    },
+    {
+      "from": 101,
+      "to": 50
+    },
+    {
+      "from": 101,
+      "to": 102
+    },
+    {
+      "from": 102,
+      "to": 50
+    },
+    {
+      "from": 102,
+      "to": 57
+    },
+    {
+      "from": 103,
+      "to": 22
+    },
+    {
+      "from": 103,
+      "to": 97
+    },
+    {
+      "from": 104,
+      "to": 29
+    },
+    {
+      "from": 104,
+      "to": 96
+    },
+    {
+      "from": 105,
+      "to": 51
+    },
+    {
+      "from": 105,
+      "to": 97
+    },
+    {
+      "from": 106,
+      "to": 53
+    },
+    {
+      "from": 106,
+      "to": 97
+    },
+    {
+      "from": 107,
+      "to": 73
+    },
+    {
+      "from": 107,
+      "to": 96
+    },
+    {
+      "from": 107,
+      "to": 128
+    },
+    {
+      "from": 108,
+      "to": 96
+    },
+    {
+      "from": 108,
+      "to": 107
+    },
+    {
+      "from": 109,
+      "to": 39
+    },
+    {
+      "from": 109,
+      "to": 110
+    },
+    {
+      "from": 111,
+      "to": 110
+    },
+    {
+      "from": 112,
+      "to": 110
+    },
+    {
+      "from": 113,
+      "to": 109
+    },
+    {
+      "from": 113,
+      "to": 116
+    },
+    {
+      "from": 114,
+      "to": 19
+    },
+    {
+      "from": 114,
+      "to": 113
+    },
+    {
+      "from": 115,
+      "to": 113
+    },
+    {
+      "from": 115,
+      "to": 218
+    },
+    {
+      "from": 116,
+      "to": 6
+    },
+    {
+      "from": 116,
+      "to": 7
+    },
+    {
+      "from": 117,
+      "to": 22
+    },
+    {
+      "from": 117,
+      "to": 113
+    },
+    {
+      "from": 118,
+      "to": 22
+    },
+    {
+      "from": 118,
+      "to": 113
+    },
+    {
+      "from": 119,
+      "to": 60
+    },
+    {
+      "from": 119,
+      "to": 117
+    },
+    {
+      "from": 120,
+      "to": 30
+    },
+    {
+      "from": 120,
+      "to": 118
+    },
+    {
+      "from": 121,
+      "to": 31
+    },
+    {
+      "from": 121,
+      "to": 32
+    },
+    {
+      "from": 122,
+      "to": 31
+    },
+    {
+      "from": 122,
+      "to": 32
+    },
+    {
+      "from": 123,
+      "to": 122
+    },
+    {
+      "from": 124,
+      "to": 13
+    },
+    {
+      "from": 124,
+      "to": 111
+    },
+    {
+      "from": 125,
+      "to": 109
+    },
+    {
+      "from": 125,
+      "to": 162
+    },
+    {
+      "from": 126,
+      "to": 74
+    },
+    {
+      "from": 126,
+      "to": 109
+    },
+    {
+      "from": 127,
+      "to": 39
+    },
+    {
+      "from": 127,
+      "to": 131
+    },
+    {
+      "from": 128,
+      "to": 3
+    },
+    {
+      "from": 128,
+      "to": 127
+    },
+    {
+      "from": 129,
+      "to": 127
+    },
+    {
+      "from": 130,
+      "to": 22
+    },
+    {
+      "from": 130,
+      "to": 129
+    },
+    {
+      "from": 131,
+      "to": 46
+    },
+    {
+      "from": 131,
+      "to": 47
+    },
+    {
+      "from": 132,
+      "to": 22
+    },
+    {
+      "from": 132,
+      "to": 128
+    },
+    {
+      "from": 133,
+      "to": 132
+    },
+    {
+      "from": 134,
+      "to": 132
+    },
+    {
+      "from": 135,
+      "to": 13
+    },
+    {
+      "from": 135,
+      "to": 128
+    },
+    {
+      "from": 136,
+      "to": 6
+    },
+    {
+      "from": 136,
+      "to": 128
+    },
+    {
+      "from": 137,
+      "to": 7
+    },
+    {
+      "from": 137,
+      "to": 128
+    },
+    {
+      "from": 138,
+      "to": 128
+    },
+    {
+      "from": 138,
+      "to": 217
+    },
+    {
+      "from": 139,
+      "to": 128
+    },
+    {
+      "from": 139,
+      "to": 230
+    },
+    {
+      "from": 140,
+      "to": 73
+    },
+    {
+      "from": 140,
+      "to": 128
+    },
+    {
+      "from": 141,
+      "to": 135
+    },
+    {
+      "from": 141,
+      "to": 139
+    },
+    {
+      "from": 142,
+      "to": 13
+    },
+    {
+      "from": 142,
+      "to": 128
+    },
+    {
+      "from": 143,
+      "to": 76
+    },
+    {
+      "from": 143,
+      "to": 128
+    },
+    {
+      "from": 144,
+      "to": 148
+    },
+    {
+      "from": 145,
+      "to": 144
+    },
+    {
+      "from": 146,
+      "to": 145
+    },
+    {
+      "from": 147,
+      "to": 145
+    },
+    {
+      "from": 149,
+      "to": 22
+    },
+    {
+      "from": 149,
+      "to": 144
+    },
+    {
+      "from": 150,
+      "to": 149
+    },
+    {
+      "from": 150,
+      "to": 152
+    },
+    {
+      "from": 151,
+      "to": 150
+    },
+    {
+      "from": 152,
+      "to": 155
+    },
+    {
+      "from": 153,
+      "to": 22
+    },
+    {
+      "from": 153,
+      "to": 155
+    },
+    {
+      "from": 154,
+      "to": 34
+    },
+    {
+      "from": 154,
+      "to": 153
+    },
+    {
+      "from": 155,
+      "to": 2
+    },
+    {
+      "from": 155,
+      "to": 3
+    },
+    {
+      "from": 156,
+      "to": 12
+    },
+    {
+      "from": 156,
+      "to": 150
+    },
+    {
+      "from": 157,
+      "to": 148
+    },
+    {
+      "from": 157,
+      "to": 156
+    },
+    {
+      "from": 158,
+      "to": 5
+    },
+    {
+      "from": 158,
+      "to": 144
+    },
+    {
+      "from": 159,
+      "to": 157
+    },
+    {
+      "from": 159,
+      "to": 158
+    },
+    {
+      "from": 160,
+      "to": 146
+    },
+    {
+      "from": 160,
+      "to": 147
+    },
+    {
+      "from": 160,
+      "to": 154
+    },
+    {
+      "from": 161,
+      "to": 151
+    },
+    {
+      "from": 161,
+      "to": 248
+    },
+    {
+      "from": 162,
+      "to": 165
+    },
+    {
+      "from": 163,
+      "to": 165
+    },
+    {
+      "from": 164,
+      "to": 3
+    },
+    {
+      "from": 164,
+      "to": 165
+    },
+    {
+      "from": 165,
+      "to": 3
+    },
+    {
+      "from": 165,
+      "to": 21
+    },
+    {
+      "from": 166,
+      "to": 22
+    },
+    {
+      "from": 166,
+      "to": 162
+    },
+    {
+      "from": 167,
+      "to": 168
+    },
+    {
+      "from": 168,
+      "to": 163
+    },
+    {
+      "from": 169,
+      "to": 21
+    },
+    {
+      "from": 169,
+      "to": 163
+    },
+    {
+      "from": 170,
+      "to": 165
+    },
+    {
+      "from": 170,
+      "to": 174
+    },
+    {
+      "from": 171,
+      "to": 170
+    },
+    {
+      "from": 171,
+      "to": 173
+    },
+    {
+      "from": 172,
+      "to": 171
+    },
+    {
+      "from": 173,
+      "to": 174
+    },
+    {
+      "from": 174,
+      "to": 19
+    },
+    {
+      "from": 175,
+      "to": 21
+    },
+    {
+      "from": 175,
+      "to": 165
+    },
+    {
+      "from": 176,
+      "to": 15
+    },
+    {
+      "from": 176,
+      "to": 171
+    },
+    {
+      "from": 177,
+      "to": 169
+    },
+    {
+      "from": 177,
+      "to": 174
+    },
+    {
+      "from": 178,
+      "to": 169
+    },
+    {
+      "from": 179,
+      "to": 177
+    },
+    {
+      "from": 180,
+      "to": 181
+    },
+    {
+      "from": 182,
+      "to": 180
+    },
+    {
+      "from": 183,
+      "to": 180
+    },
+    {
+      "from": 183,
+      "to": 185
+    },
+    {
+      "from": 184,
+      "to": 183
+    },
+    {
+      "from": 185,
+      "to": 2
+    },
+    {
+      "from": 186,
+      "to": 185
+    },
+    {
+      "from": 187,
+      "to": 185
+    },
+    {
+      "from": 188,
+      "to": 184
+    },
+    {
+      "from": 188,
+      "to": 187
+    },
+    {
+      "from": 189,
+      "to": 188
+    },
+    {
+      "from": 190,
+      "to": 185
+    },
+    {
+      "from": 190,
+      "to": 186
+    },
+    {
+      "from": 191,
+      "to": 25
+    },
+    {
+      "from": 191,
+      "to": 183
+    },
+    {
+      "from": 192,
+      "to": 191
+    },
+    {
+      "from": 193,
+      "to": 25
+    },
+    {
+      "from": 193,
+      "to": 183
+    },
+    {
+      "from": 194,
+      "to": 25
+    },
+    {
+      "from": 194,
+      "to": 183
+    },
+    {
+      "from": 195,
+      "to": 185
+    },
+    {
+      "from": 196,
+      "to": 171
+    },
+    {
+      "from": 196,
+      "to": 194
+    },
+    {
+      "from": 197,
+      "to": 181
+    },
+    {
+      "from": 198,
+      "to": 197
+    },
+    {
+      "from": 199,
+      "to": 180
+    },
+    {
+      "from": 199,
+      "to": 197
+    },
+    {
+      "from": 200,
+      "to": 197
+    },
+    {
+      "from": 201,
+      "to": 197
+    },
+    {
+      "from": 202,
+      "to": 201
+    },
+    {
+      "from": 203,
+      "to": 200
+    },
+    {
+      "from": 203,
+      "to": 201
+    },
+    {
+      "from": 204,
+      "to": 200
+    },
+    {
+      "from": 205,
+      "to": 204
+    },
+    {
+      "from": 206,
+      "to": 198
+    },
+    {
+      "from": 206,
+      "to": 204
+    },
+    {
+      "from": 207,
+      "to": 205
+    },
+    {
+      "from": 208,
+      "to": 207
+    },
+    {
+      "from": 209,
+      "to": 208
+    },
+    {
+      "from": 210,
+      "to": 208
+    },
+    {
+      "from": 211,
+      "to": 210
+    },
+    {
+      "from": 212,
+      "to": 208
+    },
+    {
+      "from": 213,
+      "to": 207
+    },
+    {
+      "from": 213,
+      "to": 210
+    },
+    {
+      "from": 214,
+      "to": 210
+    },
+    {
+      "from": 214,
+      "to": 212
+    },
+    {
+      "from": 215,
+      "to": 204
+    },
+    {
+      "from": 215,
+      "to": 207
+    },
+    {
+      "from": 216,
+      "to": 3
+    },
+    {
+      "from": 216,
+      "to": 215
+    },
+    {
+      "from": 217,
+      "to": 27
+    },
+    {
+      "from": 217,
+      "to": 216
+    },
+    {
+      "from": 218,
+      "to": 179
+    },
+    {
+      "from": 218,
+      "to": 216
+    },
+    {
+      "from": 219,
+      "to": 4
+    },
+    {
+      "from": 219,
+      "to": 201
+    },
+    {
+      "from": 220,
+      "to": 219
+    },
+    {
+      "from": 221,
+      "to": 220
+    },
+    {
+      "from": 222,
+      "to": 6
+    },
+    {
+      "from": 222,
+      "to": 221
+    },
+    {
+      "from": 223,
+      "to": 219
+    },
+    {
+      "from": 223,
+      "to": 224
+    },
+    {
+      "from": 224,
+      "to": 201
+    },
+    {
+      "from": 225,
+      "to": 220
+    },
+    {
+      "from": 225,
+      "to": 224
+    },
+    {
+      "from": 226,
+      "to": 224
+    },
+    {
+      "from": 227,
+      "to": 218
+    },
+    {
+      "from": 228,
+      "to": 4
+    },
+    {
+      "from": 228,
+      "to": 218
+    },
+    {
+      "from": 229,
+      "to": 6
+    },
+    {
+      "from": 229,
+      "to": 227
+    },
+    {
+      "from": 229,
+      "to": 228
+    },
+    {
+      "from": 230,
+      "to": 36
+    },
+    {
+      "from": 230,
+      "to": 218
+    },
+    {
+      "from": 231,
+      "to": 218
+    },
+    {
+      "from": 231,
+      "to": 230
+    },
+    {
+      "from": 232,
+      "to": 218
+    },
+    {
+      "from": 232,
+      "to": 228
+    },
+    {
+      "from": 233,
+      "to": 17
+    },
+    {
+      "from": 233,
+      "to": 218
+    },
+    {
+      "from": 234,
+      "to": 216
+    },
+    {
+      "from": 234,
+      "to": 218
+    },
+    {
+      "from": 235,
+      "to": 18
+    },
+    {
+      "from": 235,
+      "to": 231
+    },
+    {
+      "from": 236,
+      "to": 233
+    },
+    {
+      "from": 236,
+      "to": 234
+    },
+    {
+      "from": 236,
+      "to": 235
+    },
+    {
+      "from": 237,
+      "to": 21
+    },
+    {
+      "from": 237,
+      "to": 220
+    },
+    {
+      "from": 238,
+      "to": 1
+    },
+    {
+      "from": 238,
+      "to": 182
+    },
+    {
+      "from": 239,
+      "to": 238
+    },
+    {
+      "from": 239,
+      "to": 242
+    },
+    {
+      "from": 240,
+      "to": 238
+    },
+    {
+      "from": 241,
+      "to": 21
+    },
+    {
+      "from": 241,
+      "to": 240
+    },
+    {
+      "from": 242,
+      "to": 22
+    },
+    {
+      "from": 242,
+      "to": 72
+    },
+    {
+      "from": 243,
+      "to": 185
+    },
+    {
+      "from": 243,
+      "to": 186
+    },
+    {
+      "from": 243,
+      "to": 238
+    },
+    {
+      "from": 244,
+      "to": 243
+    },
+    {
+      "from": 245,
+      "to": 123
+    },
+    {
+      "from": 245,
+      "to": 243
+    },
+    {
+      "from": 246,
+      "to": 244
+    },
+    {
+      "from": 246,
+      "to": 245
+    },
+    {
+      "from": 247,
+      "to": 206
+    },
+    {
+      "from": 247,
+      "to": 243
+    },
+    {
+      "from": 248,
+      "to": 25
+    },
+    {
+      "from": 248,
+      "to": 238
+    },
+    {
+      "from": 249,
+      "to": 196
+    },
+    {
+      "from": 249,
+      "to": 248
+    },
+    {
+      "from": 250,
+      "to": 248
+    },
+    {
+      "from": 251,
+      "to": 199
+    },
+    {
+      "from": 251,
+      "to": 250
+    },
+    {
+      "from": 252,
+      "to": 249
+    },
+    {
+      "from": 252,
+      "to": 250
+    },
+    {
+      "from": 253,
+      "to": 44
+    },
+    {
+      "from": 253,
+      "to": 92
+    },
+    {
+      "from": 254,
+      "to": 141
+    },
+    {
+      "from": 254,
+      "to": 253
+    },
+    {
+      "from": 255,
+      "to": 73
+    },
+    {
+      "from": 255,
+      "to": 97
+    },
+    {
+      "from": 255,
+      "to": 256
+    },
+    {
+      "from": 256,
+      "to": 50
+    },
+    {
+      "from": 256,
+      "to": 115
+    },
+    {
+      "from": 257,
+      "to": 43
+    },
+    {
+      "from": 257,
+      "to": 73
+    },
+    {
+      "from": 258,
+      "to": 115
+    },
+    {
+      "from": 258,
+      "to": 123
+    },
+    {
+      "from": 259,
+      "to": 90
+    },
+    {
+      "from": 259,
+      "to": 138
+    },
+    {
+      "from": 260,
+      "to": 143
+    },
+    {
+      "from": 260,
+      "to": 159
+    },
+    {
+      "from": 261,
+      "to": 74
+    },
+    {
+      "from": 261,
+      "to": 239
+    },
+    {
+      "from": 262,
+      "to": 42
+    },
+    {
+      "from": 262,
+      "to": 127
+    },
+    {
+      "from": 263,
+      "to": 96
+    },
+    {
+      "from": 263,
+      "to": 128
+    },
+    {
+      "from": 263,
+      "to": 262
+    },
+    {
+      "from": 264,
+      "to": 52
+    },
+    {
+      "from": 264,
+      "to": 253
+    },
+    {
+      "from": 265,
+      "to": 160
+    },
+    {
+      "from": 265,
+      "to": 161
+    },
+    {
+      "from": 266,
+      "to": 43
+    },
+    {
+      "from": 266,
+      "to": 218
+    },
+    {
+      "from": 266,
+      "to": 237
+    },
+    {
+      "from": 267,
+      "to": 1
+    },
+    {
+      "from": 267,
+      "to": 268
+    },
+    {
+      "from": 268,
+      "to": 226
+    },
+    {
+      "from": 268,
+      "to": 237
+    },
+    {
+      "from": 269,
+      "to": 5
+    },
+    {
+      "from": 269,
+      "to": 267
+    }
+  ]
+}

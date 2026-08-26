@@ -1,0 +1,2368 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Faults and seismic waves, the seismograph's inertial-mass principle from Zhang Heng to MEMS accelerometers, and the crucial distinction between magnitude and intensity scales.">
+      
+      
+        <meta name="author" content="Hank R.">
+      
+      
+        <link rel="canonical" href="https://iowerx.github.io/pi-env-monitor/chapters/11-ground-motion/">
+      
+      
+        <link rel="prev" href="../10-wind/">
+      
+      
+        <link rel="next" href="../12-os-and-sensor-buses/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Ground Motion: Measuring Earthquakes - Raspberry Pi Environmental Monitoring: Grades 6–12</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ground Motion: Measuring Earthquakes - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="og:description" content="Faults and seismic waves, the seismograph's inertial-mass principle from Zhang Heng to MEMS accelerometers, and the crucial distinction between magnitude and intensity scales.">
+<meta property="og:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/11-ground-motion/index.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://iowerx.github.io/pi-env-monitor/chapters/11-ground-motion/">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Ground Motion: Measuring Earthquakes - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="twitter:description" content="Faults and seismic waves, the seismograph's inertial-mass principle from Zhang Heng to MEMS accelerometers, and the crucial distinction between magnitude and intensity scales.">
+<meta property="twitter:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/11-ground-motion/index.png">
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ground-motion-measuring-earthquakes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Raspberry Pi Environmental Monitoring: Grades 6–12
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Ground Motion: Measuring Earthquakes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Raspberry Pi Environmental Monitoring: Grades 6–12
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components Used
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-why-we-measure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Why We Measure the Natural Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-language-of-measurement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. The Language of Measurement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-electricity-and-computer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Electricity and the Single-Board Computer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-how-sensors-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. How Sensors Turn the World Into Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-time-and-place/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Time and Place - Recording Where and When
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-temperature/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Temperature - From the Thermoscope to the Silicon Chip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-barometric-pressure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Barometric Pressure - The Weight of the Atmosphere
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-humidity-and-dew-point/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Humidity and Dew Point - The Water Hidden in the Air
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-solar-radiation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Solar Radiation - The Energy That Drives the Weather
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-wind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Wind - Measuring Air in Motion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Ground Motion - Measuring Earthquakes
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Ground Motion - Measuring Earthquakes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-you-measure-a-moving-room" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Do You Measure a Moving Room?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faults-and-earthquakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Faults and Earthquakes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seismic-waves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seismic Waves
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-oldest-instrument-in-this-book" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Oldest Instrument in This Book
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#measuring-against-something-that-will-not-move" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Measuring Against Something That Will Not Move
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Measuring Against Something That Will Not Move">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-inertial-mass-seismometer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Inertial Mass Seismometer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#magnitude-versus-intensity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Magnitude Versus Intensity
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Magnitude Versus Intensity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#intensity-scales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Intensity Scales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#magnitude-scales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Magnitude Scales
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Magnitude Scales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-magnitude-versus-intensity-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Magnitude Versus Intensity Map
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#small-cheap-and-everywhere" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Small, Cheap, and Everywhere
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#earthquake-early-warning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Earthquake Early Warning
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Earthquake Early Warning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-early-warning-race-p-wave-versus-alert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Early Warning Race — P Wave Versus Alert
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-os-and-sensor-buses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. The Station's Brain - Operating System, Command Line, and Sensor Buses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-python-programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Programming the Station in Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-data-logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Logging Data - Timestamps, Intervals, and Files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-charting-and-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Charting and Interpreting Your Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-building-for-outdoors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Building the Station for the Outdoors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-measurement-to-consequence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. From Measurement to Consequence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../licensing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-you-measure-a-moving-room" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Do You Measure a Moving Room?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faults-and-earthquakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Faults and Earthquakes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seismic-waves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seismic Waves
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-oldest-instrument-in-this-book" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Oldest Instrument in This Book
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#measuring-against-something-that-will-not-move" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Measuring Against Something That Will Not Move
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Measuring Against Something That Will Not Move">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-inertial-mass-seismometer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Inertial Mass Seismometer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#magnitude-versus-intensity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Magnitude Versus Intensity
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Magnitude Versus Intensity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#intensity-scales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Intensity Scales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#magnitude-scales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Magnitude Scales
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Magnitude Scales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-magnitude-versus-intensity-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Magnitude Versus Intensity Map
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#small-cheap-and-everywhere" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Small, Cheap, and Everywhere
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#earthquake-early-warning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Earthquake Early Warning
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Earthquake Early Warning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-early-warning-race-p-wave-versus-alert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Early Warning Race — P Wave Versus Alert
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/iowerx/pi-env-monitor/blob/main/docs/chapters/11-ground-motion/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="ground-motion-measuring-earthquakes">Ground Motion: Measuring Earthquakes<a class="headerlink" href="#ground-motion-measuring-earthquakes" title="Permanent link">¶</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
+<p>The oldest instrument in this book is Zhang Heng's seismoscope of 138 AD. This chapter covers faults and the seismic waves they release, distinguishing the fast P wave from the damaging S wave, then follows the instrument line to Milne's seismograph and the modern seismometer, all built on the same principle: measure the ground against a mass that resists being moved. It draws the crucial distinction between magnitude scales that describe the event and intensity scales that describe the shaking at a place, and closes with the MEMS accelerometers that make earthquake early warning possible from ordinary devices.</p>
+<h2 id="concepts-covered">Concepts Covered<a class="headerlink" href="#concepts-covered" title="Permanent link">¶</a></h2>
+<p>This chapter covers the following 17 concepts from the learning graph:</p>
+<ol>
+<li>Fault</li>
+<li>Earthquake</li>
+<li>Seismic Wave</li>
+<li>Acceleration</li>
+<li>P Wave</li>
+<li>S Wave</li>
+<li>Seismoscope</li>
+<li>Inertial Mass</li>
+<li>Accelerometer</li>
+<li>Mercalli Intensity Scale</li>
+<li>Seismograph</li>
+<li>Seismometer</li>
+<li>MEMS Accelerometer</li>
+<li>Earthquake Early Warning</li>
+<li>Richter Scale</li>
+<li>Moment Magnitude Scale</li>
+<li>Magnitude Versus Intensity</li>
+</ol>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-why-we-measure/">Chapter 1: Why We Measure the Natural Environment</a></li>
+<li><a href="../02-language-of-measurement/">Chapter 2: The Language of Measurement</a></li>
+<li><a href="../04-how-sensors-work/">Chapter 4: How Sensors Turn the World Into Numbers</a></li>
+</ul>
+<hr>
+<h2 id="how-do-you-measure-a-moving-room">How Do You Measure a Moving Room?<a class="headerlink" href="#how-do-you-measure-a-moving-room" title="Permanent link">¶</a></h2>
+<p>Here is a problem that sounds impossible.</p>
+<p>You are standing in a room. The room begins to shake. You want to measure how much it is shaking — but you are shaking too, along with your notebook, your pen, and the table you would put an instrument on. Everything you could measure <em>against</em> is moving with the thing you are trying to measure.</p>
+<p>It is like trying to measure how fast a train is going while sitting inside it with the blinds down.</p>
+<p>The answer is two thousand years old and beautifully simple: find something that refuses to move, and measure the room against that.</p>
+<p>This chapter is about that idea and the instruments built from it.</p>
+<h2 id="faults-and-earthquakes">Faults and Earthquakes<a class="headerlink" href="#faults-and-earthquakes" title="Permanent link">¶</a></h2>
+<p>The Earth's outer shell is broken into large plates that move slowly relative to one another — a few centimetres a year, roughly the speed a fingernail grows.</p>
+<p>They do not slide smoothly. Friction locks them together, and while they remain locked, the rock around the boundary bends and stores elastic energy, the way a stick bends before it snaps.</p>
+<p>A <strong>fault</strong> is a fracture in the Earth's crust along which rock masses have moved relative to each other. Faults are where the plates meet, and where the bending concentrates.</p>
+<p>An <strong>earthquake</strong> is the sudden release of accumulated elastic energy when a fault slips. The stored strain converts into vibration in a few seconds, and that vibration travels outward through the rock.</p>
+<p>Two terms locate an earthquake:</p>
+<ul>
+<li>The <strong>hypocenter</strong> or focus is the point underground where the slip begins</li>
+<li>The <strong>epicenter</strong> is the point on the surface directly above the hypocenter</li>
+</ul>
+<p>Depth matters enormously and is often left out of news reports. A magnitude 6 earthquake 10 kilometres down can devastate a city. The same magnitude 300 kilometres down may barely be felt, because the energy spreads through far more rock before reaching the surface.</p>
+<h2 id="seismic-waves">Seismic Waves<a class="headerlink" href="#seismic-waves" title="Permanent link">¶</a></h2>
+<p>A <strong>seismic wave</strong> is a wave of energy travelling through the Earth, released by an earthquake or another sudden disturbance.</p>
+<p>Two kinds travel through the Earth's interior, and the difference between them is what makes earthquake early warning possible.</p>
+<p>A <strong>P wave</strong> — primary wave — is a compressional wave. The rock is alternately squeezed and stretched <em>along</em> the direction the wave travels, exactly like sound in air. In fact P waves <em>are</em> sound waves in rock, which is why some people report hearing a low rumble just before shaking begins.</p>
+<p>An <strong>S wave</strong> — secondary wave — is a shear wave. The rock moves <em>perpendicular</em> to the direction of travel, like a wave running along a shaken rope.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>P wave</th>
+<th>S wave</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Full name</td>
+<td>Primary</td>
+<td>Secondary</td>
+</tr>
+<tr>
+<td>Motion</td>
+<td>Push and pull along travel direction</td>
+<td>Side to side, perpendicular</td>
+</tr>
+<tr>
+<td>Speed in crust</td>
+<td>About 6 km/s</td>
+<td>About 3.5 km/s</td>
+</tr>
+<tr>
+<td>Arrives</td>
+<td>First</td>
+<td>Second</td>
+</tr>
+<tr>
+<td>Travels through liquid</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Damage caused</td>
+<td>Minor</td>
+<td>Major</td>
+</tr>
+<tr>
+<td>Feels like</td>
+<td>A jolt or thump</td>
+<td>Violent rolling and shaking</td>
+</tr>
+</tbody>
+</table>
+<p>Three consequences follow from that table, and each is genuinely important.</p>
+<p><strong>The gap between arrivals gives you distance.</strong> Because P waves travel roughly 1.7 times faster than S waves, the delay between them grows with distance from the epicenter. A single seismometer can estimate its own distance from the earthquake just by timing the gap — roughly 8 kilometres for every second of separation. Three stations doing this independently locate the epicenter by trilateration, the same technique GPS uses in Chapter 5.</p>
+<p><strong>The gap also buys warning time.</strong> The P wave arrives first and is relatively harmless. Detect it, and you have seconds before the destructive S wave arrives. That is the entire basis of earthquake early warning, covered later in this chapter.</p>
+<p><strong>S waves cannot cross liquid</strong>, and this discovery mapped the inside of the planet. In the 1910s Beno Gutenberg noticed that S waves never arrive on the far side of the Earth from a large earthquake — there is an S wave shadow zone. Since shear waves require a material that resists twisting, and liquids do not, the only explanation was a liquid layer in the way. That is how we know the Earth has a liquid outer core. Nobody drilled. They listened.</p>
+<h2 id="the-oldest-instrument-in-this-book">The Oldest Instrument in This Book<a class="headerlink" href="#the-oldest-instrument-in-this-book" title="Permanent link">¶</a></h2>
+<p>Around 138 AD, the Chinese polymath Zhang Heng built a device to detect distant earthquakes.</p>
+<p>A <strong>seismoscope</strong> is an instrument that detects and indicates that ground motion has occurred, without producing a continuous record of it.</p>
+<p>Zhang Heng's was a bronze vessel roughly two metres across, ringed by eight dragon heads facing the eight compass directions. Each dragon held a bronze ball in its mouth. Below each dragon sat an open-mouthed bronze toad.</p>
+<p>When a distant earthquake shook the vessel, an internal mechanism — the details are lost, but a suspended pendulum is the accepted reconstruction — released one ball. It fell into the toad's mouth below with a loud clang, alerting attendants and indicating the direction the shaking came from.</p>
+<p>The historical record says it detected an earthquake several hundred kilometres away that had not been felt at the capital, and that a messenger arrived days later confirming it. The court was reportedly unimpressed until then.</p>
+<p>It detected, and it pointed. What it could not do was record — there was no trace of how strong the shaking was or how long it lasted. And then, remarkably, nothing comparable appeared for seventeen centuries.</p>
+<h2 id="measuring-against-something-that-will-not-move">Measuring Against Something That Will Not Move<a class="headerlink" href="#measuring-against-something-that-will-not-move" title="Permanent link">¶</a></h2>
+<p>The breakthrough that turned detection into measurement rests on a principle from basic physics.</p>
+<p><strong>Inertial mass</strong> is the property of matter that resists any change in its motion. A heavy object at rest tends to stay at rest, and it takes force to change that.</p>
+<p>Here is how it solves the moving-room problem. Suspend a heavy mass from a spring or a long wire, attached to a frame that is bolted to the ground. When the ground shakes:</p>
+<ul>
+<li>The frame, bolted down, moves with the ground</li>
+<li>The mass, because of its inertia and the softness of its suspension, tends to stay where it was</li>
+<li>The <em>relative</em> motion between the frame and the mass is the ground motion</li>
+</ul>
+<p>You cannot find a fixed reference outside the moving room. So you make one inside it, out of inertia.</p>
+<p>A <strong>seismograph</strong> is an instrument that produces a permanent record of ground motion over time. The classic design attaches a pen to the suspended mass and runs a rotating paper drum past it on the moving frame. As the ground shakes, the drum moves under the nearly-stationary pen and the pen traces the motion.</p>
+<p>The word <strong>seismometer</strong> refers to the sensing element itself — the mass, suspension, and motion detector — as opposed to the complete recording system. In modern usage the distinction has softened, but "seismometer" is the more precise term for the sensor.</p>
+<p>Luigi Palmieri built an electromagnetic seismograph on the slopes of Vesuvius in 1856 that could record the time of a shock. The modern instrument came from a group of British scientists working in Japan: John Milne, James Ewing, and Thomas Gray, who built the first true seismograph around 1880 after the Yokohama earthquake of that year prompted them to found the Seismological Society of Japan.</p>
+<p>Milne then did something more consequential than building the instrument. He organized the first worldwide network of seismograph stations, and that network made an entirely new science possible. Comparing arrival times at many stations located earthquakes precisely. Reading how waves bent and reflected revealed the layered structure of the Earth's interior. Seismology stopped being the study of earthquakes and became a way of measuring the whole planet.</p>
+<p>Real seismometers add one refinement worth knowing. A simple mass on a spring has a natural frequency at which it resonates, which distorts readings near that frequency. Modern broadband seismometers use force feedback: an electromagnet actively pushes the mass to keep it centred, and the <em>current required to hold it still</em> becomes the output signal. This flattens the response across a wide frequency range and is the same feedback trick used in many precision instruments.</p>
+<h4 id="diagram-inertial-mass-seismometer">Diagram: Inertial Mass Seismometer<a class="headerlink" href="#diagram-inertial-mass-seismometer" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/inertial-mass-seismometer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Inertial Mass Seismometer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> inertial-mass-seismometer<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Understand (L2)
+Bloom Verb: explain</p>
+<p>Learning objective: The learner explains how a suspended mass provides a stationary reference inside a moving frame, and predicts how changing the mass or the suspension stiffness changes what the instrument records.</p>
+<p>Purpose: Students accept "the mass stays still" without understanding that it only approximately does, and only for motions faster than the suspension's natural period. Letting them stiffen the spring until the mass moves with the frame — and the recorded trace goes flat — shows why the design requires a soft suspension and a heavy mass.</p>
+<p>Canvas layout:
+- Left two-thirds: a cutaway side view showing bedrock, a bolted frame, a spring, a suspended mass, a pen attached to the mass, and a rotating drum attached to the frame
+- Right or below (responsive): the recorded trace scrolling in real time, plus a readout panel
+- Bottom: controls
+- Responsive to window resize</p>
+<p>Data Visibility Requirements:
+  Stage 1: Show ground displacement as a number and as a visible shift of the bedrock and frame
+  Stage 2: Show mass displacement as a separate number, so the learner can compare the two directly
+  Stage 3: Show the difference between them, labeled "relative motion — this is what gets recorded"
+  Stage 4: Show the pen tracing that difference onto the drum, building a seismogram
+  Stage 5: Show the suspension's natural period and the dominant period of the current ground motion side by side, with a verdict: "Ground motion is faster than the suspension period. The mass stays put. Good recording." or "Ground motion is slower than the suspension period. The mass follows the frame. Recording is attenuated."</p>
+<p>Interactive controls:
+- Ground motion selector: "Distant small earthquake", "Nearby large earthquake", "Passing truck", "Slow tilt (a landslide creeping)", and a manual "shake" control the learner can drag
+- Mass slider: light to heavy
+- Spring stiffness slider: soft to stiff, with the natural period displayed and updating
+- Damping slider, with three labelled regions — underdamped (the trace rings after the shaking stops), critically damped (clean), overdamped (sluggish and attenuated)
+- "Force feedback mode" toggle that switches to the modern design, showing the electromagnet actively re-centring the mass and the output changing from displacement to the holding current, with a caption explaining that the response becomes flat across frequencies</p>
+<p>Required teaching moment: setting the spring to maximum stiffness must make the mass move essentially with the frame and flatten the recorded trace to nearly nothing, with the caption "A stiff suspension makes the mass follow the ground. There is no relative motion left to record. This is why seismometers use soft suspensions and heavy masses."</p>
+<p>Instructional Rationale: The objective is Understand/explain, so the design shows all three quantities — ground position, mass position, and their difference — simultaneously as numbers and as motion. The failure case reachable by stiffening the spring is essential: a design principle is only understood once the learner has seen what happens when it is violated. The damping control is included because ringing artifacts appear in real seismograms and students should recognize them as instrument behavior rather than aftershocks.</p>
+<p>Implementation: p5.js. Model the mass as a damped harmonic oscillator driven by frame motion; integrate with a fixed small timestep. The recorded trace is frame position minus mass position.</p>
+</details>
+<h2 id="magnitude-versus-intensity">Magnitude Versus Intensity<a class="headerlink" href="#magnitude-versus-intensity" title="Permanent link">¶</a></h2>
+<p>This is the most commonly confused pair of ideas in this book, and news coverage confuses them constantly.</p>
+<p><strong>Magnitude versus intensity</strong> is the distinction between how big an earthquake <em>was</em> and how strongly it was <em>felt at a particular place</em>.</p>
+<ul>
+<li><strong>Magnitude</strong> describes the earthquake itself — the energy released at the source. An earthquake has exactly <strong>one</strong> magnitude, no matter where you stand.</li>
+<li><strong>Intensity</strong> describes the shaking experienced at one location. A single earthquake has <strong>many</strong> intensities — high near the epicenter, lower further away, and varying with local ground conditions.</li>
+</ul>
+<p>An analogy that holds up well: magnitude is the wattage of a light bulb; intensity is how bright it looks from where you are sitting. One bulb, one wattage, many brightnesses.</p>
+<h3 id="intensity-scales">Intensity Scales<a class="headerlink" href="#intensity-scales" title="Permanent link">¶</a></h3>
+<p>Intensity came first historically, because it needs no instrument — only observers, which is the same insight Beaufort had for wind in Chapter 10.</p>
+<p>The <strong>Mercalli intensity scale</strong>, developed by Giuseppe Mercalli in 1902 and revised as the Modified Mercalli scale in 1931, rates shaking from I to XII based on observed effects on people, objects, and buildings.</p>
+<table>
+<thead>
+<tr>
+<th>Intensity</th>
+<th>Description</th>
+<th>Observed effects</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>I</td>
+<td>Not felt</td>
+<td>Detected only by instruments</td>
+</tr>
+<tr>
+<td>II–III</td>
+<td>Weak</td>
+<td>Felt by a few people indoors; like a passing truck</td>
+</tr>
+<tr>
+<td>IV</td>
+<td>Light</td>
+<td>Felt indoors by many; dishes rattle</td>
+</tr>
+<tr>
+<td>V</td>
+<td>Moderate</td>
+<td>Felt by nearly everyone; some objects overturned</td>
+</tr>
+<tr>
+<td>VI</td>
+<td>Strong</td>
+<td>Felt by all; some heavy furniture moves; slight damage</td>
+</tr>
+<tr>
+<td>VII</td>
+<td>Very strong</td>
+<td>Damage to poorly built structures</td>
+</tr>
+<tr>
+<td>VIII</td>
+<td>Severe</td>
+<td>Considerable damage to ordinary buildings</td>
+</tr>
+<tr>
+<td>IX</td>
+<td>Violent</td>
+<td>Well-designed structures damaged; buildings shifted</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Extreme</td>
+<td>Most masonry destroyed; ground cracks</td>
+</tr>
+<tr>
+<td>XI–XII</td>
+<td>Catastrophic</td>
+<td>Few structures remain standing; ground waves visible</td>
+</tr>
+</tbody>
+</table>
+<p>Note that it uses Roman numerals, which is a deliberate convention to prevent it being confused with magnitude. And note from Chapter 2 that it is an ordinal scale: intensity VIII is not twice intensity IV.</p>
+<p>Intensity maps are made by collecting reports, and this remains a live technique. The USGS "Did You Feel It?" system collects public reports online after every earthquake and builds intensity maps from thousands of responses. It is a genuine citizen science instrument, and Chapter 17 returns to that idea.</p>
+<h3 id="magnitude-scales">Magnitude Scales<a class="headerlink" href="#magnitude-scales" title="Permanent link">¶</a></h3>
+<p>Charles Richter, working with Beno Gutenberg, published the first magnitude scale in 1935. It was designed for a specific purpose: comparing earthquakes in Southern California using a specific instrument, the Wood-Anderson torsion seismometer.</p>
+<p>The <strong>Richter scale</strong> — properly the local magnitude scale — is defined from the maximum amplitude recorded on a seismogram, corrected for the station's distance from the epicenter.</p>
+<p>It is <strong>logarithmic</strong>, the concept from Chapter 2. Each whole step means:</p>
+<ul>
+<li><strong>10 times</strong> the ground motion amplitude</li>
+<li>About <strong>32 times</strong> the energy released</li>
+</ul>
+<p>That energy factor is the one people underestimate. A magnitude 7 is not "a bit worse" than a magnitude 5 — it releases about <span class="arithmatex">\(32 \times 32 = 1000\)</span> times the energy.</p>
+<table>
+<thead>
+<tr>
+<th>Magnitude difference</th>
+<th>Ground motion ratio</th>
+<th>Energy ratio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>10×</td>
+<td>~32×</td>
+</tr>
+<tr>
+<td>2.0</td>
+<td>100×</td>
+<td>~1,000×</td>
+</tr>
+<tr>
+<td>3.0</td>
+<td>1,000×</td>
+<td>~32,000×</td>
+</tr>
+<tr>
+<td>4.0</td>
+<td>10,000×</td>
+<td>~1,000,000×</td>
+</tr>
+</tbody>
+</table>
+<p>The Richter scale has a serious flaw that only appeared as instruments improved: it <strong>saturates</strong>. Above about magnitude 7, the recorded amplitude stops increasing proportionally with the true size of the event, because a very large earthquake ruptures a fault over a long time and a large area, and the instrument's short-period response cannot capture it. On the Richter scale, a magnitude 8.5 and a magnitude 9.5 look nearly the same. They are not — one releases about 32 times the energy of the other.</p>
+<p>The <strong>moment magnitude scale</strong>, developed by Hiroo Kanamori and Thomas Hanks in 1979, fixed this by measuring the physical size of the event rather than the wiggle on a chart.</p>
+<p>It is computed from the seismic moment, which is the product of three physical quantities:</p>
+<div class="arithmatex">\[ M_0 = \mu \times A \times d \]</div>
+<p>where <span class="arithmatex">\(\mu\)</span> is the rigidity of the rock, <span class="arithmatex">\(A\)</span> is the area of the fault surface that slipped, and <span class="arithmatex">\(d\)</span> is the average distance it slipped. Moment magnitude <span class="arithmatex">\(M_w\)</span> is derived from that moment.</p>
+<p>Because it measures the rupture itself, moment magnitude does not saturate. It agrees closely with the Richter scale for moderate earthquakes, which is why the numbers feel familiar, and it keeps working for the largest events on record.</p>
+<div class="admonition note">
+<p class="admonition-title">Nobody uses the Richter scale anymore</p>
+<p>News reports still say "on the Richter scale" out of habit, but seismologists have used moment magnitude for large earthquakes since about 1979. When you read that the 2011 Tohoku earthquake was magnitude 9.1, that is a moment magnitude. On the original Richter scale it would have registered around 8.4 — badly understating one of the largest earthquakes ever recorded.</p>
+<p>This matters for your own writing. If your station records something, report it as moment magnitude or simply as "magnitude," not as "on the Richter scale."</p>
+</div>
+<h4 id="diagram-magnitude-versus-intensity-map">Diagram: Magnitude Versus Intensity Map<a class="headerlink" href="#diagram-magnitude-versus-intensity-map" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/magnitude-versus-intensity-map/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Magnitude Versus Intensity Map</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> magnitude-versus-intensity-map<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Analyze (L4)
+Bloom Verb: differentiate</p>
+<p>Learning objective: The learner differentiates magnitude from intensity by observing that one earthquake produces a single magnitude but a field of different intensities, and analyzes how depth, distance, and local ground conditions change the intensity at a given place.</p>
+<p>Purpose: This confusion is universal and it is reinforced by news coverage. The only durable fix is to let the learner set one magnitude and then watch a whole map of different intensities appear from it, then probe individual towns and see them disagree.</p>
+<p>Canvas layout:
+- Main area: a plan-view map with an epicenter marker, several labeled towns at varying distances, and a shaded intensity field drawn as colored contour bands
+- A persistent header showing "Magnitude: X.X — one value for this earthquake"
+- Right or below (responsive): a probe panel for the selected town, and a comparison list of all towns with their individual intensities
+- Bottom: controls
+- Responsive to window resize; map preserves aspect ratio</p>
+<p>Data Visibility Requirements:
+  Stage 1: Show the single magnitude prominently, with a label emphasizing that it does not change anywhere on the map
+  Stage 2: Draw the intensity field as Modified Mercalli contour bands with Roman numeral labels and the standard USGS ShakeMap color scheme
+  Stage 3: On probing a town, show its distance from the epicenter, its local ground type, and its resulting intensity with the Mercalli description text
+  Stage 4: Show the comparison list of all towns sorted by intensity, making it visually obvious that one magnitude produced many intensities
+  Stage 5: Show energy comparisons when magnitude changes, e.g. "Raising magnitude from 6.0 to 7.0 released about 32 times more energy"</p>
+<p>Towns must include at least one pair that breaks the simple distance rule: a town far from the epicenter on soft sediment experiencing HIGHER intensity than a nearer town on bedrock. The probe panel must explain this: "Soft sediment amplifies shaking. This town is further away and shook harder." This models the real 1985 Mexico City and 1989 San Francisco Marina District cases, which should be named in the infobox.</p>
+<p>Interactive controls:
+- Magnitude slider, 4.0 to 9.0
+- Depth slider, 5 to 300 km, with a caption showing that a deep earthquake produces lower surface intensities everywhere for the same magnitude
+- Drag the epicenter anywhere on the map; the intensity field recomputes
+- Ground-type toggle per town: bedrock, firm soil, soft sediment, artificial fill
+- "Did you feel it?" mode: the learner is given an observed effect description at a town — "dishes rattled, hanging pictures swung" — and must assign the Mercalli intensity, then check against the map</p>
+<p>Required framing text, always visible: "Magnitude describes the earthquake. Intensity describes a place. One earthquake, one magnitude, many intensities."</p>
+<p>Instructional Rationale: The objective is Analyze/differentiate, which requires holding one quantity fixed while another varies. Keeping the magnitude readout fixed and prominent in the header while the intensity field changes underneath is the design decision that carries the whole lesson. The soft-sediment amplification case is included because it defeats the naive "closer means stronger" rule and forces the learner to reason about local conditions.</p>
+<p>Implementation: p5.js. Compute intensity from magnitude, hypocentral distance, and a site amplification factor using a published intensity prediction equation form. Draw contours by evaluating the field on a grid and using marching squares or simple banded fill.</p>
+</details>
+<h2 id="small-cheap-and-everywhere">Small, Cheap, and Everywhere<a class="headerlink" href="#small-cheap-and-everywhere" title="Permanent link">¶</a></h2>
+<p>Research seismometers cost thousands of dollars, sit on concrete piers in vaults, and are exquisitely sensitive. A school cannot have one. What a school can have arrived from an unrelated industry.</p>
+<p><strong>Acceleration</strong> is the rate of change of velocity, measured in metres per second squared (m/s²). Seismic shaking is acceleration: the ground repeatedly speeds up and slows down in different directions.</p>
+<p>Ground acceleration is often expressed as a fraction of <span class="arithmatex">\(g\)</span>, the acceleration due to gravity, which is 9.81 m/s². This is convenient because it maps directly to force on a structure — 0.5 g of horizontal acceleration means a sideways force half the weight of the building.</p>
+<p>An <strong>accelerometer</strong> is a sensor that measures acceleration. It is the same inertial-mass idea, shrunk: a small mass on springs, whose displacement relative to its housing indicates acceleration.</p>
+<p>A <strong>MEMS accelerometer</strong> is one built as a Micro-Electro-Mechanical System, with a microscopic proof mass on silicon springs, etched into a chip using the manufacturing processes described in Chapter 4. The mass shifts by nanometres, changing the gap between capacitor plates, and that capacitance change becomes the output signal — Chapter 8's capacitive sensing again, applied to motion instead of moisture.</p>
+<p>Analog Devices shipped the ADXL50 in 1991 for automotive airbag deployment. Cars needed a crash sensor cheap enough for every vehicle and reliable enough to trust with a life. Manufacturing volume did the rest, and by the 2000s MEMS accelerometers cost a few dollars and were in phones, game controllers, fitness trackers, and laptops.</p>
+<p>Then somebody noticed that a device in every pocket that measures acceleration is a seismic network waiting to be assembled.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Research seismometer</th>
+<th>MEMS accelerometer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sensitivity</td>
+<td>Detects motion of nanometres</td>
+<td>Detects roughly 0.001 g</td>
+</tr>
+<tr>
+<td>Detects</td>
+<td>Distant magnitude 4 events worldwide</td>
+<td>Local shaking, roughly magnitude 4+ nearby</td>
+</tr>
+<tr>
+<td>Cost</td>
+<td>Thousands</td>
+<td>A few dollars</td>
+</tr>
+<tr>
+<td>Installation</td>
+<td>Concrete pier, vault, isolation</td>
+<td>Screwed to a wall</td>
+</tr>
+<tr>
+<td>How many exist</td>
+<td>Thousands</td>
+<td>Billions</td>
+</tr>
+<tr>
+<td>Strength</td>
+<td>Precision</td>
+<td>Density</td>
+</tr>
+</tbody>
+</table>
+<p>That last row is the whole argument. A single MEMS accelerometer is a poor seismometer. Ten thousand of them, spread across a city, are something a research network cannot be: everywhere at once.</p>
+<p>Several projects have built on this:</p>
+<ul>
+<li><strong>Quake-Catcher Network</strong> (2008) — USB accelerometers in volunteers' homes and schools</li>
+<li><strong>MyShake</strong> (2016) — a smartphone app from UC Berkeley using phone accelerometers, with algorithms that separate earthquake shaking from someone putting their phone down</li>
+<li><strong>Raspberry Shake</strong> — a purpose-built low-cost seismograph on a Raspberry Pi, feeding a global amateur network</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Your seismic sensor is not chosen yet</p>
+<p><a href="../../components/">Components Used</a> lists the seismic sensor as TBD. The physics in this chapter applies to any MEMS accelerometer, but two datasheet questions from Chapter 4 matter especially here.</p>
+<p><strong>Sample rate.</strong> To catch a P wave and separate it from an S wave you need at least 50 samples per second, and 100 is better. Many general-purpose accelerometer modules are configured by default for far slower motion sensing, and Chapter 4's rule about not sampling faster than the sensor responds runs the other way here — an accelerometer that only updates 10 times a second cannot do seismology.</p>
+<p><strong>Sensitivity and range.</strong> A module set to ±16 g will barely register an earthquake, because it spreads its resolution across a huge range. A ±2 g setting gives eight times the resolution over the range that actually matters. This is Chapter 2's measurement range trade-off in a very concrete form.</p>
+<p>A common choice for student stations is an ADXL345 or MPU-6050 over I2C, which fits the Chapter 12 wiring without additional hardware.</p>
+</div>
+<h2 id="earthquake-early-warning">Earthquake Early Warning<a class="headerlink" href="#earthquake-early-warning" title="Permanent link">¶</a></h2>
+<p><strong>Earthquake early warning</strong> is a system that detects an earthquake in progress and alerts people before the damaging shaking reaches them.</p>
+<p>It is not prediction. Nobody can predict earthquakes, and claims otherwise should be treated with deep suspicion. Early warning is something more modest and entirely real: <strong>the earthquake has already started, and the warning outruns it.</strong></p>
+<p>Two speed differences make this work:</p>
+<ol>
+<li>The P wave outruns the S wave, buying seconds at any given location</li>
+<li>Radio and internet signals travel at nearly the speed of light — about 300,000 km/s — while seismic waves crawl along at 3 to 6 km/s</li>
+</ol>
+<p>So a station near the epicenter can detect the P wave, transmit that detection, and have an alert arrive in a distant city long before any shaking does.</p>
+<p>The warning time depends entirely on distance from the epicenter:</p>
+<table>
+<thead>
+<tr>
+<th>Distance from epicenter</th>
+<th>Approximate warning time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20 km</td>
+<td>3–5 seconds</td>
+</tr>
+<tr>
+<td>50 km</td>
+<td>10 seconds</td>
+</tr>
+<tr>
+<td>100 km</td>
+<td>20–25 seconds</td>
+</tr>
+<tr>
+<td>200 km</td>
+<td>45–50 seconds</td>
+</tr>
+</tbody>
+</table>
+<p>There is an unavoidable blind zone directly around the epicenter, where the shaking arrives before any system could process and transmit a warning. That is where the damage is worst, which is the cruel limitation of the whole approach.</p>
+<p>Even so, seconds are worth a great deal:</p>
+<ul>
+<li>Trains brake automatically, preventing derailment</li>
+<li>Gas valves close, preventing the fires that historically cause much of the post-earthquake damage</li>
+<li>Elevators stop at the nearest floor and open</li>
+<li>Surgeons lift instruments away from patients</li>
+<li>Factory lines and hazardous processes shut down</li>
+<li>People move away from windows and get under a table</li>
+</ul>
+<p>Japan has operated a nationwide system since 2007. Mexico's SASMEX has run since 1991. The United States West Coast system, ShakeAlert, began delivering public alerts in stages from 2019 through 2021.</p>
+<h4 id="diagram-early-warning-race-p-wave-versus-alert">Diagram: Early Warning Race — P Wave Versus Alert<a class="headerlink" href="#diagram-early-warning-race-p-wave-versus-alert" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/early-warning-race/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Early Warning Race — P Wave Versus Alert</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> early-warning-race<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Evaluate (L5)
+Bloom Verb: assess</p>
+<p>Learning objective: The learner assesses how much warning time a city receives from an earthquake early warning system, and justifies why a blind zone exists near the epicenter that no system can eliminate.</p>
+<p>Purpose: Early warning is routinely misunderstood as prediction. Racing three things across a map — the P wave, the S wave, and a radio alert — makes it unmistakable that the earthquake has already happened and that the alert is simply faster than the damage.</p>
+<p>Canvas layout:
+- Main area: a plan-view map with an epicenter, a ring of seismic stations near it, and four labelled cities at 20, 50, 100, and 200 km
+- Three expanding rings animate outward from the epicenter: P wave, S wave, and (after detection and processing) the alert
+- Right or below (responsive): a per-city panel showing detection time, alert arrival, S wave arrival, and the resulting warning time
+- Bottom: controls and a timeline scrubber
+- Responsive to window resize; the map preserves scale and the distance legend rescales</p>
+<p>Data Visibility Requirements:
+  Stage 1: t = 0. Show "Rupture begins" and start the P and S rings expanding at 6 km/s and 3.5 km/s
+  Stage 2: Show the moment the nearest station's P wave arrives, labelled "P wave detected"
+  Stage 3: Show a processing delay of a configurable few seconds, labelled explicitly "system processing time — this is why the blind zone exists," then launch the alert ring at effectively the speed of light
+  Stage 4: For each city, show alert arrival time and S wave arrival time, and compute the difference as warning seconds
+  Stage 5: Colour each city green when it received useful warning and red when the shaking arrived first, with the blind zone drawn as a shaded circle</p>
+<p>Interactive controls:
+- Timeline scrubber so the learner can stop the race at any instant and read all three ring radii
+- Processing delay slider, 1 to 10 seconds, showing the blind zone grow and shrink with it
+- Station density selector: sparse, moderate, dense. Denser networks detect sooner and shrink the blind zone, which motivates the MEMS argument earlier in the chapter.
+- Epicenter depth slider, which changes how long the waves take to reach the surface
+- "What can you do in N seconds?" panel that updates per city with concrete actions: 3 s "get under a table"; 10 s "stop the trains, close the gas valves"; 25 s "halt surgery, stop the elevators at the nearest floor"; 50 s "shut down the factory line"</p>
+<p>Required framing text, always visible: "The earthquake has already happened. This is not prediction — the alert is simply faster than the shaking."</p>
+<p>Required teaching moment: the 20 km city must sometimes fall inside the blind zone depending on the processing delay setting, with the caption "The place that needs warning most gets the least. This is the fundamental limit of early warning."</p>
+<p>Instructional Rationale: The objective is Evaluate/assess, which requires weighing a system's performance against what it is for. Pairing each city's warning time with a concrete list of achievable actions turns an abstract number of seconds into a judgment about usefulness. The blind zone is drawn rather than described because its existence is the honest limitation of the technology and students should not leave with an inflated view of it.</p>
+<p>Implementation: p5.js. Ring radii = velocity x elapsed time; the alert ring is effectively instantaneous once triggered, so render it as a rapid fill rather than a slow expansion. Detection triggers when the P ring reaches the nearest station.</p>
+</details>
+<h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">¶</a></h2>
+<ul>
+<li>A <strong>fault</strong> is a fracture where rock masses move relative to each other. An <strong>earthquake</strong> is the sudden release of elastic energy when a fault slips.</li>
+<li>A <strong>seismic wave</strong> carries that energy. The <strong>P wave</strong> is compressional and fast; the <strong>S wave</strong> is shear, slower, and does the damage. S waves cannot cross liquid, which is how the liquid outer core was discovered.</li>
+<li>Zhang Heng's <strong>seismoscope</strong> (138 AD) detected and pointed but did not record.</li>
+<li><strong>Inertial mass</strong> solves the moving-room problem: a suspended mass provides a reference that stays put while the frame moves with the ground. The <strong>seismograph</strong> records that relative motion; the <strong>seismometer</strong> is the sensing element.</li>
+<li><strong>Magnitude versus intensity</strong>: magnitude describes the earthquake and has one value; intensity describes shaking at a place and has many values. The <strong>Mercalli intensity scale</strong> rates observed effects I to XII.</li>
+<li>The <strong>Richter scale</strong> (1935) is logarithmic — each step is 10× ground motion and ~32× energy — but saturates above about magnitude 7. The <strong>moment magnitude scale</strong> (1979) measures the physical rupture and does not saturate.</li>
+<li><strong>Acceleration</strong> is what shaking is. The <strong>accelerometer</strong>, and specifically the <strong>MEMS accelerometer</strong> built for car airbags, makes dense low-cost seismic networks possible.</li>
+<li><strong>Earthquake early warning</strong> is not prediction. It exploits the P–S gap and the speed of radio to deliver seconds of notice.</li>
+</ul>
+<h2 id="check-yourself">Check Yourself<a class="headerlink" href="#check-yourself" title="Permanent link">¶</a></h2>
+<details class="question">
+<summary>One earthquake. Town A reports intensity VIII, Town B reports intensity IV. What was the magnitude? Click to check.</summary>
+<p>You cannot tell from that information alone, and that is the point. Intensity varies from place to place for a single earthquake — it depends on distance, depth, and local ground conditions. Magnitude is a single number describing the event itself. Both towns experienced the same earthquake with the same magnitude; they experienced different shaking. To find the magnitude you need instrument recordings, not felt reports.</p>
+</details>
+<details class="question">
+<summary>How much more energy does a magnitude 8 release than a magnitude 6? Click to check.</summary>
+<p>About <strong>1,000 times</strong>. Each whole magnitude step is roughly 32 times the energy, so two steps is <span class="arithmatex">\(32 \times 32 \approx 1000\)</span>. In ground motion amplitude it is 100 times. This is why the difference between magnitudes that look close on a number line is catastrophic in practice.</p>
+</details>
+<details class="question">
+<summary>P waves travel about 6 km/s and S waves about 3.5 km/s. Your sensor records a 12-second gap between them. How far away was the earthquake? Click to check.</summary>
+<p>Roughly <strong>100 km</strong>. The rule of thumb is about 8 km per second of P–S separation, giving <span class="arithmatex">\(12 \times 8 = 96\)</span> km. To derive it: in time <span class="arithmatex">\(t\)</span> the P wave covers <span class="arithmatex">\(6t\)</span> and the S wave covers <span class="arithmatex">\(3.5t\)</span>. Setting distance <span class="arithmatex">\(d\)</span>, the arrival times are <span class="arithmatex">\(d/6\)</span> and <span class="arithmatex">\(d/3.5\)</span>, and their difference is 12 s. Solving gives <span class="arithmatex">\(d \approx 101\)</span> km. One station gives you distance; three give you the epicenter.</p>
+</details>
+<details class="question">
+<summary>A town 80 km from the epicenter shakes harder than one 40 km away. Both are on the same fault. How? Click to check.</summary>
+<p>Local ground conditions. Soft sediment, artificial fill, and old lake or bay beds amplify seismic shaking substantially compared to bedrock — waves slow down and their amplitude grows. A distant town on landfill can experience considerably higher intensity than a nearer town on rock. This is not hypothetical: it is what happened in Mexico City in 1985, where a lakebed basin amplified shaking from an earthquake 350 km away, and in San Francisco's Marina District in 1989.</p>
+</details>
+<hr>
+<h2 id="what-is-next">What Is Next<a class="headerlink" href="#what-is-next" title="Permanent link">¶</a></h2>
+<p>Every measurement in this book now has its physics, its history, and its instrument. What none of them have yet is a working computer to read them.</p>
+<p>Chapter 12 turns the bare board from Chapter 3 into a station. It covers what an operating system actually does, how to work at the command line, and how to make a program start automatically and keep running after a reboot. Then it covers the buses that carry sensor data — I2C, SPI, and serial — and ends at the BME280 itself, a single chip that combines three of the sensing mechanisms you have met in three separate chapters.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../10-wind/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 10. Wind - Measuring Air in Motion">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                10. Wind - Measuring Air in Motion
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../12-os-and-sensor-buses/" class="md-footer__link md-footer__link--next" aria-label="Next: 12. The Station's Brain - Operating System, Command Line, and Sensor Buses">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                12. The Station's Brain - Operating System, Command Line, and Sensor Buses
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Hank R. Licensed under <a href="licensing/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

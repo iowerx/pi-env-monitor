@@ -1,0 +1,270 @@
+ConceptID,ConceptLabel,Dependencies,TaxonomyID
+1,Environmental Monitoring,,FOUND
+2,Physical Property,,FOUND
+3,Measurement,2,FOUND
+4,Quantitative Data,3,FOUND
+5,Qualitative Observation,3,FOUND
+6,Unit Of Measure,3,FOUND
+7,SI Units,6|21,FOUND
+8,SI Prefix,7,FOUND
+9,Unit Conversion,6|7,FOUND
+10,Scientific Notation,8,FOUND
+11,Order Of Magnitude,10,FOUND
+12,Logarithmic Scale,11,FOUND
+13,Measurement Scale,3|6,FOUND
+14,Resolution,3|13,FOUND
+15,Accuracy,3|13,FOUND
+16,Precision,3|14,FOUND
+17,Measurement Uncertainty,15|16,FOUND
+18,Calibration,15|19,FOUND
+19,Reference Standard,6|15,FOUND
+20,Measurement Range,13|14,FOUND
+21,Standardization,6,FOUND
+22,Sensor,2|3,SENSE
+23,Transduction,2|22,SENSE
+24,Analog Signal,23,SENSE
+25,Digital Signal,4|24,SENSE
+26,Analog To Digital Conversion,24|25,SENSE
+27,Sensor Response Time,22,SENSE
+28,Piezoresistive Effect,23|32,SENSE
+29,Capacitive Sensing,23|32,SENSE
+30,Thermoelectric Effect,23|185,SENSE
+31,Photoelectric Effect,23|110,SENSE
+32,Semiconductor,185|186,SENSE
+33,Silicon Diode Sensor,32|57,SENSE
+34,MEMS Sensor,22|32,SENSE
+35,Sensor Filtering,22|24,SENSE
+36,Sensor Averaging,17|35,SENSE
+37,BME280 Sensor,28|29|33,SENSE
+38,Sensor Datasheet,20|22,SENSE
+39,Atmosphere,,ATMOS
+40,Air Mass,39,ATMOS
+41,Atmospheric Layer,39,ATMOS
+42,Weather,39|40,ATMOS
+43,Climate,42,ATMOS
+44,Meteorologist,42,ATMOS
+45,Climatologist,43,ATMOS
+46,High Pressure System,40|77,ATMOS
+47,Low Pressure System,40|77,ATMOS
+48,Weather Front,46|47,ATMOS
+49,Convection,39|59,ATMOS
+50,Evaporation,54|59,ATMOS
+51,Condensation,54|59,ATMOS
+52,Precipitation,51,ATMOS
+53,Cloud Formation,51|97,ATMOS
+54,Water Vapor,39,ATMOS
+55,Diurnal Cycle,42|109,ATMOS
+56,Seasonal Variation,43|55,ATMOS
+57,Temperature,2|3,TEMP
+58,Kinetic Energy Of Atoms,57,TEMP
+59,Heat Transfer,58,TEMP
+60,Infrared Radiation,58|110,TEMP
+61,Thermoscope,22|57,TEMP
+62,Liquid In Glass Thermometer,13|61,TEMP
+63,Fahrenheit Scale,13|62,TEMP
+64,Celsius Scale,13|62,TEMP
+65,Kelvin Scale,58|66,TEMP
+66,Absolute Zero,58,TEMP
+67,Freezing Point Of Water,63|64,TEMP
+68,Boiling Point Of Water,63|64,TEMP
+69,Thermocouple,30,TEMP
+70,Resistance Thermometer,57|186,TEMP
+71,Thermistor,32|70,TEMP
+72,Stevenson Screen,21|73,TEMP
+73,Air Temperature,39|57,TEMP
+74,Surface Temperature,57|60,TEMP
+75,Temperature Conversion,9|63|64|65,TEMP
+76,Pressure,2|3,PRESS
+77,Barometric Pressure,39|76,PRESS
+78,Vacuum,39|76,PRESS
+79,Mercury Barometer,77|78,PRESS
+80,Torricelli Experiment,78|79,PRESS
+81,Puy De Dome Experiment,80|164,PRESS
+82,Aneroid Barometer,79,PRESS
+83,Inches Of Mercury,6|79,PRESS
+84,Millibar,6|77,PRESS
+85,Hectopascal,7|84,PRESS
+86,Pascal Unit,7|76,PRESS
+87,One Atmosphere,83|85|88,PRESS
+88,Sea Level Pressure,77|164,PRESS
+89,Pressure Altitude,81|88,PRESS
+90,Altimeter,82|89,PRESS
+91,Pressure Tendency,77|218,PRESS
+92,Barometric Forecasting,48|91,PRESS
+93,Hydrostatic Pressure,76|88,PRESS
+94,Humidity,3|54,HUMID
+95,Absolute Humidity,94,HUMID
+96,Relative Humidity,94|99,HUMID
+97,Dew Point,51|96,HUMID
+98,Partial Pressure Of Vapor,54|76,HUMID
+99,Saturation Vapor Pressure,57|98,HUMID
+100,Hair Hygrometer,22|94,HUMID
+101,Psychrometer,50|102,HUMID
+102,Wet Bulb Temperature,50|57,HUMID
+103,Chilled Mirror Hygrometer,22|97,HUMID
+104,Capacitive Humidity Sensor,29|96,HUMID
+105,Dew And Frost Formation,51|97,HUMID
+106,Fog Formation,53|97,HUMID
+107,Apparent Temperature,73|96|128,HUMID
+108,Heat Index,96|107,HUMID
+109,Solar Radiation,39|110,SOLAR
+110,Electromagnetic Spectrum,,SOLAR
+111,Ultraviolet Radiation,110,SOLAR
+112,Visible Light,110,SOLAR
+113,Irradiance,109|116,SOLAR
+114,Solar Constant,19|113,SOLAR
+115,Insolation,113|218,SOLAR
+116,Watts Per Square Meter,6|7,SOLAR
+117,Pyrheliometer,22|113,SOLAR
+118,Pyranometer,22|113,SOLAR
+119,Bolometer,60|117,SOLAR
+120,Thermopile,30|118,SOLAR
+121,Photodiode,31|32,SOLAR
+122,Photovoltaic Effect,31|32,SOLAR
+123,Solar Cell,122,SOLAR
+124,UV Index,13|111,SOLAR
+125,Solar Zenith Angle,109|162,SOLAR
+126,Albedo,74|109,SOLAR
+127,Wind,39|131,WIND
+128,Wind Speed,3|127,WIND
+129,Wind Direction,127,WIND
+130,Weather Vane,22|129,WIND
+131,Pressure Gradient,46|47,WIND
+132,Anemometer,22|128,WIND
+133,Cup Anemometer,132,WIND
+134,Sonic Anemometer,132,WIND
+135,Beaufort Scale,13|128,WIND
+136,Knot Unit,6|128,WIND
+137,Meters Per Second,7|128,WIND
+138,Wind Gust,128|217,WIND
+139,Sustained Wind Speed,128|230,WIND
+140,Wind Chill,73|128,WIND
+141,Saffir Simpson Scale,135|139,WIND
+142,Enhanced Fujita Scale,13|128,WIND
+143,Wind Load,76|128,WIND
+144,Earthquake,148,SEIS
+145,Seismic Wave,144,SEIS
+146,P Wave,145,SEIS
+147,S Wave,145,SEIS
+148,Fault,,SEIS
+149,Seismoscope,22|144,SEIS
+150,Seismograph,149|152,SEIS
+151,Seismometer,150,SEIS
+152,Inertial Mass,155,SEIS
+153,Accelerometer,22|155,SEIS
+154,MEMS Accelerometer,34|153,SEIS
+155,Acceleration,2|3,SEIS
+156,Richter Scale,12|150,SEIS
+157,Moment Magnitude Scale,148|156,SEIS
+158,Mercalli Intensity Scale,5|144,SEIS
+159,Magnitude Versus Intensity,157|158,SEIS
+160,Earthquake Early Warning,146|147|154,SEIS
+161,Seismic Network,151|248,SEIS
+162,Latitude,165,GEO
+163,Longitude,165,GEO
+164,Elevation,3|165,GEO
+165,Coordinate System,3|21,GEO
+166,Sextant,22|162,GEO
+167,Marine Chronometer,168,GEO
+168,Longitude Problem,163,GEO
+169,Prime Meridian,21|163,GEO
+170,Trilateration,165|174,GEO
+171,GPS,170|173,GEO
+172,GNSS,171,GEO
+173,GPS Satellite,174,GEO
+174,Atomic Clock,19,GEO
+175,WGS 84 Datum,21|165,GEO
+176,Position Fix Accuracy,15|171,GEO
+177,Coordinated Universal Time,169|174,GEO
+178,Time Zone,169,GEO
+179,Timestamp,177,GEO
+180,Raspberry Pi,181,HW
+181,Single Board Computer,,HW
+182,Raspberry Pi Zero 2 W,180,HW
+183,GPIO Pin,180|185,HW
+184,Pin Header,183,HW
+185,Voltage,2,HW
+186,Current,185,HW
+187,Ground Connection,185,HW
+188,Jumper Wire,184|187,HW
+189,Breadboard,188,HW
+190,Pull Up Resistor,185|186,HW
+191,I2C Bus,25|183,HW
+192,I2C Device Address,191,HW
+193,SPI Bus,25|183,HW
+194,Serial UART,25|183,HW
+195,Electrostatic Discharge,185,HW
+196,SIM7600A Module,171|194,HW
+197,Operating System,181,SYS
+198,Ubuntu Server,197,SYS
+199,Raspberry Pi OS,180|197,SYS
+200,Command Line Interface,197,SYS
+201,File System,197,SYS
+202,File Permissions,201,SYS
+203,Text Editor,200|201,SYS
+204,Shell Command,200,SYS
+205,Software Package,204,SYS
+206,Systemd Service,198|204,SYS
+207,Python,205,SYS
+208,Variable,207,SYS
+209,Data Type,208,SYS
+210,Function,208,SYS
+211,Loop,210,SYS
+212,Conditional Statement,208,SYS
+213,Python Library,207|210,SYS
+214,Exception Handling,210|212,SYS
+215,Script Execution,204|207,SYS
+216,Data Logging,3|215,DATA
+217,Sampling Interval,27|216,DATA
+218,Time Series,179|216,DATA
+219,CSV File,4|201,DATA
+220,Data Record,219,DATA
+221,Data Field,220,DATA
+222,Header Row,6|221,DATA
+223,File Rotation,219|224,DATA
+224,Data Storage,201,DATA
+225,Database,220|224,DATA
+226,Data Backup,224,DATA
+227,Line Chart,218,DATA
+228,Scatter Plot,4|218,DATA
+229,Axis Labeling,6|227|228,DATA
+230,Moving Average,36|218,DATA
+231,Trend,218|230,DATA
+232,Correlation,218|228,DATA
+233,Outlier,17|218,DATA
+234,Missing Data,216|218,DATA
+235,Sensor Drift,18|231,DATA
+236,Data Validation,233|234|235,DATA
+237,Metadata,21|220,DATA
+238,Remote Station,1|182,DEPLOY
+239,Sensor Siting,238|242,DEPLOY
+240,Weatherproof Enclosure,238,DEPLOY
+241,Ingress Protection Rating,21|240,DEPLOY
+242,Sensor Exposure,22|72,DEPLOY
+243,Power Budget,185|186|238,DEPLOY
+244,Battery Capacity,243,DEPLOY
+245,Solar Panel,123|243,DEPLOY
+246,Charge Controller,244|245,DEPLOY
+247,Duty Cycling,206|243,DEPLOY
+248,Telemetry,25|238,DEPLOY
+249,Cellular Data Link,196|248,DEPLOY
+250,Wi-Fi Network,248,DEPLOY
+251,Base Station,199|250,DEPLOY
+252,Intermittent Connectivity,249|250,DEPLOY
+253,Weather Forecasting,44|92,IMPACT
+254,Severe Weather Warning,141|253,IMPACT
+255,Agricultural Planning,73|97|256,IMPACT
+256,Evapotranspiration,50|115,IMPACT
+257,Energy Demand,43|73,IMPACT
+258,Solar Energy Generation,115|123,IMPACT
+259,Aviation Safety,90|138,IMPACT
+260,Building Code,143|159,IMPACT
+261,Urban Heat Island,74|239,IMPACT
+262,Air Quality,42|127,IMPACT
+263,Wildfire Risk,96|128|262,IMPACT
+264,Flood Warning,52|253,IMPACT
+265,Tsunami Warning,160|161,IMPACT
+266,Climate Record,43|218|237,IMPACT
+267,Citizen Science,1|268,IMPACT
+268,Data Sharing,226|237,IMPACT
+269,Science Communication,5|267,IMPACT

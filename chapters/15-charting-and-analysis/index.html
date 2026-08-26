@@ -1,0 +1,2516 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Line charts, scatter plots, axis labeling, moving averages, trend and correlation; the derived measures that need a time series; and the data quality work of finding outliers, gaps, and drift.">
+      
+      
+        <meta name="author" content="Hank R.">
+      
+      
+        <link rel="canonical" href="https://iowerx.github.io/pi-env-monitor/chapters/15-charting-and-analysis/">
+      
+      
+        <link rel="prev" href="../14-data-logging/">
+      
+      
+        <link rel="next" href="../16-building-for-outdoors/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Charting and Interpreting Your Data - Raspberry Pi Environmental Monitoring: Grades 6–12</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website">
+<meta property="og:title" content="Charting and Interpreting Your Data - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="og:description" content="Line charts, scatter plots, axis labeling, moving averages, trend and correlation; the derived measures that need a time series; and the data quality work of finding outliers, gaps, and drift.">
+<meta property="og:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/15-charting-and-analysis/index.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://iowerx.github.io/pi-env-monitor/chapters/15-charting-and-analysis/">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Charting and Interpreting Your Data - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="twitter:description" content="Line charts, scatter plots, axis labeling, moving averages, trend and correlation; the derived measures that need a time series; and the data quality work of finding outliers, gaps, and drift.">
+<meta property="twitter:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/15-charting-and-analysis/index.png">
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#charting-and-interpreting-your-data" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Raspberry Pi Environmental Monitoring: Grades 6–12
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Charting and Interpreting Your Data
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Raspberry Pi Environmental Monitoring: Grades 6–12
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components Used
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-why-we-measure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Why We Measure the Natural Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-language-of-measurement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. The Language of Measurement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-electricity-and-computer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Electricity and the Single-Board Computer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-how-sensors-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. How Sensors Turn the World Into Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-time-and-place/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Time and Place - Recording Where and When
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-temperature/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Temperature - From the Thermoscope to the Silicon Chip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-barometric-pressure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Barometric Pressure - The Weight of the Atmosphere
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-humidity-and-dew-point/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Humidity and Dew Point - The Water Hidden in the Air
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-solar-radiation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Solar Radiation - The Energy That Drives the Weather
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-wind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Wind - Measuring Air in Motion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-ground-motion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Ground Motion - Measuring Earthquakes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-os-and-sensor-buses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. The Station's Brain - Operating System, Command Line, and Sensor Buses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-python-programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Programming the Station in Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-data-logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Logging Data - Timestamps, Intervals, and Files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Charting and Interpreting Your Data
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Charting and Interpreting Your Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ten-thousand-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ten Thousand Numbers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#line-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Line Charts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#honest-axes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Honest Axes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Honest Axes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-axis-honesty-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Axis Honesty Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scatter-plots-and-correlation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scatter Plots and Correlation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smoothing-and-trend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Smoothing and Trend
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#six-measurements-that-needed-a-time-series" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Six Measurements That Needed a Time Series
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Six Measurements That Needed a Time Series">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pressure-tendency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pressure Tendency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insolation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wind-gust-and-sustained-wind-speed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wind Gust and Sustained Wind Speed
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Wind Gust and Sustained Wind Speed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-derived-measures-workbench" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Derived Measures Workbench
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-the-data-is-wrong" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When the Data Is Wrong
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="When the Data Is Wrong">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#outliers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outliers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missing-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Missing Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sensor-drift" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sensor Drift
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sensor Drift">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-data-quality-detective" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Data Quality Detective
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-building-for-outdoors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Building the Station for the Outdoors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-measurement-to-consequence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. From Measurement to Consequence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../licensing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ten-thousand-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ten Thousand Numbers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#line-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Line Charts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#honest-axes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Honest Axes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Honest Axes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-axis-honesty-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Axis Honesty Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scatter-plots-and-correlation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scatter Plots and Correlation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smoothing-and-trend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Smoothing and Trend
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#six-measurements-that-needed-a-time-series" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Six Measurements That Needed a Time Series
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Six Measurements That Needed a Time Series">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pressure-tendency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pressure Tendency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insolation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wind-gust-and-sustained-wind-speed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wind Gust and Sustained Wind Speed
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Wind Gust and Sustained Wind Speed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-derived-measures-workbench" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Derived Measures Workbench
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-the-data-is-wrong" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When the Data Is Wrong
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="When the Data Is Wrong">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#outliers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outliers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missing-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Missing Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sensor-drift" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sensor Drift
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sensor Drift">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-data-quality-detective" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Data Quality Detective
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/iowerx/pi-env-monitor/blob/main/docs/chapters/15-charting-and-analysis/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="charting-and-interpreting-your-data">Charting and Interpreting Your Data<a class="headerlink" href="#charting-and-interpreting-your-data" title="Permanent link">¶</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
+<p>This chapter is about reading change over time, which is a different skill from reading an instrument. It covers line charts, scatter plots, and honest axis labeling, then moving averages, trend, and correlation between two channels. That machinery unlocks six measurements that could not be defined earlier: pressure tendency and barometric forecasting, insolation, wind gust and sustained wind speed, and the Saffir-Simpson scale. It closes with data quality — outliers, missing data, and sensor drift — and the validation that separates an instrument fault from a real event.</p>
+<h2 id="concepts-covered">Concepts Covered<a class="headerlink" href="#concepts-covered" title="Permanent link">¶</a></h2>
+<p>This chapter covers the following 16 concepts from the learning graph:</p>
+<ol>
+<li>Wind Gust</li>
+<li>Pressure Tendency</li>
+<li>Insolation</li>
+<li>Line Chart</li>
+<li>Scatter Plot</li>
+<li>Moving Average</li>
+<li>Outlier</li>
+<li>Missing Data</li>
+<li>Barometric Forecasting</li>
+<li>Sustained Wind Speed</li>
+<li>Axis Labeling</li>
+<li>Trend</li>
+<li>Correlation</li>
+<li>Saffir Simpson Scale</li>
+<li>Sensor Drift</li>
+<li>Data Validation</li>
+</ol>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../02-language-of-measurement/">Chapter 2: The Language of Measurement</a></li>
+<li><a href="../04-how-sensors-work/">Chapter 4: How Sensors Turn the World Into Numbers</a></li>
+<li><a href="../07-barometric-pressure/">Chapter 7: Barometric Pressure: The Weight of the Atmosphere</a></li>
+<li><a href="../09-solar-radiation/">Chapter 9: Solar Radiation: The Energy That Drives the Weather</a></li>
+<li><a href="../10-wind/">Chapter 10: Wind: Measuring Air in Motion</a></li>
+<li><a href="../14-data-logging/">Chapter 14: Logging Data: Timestamps, Intervals, and Files</a></li>
+</ul>
+<hr>
+<h2 id="ten-thousand-numbers">Ten Thousand Numbers<a class="headerlink" href="#ten-thousand-numbers" title="Permanent link">¶</a></h2>
+<p>Your station has been running for a week. The file has about ten thousand rows.</p>
+<p>Open it in a text editor and you will see something like this, ten thousand times:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>2026-08-25T14:30:00Z,21.4,1013.2,62.3,13.8
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>2026-08-25T14:31:00Z,21.5,1013.2,62.1,13.8
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>2026-08-25T14:32:00Z,21.5,1013.1,61.9,13.7
+</span></code></pre></div>
+<p>Nobody can read that. Not because it is difficult, but because human beings are extraordinarily bad at extracting patterns from columns of numbers and extraordinarily good at extracting them from pictures.</p>
+<p>Chart the same data and a week of weather appears in one glance: the daily temperature cycle, the afternoon lag, the night a front came through, the two hours the sensor was in direct sun before you moved it.</p>
+<p>This chapter is about that translation, and about the second thing charts do — which is show you when your data is lying.</p>
+<h2 id="line-charts">Line Charts<a class="headerlink" href="#line-charts" title="Permanent link">¶</a></h2>
+<p>A <strong>line chart</strong> plots values against a continuous variable, joining consecutive points with straight segments.</p>
+<p>It is the right default for a time series, and the reason is specific. Joining the points asserts that the quantity existed continuously between the readings and that intermediate values were roughly on that line. For temperature that is true — the air was some temperature at 14:30:30 even though nobody recorded it.</p>
+<p>That assertion is not always safe, which is the first thing to be careful about:</p>
+<ul>
+<li><strong>Do not join across a gap.</strong> If the station was offline for six hours, a line drawn between the readings either side invents six hours of data that never existed. Break the line.</li>
+<li><strong>Do not join unrelated categories.</strong> A line chart of average temperature by city implies a progression between cities, which is meaningless. Use bars.</li>
+</ul>
+<p>For your station's data, the useful line charts are:</p>
+<ul>
+<li>One quantity over a day, to see the diurnal cycle from Chapter 9</li>
+<li>One quantity over a month, to see weather systems passing</li>
+<li>Two related quantities on shared axes, to see how one drives the other</li>
+</ul>
+<h2 id="honest-axes">Honest Axes<a class="headerlink" href="#honest-axes" title="Permanent link">¶</a></h2>
+<p><strong>Axis labeling</strong> is the practice of naming what each axis shows, in what units, over what range.</p>
+<p>This sounds like housekeeping. It is the difference between a chart that informs and a chart that misleads, and it is where most bad science graphics go wrong.</p>
+<p>Every chart needs:</p>
+<ul>
+<li><strong>A label on each axis</strong> saying what the variable is</li>
+<li><strong>The unit</strong>, in the label or in parentheses</li>
+<li><strong>Readable tick marks</strong> at sensible intervals</li>
+<li><strong>A title</strong> stating what is shown, where, and when</li>
+<li><strong>A legend</strong> if more than one series is plotted</li>
+</ul>
+<p>Here is the failure that matters most.</p>
+<div class="admonition danger">
+<p class="admonition-title">The truncated y-axis</p>
+<p>Plot a week of temperature with the y-axis running from 20.8 °C to 21.6 °C and the line becomes a dramatic mountain range. Plot the identical data with the axis from 0 °C to 40 °C and it becomes a nearly flat line.</p>
+<p>Same data. Opposite impressions. Neither chart is factually incorrect, and this is precisely why the truncated axis is the most common tool of misleading data graphics — in advertising, in politics, and in student lab reports.</p>
+<p>The rule is not "always start at zero." Sometimes zero is meaningless, as Chapter 2 showed for Celsius. The rule is: <strong>choose a range that reflects the actual variation, and label it so clearly that a reader cannot mistake the scale.</strong> If your y-axis is truncated, make sure a reader sees that in one second.</p>
+</div>
+<p>There is a related trap specific to comparison. When you plot two charts side by side to compare them, <strong>the axes must match</strong>. Comparing a chart with a 5-degree range to one with a 20-degree range tells you nothing about which place is more variable — the difference you see is entirely an artifact of the axes.</p>
+<h4 id="diagram-axis-honesty-lab">Diagram: Axis Honesty Lab<a class="headerlink" href="#diagram-axis-honesty-lab" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/axis-honesty-lab/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Axis Honesty Lab</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> axis-honesty-lab<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Evaluate (L5)
+Bloom Verb: critique</p>
+<p>Learning objective: The learner critiques chart presentations of identical data, judges which axis choices are honest and which mislead, and constructs a defensible presentation for a stated audience and claim.</p>
+<p>Purpose: Students are taught "never truncate the y-axis," which is wrong as a rule and produces charts that hide real signal. The actual skill is judging whether the scale matches the claim being made. That judgment can only be trained by letting the learner manipulate the axis and watch the same data tell different stories.</p>
+<p>Canvas layout:
+- Upper area: two charts side by side, both plotting the SAME underlying dataset, with independently adjustable axes
+- Below each chart: a "reader's impression" text box that updates live, e.g. "This looks like a dramatic warming trend" or "This looks essentially flat"
+- Right or below (responsive): the honesty checklist and verdict panel
+- Bottom: controls
+- Responsive to window resize; charts stack vertically on narrow canvases</p>
+<p>Data Visibility Requirements:
+  Stage 1: Show both charts with identical default axes, so the learner sees they are the same data
+  Stage 2: As an axis range is dragged, show the numeric range and the fraction of the plot height that the data actually occupies
+  Stage 3: Show the reader's-impression text change, phrased as a plain-language conclusion someone might draw
+  Stage 4: Show a "true variation" readout — the actual range of the data — alongside the plotted range, so the distortion factor is quantified
+  Stage 5: Show a checklist ticking off axis label, unit, title, legend, gap handling, and scale disclosure</p>
+<p>Datasets:
+1. <strong>A week of temperature</strong> varying by 0.8 °C. Truncating makes it a mountain range; a 0–40 °C axis makes it flat. Neither is wrong for all purposes.
+2. <strong>A month of pressure</strong> with a real 25 hPa storm drop. Here truncation is NOT misleading — the signal is genuinely large. Verdict must say so: "A tight axis here reveals a real event. Truncation is not automatically dishonest."
+3. <strong>Five years of annual mean temperature</strong> with a small real trend. The classic contested case; the verdict must acknowledge that both a tight and a wide axis can be defended depending on the claim.
+4. <strong>A day with a six-hour data gap.</strong> Toggling "join across gaps" on and off must visibly invent or remove a line segment, with the caption "This line asserts six hours of data that do not exist."</p>
+<p>Interactive controls:
+- Drag either end of either y-axis
+- Toggles per chart: show/hide axis label, unit, title, legend
+- "Join across gaps" toggle
+- Dataset selector
+- <strong>Claim selector</strong> — the learner picks the claim the chart is meant to support: "this place has a stable climate", "a storm passed on the 14th", "temperatures are rising", "the sensor failed on Tuesday". The verdict panel then judges the current axis choice AGAINST THAT CLAIM, which is the mechanism that replaces a rule with a judgment.
+- A "make it lie" challenge mode: the learner is asked to produce a chart supporting a false claim from honest data, then shown what disclosure would have prevented it</p>
+<p>Instructional Rationale: The objective is Evaluate/critique, and critique needs a criterion. Making the claim an explicit selector supplies that criterion and prevents the lesson collapsing into a memorized rule. The make-it-lie mode is included deliberately: students who have constructed a misleading chart recognize one far faster than students who have only been warned about them.</p>
+<p>Implementation: p5.js. Plot both charts from one shared dataset array so they provably cannot differ. Compute the reader's-impression text from the ratio of data range to axis range.</p>
+</details>
+<h2 id="scatter-plots-and-correlation">Scatter Plots and Correlation<a class="headerlink" href="#scatter-plots-and-correlation" title="Permanent link">¶</a></h2>
+<p>A <strong>scatter plot</strong> shows the relationship between two variables by plotting one against the other, as unconnected points.</p>
+<p>Note what changed. In a line chart the x-axis is time. In a scatter plot <strong>both axes are measurements</strong>, and time disappears. Each point is one moment when both quantities had those two values.</p>
+<p>The points are not joined, because there is no assertion that intermediate combinations occurred.</p>
+<p>Scatter plots answer a different question than line charts: not "how did this change?" but "do these two things move together?"</p>
+<p><strong>Correlation</strong> is a measure of how strongly two variables move together. It is usually summarized by a correlation coefficient, written <span class="arithmatex">\(r\)</span>, ranging from −1 to +1:</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(r\)</span></th>
+<th>Meaning</th>
+<th>Example from your station</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+1.0</td>
+<td>Perfect positive — one rises, the other rises exactly</td>
+<td>Temperature in °C against the same in °F</td>
+</tr>
+<tr>
+<td>+0.7</td>
+<td>Strong positive</td>
+<td>Solar irradiance against temperature</td>
+</tr>
+<tr>
+<td>0.0</td>
+<td>No relationship</td>
+<td>Pressure against your station's ID number</td>
+</tr>
+<tr>
+<td>−0.7</td>
+<td>Strong negative</td>
+<td>Temperature against relative humidity</td>
+</tr>
+<tr>
+<td>−1.0</td>
+<td>Perfect negative</td>
+<td>Nothing physical, usually</td>
+</tr>
+</tbody>
+</table>
+<p>That temperature-versus-relative-humidity negative correlation is worth recognizing, because you will find it in your own data within a week. Chapter 8 explained the mechanism: cooling air raises relative humidity without adding water. So on any ordinary day, temperature and relative humidity trace opposite curves.</p>
+<div class="admonition warning">
+<p class="admonition-title">Correlation is not causation, and the reason matters</p>
+<p>Two variables moving together can mean one causes the other, or that both are caused by a third thing, or that it is coincidence.</p>
+<p>Your station will produce a textbook example. Solar irradiance and temperature correlate strongly. Does temperature cause sunshine? Obviously not — irradiance drives temperature, as Chapter 9 explained.</p>
+<p>Now a subtler one. Relative humidity and pressure often correlate in a week of your data. Neither causes the other. Both are responding to weather systems moving through, which is the third variable.</p>
+<p>The discipline: when you find a correlation, state the physical mechanism you believe connects them. If you cannot name one, you have found a pattern, not a relationship. Chapter 17 returns to this as a habit for reading other people's claims.</p>
+</div>
+<h2 id="smoothing-and-trend">Smoothing and Trend<a class="headerlink" href="#smoothing-and-trend" title="Permanent link">¶</a></h2>
+<p>Real data is noisy. Chapter 4 covered the sensor-level sources; here you deal with what arrives in the file.</p>
+<p>A <strong>moving average</strong> replaces each value with the mean of it and its neighbours over a window of fixed length.</p>
+<p>A 10-minute moving average on one-minute data replaces each reading with the mean of the surrounding ten. Random noise partly cancels, as Chapter 4's square-root rule described, and the underlying shape emerges.</p>
+<p>Choosing the window is the whole art:</p>
+<table>
+<thead>
+<tr>
+<th>Window</th>
+<th>Effect</th>
+<th>Use for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5 minutes</td>
+<td>Light smoothing</td>
+<td>Removing sensor noise only</td>
+</tr>
+<tr>
+<td>1 hour</td>
+<td>Moderate</td>
+<td>Seeing the shape of a day</td>
+</tr>
+<tr>
+<td>24 hours</td>
+<td>Heavy</td>
+<td>Removing the diurnal cycle to see weather</td>
+</tr>
+<tr>
+<td>30 days</td>
+<td>Very heavy</td>
+<td>Seeing seasonal change</td>
+</tr>
+</tbody>
+</table>
+<p>The 24-hour window is especially useful and worth understanding. Averaging over exactly one full cycle removes that cycle almost entirely. So a 24-hour moving average of temperature strips out day and night and leaves only the slower changes — which is exactly how you separate weather from the daily rhythm.</p>
+<p>And Chapter 4's warning applies at full strength here: <strong>a moving average cannot distinguish noise from a real fast event.</strong> Smooth heavily enough and a genuine 6 hPa pressure drop becomes a gentle slope. Always keep the raw data, and chart the smoothed line <em>over</em> the raw points rather than instead of them.</p>
+<p>A <strong>trend</strong> is a persistent long-term direction in a time series, after short-term variation is set aside.</p>
+<p>Distinguishing a trend from noise requires enough data, and "enough" is longer than people assume. Chapter 1 covered this: a week of readings shows weather, a year shows seasons, and thirty years shows climate. A student station running for one school year cannot establish a climate trend, and saying so plainly is better science than the alternative.</p>
+<h2 id="six-measurements-that-needed-a-time-series">Six Measurements That Needed a Time Series<a class="headerlink" href="#six-measurements-that-needed-a-time-series" title="Permanent link">¶</a></h2>
+<p>Several quantities from earlier chapters were deferred, because none of them can be computed from a single reading. They are all properties of a <em>series</em>.</p>
+<h3 id="pressure-tendency">Pressure Tendency<a class="headerlink" href="#pressure-tendency" title="Permanent link">¶</a></h3>
+<p><strong>Pressure tendency</strong> is the change in barometric pressure over a defined period, conventionally three hours.</p>
+<p>Chapter 7 said the most useful thing a barometer tells you is not the value but the change. Here is the calculation:</p>
+<div class="arithmatex">\[ \text{tendency} = P_{\text{now}} - P_{\text{3 hours ago}} \]</div>
+<p>The standard interpretation:</p>
+<table>
+<thead>
+<tr>
+<th>Tendency (3 h)</th>
+<th>Category</th>
+<th>Typical meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rising more than +3 hPa</td>
+<td>Rising rapidly</td>
+<td>Clearing; wind may increase</td>
+</tr>
+<tr>
+<td>+1 to +3 hPa</td>
+<td>Rising</td>
+<td>Improving</td>
+</tr>
+<tr>
+<td>−1 to +1 hPa</td>
+<td>Steady</td>
+<td>No change expected</td>
+</tr>
+<tr>
+<td>−1 to −3 hPa</td>
+<td>Falling</td>
+<td>Deteriorating</td>
+</tr>
+<tr>
+<td>Falling more than −3 hPa</td>
+<td>Falling rapidly</td>
+<td>Storm approaching</td>
+</tr>
+<tr>
+<td>Falling more than −6 hPa</td>
+<td>Falling very rapidly</td>
+<td>Severe weather likely</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Barometric forecasting</strong> is predicting weather from pressure tendency, and it is the technique FitzRoy built the first storm warning service on in the 1860s.</p>
+<p>Combined with the wind direction shift and dew point change that Chapter 10 described, a falling tendency of more than 3 hPa in three hours is a genuine forecast you can make from your own station, hours before there is anything to see.</p>
+<h3 id="insolation">Insolation<a class="headerlink" href="#insolation" title="Permanent link">¶</a></h3>
+<p><strong>Insolation</strong> is solar energy accumulated over a period of time, as opposed to the instantaneous irradiance of Chapter 9.</p>
+<p>Irradiance is watts per square metre — a rate. Insolation is watt-hours or kilowatt-hours per square metre — a total. Insolation is the area under the irradiance curve:</p>
+<div class="arithmatex">\[ \text{insolation} = \sum (\text{irradiance} \times \text{interval duration}) \]</div>
+<p>With one-minute readings, each contributes one sixtieth of an hour:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">daily_insolation_kwh</span><span class="p">(</span><span class="n">irradiance_values</span><span class="p">,</span> <span class="n">interval_seconds</span><span class="o">=</span><span class="mi">60</span><span class="p">):</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="sd">"""Return daily insolation in kWh/m2 from a list of W/m2 readings."""</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">hours</span> <span class="o">=</span> <span class="n">interval_seconds</span> <span class="o">/</span> <span class="mf">3600.0</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">watt_hours</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">w</span> <span class="o">*</span> <span class="n">hours</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">irradiance_values</span><span class="p">)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="k">return</span> <span class="n">watt_hours</span> <span class="o">/</span> <span class="mf">1000.0</span>
+</span></code></pre></div>
+<p>Insolation is the number that sizes a solar panel, and Chapter 16 uses it directly. Typical daily values run from about 1 kWh/m² on a mid-winter overcast day to 7 or 8 kWh/m² on a clear summer day.</p>
+<h3 id="wind-gust-and-sustained-wind-speed">Wind Gust and Sustained Wind Speed<a class="headerlink" href="#wind-gust-and-sustained-wind-speed" title="Permanent link">¶</a></h3>
+<p>Chapter 10 sampled wind fast and deferred the summarization. Here it is.</p>
+<p><strong>Sustained wind speed</strong> is the average wind speed over a defined period, conventionally two minutes in the United States and ten minutes by World Meteorological Organization standard.</p>
+<p><strong>Wind gust</strong> is the peak wind speed over a short interval, reported when it exceeds the sustained speed by a defined margin — conventionally 5 knots, about 2.6 m/s.</p>
+<p>Both come from the same fast samples:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">wind_summary</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">sustained_window</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">gust_threshold</span><span class="o">=</span><span class="mf">2.6</span><span class="p">):</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="sd">"""Return (sustained, gust) from a list of fast wind samples."""</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">sustained</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">peak</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="n">gust</span> <span class="o">=</span> <span class="n">peak</span> <span class="k">if</span> <span class="p">(</span><span class="n">peak</span> <span class="o">-</span> <span class="n">sustained</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">gust_threshold</span> <span class="k">else</span> <span class="kc">None</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="k">return</span> <span class="n">sustained</span><span class="p">,</span> <span class="n">gust</span>
+</span></code></pre></div>
+<p>This is why wind is sampled every second or two and <em>logged</em> once a minute. The raw samples are transient; the summary is the record.</p>
+<p>The <strong>Saffir Simpson scale</strong> rates hurricanes by their maximum sustained wind speed, which is why the definition above matters — the category depends on which averaging period you use.</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Sustained wind</th>
+<th>Typical damage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>33–42 m/s</td>
+<td>Damage to roofs, siding, trees</td>
+</tr>
+<tr>
+<td>2</td>
+<td>43–49 m/s</td>
+<td>Major roof and siding damage</td>
+</tr>
+<tr>
+<td>3</td>
+<td>50–58 m/s</td>
+<td>Devastating; structural damage</td>
+</tr>
+<tr>
+<td>4</td>
+<td>58–70 m/s</td>
+<td>Catastrophic; walls and roofs fail</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Over 70 m/s</td>
+<td>Total roof failure and wall collapse</td>
+</tr>
+</tbody>
+</table>
+<p>Chapter 10's wind load rule applies here too. A category 5 is not five times a category 1 — force goes with the square of speed, so it is roughly four times the force.</p>
+<h4 id="diagram-derived-measures-workbench">Diagram: Derived Measures Workbench<a class="headerlink" href="#diagram-derived-measures-workbench" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/derived-measures-workbench/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Derived Measures Workbench</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> derived-measures-workbench<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Apply (L3)
+Bloom Verb: calculate</p>
+<p>Learning objective: The learner calculates pressure tendency, insolation, sustained wind, and gust from a raw time series, and explains why each requires a series rather than a single reading.</p>
+<p>Purpose: These four measures are the moment a student's logged data becomes more informative than a single instrument reading, and each involves an operation over a window rather than an arithmetic conversion. Showing the window sliding across the raw data, with the computation visible inside it, is what makes "derived from a series" concrete.</p>
+<p>Canvas layout:
+- Upper panel: the raw time series for the selected quantity, plotted as points
+- Overlay: a translucent shaded window the learner can drag along the series
+- Middle panel: the arithmetic being performed on the values inside the window, written out with actual numbers
+- Lower panel: the resulting derived series plotted beneath, aligned in time with the raw series above
+- Right or below (responsive): the current result with its category or interpretation
+- Responsive to window resize; panels share a fixed x-axis</p>
+<p>Four modes, each with realistic multi-day source data:
+1. <strong>Pressure tendency</strong> — window is 3 hours. Show <span class="arithmatex">\(P_{now} - P_{3h\ ago}\)</span> with both values labeled on the raw chart and the subtraction written out. Result panel shows the tendency category from the chapter table and the forecast interpretation.
+2. <strong>Insolation</strong> — window is one day. Show the area under the irradiance curve filling in as the window sweeps, with a running sum in watt-hours converting to kWh/m² at the end. Each one-minute rectangle should be visible as the sum accumulates.
+3. <strong>Sustained wind</strong> — window is 2 minutes and, on a toggle, 10 minutes. Show the mean being computed over the samples inside, and show that the two window lengths give different answers for the same data.
+4. <strong>Wind gust</strong> — show the peak inside the window, the sustained value, and the difference tested against the 2.6 m/s threshold, with the gust reported or suppressed accordingly.</p>
+<p>Data Visibility Requirements:
+  Stage 1: Show the raw samples with values readable at the cursor
+  Stage 2: Highlight exactly which samples fall inside the current window, and how many
+  Stage 3: Write out the operation with real numbers, e.g. "1008.3 − 1013.1 = −4.8 hPa"
+  Stage 4: Show the result and its interpretation
+  Stage 5: Plot the derived value into the lower panel so a full derived series builds up as the window sweeps</p>
+<p>Required teaching moments:
+- In sustained-wind mode, switching between the 2-minute and 10-minute window on identical data must produce different values, with the caption "The same wind gives different sustained speeds depending on the averaging period. This is why the Saffir-Simpson category depends on which standard is used."
+- In gust mode, a case where the peak exceeds the mean by less than the threshold must show "No gust reported" despite a visible spike, with the caption "A gust is defined relative to the sustained speed, not in absolute terms."
+- In tendency mode, a case where pressure is low but steady must report "Steady", reinforcing Chapter 7's value-versus-trend lesson.</p>
+<p>Interactive controls:
+- Drag the window along the series, or press Play to sweep it automatically
+- Mode selector
+- Window length control where the measure permits it
+- "Show the formula" toggle</p>
+<p>Instructional Rationale: The objective is Apply/calculate, so the learner must operate on real values and see the arithmetic. The sliding window is the specific representation that teaches what these measures are: not conversions of one number, but functions of a span. Building the derived series in a second panel aligned beneath the raw one shows that the output is itself a time series, which is what Chapter 16 will consume.</p>
+<p>Implementation: p5.js. Pre-generate realistic multi-day series as static data. Compute each derived measure directly from the samples inside the window so the displayed arithmetic and the plotted result cannot disagree.</p>
+</details>
+<h2 id="when-the-data-is-wrong">When the Data Is Wrong<a class="headerlink" href="#when-the-data-is-wrong" title="Permanent link">¶</a></h2>
+<p>Charts do a second job: they show you that something has gone wrong. This half of the chapter is about that.</p>
+<p><strong>Data validation</strong> is the process of checking whether readings are plausible and identifying those that are not.</p>
+<p>The first line of defence is the range check from Chapter 2, now written as code. Before it: each entry gives a physically plausible range for that quantity, generous enough not to reject real extreme weather.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">PLAUSIBLE</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="s2">"temperature_c"</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">),</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="s2">"pressure_hpa"</span><span class="p">:</span>  <span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">1100</span><span class="p">),</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="s2">"humidity_pct"</span><span class="p">:</span>  <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="s2">"irradiance_wm2"</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1400</span><span class="p">),</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="s2">"wind_speed_ms"</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_plausible</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="n">low</span><span class="p">,</span> <span class="n">high</span> <span class="o">=</span> <span class="n">PLAUSIBLE</span><span class="p">[</span><span class="n">field</span><span class="p">]</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="k">return</span> <span class="n">low</span> <span class="o">&lt;=</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="n">high</span>
+</span></code></pre></div>
+<p>The second check is rate of change. Air temperature does not jump 15 °C in one minute. If it appears to, something is wrong with the instrument, not the weather:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">MAX_CHANGE_PER_MINUTE</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"temperature_c"</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span> <span class="s2">"pressure_hpa"</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="outliers">Outliers<a class="headerlink" href="#outliers" title="Permanent link">¶</a></h3>
+<p>An <strong>outlier</strong> is a data point that differs markedly from the others around it.</p>
+<p>The essential discipline is that an outlier is a <strong>question, not an answer</strong>. Some outliers are instrument faults. Some are the most interesting thing in your dataset. Deleting them automatically is how real discoveries get thrown away.</p>
+<p>Some genuine causes of both kinds:</p>
+<table>
+<thead>
+<tr>
+<th>Cause</th>
+<th>Instrument or real?</th>
+<th>How to tell</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Electrical noise on the bus</td>
+<td>Instrument</td>
+<td>Single reading; neighbours normal; no other channel affected</td>
+</tr>
+<tr>
+<td>Loose wire</td>
+<td>Instrument</td>
+<td>Often repeats; may cluster around temperature changes</td>
+</tr>
+<tr>
+<td>Sunlight hitting an unshielded sensor</td>
+<td>Instrument</td>
+<td>Recurs at the same time of day; correlates with irradiance</td>
+</tr>
+<tr>
+<td>Someone breathing on the sensor</td>
+<td>Real, but not weather</td>
+<td>Temperature and humidity both spike together, briefly</td>
+</tr>
+<tr>
+<td>A cold front</td>
+<td>Real</td>
+<td>Multiple channels move consistently; matches regional data</td>
+</tr>
+<tr>
+<td>A cloud edge over the solar sensor</td>
+<td>Real</td>
+<td>Brief spike above clear-sky; Chapter 9 predicted this</td>
+</tr>
+<tr>
+<td>Insects or spiders in the enclosure</td>
+<td>Instrument</td>
+<td>Gradual onset; may affect one channel only</td>
+</tr>
+</tbody>
+</table>
+<p>That table encodes the technique. <strong>Check whether other channels agree.</strong> A real weather event moves several quantities in a physically consistent way. A temperature spike with no corresponding change in humidity, pressure, or irradiance is almost certainly the instrument.</p>
+<div class="admonition tip">
+<p class="admonition-title">Never delete. Flag.</p>
+<p>When you find a suspicious reading, do not remove it from the file. Add a column.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>timestamp,temperature_c,...,quality_flag
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>2026-08-25T14:30:00Z,21.4,...,ok
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>2026-08-25T14:31:00Z,47.9,...,suspect_range
+</span></code></pre></div>
+<p>Deleting destroys evidence and makes your file dishonest — a reader cannot tell the difference between "nothing was recorded" and "something was recorded and discarded." Flagging keeps the raw record intact while letting analysis exclude flagged rows. It also lets you change your mind, which you will.</p>
+</div>
+<h3 id="missing-data">Missing Data<a class="headerlink" href="#missing-data" title="Permanent link">¶</a></h3>
+<p><strong>Missing data</strong> is a gap where readings should exist but do not.</p>
+<p>Gaps happen for many reasons: power loss, sensor failure, the SD card filling, a crash the Chapter 13 exception handling did not cover, or somebody unplugging the station to vacuum.</p>
+<p>Gaps must be <strong>visible</strong>, not silently closed. Two rules:</p>
+<ol>
+<li><strong>Never join a line chart across a gap.</strong> Break the line.</li>
+<li><strong>Never fill a gap with invented values</strong> without labeling them. Interpolating across six hours produces numbers that look exactly like measurements and are not.</li>
+</ol>
+<p>Finding gaps is straightforward when timestamps are aligned as Chapter 14 described — check whether consecutive timestamps differ by more than the expected interval, and report anything larger.</p>
+<p>This is where Chapter 13's logging pays off. A gap with a matching line in <code>station.log</code> reading <code>Sensor read failed: Remote I/O error</code> is a diagnosed gap. A gap with nothing in the log is a mystery you will never solve.</p>
+<h3 id="sensor-drift">Sensor Drift<a class="headerlink" href="#sensor-drift" title="Permanent link">¶</a></h3>
+<p><strong>Sensor drift</strong> is a slow, systematic change in a sensor's readings over time that does not reflect a real change in what is being measured.</p>
+<p>Drift is the hardest fault to detect because it is invisible day to day. A sensor reading 0.5 °C high looks completely normal, and if it drifts to 2 °C high over two years, no single day's data ever looks wrong.</p>
+<p>Typical rates for the sensors in this book:</p>
+<table>
+<thead>
+<tr>
+<th>Sensor</th>
+<th>Typical drift</th>
+<th>Over</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BME280 humidity</td>
+<td>0.5% RH</td>
+<td>per year</td>
+</tr>
+<tr>
+<td>BME280 pressure</td>
+<td>±1 hPa</td>
+<td>per year</td>
+</tr>
+<tr>
+<td>BME280 temperature</td>
+<td>Small; usually within spec</td>
+<td></td>
+</tr>
+<tr>
+<td>Cup anemometer bearings</td>
+<td>Progressive under-reading</td>
+<td>months to years</td>
+</tr>
+</tbody>
+</table>
+<p>Four ways to detect it:</p>
+<ol>
+<li><strong>Compare against a nearby official station.</strong> Plot the difference between your readings and theirs over months. Weather is shared, so that difference should hover around a constant. If it walks steadily in one direction, you are watching drift.</li>
+<li><strong>Use physical fixed points.</strong> Chapter 6 gave you two free reference standards: an ice-water bath is 0.0 °C, and Chapter 8 established that a saturated environment is 100 percent relative humidity.</li>
+<li><strong>Watch the overnight minimum humidity.</strong> On clear calm nights with dew forming, humidity should reach very near 100 percent. A sensor that peaks at 94 percent across many such nights has drifted.</li>
+<li><strong>Keep a calibration log.</strong> Record every check with its date and result in the metadata file from Chapter 14.</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Drift is why a long record needs maintenance</p>
+<p>Chapter 1 said environmental monitoring is about the long term. Drift is the reason a long record is not simply a matter of leaving a station alone.</p>
+<p>Every climate record in the world has this problem, and climatologists spend enormous effort on it — detecting when a station was moved, when an instrument was replaced, when a tree grew up beside it. The corrections they apply are sometimes accused of being manipulation. They are the opposite: they are what makes a hundred-year record from a hundred different instruments mean anything at all.</p>
+<p>Your station will face the same problem in miniature. Handle it the same way: document every change, and never edit historical data — record the correction separately.</p>
+</div>
+<h4 id="diagram-data-quality-detective">Diagram: Data Quality Detective<a class="headerlink" href="#diagram-data-quality-detective" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/data-quality-detective/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Data Quality Detective</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> data-quality-detective<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Analyze (L4)
+Bloom Verb: differentiate</p>
+<p>Learning objective: The learner differentiates instrument faults from real environmental events in multi-channel station data, and justifies each diagnosis by checking whether the other channels moved in a physically consistent way.</p>
+<p>Purpose: This is the chapter's central skill and the one a student will use for the life of their station. It cannot be taught by a list of fault types, because the diagnosis depends on cross-channel reasoning. Presenting all channels together and asking for a verdict is the only faithful representation of the real task.</p>
+<p>Canvas layout:
+- Main area: four stacked time-series panels sharing one x-axis — temperature, pressure, humidity, irradiance — plus a fifth thin strip showing station.log entries positioned in time
+- A movable time cursor spanning all panels
+- Right or below (responsive): the verdict panel with diagnosis options and the evidence checklist
+- Bottom: case selector and scoring
+- Responsive to window resize; panels stack and compress but keep the shared x-axis aligned</p>
+<p>Cases, each several days of realistic multi-channel data containing exactly one anomaly:
+1. <strong>Single-sample spike, temperature only</strong> — 47 °C for one minute; no other channel moves; no log entry. Diagnosis: electrical noise. Evidence: isolated in time and in channel.
+2. <strong>Cold front</strong> — temperature drops 6 °C over an hour, pressure falls then rises sharply, humidity and dew point shift, wind direction changes. Diagnosis: real event. Evidence: all channels move consistently and in the physically expected order.
+3. <strong>Afternoon sun on an unshielded sensor</strong> — temperature reads high every afternoon, correlating tightly with irradiance, while humidity reads correspondingly low. Diagnosis: siting fault. Evidence: recurs at the same time daily and tracks irradiance, which no real air temperature would do so exactly.
+4. <strong>Six-hour gap</strong> — no readings; log shows a power event. Diagnosis: outage, correctly documented. The learner must also judge whether joining the line across the gap would be acceptable.
+5. <strong>Humidity drift</strong> — over 60 simulated days, overnight peaks fall from 99 percent to 93 percent while a comparison station stays at 99. Diagnosis: sensor drift. Evidence requires the comparison overlay, which the learner must think to enable.
+6. <strong>Someone breathing on the sensor</strong> — temperature and humidity both spike sharply for two minutes, pressure and irradiance unchanged. Diagnosis: real but not weather. This case must be scored as correct only if the learner picks "real, but not an atmospheric event."
+7. <strong>Cloud-edge irradiance spike</strong> — a brief reading above the clear-sky envelope. Diagnosis: real, as Chapter 9 predicted. Students who flag this as a fault get feedback pointing back to that chapter.</p>
+<p>Interaction:
+- Move the cursor; all four panels and the log strip read out at that instant
+- "Compare with nearby station" overlay toggle, which adds a reference series to each panel — essential for case 5 and useful for case 2
+- Zoom to a time range
+- Submit a diagnosis from: instrument noise, wiring fault, siting fault, sensor drift, power outage, real weather event, real non-weather event
+- Before submitting, tick an evidence checklist: "other channels agree", "recurs at the same time of day", "log entry present", "comparison station shows the same", "physically plausible magnitude". The verdict scores both the diagnosis AND whether the evidence cited supports it — a right answer with wrong evidence scores partially.
+- "Flag, do not delete" action: the learner adds a quality flag, and the sim shows the resulting CSV with the flag column, reinforcing the chapter's rule</p>
+<p>Instructional Rationale: The objective is Analyze/differentiate, and the discriminating information lies across channels rather than within any one. Displaying all channels on a shared time axis is therefore not a convenience but the core of the design. Scoring the evidence separately from the conclusion is what prevents pattern-matching on case appearance and forces the diagnostic reasoning the chapter teaches.</p>
+<p>Implementation: p5.js. Generate each case as static multi-channel data with a documented ground-truth cause. Keep the log strip as timestamped text entries so learners build the habit of checking it.</p>
+</details>
+<h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">¶</a></h2>
+<ul>
+<li>A <strong>line chart</strong> is the default for a time series, but never joins across a gap. A <strong>scatter plot</strong> puts two measurements on the axes and drops time.</li>
+<li><strong>Axis labeling</strong> must give variable, unit, range, title, and legend. The truncated y-axis is not automatically dishonest — the test is whether the scale matches the claim, disclosed clearly.</li>
+<li><strong>Correlation</strong> measures whether two quantities move together, and never establishes causation. Name the physical mechanism or call it a pattern.</li>
+<li>A <strong>moving average</strong> reveals shape by cancelling noise; a 24-hour window removes the diurnal cycle. It also smooths away real fast events, so keep the raw data.</li>
+<li>A <strong>trend</strong> requires enough data to separate from noise. One school year cannot establish a climate trend.</li>
+<li><strong>Pressure tendency</strong> over 3 hours enables <strong>barometric forecasting</strong>. <strong>Insolation</strong> is the area under the irradiance curve. <strong>Sustained wind speed</strong> and <strong>wind gust</strong> are computed over windows, and the <strong>Saffir Simpson scale</strong> depends on which window.</li>
+<li><strong>Data validation</strong> checks range and rate of change. An <strong>outlier</strong> is a question — check whether other channels agree. Flag, never delete.</li>
+<li><strong>Missing data</strong> must stay visible. <strong>Sensor drift</strong> is detected by comparison against a reference, physical fixed points, or a nearby station.</li>
+</ul>
+<h2 id="check-yourself">Check Yourself<a class="headerlink" href="#check-yourself" title="Permanent link">¶</a></h2>
+<details class="question">
+<summary>Temperature and relative humidity in your data have a correlation of −0.8. Does low humidity cause high temperature? Click to check.</summary>
+<p>No. Chapter 8 gives the mechanism: relative humidity is the ratio of actual to saturation vapor pressure, and saturation vapor pressure rises steeply with temperature. So warming air raises the denominator and relative humidity falls without any water leaving. The causation runs from temperature to relative humidity through the physics of vapor pressure — and the correlation is exactly what that mechanism predicts. Naming the mechanism is what turns the correlation into a finding.</p>
+</details>
+<details class="question">
+<summary>One reading shows 47 °C. Neighbouring readings are 21 °C. Should you delete it? Click to check.</summary>
+<p>No — flag it. Add a <code>quality_flag</code> column marking it <code>suspect_range</code> and leave the value in the file. Then investigate: did humidity, pressure, or irradiance move at that instant? If nothing else moved and there is no log entry, it is almost certainly electrical noise on the bus. Deleting it would destroy the evidence and make the file dishonest, since a reader could not distinguish a discarded reading from a missing one.</p>
+</details>
+<details class="question">
+<summary>Your overnight humidity peaks have fallen from 99% to 93% over two months. Is the air drier? Click to check.</summary>
+<p>Probably not — this is the classic <strong>sensor drift</strong> signature. On clear calm nights when dew forms, relative humidity genuinely reaches very near 100 percent, and it does so reliably. A sensor whose overnight peaks steadily decline across many such nights is drifting, not detecting a change in the climate. Confirm by overlaying a nearby official station: if their overnight peaks still reach 99 percent while yours fall, the sensor is the cause. Record the offset in your metadata; do not edit past readings.</p>
+</details>
+<details class="question">
+<summary>Your pressure fell 7 hPa in 3 hours. What is the tendency category and what should you expect? Click to check.</summary>
+<p>That is <strong>falling very rapidly</strong> — beyond the −6 hPa threshold — and it indicates severe weather likely within hours. This is a genuine forecast from your own station, and it is the same signal FitzRoy built the first storm warning service on in the 1860s. Confirm it by checking whether wind speed is rising and wind direction shifting, which Chapter 10 identified as the accompanying signature of an approaching front.</p>
+</details>
+<hr>
+<h2 id="what-is-next">What Is Next<a class="headerlink" href="#what-is-next" title="Permanent link">¶</a></h2>
+<p>Everything so far has assumed the station is on a bench, plugged into a wall, with you nearby. That is not a monitoring station. That is a demonstration.</p>
+<p>Chapter 16 takes it outside. It covers siting and sensor exposure, weatherproof enclosures and their ingress protection ratings, and the power budget that determines the battery, solar panel, and charge controller you need — using the insolation figure this chapter just taught you to compute. It closes with telemetry: getting data off a device nobody can reach, over a connection that will not always be there.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../14-data-logging/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 14. Logging Data - Timestamps, Intervals, and Files">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                14. Logging Data - Timestamps, Intervals, and Files
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../16-building-for-outdoors/" class="md-footer__link md-footer__link--next" aria-label="Next: 16. Building the Station for the Outdoors">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                16. Building the Station for the Outdoors
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Hank R. Licensed under <a href="licensing/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

@@ -2,38 +2,138 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://iowerx.github.io/pi-env-monitor/</loc>
-         <lastmod>2026-08-18</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://iowerx.github.io/pi-env-monitor/about/</loc>
-         <lastmod>2026-08-18</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://iowerx.github.io/pi-env-monitor/components/</loc>
-         <lastmod>2026-08-18</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://iowerx.github.io/pi-env-monitor/contact/</loc>
-         <lastmod>2026-08-18</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://iowerx.github.io/pi-env-monitor/course-description/</loc>
-         <lastmod>2026-08-18</lastmod>
+         <lastmod>2026-08-26</lastmod>
+    </url>
+    <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/glossary/</loc>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://iowerx.github.io/pi-env-monitor/licensing/</loc>
-         <lastmod>2026-08-18</lastmod>
+         <lastmod>2026-08-26</lastmod>
+    </url>
+    <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/references/</loc>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://iowerx.github.io/pi-env-monitor/chapters/</loc>
-         <lastmod>2026-08-18</lastmod>
+         <lastmod>2026-08-26</lastmod>
+    </url>
+    <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/chapters/01-why-we-measure/</loc>
+         <lastmod>2026-08-26</lastmod>
+    </url>
+    <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/chapters/02-language-of-measurement/</loc>
+         <lastmod>2026-08-26</lastmod>
+    </url>
+    <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/chapters/03-electricity-and-computer/</loc>
+         <lastmod>2026-08-26</lastmod>
+    </url>
+    <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/chapters/04-how-sensors-work/</loc>
+         <lastmod>2026-08-26</lastmod>
+    </url>
+    <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/chapters/05-time-and-place/</loc>
+         <lastmod>2026-08-26</lastmod>
+    </url>
+    <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/chapters/06-temperature/</loc>
+         <lastmod>2026-08-26</lastmod>
+    </url>
+    <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/chapters/07-barometric-pressure/</loc>
+         <lastmod>2026-08-26</lastmod>
+    </url>
+    <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/chapters/08-humidity-and-dew-point/</loc>
+         <lastmod>2026-08-26</lastmod>
+    </url>
+    <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/chapters/09-solar-radiation/</loc>
+         <lastmod>2026-08-26</lastmod>
+    </url>
+    <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/chapters/10-wind/</loc>
+         <lastmod>2026-08-26</lastmod>
+    </url>
+    <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/chapters/11-ground-motion/</loc>
+         <lastmod>2026-08-26</lastmod>
+    </url>
+    <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/chapters/12-os-and-sensor-buses/</loc>
+         <lastmod>2026-08-26</lastmod>
+    </url>
+    <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/chapters/13-python-programming/</loc>
+         <lastmod>2026-08-26</lastmod>
+    </url>
+    <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/chapters/14-data-logging/</loc>
+         <lastmod>2026-08-26</lastmod>
+    </url>
+    <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/chapters/15-charting-and-analysis/</loc>
+         <lastmod>2026-08-26</lastmod>
+    </url>
+    <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/chapters/16-building-for-outdoors/</loc>
+         <lastmod>2026-08-26</lastmod>
+    </url>
+    <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/chapters/17-measurement-to-consequence/</loc>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://iowerx.github.io/pi-env-monitor/learning-graph/</loc>
-         <lastmod>2026-08-18</lastmod>
+         <lastmod>2026-08-26</lastmod>
+    </url>
+    <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/learning-graph/concept-list/</loc>
+         <lastmod>2026-08-26</lastmod>
+    </url>
+    <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/learning-graph/concept-taxonomy/</loc>
+         <lastmod>2026-08-26</lastmod>
+    </url>
+    <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/learning-graph/course-description-assessment/</loc>
+         <lastmod>2026-08-26</lastmod>
+    </url>
+    <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/learning-graph/glossary-quality-report/</loc>
+         <lastmod>2026-08-26</lastmod>
+    </url>
+    <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/learning-graph/quality-metrics/</loc>
+         <lastmod>2026-08-26</lastmod>
+    </url>
+    <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/learning-graph/taxonomy-distribution/</loc>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://iowerx.github.io/pi-env-monitor/sims/</loc>
-         <lastmod>2026-08-18</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
 </urlset>

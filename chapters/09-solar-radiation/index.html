@@ -1,0 +1,2315 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Irradiance and the solar constant, the pyrheliometer and pyranometer, the photovoltaic path from Herschel's infrared to the solar cell, the UV index, and the daily and seasonal cycles the Sun drives.">
+      
+      
+        <meta name="author" content="Hank R.">
+      
+      
+        <link rel="canonical" href="https://iowerx.github.io/pi-env-monitor/chapters/09-solar-radiation/">
+      
+      
+        <link rel="prev" href="../08-humidity-and-dew-point/">
+      
+      
+        <link rel="next" href="../10-wind/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Solar Radiation: The Energy That Drives the Weather - Raspberry Pi Environmental Monitoring: Grades 6–12</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website">
+<meta property="og:title" content="Solar Radiation: The Energy That Drives the Weather - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="og:description" content="Irradiance and the solar constant, the pyrheliometer and pyranometer, the photovoltaic path from Herschel's infrared to the solar cell, the UV index, and the daily and seasonal cycles the Sun drives.">
+<meta property="og:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/09-solar-radiation/index.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://iowerx.github.io/pi-env-monitor/chapters/09-solar-radiation/">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Solar Radiation: The Energy That Drives the Weather - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="twitter:description" content="Irradiance and the solar constant, the pyrheliometer and pyranometer, the photovoltaic path from Herschel's infrared to the solar cell, the UV index, and the daily and seasonal cycles the Sun drives.">
+<meta property="twitter:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/09-solar-radiation/index.png">
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#solar-radiation-the-energy-that-drives-the-weather" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Raspberry Pi Environmental Monitoring: Grades 6–12
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Solar Radiation: The Energy That Drives the Weather
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Raspberry Pi Environmental Monitoring: Grades 6–12
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components Used
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-why-we-measure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Why We Measure the Natural Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-language-of-measurement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. The Language of Measurement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-electricity-and-computer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Electricity and the Single-Board Computer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-how-sensors-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. How Sensors Turn the World Into Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-time-and-place/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Time and Place - Recording Where and When
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-temperature/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Temperature - From the Thermoscope to the Silicon Chip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-barometric-pressure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Barometric Pressure - The Weight of the Atmosphere
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-humidity-and-dew-point/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Humidity and Dew Point - The Water Hidden in the Air
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Solar Radiation - The Energy That Drives the Weather
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Solar Radiation - The Energy That Drives the Weather
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#everything-else-runs-on-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Everything Else Runs on This
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#herschels-accident" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Herschel's Accident
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#irradiance-and-the-solar-constant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Irradiance and the Solar Constant
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Irradiance and the Solar Constant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-solar-constant-to-ground-where-the-energy-goes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Solar Constant to Ground — Where the Energy Goes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#angle-is-everything" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Angle Is Everything
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#measuring-sunlight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Measuring Sunlight
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Measuring Sunlight">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#thermal-instruments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thermal Instruments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#photoelectric-instruments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Photoelectric Instruments
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Photoelectric Instruments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-solar-irradiance-through-the-day" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Solar Irradiance Through the Day
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-uv-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The UV Index
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The UV Index">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-uv-exposure-risk-estimator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: UV Exposure Risk Estimator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-wind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Wind - Measuring Air in Motion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-ground-motion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Ground Motion - Measuring Earthquakes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-os-and-sensor-buses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. The Station's Brain - Operating System, Command Line, and Sensor Buses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-python-programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Programming the Station in Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-data-logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Logging Data - Timestamps, Intervals, and Files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-charting-and-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Charting and Interpreting Your Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-building-for-outdoors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Building the Station for the Outdoors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-measurement-to-consequence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. From Measurement to Consequence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../licensing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#everything-else-runs-on-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Everything Else Runs on This
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#herschels-accident" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Herschel's Accident
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#irradiance-and-the-solar-constant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Irradiance and the Solar Constant
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Irradiance and the Solar Constant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-solar-constant-to-ground-where-the-energy-goes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Solar Constant to Ground — Where the Energy Goes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#angle-is-everything" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Angle Is Everything
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#measuring-sunlight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Measuring Sunlight
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Measuring Sunlight">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#thermal-instruments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thermal Instruments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#photoelectric-instruments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Photoelectric Instruments
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Photoelectric Instruments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-solar-irradiance-through-the-day" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Solar Irradiance Through the Day
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-uv-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The UV Index
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The UV Index">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-uv-exposure-risk-estimator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: UV Exposure Risk Estimator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/iowerx/pi-env-monitor/blob/main/docs/chapters/09-solar-radiation/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="solar-radiation-the-energy-that-drives-the-weather">Solar Radiation: The Energy That Drives the Weather<a class="headerlink" href="#solar-radiation-the-energy-that-drives-the-weather" title="Permanent link">¶</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
+<p>The Sun is the engine behind nearly everything else this station measures. This chapter covers irradiance in watts per square meter, the solar constant that satellites finally pinned down, and the instruments that measure sunlight — the pyrheliometer, pyranometer, bolometer, and thermopile — alongside the photovoltaic path from the photoelectric effect to the solar cell. It introduces the UV index, solar zenith angle, and albedo, and closes with the diurnal and seasonal cycles that appear in every dataset the station produces.</p>
+<h2 id="concepts-covered">Concepts Covered<a class="headerlink" href="#concepts-covered" title="Permanent link">¶</a></h2>
+<p>This chapter covers the following 18 concepts from the learning graph:</p>
+<ol>
+<li>Solar Radiation</li>
+<li>Ultraviolet Radiation</li>
+<li>Visible Light</li>
+<li>Diurnal Cycle</li>
+<li>Seasonal Variation</li>
+<li>UV Index</li>
+<li>Watts Per Square Meter</li>
+<li>Photodiode</li>
+<li>Photovoltaic Effect</li>
+<li>Irradiance</li>
+<li>Solar Cell</li>
+<li>Solar Zenith Angle</li>
+<li>Albedo</li>
+<li>Solar Constant</li>
+<li>Pyrheliometer</li>
+<li>Pyranometer</li>
+<li>Bolometer</li>
+<li>Thermopile</li>
+</ol>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-why-we-measure/">Chapter 1: Why We Measure the Natural Environment</a></li>
+<li><a href="../02-language-of-measurement/">Chapter 2: The Language of Measurement</a></li>
+<li><a href="../04-how-sensors-work/">Chapter 4: How Sensors Turn the World Into Numbers</a></li>
+<li><a href="../05-time-and-place/">Chapter 5: Time and Place: Recording Where and When</a></li>
+<li><a href="../06-temperature/">Chapter 6: Temperature: From the Thermoscope to the Silicon Chip</a></li>
+</ul>
+<hr>
+<h2 id="everything-else-runs-on-this">Everything Else Runs on This<a class="headerlink" href="#everything-else-runs-on-this" title="Permanent link">¶</a></h2>
+<p>Turn off the Sun and here is what stops.</p>
+<p>Temperature stops changing through the day. Evaporation stops, so the water cycle stops, so clouds and rain stop. The ground stops warming unevenly, so air stops rising, so pressure differences stop forming, so wind stops. Within a few weeks the atmosphere would be a still, uniformly frozen shell.</p>
+<p>Every quantity in Chapters 6 through 10 is downstream of one number: how much solar energy is arriving.</p>
+<p><strong>Solar radiation</strong> is the electromagnetic energy emitted by the Sun and received at the Earth. It arrives as the spectrum introduced in Chapter 4 — mostly visible light, with substantial infrared and a small but consequential ultraviolet fraction.</p>
+<p>Roughly, the sunlight reaching the top of the atmosphere breaks down like this:</p>
+<ul>
+<li>About <strong>50 percent infrared</strong> — invisible, felt as warmth, and the main heating component</li>
+<li>About <strong>43 percent visible light</strong> — the narrow band your eyes evolved to detect</li>
+<li>About <strong>7 percent ultraviolet</strong> — invisible, energetic, and responsible for sunburn</li>
+</ul>
+<p><strong>Visible light</strong> is the portion of the electromagnetic spectrum that human eyes detect, roughly 400 to 700 nanometres, running from violet at the short end to red at the long end. It is worth noticing that the Sun's output peaks almost exactly in this band. That is not a coincidence in the direction people assume: eyes evolved to use the light that was abundantly available.</p>
+<p><strong>Ultraviolet radiation</strong> is radiation with wavelengths shorter than visible violet, from about 10 to 400 nanometres. It carries more energy per photon than visible light, which is why it can break chemical bonds — damaging DNA, degrading plastics, and fading paint. UV is subdivided:</p>
+<table>
+<thead>
+<tr>
+<th>Band</th>
+<th>Wavelength</th>
+<th>What happens to it</th>
+<th>Effect on you</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UVA</td>
+<td>315–400 nm</td>
+<td>Mostly reaches the ground</td>
+<td>Skin ageing; some cancer risk</td>
+</tr>
+<tr>
+<td>UVB</td>
+<td>280–315 nm</td>
+<td>Mostly absorbed by ozone; some reaches ground</td>
+<td>Sunburn; vitamin D; main cancer risk</td>
+</tr>
+<tr>
+<td>UVC</td>
+<td>100–280 nm</td>
+<td>Completely absorbed by the atmosphere</td>
+<td>None at ground level — it never arrives</td>
+</tr>
+</tbody>
+</table>
+<h2 id="herschels-accident">Herschel's Accident<a class="headerlink" href="#herschels-accident" title="Permanent link">¶</a></h2>
+<p>Chapter 6 mentioned this discovery in passing. Here it deserves the full telling, because it is where the measurement of solar energy begins.</p>
+<p>In 1800 William Herschel — an astronomer better known for discovering Uranus — set out to find which color of sunlight carried the most heat. His method was simple: use a prism to spread sunlight into a spectrum across a table, and put a thermometer in each color band.</p>
+<p>He found that temperature rose steadily as he moved from violet toward red. Then he placed a thermometer just beyond the red edge, in the dark region where no visible light fell, expecting a control reading at room temperature.</p>
+<p>It read higher than any of the visible colors.</p>
+<p>There was something past red, invisible, carrying more energy than the light he could see. Herschel called it "calorific rays." We call it infrared, and the discovery did two things at once: it revealed that the electromagnetic spectrum extends beyond human vision, and it established that <strong>a thermometer can measure light</strong>. That second point is the operating principle of most solar instruments even today.</p>
+<h2 id="irradiance-and-the-solar-constant">Irradiance and the Solar Constant<a class="headerlink" href="#irradiance-and-the-solar-constant" title="Permanent link">¶</a></h2>
+<p><strong>Irradiance</strong> is the power of radiation arriving per unit area of surface. It is the fundamental quantity this chapter measures.</p>
+<p>Its unit is <strong>watts per square meter</strong>, written W/m². Recall from Chapter 2 that a watt is a joule per second, so irradiance is energy arriving per second per square metre — a rate, not a total.</p>
+<p>Some values worth carrying around:</p>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Approximate irradiance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Top of the atmosphere, facing the Sun</td>
+<td>1361 W/m²</td>
+</tr>
+<tr>
+<td>Clear noon, mid-latitude summer, horizontal surface</td>
+<td>900–1000 W/m²</td>
+</tr>
+<tr>
+<td>Clear noon, mid-latitude winter</td>
+<td>300–500 W/m²</td>
+</tr>
+<tr>
+<td>Overcast day</td>
+<td>100–200 W/m²</td>
+</tr>
+<tr>
+<td>Heavy overcast, winter</td>
+<td>20–50 W/m²</td>
+</tr>
+<tr>
+<td>Full moon</td>
+<td>0.003 W/m²</td>
+</tr>
+<tr>
+<td>Bright indoor office lighting</td>
+<td>3–5 W/m²</td>
+</tr>
+</tbody>
+</table>
+<p>That indoor row is worth pausing on. Human vision adapts so effectively that a well-lit office feels comparably bright to an overcast day — while receiving perhaps one fiftieth of the energy. Your eyes are not instruments, which is the point Chapter 1 opened with.</p>
+<p>The <strong>solar constant</strong> is the irradiance from the Sun measured at the top of Earth's atmosphere, on a surface perpendicular to the Sun's rays, at Earth's average distance. Its accepted value is about <strong>1361 W/m²</strong>.</p>
+<p>Pinning that number down took nearly 150 years.</p>
+<p>Claude Pouillet built the first <strong>pyrheliometer</strong> in 1838 — an instrument that measures direct beam solar radiation, from the Sun's disc alone, excluding light scattered by the sky. His design used a water-filled blackened container whose temperature rise measured the energy absorbed. He estimated the solar constant at about 1228 W/m², impressively close given that he was working through the whole atmosphere.</p>
+<p>Samuel Langley invented the <strong>bolometer</strong> in 1880 — an instrument that measures radiant energy through the change in electrical resistance of a blackened absorber as it warms. It was extraordinarily sensitive for its era, capable of detecting temperature changes of a ten-thousandth of a degree, and it let him map the solar spectrum in fine detail. Langley hauled his instruments up Mount Whitney to get above as much atmosphere as possible.</p>
+<p>But no ground measurement could ever be definitive, because the atmosphere always absorbs and scatters an unknown, variable share. Every ground-based estimate required correcting for something nobody could measure directly.</p>
+<p>Satellites ended the argument. Instruments beginning with Nimbus-7 in 1978, and continued through the ACRIM and TSIS series, measured total solar irradiance from orbit with no atmosphere in the way. They settled the value near 1361 W/m².</p>
+<p>They also showed something the name "solar constant" does not admit: <strong>it is not constant.</strong> Total solar irradiance varies by roughly 0.1 percent over the eleven-year sunspot cycle, and by about 6.9 percent over the year — not because the Sun changes, but because Earth's orbit is slightly elliptical and our distance from the Sun varies. Earth is closest to the Sun in early January, which surprises people in the northern hemisphere.</p>
+<h4 id="diagram-solar-constant-to-ground-where-the-energy-goes">Diagram: Solar Constant to Ground — Where the Energy Goes<a class="headerlink" href="#diagram-solar-constant-to-ground-where-the-energy-goes" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/solar-energy-budget/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Solar Constant to Ground — Where the Energy Goes</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> solar-energy-budget<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Analyze (L4)
+Bloom Verb: attribute</p>
+<p>Learning objective: The learner attributes the difference between the solar constant and the irradiance measured at the ground to specific causes — solar zenith angle, atmospheric absorption, scattering, cloud, and surface albedo — and quantifies each contribution.</p>
+<p>Purpose: Students see 1361 W/m² and then measure 700 W/m² at their station and conclude their sensor is broken. Decomposing the loss into named, quantified stages shows that the gap is expected physics, and it makes each of the chapter's later concepts a component of one accounting.</p>
+<p>Canvas layout:
+- Main area: a vertical cross-section from the top of the atmosphere down to the ground, with an incoming beam whose width represents its power
+- The beam visibly narrows at each loss stage, with each loss branching off as a labeled side arrow
+- Right or below (responsive): a running energy budget table showing W/m² remaining after each stage
+- Bottom: controls
+- Responsive to window resize</p>
+<p>Data Visibility Requirements:
+  Stage 1: "Top of atmosphere, perpendicular: 1361 W/m²"
+  Stage 2: "After solar zenith angle correction: 1361 x cos(z) = N W/m²" — show the angle and the cosine explicitly
+  Stage 3: "After atmospheric absorption (ozone, water vapor, CO2): N W/m²" with the absorbing gas named
+  Stage 4: "After scattering (this is why the sky is blue): N W/m²"
+  Stage 5: "After cloud: N W/m²"
+  Stage 6: "Arriving at the ground: N W/m²" and, separately, "Reflected by the surface (albedo): N W/m²" and "Absorbed by the surface: N W/m²"</p>
+<p>Interactive controls:
+- Solar zenith angle slider, 0 to 90 degrees, with a linked time-of-day and latitude readout so the learner can reach a given angle either way
+- Cloud cover slider, 0 to 100 percent, with cloud type selector (thin cirrus, broken cumulus, thick overcast)
+- Atmospheric path length indicator, called air mass, computed from the zenith angle and displayed as a multiplier
+- Surface selector for the albedo stage: fresh snow (0.85), sand (0.40), grass (0.25), forest (0.15), asphalt (0.10), open water at low sun angle (0.60)
+- A "Match my station" mode where the learner enters an irradiance they measured, and the sim solves for the combination of cloud and angle that would explain it</p>
+<p>Required teaching moment: setting zenith angle to 60 degrees must show the beam power drop to exactly half, with the caption "cos(60 degrees) = 0.5. The same beam is spread over twice the ground area. This is why winter is cold and why sunrise is dim — not distance from the Sun."</p>
+<p>Instructional Rationale: The objective is Analyze/attribute, which requires decomposing an observed value into contributing causes. A sequential budget where each stage subtracts a named, quantified amount makes the decomposition the literal structure of the interface. The "Match my station" inverse mode is included because attributing a real measurement to causes is the skill, not reciting the stages.</p>
+<p>Implementation: p5.js. Beam width proportional to remaining power. Air mass approximated as 1/cos(z) with a correction near the horizon. Keep all coefficients as named, editable data so the budget is auditable.</p>
+</details>
+<h2 id="angle-is-everything">Angle Is Everything<a class="headerlink" href="#angle-is-everything" title="Permanent link">¶</a></h2>
+<p>The single most important control on how much solar energy reaches a place is not distance from the Sun. It is angle.</p>
+<p>The <strong>solar zenith angle</strong> is the angle between the Sun and the point directly overhead. It is 0° when the Sun is exactly overhead, 90° at sunrise and sunset, and greater than 90° at night.</p>
+<p>Irradiance on a horizontal surface follows the cosine of that angle:</p>
+<div class="arithmatex">\[ E_{\text{horizontal}} = E_{\text{beam}} \times \cos(z) \]</div>
+<p>The reason is geometric, and it is worth picturing rather than memorizing. A beam of sunlight has a fixed width. Strike a surface head-on and that beam covers a small patch. Strike it at a slant and the same beam is smeared across a much larger patch — the same energy divided among more square metres, so fewer watts per square metre.</p>
+<table>
+<thead>
+<tr>
+<th>Zenith angle</th>
+<th>cos(z)</th>
+<th>Fraction of maximum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0° (overhead)</td>
+<td>1.00</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>30°</td>
+<td>0.87</td>
+<td>87%</td>
+</tr>
+<tr>
+<td>45°</td>
+<td>0.71</td>
+<td>71%</td>
+</tr>
+<tr>
+<td>60°</td>
+<td>0.50</td>
+<td>50%</td>
+</tr>
+<tr>
+<td>75°</td>
+<td>0.26</td>
+<td>26%</td>
+</tr>
+<tr>
+<td>85°</td>
+<td>0.09</td>
+<td>9%</td>
+</tr>
+</tbody>
+</table>
+<p>This cosine is the mechanism behind both cycles your station will record.</p>
+<p>The <strong>diurnal cycle</strong> is the daily pattern of variation driven by the Earth's rotation. As the Earth turns, the solar zenith angle at your station sweeps from 90° at sunrise, down to a minimum at solar noon, and back to 90° at sunset. Irradiance follows a smooth arch, and everything downstream follows behind it.</p>
+<p>Not immediately, though. Air temperature peaks two to three hours <em>after</em> peak irradiance, because the ground has to warm first and then warm the air above it. That lag will be visible in your own data, and it is one of the more satisfying things to find in a first week of logging.</p>
+<p><strong>Seasonal variation</strong> is the annual pattern driven by the tilt of Earth's rotational axis, about 23.5° from the plane of its orbit. That tilt changes the Sun's maximum height in the sky across the year, which changes the noon zenith angle, which changes irradiance by the cosine rule. It also changes day length, so the effect compounds: summer days are both longer and more intense.</p>
+<div class="admonition warning">
+<p class="admonition-title">Seasons are not about distance</p>
+<p>A persistent misconception holds that summer happens when Earth is closer to the Sun. Earth is actually <em>closest</em> in early January, during northern winter. Seasons are caused by axial tilt changing the angle and the day length, not by orbital distance. The clinching evidence is that the northern and southern hemispheres have opposite seasons at the same moment — impossible if distance were the cause, since both hemispheres are the same distance away.</p>
+</div>
+<p>Not all light arriving at your sensor comes straight from the Sun. Two components matter:</p>
+<ul>
+<li><strong>Direct beam</strong> — light travelling straight from the Sun's disc</li>
+<li><strong>Diffuse</strong> — light scattered by air molecules, cloud, and dust, arriving from all directions of the sky</li>
+</ul>
+<p>On a clear day, diffuse is perhaps 10 to 20 percent of the total. On a fully overcast day it is 100 percent — the Sun's disc is not visible at all, yet a meaningful amount of energy still arrives. Their sum is called global horizontal irradiance, and it is what a station sensor and a flat solar panel both respond to.</p>
+<p><strong>Albedo</strong> is the fraction of incoming solar radiation reflected by a surface, from 0 for a perfect absorber to 1 for a perfect reflector.</p>
+<table>
+<thead>
+<tr>
+<th>Surface</th>
+<th>Albedo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fresh snow</td>
+<td>0.80–0.90</td>
+</tr>
+<tr>
+<td>Desert sand</td>
+<td>0.40</td>
+</tr>
+<tr>
+<td>Grass</td>
+<td>0.25</td>
+</tr>
+<tr>
+<td>Forest</td>
+<td>0.15</td>
+</tr>
+<tr>
+<td>Asphalt</td>
+<td>0.05–0.10</td>
+</tr>
+<tr>
+<td>Open ocean, sun high</td>
+<td>0.06</td>
+</tr>
+</tbody>
+</table>
+<p>Albedo is why dark clothing feels hotter, why cities with dark roofs and asphalt run warmer than the countryside, and why snow-covered ground stays cold — it reflects most of the energy that could have melted it, a self-reinforcing loop. Chapters 16 and 17 both return to this.</p>
+<h2 id="measuring-sunlight">Measuring Sunlight<a class="headerlink" href="#measuring-sunlight" title="Permanent link">¶</a></h2>
+<p>Two families of instrument dominate, and they differ in what physics they use.</p>
+<h3 id="thermal-instruments">Thermal Instruments<a class="headerlink" href="#thermal-instruments" title="Permanent link">¶</a></h3>
+<p>The thermal family descends directly from Herschel: absorb the light, measure the warming.</p>
+<p>A <strong>thermopile</strong> is a set of thermocouples connected in series. Chapter 6 introduced the thermoelectric effect — a voltage appearing across a junction of two metals when one end is hotter than the other. A single thermocouple produces microvolts. Wire many in series and the voltages add, producing a signal large enough to measure easily.</p>
+<p>A <strong>pyranometer</strong> measures total solar irradiance arriving on a horizontal surface from the entire sky hemisphere — direct beam plus diffuse together. The classic design places a blackened thermopile under a glass dome. Sunlight warms the black absorber, the thermopile measures the temperature difference between the absorber and the instrument body, and that difference is proportional to irradiance. The Moll-Gorczynski design of the 1920s, commercialized by Kipp &amp; Zonen, established the pattern still used today.</p>
+<p>A <strong>pyrheliometer</strong>, by contrast, measures direct beam radiation only. It looks through a narrow tube aimed at the Sun's disc and must be mounted on a tracker that follows the Sun across the sky.</p>
+<p>Both are excellent and both are expensive — a research-grade pyranometer costs more than everything else in this book combined. The reasons are worth knowing: a thermopile responds almost equally to all wavelengths, which is exactly what "total irradiance" requires, and the calibration chain from Chapter 2 for these instruments is long and carefully maintained.</p>
+<h3 id="photoelectric-instruments">Photoelectric Instruments<a class="headerlink" href="#photoelectric-instruments" title="Permanent link">¶</a></h3>
+<p>The second family uses the effect Chapter 4 introduced.</p>
+<p>The <strong>photovoltaic effect</strong> is the generation of a voltage or current in a material when it absorbs light. Edmond Becquerel discovered it in 1839, aged 19, working in his father's laboratory. Charles Fritts built the first selenium photocell in 1883 at about 1 percent efficiency. Bell Laboratories produced the first practical silicon solar cell in 1954 at about 6 percent.</p>
+<p>A <strong>photodiode</strong> is a semiconductor device that produces a current proportional to the light falling on it. It is fast, small, and inexpensive.</p>
+<p>A <strong>solar cell</strong> is the same physics scaled up for power generation rather than measurement. Modern commercial silicon panels convert roughly 20 percent of incoming solar energy to electricity. Chapter 16 sizes one for your station.</p>
+<p>Photodiode-based irradiance sensors are what a school station can actually afford, and it is worth being clear about the trade you are making:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Thermopile pyranometer</th>
+<th>Photodiode sensor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Physics</td>
+<td>Absorbs and warms</td>
+<td>Photons free electrons</td>
+</tr>
+<tr>
+<td>Spectral response</td>
+<td>Nearly flat across all wavelengths</td>
+<td>Peaks in one band; poor in infrared</td>
+</tr>
+<tr>
+<td>Accuracy</td>
+<td>±2% or better</td>
+<td>±5% or worse</td>
+</tr>
+<tr>
+<td>Response time</td>
+<td>Seconds</td>
+<td>Microseconds</td>
+</tr>
+<tr>
+<td>Cost</td>
+<td>Hundreds to thousands</td>
+<td>A few dollars</td>
+</tr>
+<tr>
+<td>Affected by spectrum changes</td>
+<td>Barely</td>
+<td>Yes — readings shift under cloud or low sun</td>
+</tr>
+</tbody>
+</table>
+<p>That last row is the honest limitation. A photodiode responds strongly to visible light and weakly to infrared. Since the spectrum of arriving sunlight shifts under cloud and at low sun angles, a photodiode sensor calibrated on a clear day will read somewhat wrong on an overcast one. It is still genuinely useful — it captures the shape of the day, the timing of cloud, and relative changes accurately — but treat its absolute values with appropriate caution.</p>
+<div class="admonition info">
+<p class="admonition-title">Your solar sensor is not chosen yet</p>
+<p>The parts list in <a href="../../components/">Components Used</a> still lists the solar sensor as TBD. This chapter is written to the physics rather than to a specific part, so it stands whichever sensor is chosen. When a part is selected, the datasheet questions from Chapter 4 apply directly: what is its measurement range in W/m², what is its spectral response, and does it report analog or digital? If it is analog, remember from Chapter 4 that the Raspberry Pi has no built-in ADC and one will have to be added.</p>
+<p>A common, cheap, and reasonable choice for student stations is a calibrated photodiode module reporting over I2C, which avoids the ADC problem entirely.</p>
+</div>
+<h4 id="diagram-solar-irradiance-through-the-day">Diagram: Solar Irradiance Through the Day<a class="headerlink" href="#diagram-solar-irradiance-through-the-day" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/solar-irradiance-day-explorer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Solar Irradiance Through the Day</summary>
+<p>Type: chart
+<strong>sim-id:</strong> solar-irradiance-day-explorer<br>
+<strong>Library:</strong> Chart.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Analyze (L4)
+Bloom Verb: compare</p>
+<p>Learning objective: The learner compares irradiance curves across seasons, latitudes, and cloud conditions, and explains the lag between peak irradiance and peak air temperature.</p>
+<p>Purpose: The diurnal and seasonal cycles are the two patterns that dominate every dataset this station will produce, and recognizing them is prerequisite to spotting anything anomalous in Chapter 15. Plotting irradiance and air temperature on the same time axis makes the thermal lag — which students find genuinely surprising — visible as a horizontal offset.</p>
+<p>Chart type: Multi-series line chart with a secondary axis and a comparison overlay</p>
+<p>X-axis: Time of day, 00:00 to 24:00
+Primary y-axis: Irradiance in W/m², fixed range 0 to 1100 across all scenarios so curves are directly comparable
+Secondary y-axis: Air temperature in °C</p>
+<p>Series:
+1. Clear-sky theoretical irradiance for the selected date and latitude, drawn as a smooth dashed envelope
+2. Actual irradiance including cloud, drawn solid
+3. Air temperature, on the secondary axis
+4. Optionally, a second location or date overlaid for direct comparison</p>
+<p>Selectable conditions:
+- Latitude: 0°, 23.5°, 45°, 60°, 66.5° (Arctic Circle)
+- Date: equinox, June solstice, December solstice, plus a free date picker
+- Sky: clear, scattered cumulus (producing a spiky trace as clouds pass), overcast</p>
+<p>Required teaching moments, each with an on-chart annotation:
+- <strong>Thermal lag</strong>: mark peak irradiance at solar noon and peak temperature 2 to 3 hours later, with an annotated arrow between them reading "The ground must warm first, then warm the air."
+- <strong>Cloud spikes</strong>: in scattered cumulus, the trace must show brief irradiance values ABOVE the clear-sky envelope, with the annotation "Cloud edges can reflect extra light onto the sensor. Brief over-readings are real, not sensor faults." This prevents students from later flagging genuine data as errors in Chapter 15.
+- <strong>Arctic Circle, December solstice</strong>: a flat line at or near zero, annotated "The Sun does not rise. Polar night."
+- <strong>Arctic Circle, June solstice</strong>: a curve that never reaches zero, annotated "The Sun does not set, but it stays low, so peak irradiance is modest."
+- <strong>Equator versus 60° latitude at the same date</strong>: side-by-side comparison showing that the equatorial curve is taller and the high-latitude curve is broader in summer.</p>
+<p>Interactive features:
+- Hover any point: tooltip gives time, irradiance, solar zenith angle, and air temperature
+- Click a point: infobox shows the cosine calculation for that moment
+- "Add comparison" button overlays a second configuration in a contrasting color, with a difference readout
+- "Integrate" toggle shades the area under the irradiance curve and displays the daily total in kWh/m², introducing insolation ahead of Chapter 15</p>
+<p>Implementation: Chart.js with two y-axes and annotation plugin for the callouts. Compute clear-sky irradiance from solar position; add a cloud model as a multiplicative factor with realistic temporal structure for the cumulus case.</p>
+</details>
+<h2 id="the-uv-index">The UV Index<a class="headerlink" href="#the-uv-index" title="Permanent link">¶</a></h2>
+<p>Ultraviolet needed its own scale because the health effect it causes is not proportional to total energy. UVB is far more damaging per watt than UVA, so a raw irradiance figure would badly misrepresent the risk.</p>
+<p>The <strong>UV index</strong> is a standardized measure of the sunburn-causing ultraviolet radiation at a location, weighted by how strongly each wavelength actually damages skin.</p>
+<p>It was developed by Environment Canada in 1992 and adopted worldwide by the World Health Organization shortly after. It is an open-ended scale that starts at 0, and the categories are:</p>
+<table>
+<thead>
+<tr>
+<th>UV index</th>
+<th>Category</th>
+<th>Guidance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0–2</td>
+<td>Low</td>
+<td>Safe for most people</td>
+</tr>
+<tr>
+<td>3–5</td>
+<td>Moderate</td>
+<td>Seek shade near midday</td>
+</tr>
+<tr>
+<td>6–7</td>
+<td>High</td>
+<td>Protection required</td>
+</tr>
+<tr>
+<td>8–10</td>
+<td>Very high</td>
+<td>Extra protection; avoid midday sun</td>
+</tr>
+<tr>
+<td>11+</td>
+<td>Extreme</td>
+<td>Unprotected skin burns in minutes</td>
+</tr>
+</tbody>
+</table>
+<p>Several factors push it up, and two of them surprise people:</p>
+<ul>
+<li><strong>Sun angle</strong> — the same cosine rule; the index peaks within an hour or so of solar noon</li>
+<li><strong>Altitude</strong> — roughly 10 percent higher per 1000 m, because there is less atmosphere above to absorb</li>
+<li><strong>Ozone</strong> — the main UVB absorber, and it varies by season and location</li>
+<li><strong>Reflection</strong> — fresh snow nearly doubles UV exposure by reflecting it back up at you, which is why skiers burn under their chins</li>
+<li><strong>Cloud</strong> — reduces UV less than it reduces visible light, so a hazy day feels mild and still burns</li>
+</ul>
+<p>Note that measuring the UV index properly requires a UV-specific sensor with the correct spectral weighting. A general irradiance sensor cannot produce a UV index, because it has no way to separate the UVB fraction from everything else.</p>
+<h4 id="diagram-uv-exposure-risk-estimator">Diagram: UV Exposure Risk Estimator<a class="headerlink" href="#diagram-uv-exposure-risk-estimator" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/uv-exposure-estimator/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>UV Exposure Risk Estimator</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> uv-exposure-estimator<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Evaluate (L5)
+Bloom Verb: assess</p>
+<p>Learning objective: The learner assesses ultraviolet risk for a given time, place, and surface, and justifies why the UV index cannot be inferred from how bright or how warm a day feels.</p>
+<p>Purpose: The disconnect between perceived heat and actual UV risk causes real harm, and it is a direct consequence of the spectral physics this chapter teaches. Letting the learner build scenarios where a cool, dim day carries high UV makes the point in a way a warning sentence does not.</p>
+<p>Canvas layout:
+- Left: scenario controls
+- Center: a large UV index gauge with the standard five color bands, plus a "time to sunburn" readout for a mid-range skin type
+- Right or below (responsive): a contribution breakdown showing how much each factor added or removed, as a stacked horizontal bar
+- Below the gauge: two secondary readouts — perceived brightness and perceived warmth — deliberately displayed alongside UV so the mismatch is visible
+- Responsive to window resize</p>
+<p>Data Visibility Requirements:
+  Stage 1: Show a baseline UV index for the selected solar zenith angle at sea level with clear sky
+  Stage 2: Show each modifier applied in turn with its numeric effect, e.g. "Altitude 2000 m: +20 percent", "Fresh snow underfoot: +80 percent", "Light cloud: −20 percent"
+  Stage 3: Show the resulting UV index and its risk category
+  Stage 4: Show estimated minutes to sunburn for unprotected skin
+  Stage 5: Show perceived brightness and perceived warmth on their own scales, so the learner can read all three at once</p>
+<p>Interactive controls:
+- Time of day and date, which set the solar zenith angle
+- Latitude
+- Altitude, 0 to 4000 m
+- Cloud: clear, light cloud, heavy overcast — each affecting UV and visible brightness by DIFFERENT factors, which is the mechanism the element exists to teach
+- Ground surface: grass, sand, water, fresh snow, concrete
+- Ozone column: normal, low (with a note that low-ozone episodes raise ground UVB)</p>
+<p>Required scenarios as preset buttons, each with a written verdict:
+1. <strong>"Ski slope, March, noon"</strong> — high altitude, fresh snow, moderate sun angle. UV index high, air temperature below freezing. Verdict: "Cold and dazzling. UV index 8. Skiers burn under the chin from snow reflection."
+2. <strong>"Hazy beach afternoon"</strong> — light cloud, sand, low altitude. Verdict: "Feels mild. UV index 7. This is the most commonly underestimated case."
+3. <strong>"Bright winter morning, 55° N"</strong> — clear, cold, low sun. Verdict: "Bright and freezing. UV index 1. Brightness is not UV."
+4. <strong>"Tropical noon"</strong> — zenith angle near zero. Verdict: "UV index 12. Extreme."
+5. <strong>"Overcast summer noon"</strong> — Verdict: "UV index 4. Cloud reduces UV less than it reduces visible light."</p>
+<p>The scenario set must include at least one high-UV cold case and one low-UV bright case, so neither warmth nor brightness works as a predictor.</p>
+<p>Instructional Rationale: The objective is Evaluate/assess, which requires judging risk against criteria under varying conditions. Displaying UV, brightness, and warmth simultaneously on separate scales is the specific design choice that carries the lesson — the learner sees the three readouts move independently, which is exactly the fact that makes UV dangerous to estimate by feel.</p>
+<p>Implementation: p5.js. Build UV index from a clear-sky model driven by solar zenith angle and ozone, then apply multiplicative modifiers for altitude, cloud, and surface reflection. Model perceived brightness and warmth with different cloud coefficients so they diverge from UV realistically.</p>
+</details>
+<h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Solar radiation</strong> is the energy source driving temperature, evaporation, and wind. It arrives as roughly 50 percent infrared, 43 percent <strong>visible light</strong>, and 7 percent <strong>ultraviolet radiation</strong>.</li>
+<li>Herschel discovered infrared in 1800 by placing a thermometer past the red end of a spectrum, establishing that a thermometer can measure light.</li>
+<li><strong>Irradiance</strong> is power per unit area, measured in <strong>watts per square meter</strong>. The <strong>solar constant</strong> is about 1361 W/m² at the top of the atmosphere — and it is not quite constant.</li>
+<li>The <strong>solar zenith angle</strong> controls irradiance by its cosine. This drives the <strong>diurnal cycle</strong> and, through axial tilt, the <strong>seasonal variation</strong>. Seasons are caused by tilt, not distance.</li>
+<li><strong>Albedo</strong> is the reflected fraction. Fresh snow reflects about 0.85; asphalt about 0.08.</li>
+<li>A <strong>thermopile</strong> in a <strong>pyranometer</strong> measures total sky irradiance; a <strong>pyrheliometer</strong> measures direct beam only; Langley's <strong>bolometer</strong> measured energy by resistance change.</li>
+<li>The <strong>photovoltaic effect</strong> gives us the <strong>photodiode</strong> for measurement and the <strong>solar cell</strong> for power. Photodiodes are cheap and fast but spectrally uneven.</li>
+<li>The <strong>UV index</strong> weights ultraviolet by its skin-damaging effect and requires a dedicated UV sensor.</li>
+</ul>
+<h2 id="check-yourself">Check Yourself<a class="headerlink" href="#check-yourself" title="Permanent link">¶</a></h2>
+<details class="question">
+<summary>Your sensor reads 850 W/m² at noon but the solar constant is 1361 W/m². Is it broken? Click to check.</summary>
+<p>No — 850 W/m² is a completely normal clear-noon reading. The solar constant is measured above the atmosphere on a surface perpendicular to the Sun. By the time light reaches your horizontal sensor it has lost energy to the cosine of the zenith angle, to absorption by ozone, water vapor, and carbon dioxide, and to scattering. Losing about 35 percent on a clear day is expected. A reading close to 1361 at ground level would be the suspicious result.</p>
+</details>
+<details class="question">
+<summary>Why is the hottest part of the day around 3 pm rather than noon? Click to check.</summary>
+<p>Because air is warmed by the ground, not directly by sunlight. Irradiance peaks at solar noon, but at that moment the ground is still absorbing more energy than it is losing, so it keeps warming — and it keeps warming the air above it. Temperature peaks when incoming and outgoing energy finally balance, typically two to three hours later. The same lag appears seasonally: the warmest month is usually a month or more after the June solstice.</p>
+</details>
+<details class="question">
+<summary>Two identical stations, one over grass and one over asphalt. Both measure downward irradiance. Do they read the same? Click to check.</summary>
+<p>A downward-facing pyranometer measuring incoming sunlight reads essentially the same at both, since incoming radiation does not care what is underneath. But the <em>surface</em> temperatures will differ sharply — asphalt has an albedo around 0.08 and grass around 0.25, so the asphalt absorbs far more and can run 20 °C hotter. And if either sensor sees any reflected light from below, the asphalt station will read slightly lower reflected radiation. This albedo difference is the mechanism behind urban heat islands in Chapter 17.</p>
+</details>
+<details class="question">
+<summary>It is hazy and does not feel hot. Can you still get sunburned? Click to check.</summary>
+<p>Yes, and this is one of the more dangerous misconceptions about sun exposure. Cloud and haze scatter and absorb visible light and infrared more effectively than they absorb UVB. So the day feels cooler and dimmer while UV transmission remains high — often 70 to 80 percent of clear-sky levels under light cloud. The heat you feel comes from infrared; the burn comes from UVB, and they are not correlated. This is exactly why the UV index is reported separately rather than inferred from temperature or brightness.</p>
+</details>
+<hr>
+<h2 id="what-is-next">What Is Next<a class="headerlink" href="#what-is-next" title="Permanent link">¶</a></h2>
+<p>Solar radiation heats the ground unevenly. Uneven heating produces uneven air density, which produces uneven pressure — and air flows from high pressure to low.</p>
+<p>Chapter 10 follows that chain to its result: wind. It opens with the pressure systems and gradients that create air movement, covers the anemometer families and the Beaufort scale that let sailors report wind speed with no instrument at all, and closes with what wind does to people and structures — wind chill, apparent temperature, the hurricane and tornado rating scales, and the wind loads that building codes are written around.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../08-humidity-and-dew-point/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 8. Humidity and Dew Point - The Water Hidden in the Air">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                8. Humidity and Dew Point - The Water Hidden in the Air
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../10-wind/" class="md-footer__link md-footer__link--next" aria-label="Next: 10. Wind - Measuring Air in Motion">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                10. Wind - Measuring Air in Motion
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Hank R. Licensed under <a href="licensing/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

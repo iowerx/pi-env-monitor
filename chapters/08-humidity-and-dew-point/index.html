@@ -1,0 +1,2435 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="The water cycle, absolute versus relative humidity, dew point and vapor pressure, and the hygrometer lineage from horsehair to the thin-film capacitive sensor in the BME280.">
+      
+      
+        <meta name="author" content="Hank R.">
+      
+      
+        <link rel="canonical" href="https://iowerx.github.io/pi-env-monitor/chapters/08-humidity-and-dew-point/">
+      
+      
+        <link rel="prev" href="../07-barometric-pressure/">
+      
+      
+        <link rel="next" href="../09-solar-radiation/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Humidity and Dew Point: The Water Hidden in the Air - Raspberry Pi Environmental Monitoring: Grades 6–12</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website">
+<meta property="og:title" content="Humidity and Dew Point: The Water Hidden in the Air - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="og:description" content="The water cycle, absolute versus relative humidity, dew point and vapor pressure, and the hygrometer lineage from horsehair to the thin-film capacitive sensor in the BME280.">
+<meta property="og:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/08-humidity-and-dew-point/index.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://iowerx.github.io/pi-env-monitor/chapters/08-humidity-and-dew-point/">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Humidity and Dew Point: The Water Hidden in the Air - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="twitter:description" content="The water cycle, absolute versus relative humidity, dew point and vapor pressure, and the hygrometer lineage from horsehair to the thin-film capacitive sensor in the BME280.">
+<meta property="twitter:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/08-humidity-and-dew-point/index.png">
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#humidity-and-dew-point-the-water-hidden-in-the-air" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Raspberry Pi Environmental Monitoring: Grades 6–12
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Humidity and Dew Point: The Water Hidden in the Air
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Raspberry Pi Environmental Monitoring: Grades 6–12
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components Used
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-why-we-measure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Why We Measure the Natural Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-language-of-measurement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. The Language of Measurement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-electricity-and-computer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Electricity and the Single-Board Computer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-how-sensors-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. How Sensors Turn the World Into Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-time-and-place/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Time and Place - Recording Where and When
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-temperature/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Temperature - From the Thermoscope to the Silicon Chip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-barometric-pressure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Barometric Pressure - The Weight of the Atmosphere
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Humidity and Dew Point - The Water Hidden in the Air
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Humidity and Dew Point - The Water Hidden in the Air
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#two-days-same-number-different-worlds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two Days, Same Number, Different Worlds
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#water-vapor-and-the-water-cycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Water Vapor and the Water Cycle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#three-ways-to-say-how-wet-the-air-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Three Ways to Say How Wet the Air Is
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Three Ways to Say How Wet the Air Is">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#absolute-humidity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Absolute Humidity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vapor-pressure-and-saturation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vapor Pressure and Saturation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relative-humidity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relative Humidity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dew-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dew Point
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dew Point">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-humidity-three-ways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Humidity Three Ways
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dew-frost-and-fog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dew, Frost, and Fog
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#measuring-the-invisible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Measuring the Invisible
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Measuring the Invisible">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hair" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hair
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaporation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaporation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chilled-mirrors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chilled Mirrors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thin-films" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thin Films
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Thin Films">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-psychrometer-wet-bulb-bench" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Psychrometer Wet Bulb Bench
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-your-station-will-actually-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Your Station Will Actually Do
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Your Station Will Actually Do">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-fog-watch-temperature-and-dew-point-convergence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Fog Watch — Temperature and Dew Point Convergence
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-solar-radiation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Solar Radiation - The Energy That Drives the Weather
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-wind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Wind - Measuring Air in Motion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-ground-motion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Ground Motion - Measuring Earthquakes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-os-and-sensor-buses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. The Station's Brain - Operating System, Command Line, and Sensor Buses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-python-programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Programming the Station in Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-data-logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Logging Data - Timestamps, Intervals, and Files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-charting-and-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Charting and Interpreting Your Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-building-for-outdoors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Building the Station for the Outdoors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-measurement-to-consequence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. From Measurement to Consequence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../licensing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#two-days-same-number-different-worlds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two Days, Same Number, Different Worlds
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#water-vapor-and-the-water-cycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Water Vapor and the Water Cycle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#three-ways-to-say-how-wet-the-air-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Three Ways to Say How Wet the Air Is
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Three Ways to Say How Wet the Air Is">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#absolute-humidity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Absolute Humidity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vapor-pressure-and-saturation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vapor Pressure and Saturation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relative-humidity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relative Humidity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dew-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dew Point
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dew Point">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-humidity-three-ways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Humidity Three Ways
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dew-frost-and-fog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dew, Frost, and Fog
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#measuring-the-invisible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Measuring the Invisible
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Measuring the Invisible">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hair" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hair
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaporation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaporation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chilled-mirrors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chilled Mirrors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thin-films" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thin Films
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Thin Films">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-psychrometer-wet-bulb-bench" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Psychrometer Wet Bulb Bench
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-your-station-will-actually-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Your Station Will Actually Do
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Your Station Will Actually Do">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-fog-watch-temperature-and-dew-point-convergence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Fog Watch — Temperature and Dew Point Convergence
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/iowerx/pi-env-monitor/blob/main/docs/chapters/08-humidity-and-dew-point/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="humidity-and-dew-point-the-water-hidden-in-the-air">Humidity and Dew Point: The Water Hidden in the Air<a class="headerlink" href="#humidity-and-dew-point-the-water-hidden-in-the-air" title="Permanent link">¶</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
+<p>Water vapor is invisible, so measuring it took ingenuity. This chapter first builds the water cycle — evaporation, condensation, cloud formation, and precipitation — then distinguishes the three ways to describe moisture: absolute humidity, relative humidity, and dew point. It explains through vapor pressure why warm air holds more water, which is why fog forms overnight without any new water arriving. The instrument history runs from the hair hygrometer through the psychrometer to the capacitive thin-film sensor used in this station.</p>
+<h2 id="concepts-covered">Concepts Covered<a class="headerlink" href="#concepts-covered" title="Permanent link">¶</a></h2>
+<p>This chapter covers the following 20 concepts from the learning graph:</p>
+<ol>
+<li>Water Vapor</li>
+<li>Humidity</li>
+<li>Absolute Humidity</li>
+<li>Partial Pressure Of Vapor</li>
+<li>Hair Hygrometer</li>
+<li>Capacitive Sensing</li>
+<li>Saturation Vapor Pressure</li>
+<li>Convection</li>
+<li>Evaporation</li>
+<li>Condensation</li>
+<li>Relative Humidity</li>
+<li>Precipitation</li>
+<li>Dew Point</li>
+<li>Wet Bulb Temperature</li>
+<li>Capacitive Humidity Sensor</li>
+<li>Cloud Formation</li>
+<li>Psychrometer</li>
+<li>Chilled Mirror Hygrometer</li>
+<li>Dew And Frost Formation</li>
+<li>Fog Formation</li>
+</ol>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-why-we-measure/">Chapter 1: Why We Measure the Natural Environment</a></li>
+<li><a href="../02-language-of-measurement/">Chapter 2: The Language of Measurement</a></li>
+<li><a href="../04-how-sensors-work/">Chapter 4: How Sensors Turn the World Into Numbers</a></li>
+<li><a href="../06-temperature/">Chapter 6: Temperature: From the Thermoscope to the Silicon Chip</a></li>
+<li><a href="../07-barometric-pressure/">Chapter 7: Barometric Pressure: The Weight of the Atmosphere</a></li>
+</ul>
+<hr>
+<h2 id="two-days-same-number-different-worlds">Two Days, Same Number, Different Worlds<a class="headerlink" href="#two-days-same-number-different-worlds" title="Permanent link">¶</a></h2>
+<p>Here are two days. Both report 50 percent humidity.</p>
+<ul>
+<li><strong>Day one:</strong> 32 °C, 50 percent humidity. Stepping outside feels like walking into a wet towel. Sweat runs and does not dry. Everyone is miserable.</li>
+<li><strong>Day two:</strong> 5 °C, 50 percent humidity. The air feels dry and crisp. Lips chap. Static shocks on every doorknob.</li>
+</ul>
+<p>Same percentage. Completely different air. If that number described how much water was in the air, those two days would feel similar. They do not, and the reason is that the percentage everyone quotes is not an amount at all.</p>
+<p>It is a comparison. This chapter is about what it is being compared to, and about the number that actually predicts how a day will feel.</p>
+<h2 id="water-vapor-and-the-water-cycle">Water Vapor and the Water Cycle<a class="headerlink" href="#water-vapor-and-the-water-cycle" title="Permanent link">¶</a></h2>
+<p><strong>Water vapor</strong> is water in its gas phase — individual water molecules mixed in among the nitrogen and oxygen of the air, moving freely and completely invisible.</p>
+<p>That last word matters. Steam from a kettle and clouds in the sky are <em>not</em> water vapor; they are tiny liquid droplets, which is why you can see them. Real water vapor cannot be seen at all. The air in front of you right now contains water and looks like nothing.</p>
+<p>Water vapor makes up a small and highly variable share of the atmosphere — from nearly zero over a desert or in polar air to about 4 percent in humid tropical air. It is the most variable component of the atmosphere and, per molecule, one of the most consequential. It carries enormous amounts of energy, and it is the raw material of every cloud and every storm.</p>
+<p>Getting water into and out of the air is a cycle with three processes.</p>
+<p><strong>Evaporation</strong> is liquid water becoming vapor. It happens whenever fast-moving molecules at a water surface escape into the air. This is not a boiling-only process — a puddle evaporates at 15 °C, just slowly. Evaporation happens faster when the air is warmer, drier, or moving.</p>
+<p>Evaporation has a property that is easy to overlook and matters constantly: <strong>it cools what it leaves behind.</strong> The molecules that escape are the fastest ones, so the average energy of those remaining falls, and Chapter 6 defined temperature as exactly that average. This is why sweating works, why you feel cold stepping out of a pool, and — as you will see shortly — how a psychrometer measures humidity.</p>
+<p><strong>Condensation</strong> is vapor becoming liquid. It happens when air is cooled enough that it can no longer hold all the vapor it contains, and molecules stick together into droplets.</p>
+<p>Condensation is where the energy comes back. Every molecule that condenses releases the energy it absorbed when it evaporated, warming the surrounding air. That released heat is what powers thunderstorms and hurricanes: warm ocean water evaporates, the vapor rises and condenses, and the released energy drives the storm harder.</p>
+<p><strong>Convection</strong> — introduced in Chapter 6 as a mode of heat transfer — is what lifts the vapor. Sun-warmed air near the ground becomes less dense and rises, carrying water vapor with it. As it rises it cools, because pressure falls with height and expanding air cools.</p>
+<p>Put those together and you get <strong>cloud formation</strong>. Warm moist air rises by convection, cools as it rises, reaches the height where it can no longer hold its vapor, and condenses onto microscopic airborne particles — dust, salt, pollen — called condensation nuclei. Billions of tiny droplets form, and that is a cloud.</p>
+<p>When droplets in a cloud collide and merge enough to become too heavy to stay aloft, you get <strong>precipitation</strong> — water falling from the atmosphere to the ground as rain, snow, sleet, or hail. Which form arrives depends on the temperature profile it falls through.</p>
+<div class="admonition note">
+<p class="admonition-title">Clouds are not water vapor</p>
+<p>A cloud is liquid droplets or ice crystals — condensed water you can see. The vapor is the invisible stage before and after. A common exam question asks students to identify what is in a cloud, and "water vapor" is the wrong answer. Where the air is genuinely full of vapor and nothing else, it looks perfectly clear.</p>
+</div>
+<h2 id="three-ways-to-say-how-wet-the-air-is">Three Ways to Say How Wet the Air Is<a class="headerlink" href="#three-ways-to-say-how-wet-the-air-is" title="Permanent link">¶</a></h2>
+<p><strong>Humidity</strong> is the general term for the amount of water vapor in the air. It is deliberately vague, because there are three precise ways to pin it down, and they answer different questions.</p>
+<h3 id="absolute-humidity">Absolute Humidity<a class="headerlink" href="#absolute-humidity" title="Permanent link">¶</a></h3>
+<p><strong>Absolute humidity</strong> is the actual mass of water vapor per unit volume of air, usually in grams per cubic metre.</p>
+<p>It is the most straightforward of the three: literally how much water is present. Typical outdoor values run from under 1 g/m³ in very cold or desert air to around 30 g/m³ in humid tropical air.</p>
+<p>Absolute humidity is honest and rarely quoted. Its inconvenience is that it changes when air expands or compresses even though no water was added or removed, since the volume in the denominator changed.</p>
+<h3 id="vapor-pressure-and-saturation">Vapor Pressure and Saturation<a class="headerlink" href="#vapor-pressure-and-saturation" title="Permanent link">¶</a></h3>
+<p>Before relative humidity can be defined properly, one idea from Chapter 7 has to be extended.</p>
+<p><strong>Partial pressure of vapor</strong> is the portion of total atmospheric pressure contributed by water vapor alone.</p>
+<p>John Dalton established the underlying principle around 1801: in a mixture of gases, each gas exerts pressure independently, as if the others were not there, and the total pressure is the sum of the parts. So of 1013 hPa of atmospheric pressure, nitrogen contributes roughly 790 hPa, oxygen roughly 212 hPa, and water vapor might contribute anywhere from 1 to 40 hPa depending on conditions.</p>
+<p><strong>Saturation vapor pressure</strong> is the maximum partial pressure of water vapor that air can sustain at a given temperature. Push past it and the excess condenses.</p>
+<p>And here is the fact that explains the entire chapter: <strong>saturation vapor pressure rises steeply with temperature.</strong> Not linearly — steeply, roughly doubling for every 10 °C.</p>
+<table>
+<thead>
+<tr>
+<th>Temperature</th>
+<th>Saturation vapor pressure</th>
+<th>Maximum water the air can hold</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>−10 °C</td>
+<td>2.6 hPa</td>
+<td>2.1 g/m³</td>
+</tr>
+<tr>
+<td>0 °C</td>
+<td>6.1 hPa</td>
+<td>4.8 g/m³</td>
+</tr>
+<tr>
+<td>10 °C</td>
+<td>12.3 hPa</td>
+<td>9.4 g/m³</td>
+</tr>
+<tr>
+<td>20 °C</td>
+<td>23.4 hPa</td>
+<td>17.3 g/m³</td>
+</tr>
+<tr>
+<td>30 °C</td>
+<td>42.4 hPa</td>
+<td>30.4 g/m³</td>
+</tr>
+<tr>
+<td>40 °C</td>
+<td>73.8 hPa</td>
+<td>51.1 g/m³</td>
+</tr>
+</tbody>
+</table>
+<p>Read that first and last row again. Air at 40 °C can hold about twenty-four times as much water as air at −10 °C. That single fact drives dew, fog, frost, clouds, rain, and why a heated house in winter feels so dry.</p>
+<div class="admonition note">
+<p class="admonition-title">'Air holds water' is a useful fiction</p>
+<p>You will hear that warm air "holds more moisture," and this book uses that phrasing because it is intuitive. Strictly it is wrong: air is not a sponge, and the nitrogen and oxygen are not doing any holding. What actually changes with temperature is how much vapor pressure water itself can sustain before condensing — a property of the water, not of the air. The sponge picture predicts correctly for everything in this chapter, so it is a fiction worth keeping, as long as you know it is one.</p>
+</div>
+<h3 id="relative-humidity">Relative Humidity<a class="headerlink" href="#relative-humidity" title="Permanent link">¶</a></h3>
+<p><strong>Relative humidity</strong> is the ratio of the actual vapor pressure to the saturation vapor pressure at the current temperature, written as a percentage:</p>
+<div class="arithmatex">\[ \text{RH} = \frac{\text{actual vapor pressure}}{\text{saturation vapor pressure}} \times 100\% \]</div>
+<p>This is the number in every forecast, and now the opening puzzle resolves. Fifty percent means "half of the maximum for <em>this</em> temperature," and the maximum changes enormously with temperature. Fifty percent at 32 °C is about 15 g/m³ of water. Fifty percent at 5 °C is about 3.4 g/m³. The hot day genuinely has more than four times the water in it, despite both reading 50 percent.</p>
+<p>Relative humidity has a property that trips people up constantly: <strong>it changes when the temperature changes, even if no water enters or leaves the air.</strong> Cool a parcel of air and its relative humidity climbs, purely because the denominator shrank. This is why relative humidity almost always peaks just before dawn — the coldest moment — and bottoms out in mid-afternoon, with no change in the actual water content at all.</p>
+<p>Relative humidity reaches 100 percent when the actual vapor pressure equals the saturation vapor pressure. At that point the air is saturated, and any further cooling forces condensation.</p>
+<h3 id="dew-point">Dew Point<a class="headerlink" href="#dew-point" title="Permanent link">¶</a></h3>
+<p><strong>Dew point</strong> is the temperature to which air must be cooled, at constant pressure, for it to become saturated and begin condensing.</p>
+<p>Of the three measures, this is the most useful outdoors, for three reasons:</p>
+<ol>
+<li><strong>It is absolute.</strong> Dew point tracks the actual water content. If no water enters or leaves, the dew point stays put while the temperature and relative humidity swing all day.</li>
+<li><strong>It predicts comfort directly.</strong> How muggy a day feels is essentially a function of dew point, and the scale is remarkably consistent across people.</li>
+<li><strong>It never exceeds the air temperature.</strong> When dew point equals air temperature, relative humidity is 100 percent by definition.</li>
+</ol>
+<p>Here is the comfort scale that makes dew point worth learning:</p>
+<table>
+<thead>
+<tr>
+<th>Dew point</th>
+<th>How it feels</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Below 10 °C</td>
+<td>Dry, crisp, comfortable</td>
+</tr>
+<tr>
+<td>10–13 °C</td>
+<td>Pleasant</td>
+</tr>
+<tr>
+<td>13–16 °C</td>
+<td>Noticeably humid</td>
+</tr>
+<tr>
+<td>16–18 °C</td>
+<td>Sticky and uncomfortable</td>
+</tr>
+<tr>
+<td>18–21 °C</td>
+<td>Oppressive</td>
+</tr>
+<tr>
+<td>Above 21 °C</td>
+<td>Miserable; heat stress risk rises sharply</td>
+</tr>
+</tbody>
+</table>
+<p>Now return to the opening puzzle one last time. Day one, 32 °C at 50 percent, has a dew point around 20 °C — oppressive. Day two, 5 °C at 50 percent, has a dew point around −4 °C — dry. The dew point told you in one number what the percentage obscured.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Absolute humidity</th>
+<th>Relative humidity</th>
+<th>Dew point</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Units</td>
+<td>g/m³</td>
+<td>percent</td>
+<td>°C</td>
+</tr>
+<tr>
+<td>Answers</td>
+<td>How much water?</td>
+<td>How close to saturated?</td>
+<td>At what temperature does it condense?</td>
+</tr>
+<tr>
+<td>Changes with temperature alone?</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Predicts comfort</td>
+<td>Poorly</td>
+<td>Poorly</td>
+<td>Very well</td>
+</tr>
+<tr>
+<td>Predicts fog and dew</td>
+<td>Poorly</td>
+<td>Somewhat</td>
+<td>Directly</td>
+</tr>
+<tr>
+<td>Commonly reported</td>
+<td>Rarely</td>
+<td>Always</td>
+<td>Increasingly</td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-humidity-three-ways">Diagram: Humidity Three Ways<a class="headerlink" href="#diagram-humidity-three-ways" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/humidity-three-ways/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Humidity Three Ways</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> humidity-three-ways<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Analyze (L4)
+Bloom Verb: distinguish</p>
+<p>Learning objective: The learner distinguishes absolute humidity, relative humidity, and dew point by changing temperature while holding water content fixed, and explains why relative humidity changes when nothing was added to the air.</p>
+<p>Purpose: This is the chapter's central confusion and it survives ordinary explanation. Letting the learner cool a parcel of air with the water content locked, and watch relative humidity climb to 100 percent while absolute humidity and dew point sit perfectly still, is the demonstration that settles it.</p>
+<p>Canvas layout:
+- Left: a container representing a parcel of air, drawn with a visible count of water molecules and a "capacity line" whose height is the saturation limit at the current temperature
+- Center: three large readouts stacked vertically — absolute humidity, relative humidity, dew point — each with a small history strip showing how it has moved in the last minute of interaction
+- Right or below (responsive): the saturation vapor pressure curve, with the current state plotted as a point on it
+- Bottom: controls
+- Responsive to window resize</p>
+<p>Data Visibility Requirements:
+  Stage 1: Show the molecule count and the capacity line, with the gap between them labeled "room for more"
+  Stage 2: Show all three humidity measures for the current state simultaneously
+  Stage 3: When temperature changes, animate ONLY the capacity line moving; the molecule count must visibly stay fixed. Display a running caption: "Water content unchanged. Capacity changed."
+  Stage 4: When the capacity line reaches the molecule count, mark relative humidity 100 percent and begin removing molecules as visible droplets, with a caption "Condensation. Water is now leaving the air."
+  Stage 5: Show the current state as a moving point on the saturation curve so the learner connects the container view to the graph</p>
+<p>Interactive controls:
+- Temperature slider, −10 to 40 °C
+- "Add water" and "Remove water" buttons that change the molecule count directly, so the learner can compare the two ways of changing relative humidity
+- Lock toggles: "Lock water content" (default on) and "Lock relative humidity", so the learner can hold each constant and see what the others do
+- Scenario presets:
+  - "Overnight cooling" — start at 25 °C with a dew point of 15 °C, then drop temperature through the night. Relative humidity climbs from about 54 percent to 100 percent with zero water added. Caption: "This is how dew forms."
+  - "Heated house in winter" — take outdoor air at 0 °C and 80 percent RH and warm it to 21 °C indoors. Relative humidity collapses to about 20 percent. Caption: "Nothing dried the air. You warmed it."
+  - "The two 50 percent days" — the chapter's opening puzzle, side by side, showing both at 50 percent RH with dew points of 20 °C and −4 °C.</p>
+<p>Instructional Rationale: The objective is Analyze/distinguish, which requires the learner to hold one variable fixed and observe the others. The lock toggles make that experimental control an explicit interface element. The design decision that carries the lesson is animating only the capacity line while the molecule count stays visibly frozen — students believe cooling air "squeezes water out," and seeing the water sit still while the limit descends to meet it corrects that directly.</p>
+<p>Implementation: p5.js. Compute saturation vapor pressure with the Magnus formula. Derive relative humidity and dew point from water content and temperature so the three readouts cannot disagree.</p>
+</details>
+<h2 id="dew-frost-and-fog">Dew, Frost, and Fog<a class="headerlink" href="#dew-frost-and-fog" title="Permanent link">¶</a></h2>
+<p>Three familiar phenomena are all the same physics, differing only in where the cooling happens and how cold it gets.</p>
+<p><strong>Dew and frost formation</strong> happens at ground level on clear, calm nights. Surfaces radiate heat to the sky and cool below the surrounding air temperature — often several degrees below. When a surface cools past the dew point, the air touching it condenses onto it. If the dew point is above freezing, you get dew. If it is below freezing, vapor deposits directly as ice crystals and you get frost.</p>
+<p>This is why dew appears on grass and car roofs but not under a tree or a carport: those surfaces are shielded from the open sky and cannot radiate away their heat as effectively.</p>
+<p><strong>Fog formation</strong> is the same event happening in the air itself rather than on a surface. When a whole layer of air cools to its dew point, condensation occurs throughout it, producing suspended droplets. Fog is a cloud that forms at ground level.</p>
+<p>The conditions that favour it are specific and worth knowing, because they are also the conditions that make your station's overnight data interesting:</p>
+<ul>
+<li>A <strong>clear sky</strong>, so heat radiates away freely</li>
+<li><strong>Calm or very light wind</strong> — enough to mix the lowest air slightly, but not enough to stir warm air down from above</li>
+<li>A <strong>dew point close to the air temperature</strong>, meaning a small gap to close</li>
+<li><strong>Long nights</strong>, which is why fog is more common in autumn and winter</li>
+</ul>
+<p>Your station can see fog coming before it arrives. Watch the gap between temperature and dew point through the evening. When the two converge, condensation is imminent. That is a genuine forecast, made from your own two numbers.</p>
+<h2 id="measuring-the-invisible">Measuring the Invisible<a class="headerlink" href="#measuring-the-invisible" title="Permanent link">¶</a></h2>
+<p>Measuring something you cannot see took some ingenuity, and the instrument history is a good one.</p>
+<h3 id="hair">Hair<a class="headerlink" href="#hair" title="Permanent link">¶</a></h3>
+<p>Around 1450 Nicholas of Cusa described balancing a ball of wool against stones on a scale. As the air grew damp the wool absorbed moisture and tipped the balance. Leonardo da Vinci sketched a version about thirty years later. Both were detecting <em>change</em>, with no number attached — the same limitation Chapter 6's thermoscope had.</p>
+<p>In 1783 Horace-Bénédict de Saussure built the <strong>hair hygrometer</strong>, and it was the first humidity instrument good enough to read as a number.</p>
+<p>The principle is odd and completely real: a human hair changes length with humidity, getting about 2 to 2.5 percent longer between bone dry and fully saturated. De Saussure fixed a hair at one end, attached the other to a lever and pointer, and calibrated the dial.</p>
+<p>Hair hygrometers were the standard for well over a century. They are slow, they drift, and they are less accurate at the extremes — but they need no power, they work outdoors for years, and blonde hair, degreased, turned out to work best.</p>
+<h3 id="evaporation">Evaporation<a class="headerlink" href="#evaporation" title="Permanent link">¶</a></h3>
+<p>A <strong>psychrometer</strong> measures humidity using two thermometers: one ordinary, and one with its bulb wrapped in a wet wick.</p>
+<p>The wet one reads lower. Evaporation from the wick cools it, exactly as described earlier in this chapter — and here is the useful part: <strong>the drier the air, the faster the evaporation and the greater the cooling.</strong> The difference between the two thermometers is a direct measure of how dry the air is.</p>
+<p>The <strong>wet bulb temperature</strong> is what the wet thermometer reads: the lowest temperature achievable by evaporating water into the air at constant pressure. In saturated air, evaporation cannot proceed, so the wet bulb equals the dry bulb and the difference is zero.</p>
+<p>Psychrometers became standard after about 1825 and were refined into Richard Assmann's aspirated psychrometer in 1887, which added a fan to force a consistent airflow over both bulbs and made readings far more reproducible.</p>
+<p>Wet bulb temperature has become significant for a reason beyond meteorology. Human beings cool themselves by sweating, which is evaporation — so if the wet bulb temperature reaches human body temperature, sweating cannot cool you no matter how much you drink or how much shade you find. A sustained wet bulb temperature around 35 °C is survivable for only a few hours even for a healthy person at rest. Chapter 17 returns to this.</p>
+<h3 id="chilled-mirrors">Chilled Mirrors<a class="headerlink" href="#chilled-mirrors" title="Permanent link">¶</a></h3>
+<p>A <strong>chilled mirror hygrometer</strong> measures the dew point directly rather than inferring it. A small mirror is cooled while a light beam reflects off it and a detector watches the reflection. The instant condensation forms, the reflection scatters and dims. The mirror's temperature at that moment <em>is</em> the dew point, by definition.</p>
+<p>These are the most accurate humidity instruments available and are used as reference standards — the top of the calibration chain from Chapter 2. They are also expensive, need regular cleaning, and are not something a school station will own. Knowing they exist matters because they are what everything else is ultimately calibrated against.</p>
+<h3 id="thin-films">Thin Films<a class="headerlink" href="#thin-films" title="Permanent link">¶</a></h3>
+<p><strong>Capacitive sensing</strong>, introduced in Chapter 4, measures capacitance: the ability of two conductors separated by an insulator to store electric charge. Capacitance depends on the plate area, the gap, and — critically — the electrical properties of the material in between.</p>
+<p>A <strong>capacitive humidity sensor</strong> exploits that last dependence. Two electrodes sandwich a thin polymer film. The film absorbs and releases water vapor from the surrounding air, and because water strongly affects the film's electrical properties, the capacitance changes in proportion to relative humidity.</p>
+<p>Vaisala introduced the first practical version, the HUMICAP, in 1973, and it changed the field. It is fast, it is small, it needs little power, it survives condensation, and it can be manufactured onto a chip. Essentially every electronic humidity sensor sold today, including the one in your BME280, works this way.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Hair hygrometer</th>
+<th>Psychrometer</th>
+<th>Chilled mirror</th>
+<th>Capacitive film</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Invented</td>
+<td>1783</td>
+<td>c. 1825</td>
+<td>20th century</td>
+<td>1973</td>
+</tr>
+<tr>
+<td>Measures</td>
+<td>Relative humidity</td>
+<td>Wet bulb depression</td>
+<td>Dew point directly</td>
+<td>Relative humidity</td>
+</tr>
+<tr>
+<td>Typical accuracy</td>
+<td>±5% RH</td>
+<td>±2% RH</td>
+<td>±0.1 °C dew point</td>
+<td>±3% RH</td>
+</tr>
+<tr>
+<td>Needs power</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response time</td>
+<td>Minutes</td>
+<td>Seconds to minutes</td>
+<td>Seconds</td>
+<td>About 1 second</td>
+</tr>
+<tr>
+<td>Cost</td>
+<td>Low</td>
+<td>Low</td>
+<td>Very high</td>
+<td>Very low</td>
+</tr>
+<tr>
+<td>Where you meet it</td>
+<td>Antique wall instruments</td>
+<td>Traditional weather stations</td>
+<td>Calibration laboratories</td>
+<td>Your station</td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-psychrometer-wet-bulb-bench">Diagram: Psychrometer Wet Bulb Bench<a class="headerlink" href="#diagram-psychrometer-wet-bulb-bench" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/psychrometer-wet-bulb-bench/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Psychrometer Wet Bulb Bench</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> psychrometer-wet-bulb-bench<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Apply (L3)
+Bloom Verb: demonstrate</p>
+<p>Learning objective: The learner demonstrates how the difference between a dry bulb and a wet bulb thermometer yields relative humidity and dew point, and applies a psychrometric lookup to determine humidity from two temperature readings.</p>
+<p>Purpose: The psychrometer is the clearest physical link between evaporation, cooling, and humidity, and running it makes evaporative cooling tangible rather than asserted. It also gives the learner a way to cross-check their electronic sensor with two ordinary thermometers, which is a real calibration technique they can perform.</p>
+<p>Canvas layout:
+- Left: two thermometers side by side, one dry and one with a visibly wet wick, both reading live, with a small fan icon whose speed the learner controls
+- Center: a psychrometric lookup table with the current dry bulb row and wet bulb column highlighted at their intersection
+- Right or below (responsive): the derived relative humidity and dew point, plus an explanation of the current state
+- Bottom: controls
+- Responsive to window resize</p>
+<p>Data Visibility Requirements:
+  Stage 1: Show the dry bulb temperature, set by the learner
+  Stage 2: Show the wet bulb temperature settling to its equilibrium value as evaporation proceeds, with the depression (the difference) displayed as a number
+  Stage 3: Highlight the table cell at that intersection and show the relative humidity read from it
+  Stage 4: Show the derived dew point
+  Stage 5: Show a plain-language interpretation, e.g. "Depression of 8 degrees means dry air. Evaporation from the wick is rapid."</p>
+<p>Interactive controls:
+- Dry bulb temperature slider, 0 to 45 °C
+- True relative humidity slider, 5 to 100 percent — this is the hidden truth the instrument is measuring, and the wet bulb responds to it
+- Airflow selector: still, natural breeze, forced (aspirated). Still air must produce a visibly less accurate and slower reading, with a caption explaining why Assmann added a fan in 1887.
+- "Wet the wick" button that must be pressed to start, so the learner sees the wet bulb start equal to the dry bulb and then fall — the cooling is an event they cause
+- Saturated-air demonstration: at 100 percent relative humidity, the wet bulb must fail to fall at all, with the caption "No evaporation is possible into saturated air, so there is no cooling and no depression. Both thermometers agree."</p>
+<p>Cross-check mode: displays a simulated BME280 reading alongside the psychrometric result, with a small deliberate offset, and asks the learner which they should trust and why. Feedback explains the calibration chain from Chapter 2 and notes that an aspirated psychrometer is a legitimate field reference for checking an electronic sensor.</p>
+<p>Instructional Rationale: The objective is Apply/demonstrate, so the learner must operate the instrument and read a result rather than watch one. Requiring the wick to be wet by a button press makes the evaporative cooling causal rather than ambient. The saturated-air case is included because a null result — no cooling at all — is the clearest possible proof that the cooling comes from evaporation and not from the water being cold.</p>
+<p>Implementation: p5.js. Compute wet bulb from dry bulb and relative humidity using a standard psychrometric approximation. Model the wick approach to equilibrium as exponential with a time constant that lengthens in still air.</p>
+</details>
+<h2 id="what-your-station-will-actually-do">What Your Station Will Actually Do<a class="headerlink" href="#what-your-station-will-actually-do" title="Permanent link">¶</a></h2>
+<p>The BME280 reports relative humidity. Everything else is arithmetic you perform afterward, and Chapter 13 will write the code.</p>
+<p>The standard method for dew point is the Magnus formula. It looks worse than it is:</p>
+<div class="arithmatex">\[ \gamma = \frac{a \cdot T}{b + T} + \ln\left(\frac{\text{RH}}{100}\right) \]</div>
+<div class="arithmatex">\[ T_{dp} = \frac{b \cdot \gamma}{a - \gamma} \]</div>
+<p>where <span class="arithmatex">\(T\)</span> is air temperature in °C, RH is relative humidity in percent, and the constants are <span class="arithmatex">\(a = 17.27\)</span> and <span class="arithmatex">\(b = 237.7\)</span>. The result is the dew point in °C, accurate to a few tenths of a degree across ordinary weather conditions.</p>
+<p>For rough mental work there is a much simpler rule that is good to within a degree or so above 50 percent humidity: <strong>the dew point is about 1 °C below the air temperature for every 5 percent that relative humidity falls below 100.</strong> At 25 °C and 70 percent, that gives <span class="arithmatex">\(25 - 6 = 19\)</span> °C, and the exact answer is 19.1 °C.</p>
+<h4 id="diagram-fog-watch-temperature-and-dew-point-convergence">Diagram: Fog Watch — Temperature and Dew Point Convergence<a class="headerlink" href="#diagram-fog-watch-temperature-and-dew-point-convergence" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/fog-watch-convergence/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Fog Watch — Temperature and Dew Point Convergence</summary>
+<p>Type: chart
+<strong>sim-id:</strong> fog-watch-convergence<br>
+<strong>Library:</strong> Chart.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Evaluate (L5)
+Bloom Verb: predict</p>
+<p>Learning objective: The learner predicts overnight dew, frost, or fog from the converging gap between air temperature and dew point, and justifies the prediction from cooling rate and sky conditions rather than from relative humidity alone.</p>
+<p>Purpose: This is the first genuine forecast a student can make from their own station's two numbers, and it is a satisfying one because the result appears on the grass by morning. It also demonstrates why dew point earns its place alongside relative humidity in the logged data.</p>
+<p>Chart type: Dual-line time series with a shaded gap region and a prediction interaction</p>
+<p>Data: Overnight traces from 18:00 to 08:00, at 15-minute resolution, for a set of scenarios. Every scenario provides air temperature, dew point, relative humidity, wind speed, and cloud cover.</p>
+<p>X-axis: Time of night, 18:00 through 08:00
+Y-axis: Temperature in °C, FIXED range across all scenarios so gaps are visually comparable. Both air temperature and dew point are plotted on this shared axis — that shared axis is the entire point of the element.</p>
+<p>Additional display: relative humidity is plotted on a secondary axis as a faint third line, so the learner can see it climbing toward 100 percent while the dew point stays flat.</p>
+<p>The gap between the two main lines is shaded, and its current width in degrees is displayed as "spread". A caption defines it: "Spread is how many degrees of cooling remain before condensation."</p>
+<p>Scenarios:
+1. <strong>Classic radiation fog</strong> — clear, calm, spread narrowing from 8 °C to 0 °C by 05:00. Outcome: dense fog and heavy dew.
+2. <strong>Dew only</strong> — clear and calm, spread closes to 0 °C at ground level but the air layer above stays unsaturated. Outcome: dew on grass, no fog.
+3. <strong>Frost</strong> — same convergence as scenario 2, but the dew point is −3 °C, below freezing. Outcome: frost. The caption must state that vapor deposits directly as ice without passing through liquid.
+4. <strong>Windy night</strong> — spread narrows but wind mixes warmer air downward, holding the temperature above the dew point. Outcome: nothing forms. Teaches that convergence alone is insufficient.
+5. <strong>Cloudy night</strong> — clouds radiate heat back down, cooling stalls, spread stays at 5 °C. Outcome: nothing forms.
+6. <strong>Deceptive high humidity</strong> — relative humidity sits at 85 percent all night but the spread never closes because the dew point is low and the air is cold. Outcome: nothing forms. This is the case that shows relative humidity alone misleads.</p>
+<p>Interactive features:
+- A time cursor the learner scrubs; the future is hidden beyond the cursor
+- At 22:00 the learner must submit a prediction: "Dew", "Frost", "Fog", or "Nothing"
+- On submission the rest of the night reveals, with the outcome and an explanation naming which cue was decisive
+- Hover any point: tooltip gives air temperature, dew point, spread, relative humidity, wind, and cloud cover at that moment
+- Toggle the relative humidity line on and off, so the learner can test whether they could have made the call from RH alone. For scenario 6 they cannot, and the feedback says so.
+- A running scoreboard across scenarios</p>
+<p>Implementation: Chart.js with two datasets on a shared y-axis, a third on a secondary axis, and a filled area between the first two. Pre-generate scenario data as static JSON so classroom discussion refers to identical numbers.</p>
+</details>
+<div class="admonition warning">
+<p class="admonition-title">Humidity sensors are the most fragile part of your station</p>
+<p>Of the three quantities the BME280 measures, humidity is the one most likely to give trouble, for reasons worth knowing before it happens:</p>
+<ul>
+<li><strong>They drift.</strong> Expect roughly 0.5 percent RH per year, more in dirty or polluted air. Chapter 15 covers detecting this.</li>
+<li><strong>Condensation confuses them temporarily.</strong> When the film is genuinely wet, the sensor reads near 100 percent until it dries. This is not a fault, but it can pin your readings for hours after fog.</li>
+<li><strong>Contamination is permanent.</strong> Solvents, adhesives, smoke, and volatile organic compounds can poison the polymer irreversibly. Do not mount the sensor near fresh paint, glue, or sealant, and do not use silicone sealant in the enclosure while the sensor is inside it.</li>
+<li><strong>They are slow to recover from saturation.</strong> After a long spell at 100 percent, readings may take hours to come back down. A useful field technique, described in the Bosch datasheet, is a periodic gentle bake using the sensor's own heater if available.</li>
+</ul>
+</div>
+<h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Water vapor</strong> is invisible. Clouds and steam are liquid droplets, not vapor.</li>
+<li><strong>Evaporation</strong> absorbs energy and cools what it leaves; <strong>condensation</strong> releases that energy back. <strong>Convection</strong> lifts moist air, driving <strong>cloud formation</strong> and <strong>precipitation</strong>.</li>
+<li><strong>Absolute humidity</strong> is mass per volume. <strong>Relative humidity</strong> is the ratio of actual to <strong>saturation vapor pressure</strong>, which depends on <strong>partial pressure of vapor</strong> and rises steeply with temperature.</li>
+<li><strong>Dew point</strong> is the temperature at which condensation begins. It is absolute, it predicts comfort well, and it never exceeds the air temperature.</li>
+<li>Relative humidity changes with temperature alone. Cooling air raises it without adding any water, which is what produces <strong>dew and frost formation</strong> and <strong>fog formation</strong>.</li>
+<li>The <strong>hair hygrometer</strong> (1783) gave the first readable numbers. The <strong>psychrometer</strong> uses evaporative cooling and the <strong>wet bulb temperature</strong>. The <strong>chilled mirror hygrometer</strong> measures dew point directly and serves as a reference standard.</li>
+<li><strong>Capacitive sensing</strong> through a moisture-absorbing polymer film gives the <strong>capacitive humidity sensor</strong> in the BME280 — fast, small, cheap, and the modern standard since 1973.</li>
+</ul>
+<h2 id="check-yourself">Check Yourself<a class="headerlink" href="#check-yourself" title="Permanent link">¶</a></h2>
+<details class="question">
+<summary>Overnight the temperature falls from 20 °C to 8 °C. No water enters or leaves the air. What happens to absolute humidity, relative humidity, and dew point? Click to check.</summary>
+<p><strong>Absolute humidity: unchanged</strong> — the same water is still there. <strong>Dew point: unchanged</strong> — it tracks water content, not temperature. <strong>Relative humidity: rises sharply</strong> — the saturation vapor pressure fell from 23.4 hPa to about 10.7 hPa, so the same water is now a much larger fraction of the maximum. If the dew point was 8 °C, relative humidity reaches 100 percent at dawn and dew forms.</p>
+</details>
+<details class="question">
+<summary>Why does a heated house feel dry in winter? Click to check.</summary>
+<p>Cold outdoor air holds very little water in absolute terms. Bring it inside at 0 °C and 80 percent relative humidity and heat it to 21 °C, and the water content does not change — but the saturation vapor pressure rises from 6.1 to 24.9 hPa, so relative humidity collapses to roughly 20 percent. Nothing removed moisture. Heating the air raised its capacity, and the same water became a much smaller fraction of it.</p>
+</details>
+<details class="question">
+<summary>Two thermometers read 24 °C dry and 24 °C wet. What is the relative humidity? Click to check.</summary>
+<p>One hundred percent. The wet bulb cools by evaporation, and evaporation cannot proceed into saturated air, so no cooling occurs and the depression is zero. The dew point equals the air temperature at 24 °C. Practically, expect fog, dew, or rain.</p>
+</details>
+<details class="question">
+<summary>Your humidity sensor has read exactly 100 percent for six hours after a foggy night. Is it broken? Click to check.</summary>
+<p>Probably not. If the polymer film became genuinely wet during the fog, the sensor correctly reports saturation until the film dries, and recovery from full saturation can take hours. Check whether temperature and dew point converged during the fog — if they did, the reading was real. If the sensor stays pinned at 100 percent for days while the dew point sits well below the air temperature, then suspect contamination or permanent damage.</p>
+</details>
+<hr>
+<h2 id="what-is-next">What Is Next<a class="headerlink" href="#what-is-next" title="Permanent link">¶</a></h2>
+<p>Three of the seven quantities are now covered, and all three come from the single BME280 chip. The remaining four each need their own sensor, and the next one is the source of the energy that drives everything you have read about so far.</p>
+<p>Chapter 9 covers solar radiation — the energy arriving from the Sun. It runs from Herschel's accidental discovery of infrared through the instruments that measure sunlight to the satellites that finally pinned down how much energy actually arrives. It also explains insolation, the number that determines whether the solar panel powering your station will actually keep up.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../07-barometric-pressure/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 7. Barometric Pressure - The Weight of the Atmosphere">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                7. Barometric Pressure - The Weight of the Atmosphere
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../09-solar-radiation/" class="md-footer__link md-footer__link--next" aria-label="Next: 9. Solar Radiation - The Energy That Drives the Weather">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                9. Solar Radiation - The Energy That Drives the Weather
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Hank R. Licensed under <a href="licensing/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

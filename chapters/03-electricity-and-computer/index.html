@@ -1,0 +1,2181 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="The Raspberry Pi and the electrical basics needed to wire a sensor safely - voltage, current, ground, GPIO pins, jumper wires, breadboards, pull-up resistors, and static discipline.">
+      
+      
+        <meta name="author" content="Hank R.">
+      
+      
+        <link rel="canonical" href="https://iowerx.github.io/pi-env-monitor/chapters/03-electricity-and-computer/">
+      
+      
+        <link rel="prev" href="../02-language-of-measurement/">
+      
+      
+        <link rel="next" href="../04-how-sensors-work/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Electricity and the Single-Board Computer - Raspberry Pi Environmental Monitoring: Grades 6–12</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website">
+<meta property="og:title" content="Electricity and the Single-Board Computer - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="og:description" content="The Raspberry Pi and the electrical basics needed to wire a sensor safely - voltage, current, ground, GPIO pins, jumper wires, breadboards, pull-up resistors, and static discipline.">
+<meta property="og:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/03-electricity-and-computer/index.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://iowerx.github.io/pi-env-monitor/chapters/03-electricity-and-computer/">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Electricity and the Single-Board Computer - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="twitter:description" content="The Raspberry Pi and the electrical basics needed to wire a sensor safely - voltage, current, ground, GPIO pins, jumper wires, breadboards, pull-up resistors, and static discipline.">
+<meta property="twitter:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/03-electricity-and-computer/index.png">
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#electricity-and-the-single-board-computer" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Raspberry Pi Environmental Monitoring: Grades 6–12
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Electricity and the Single-Board Computer
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Raspberry Pi Environmental Monitoring: Grades 6–12
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components Used
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-why-we-measure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Why We Measure the Natural Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-language-of-measurement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. The Language of Measurement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Electricity and the Single-Board Computer
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Electricity and the Single-Board Computer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-whole-computer-smaller-than-a-credit-card" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Whole Computer, Smaller Than a Credit Card
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#voltage-current-and-ground" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voltage, Current, and Ground
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Voltage, Current, and Ground">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-circuit-loop-and-the-missing-ground" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Circuit Loop and the Missing Ground
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-gpio-pins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The GPIO Pins
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The GPIO Pins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-raspberry-pi-gpio-pinout-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Raspberry Pi GPIO Pinout Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wires-and-breadboards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wires and Breadboards
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Wires and Breadboards">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-breadboard-connection-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Breadboard Connection Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-pull-up-resistor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Pull-Up Resistor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#static-electricity-will-destroy-your-board" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Static Electricity Will Destroy Your Board
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-first-look-at-the-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your First Look at the Hardware
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-how-sensors-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. How Sensors Turn the World Into Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-time-and-place/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Time and Place - Recording Where and When
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-temperature/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Temperature - From the Thermoscope to the Silicon Chip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-barometric-pressure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Barometric Pressure - The Weight of the Atmosphere
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-humidity-and-dew-point/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Humidity and Dew Point - The Water Hidden in the Air
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-solar-radiation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Solar Radiation - The Energy That Drives the Weather
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-wind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Wind - Measuring Air in Motion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-ground-motion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Ground Motion - Measuring Earthquakes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-os-and-sensor-buses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. The Station's Brain - Operating System, Command Line, and Sensor Buses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-python-programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Programming the Station in Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-data-logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Logging Data - Timestamps, Intervals, and Files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-charting-and-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Charting and Interpreting Your Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-building-for-outdoors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Building the Station for the Outdoors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-measurement-to-consequence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. From Measurement to Consequence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../licensing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-whole-computer-smaller-than-a-credit-card" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Whole Computer, Smaller Than a Credit Card
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#voltage-current-and-ground" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voltage, Current, and Ground
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Voltage, Current, and Ground">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-circuit-loop-and-the-missing-ground" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Circuit Loop and the Missing Ground
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-gpio-pins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The GPIO Pins
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The GPIO Pins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-raspberry-pi-gpio-pinout-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Raspberry Pi GPIO Pinout Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wires-and-breadboards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wires and Breadboards
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Wires and Breadboards">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-breadboard-connection-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Breadboard Connection Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-pull-up-resistor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Pull-Up Resistor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#static-electricity-will-destroy-your-board" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Static Electricity Will Destroy Your Board
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-first-look-at-the-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your First Look at the Hardware
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/iowerx/pi-env-monitor/blob/main/docs/chapters/03-electricity-and-computer/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="electricity-and-the-single-board-computer">Electricity and the Single-Board Computer<a class="headerlink" href="#electricity-and-the-single-board-computer" title="Permanent link">¶</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
+<p>Before a sensor can be attached to anything, the thing it attaches to has to exist. This chapter introduces the single-board computer and the Raspberry Pi family, then the electrical basics needed to wire one safely: voltage, current, and ground. It covers GPIO pins and headers, jumper wires and breadboards, the pull-up resistor, and the static discipline that keeps a student from destroying a board by touching it. This is the hands-on chapter where the hardware first gets unpacked.</p>
+<h2 id="concepts-covered">Concepts Covered<a class="headerlink" href="#concepts-covered" title="Permanent link">¶</a></h2>
+<p>This chapter covers the following 12 concepts from the learning graph:</p>
+<ol>
+<li>Single Board Computer</li>
+<li>Raspberry Pi</li>
+<li>Voltage</li>
+<li>Raspberry Pi Zero 2 W</li>
+<li>GPIO Pin</li>
+<li>Current</li>
+<li>Ground Connection</li>
+<li>Electrostatic Discharge</li>
+<li>Pin Header</li>
+<li>Pull Up Resistor</li>
+<li>Jumper Wire</li>
+<li>Breadboard</li>
+</ol>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-why-we-measure/">Chapter 1: Why We Measure the Natural Environment</a></li>
+</ul>
+<hr>
+<h2 id="a-whole-computer-smaller-than-a-credit-card">A Whole Computer, Smaller Than a Credit Card<a class="headerlink" href="#a-whole-computer-smaller-than-a-credit-card" title="Permanent link">¶</a></h2>
+<p>Open the box. Inside is a green circuit board about the size of a stick of gum.</p>
+<p>That is a computer. Not a part of a computer — a whole one. It has a processor, memory, storage, wireless networking, and the ability to run the same kind of operating system that runs most of the world's web servers. It costs about as much as a pizza.</p>
+<p>A <strong>single-board computer</strong> is a complete computer built on one circuit board. Everything is soldered down: processor, memory, and connectors, all on one piece of fiberglass. There is no case, no keyboard, no screen, and nothing you can upgrade. That sounds like a list of disadvantages, and for a desktop machine it would be. For a device that has to sit outside in a box for a year and take readings, it is exactly right.</p>
+<p>Desktop computers are built to be flexible. Single-board computers are built to be small, cheap, low-power, and able to talk directly to electronic parts. That last one is the important difference. Your laptop cannot connect to a temperature sensor without an adapter. This board can, because it has pins.</p>
+<p>The <strong>Raspberry Pi</strong> is the best-known family of single-board computers. It came from an unusual place: a group at the University of Cambridge noticed in 2006 that students applying to study computer science had less hands-on experience than applicants a decade earlier. Home computers had become appliances that you used rather than machines you tinkered with. The Raspberry Pi Foundation set out to build something cheap enough that a school could buy a classroom set and nobody would panic if a student broke one.</p>
+<p>The first board shipped in 2012. Both launch-day suppliers' websites went down within minutes. More than 60 million Raspberry Pi boards have shipped since.</p>
+<p>This book uses the <strong>Raspberry Pi Zero 2 W</strong>, one of the smallest members of the family. Here is why it fits this project:</p>
+<ul>
+<li>It is about 65 mm by 30 mm, so it fits in a small weatherproof box</li>
+<li>It has built-in Wi-Fi and Bluetooth, so no separate network card is needed</li>
+<li>It draws very little power, which matters enormously when a solar panel is the only power source</li>
+<li>It has the same 40-pin connector as its larger siblings, so sensors that work on one work on all</li>
+<li>It costs little enough that a mistake is a lesson rather than a disaster</li>
+</ul>
+<p>The last point is not a joke. You are going to be connecting wires to a live circuit board. Doing that on a machine you cannot afford to replace makes people timid, and timid is a bad way to learn hardware.</p>
+<h2 id="voltage-current-and-ground">Voltage, Current, and Ground<a class="headerlink" href="#voltage-current-and-ground" title="Permanent link">¶</a></h2>
+<p>Three electrical ideas are enough to wire everything in this book safely. You do not need circuit theory. You need these three, correctly understood.</p>
+<p>The standard analogy is water in pipes. It is not perfect, but it is good enough to keep you from breaking things.</p>
+<p><strong>Voltage</strong> is electrical pressure — the push that makes charge move. In the water analogy, voltage is water pressure. High pressure pushes water hard. High voltage pushes charge hard. Voltage is measured in volts, symbol V, and it is always measured <em>between two points</em>. Asking "what is the voltage here?" is like asking "what is the difference here?" — the question is incomplete until you say what you are comparing against.</p>
+<p><strong>Current</strong> is the rate of flow — how much charge moves past a point each second. In the analogy, current is how much water flows through the pipe per second. Current is measured in amperes, symbol A, and in this project usually in milliamperes (mA), thousandths of an amp.</p>
+<p>The relationship that matters for your safety and the board's:</p>
+<ul>
+<li>Voltage is applied <em>to</em> a device. You choose it, and getting it wrong destroys things.</li>
+<li>Current is <em>drawn by</em> a device. The device decides how much it needs, and your job is to make sure the supply can provide it.</li>
+</ul>
+<p>That asymmetry catches beginners. Plugging a 3.3-volt sensor into a 5-volt pin will likely destroy the sensor, because you forced the wrong pressure on it. But connecting a sensor that draws 2 mA to a supply capable of 500 mA is completely fine — the sensor takes what it needs and ignores the rest.</p>
+<p><strong>Ground</strong> is the reference point that all voltages are measured against, defined as zero volts. In the water analogy, ground is the drain that everything eventually returns to.</p>
+<p>Every circuit needs a complete loop. Charge leaves the power pin, passes through the sensor, and returns through the ground pin. Break that loop anywhere and nothing works.</p>
+<p>This produces the single most common beginner mistake in this whole book, so it gets its own box.</p>
+<div class="admonition warning">
+<p class="admonition-title">The most common wiring mistake</p>
+<p>Forgetting the ground wire. A sensor with power connected but no ground connection will do one of three things: nothing at all, something erratic, or — most confusing — appear to work briefly and then fail. Students spend hours debugging code when the actual problem is a missing black wire. <strong>Every time a sensor misbehaves, check ground first.</strong></p>
+</div>
+<p>Here is the vocabulary in one place:</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Symbol</th>
+<th>Unit</th>
+<th>Water analogy</th>
+<th>What it does in your station</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Voltage</td>
+<td>V</td>
+<td>volt (V)</td>
+<td>Water pressure</td>
+<td>3.3 V powers the sensor</td>
+</tr>
+<tr>
+<td>Current</td>
+<td>I</td>
+<td>ampere (A)</td>
+<td>Flow rate per second</td>
+<td>The BME280 draws under 1 mA</td>
+</tr>
+<tr>
+<td>Ground</td>
+<td>GND</td>
+<td>0 V by definition</td>
+<td>The drain</td>
+<td>Completes every circuit</td>
+</tr>
+</tbody>
+</table>
+<p>Before the next element, one term. A <strong>circuit</strong> is a complete loop that charge can travel around, from the power source, through a device, and back to ground.</p>
+<h4 id="diagram-circuit-loop-and-the-missing-ground">Diagram: Circuit Loop and the Missing Ground<a class="headerlink" href="#diagram-circuit-loop-and-the-missing-ground" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/circuit-loop-explorer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Circuit Loop and the Missing Ground</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> circuit-loop-explorer<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Understand (L2)
+Bloom Verb: explain</p>
+<p>Learning objective: The learner explains why a circuit must form a complete loop, and predicts what a sensor does when its ground wire is disconnected while power remains connected.</p>
+<p>Purpose: The missing-ground fault is the single most common wiring error in this book, and it is invisible on a real bench — the wires look connected and the sensor simply misbehaves. Letting the learner disconnect ground deliberately and watch the loop break makes the fault recognizable before they meet it for real.</p>
+<p>Canvas layout:
+- Center: a simplified schematic showing a 3.3 V pin, a sensor block, and a ground pin, joined by two wires drawn in red and black
+- Right or below (responsive): readout panel showing voltage across the sensor, current through the loop, and a plain-language sensor status
+- Bottom: three toggle switches, one per wire connection, plus a voltage-source selector
+- Responsive to window resize; schematic scales with canvas dimensions</p>
+<p>Data Visibility Requirements:
+  Stage 1: Show the complete loop with both wires connected. Readout: "Voltage across sensor: 3.3 V. Current: 0.9 mA. Status: reading normally."
+  Stage 2: When the learner opens the ground switch, redraw the loop with a visible gap and grey out the wire beyond the break. Readout: "Voltage across sensor: undefined. Current: 0 mA. Status: no complete loop — sensor is unpowered even though the red wire is still connected."
+  Stage 3: When the learner opens the power switch instead, show the equivalent break on the other side, so it is clear that either break stops the circuit.
+  Stage 4: A "partial contact" setting simulates a loose wire, showing intermittent current and a status of "erratic — this is what a loose ground looks like."</p>
+<p>Interactive controls:
+- Toggle: power wire connected / disconnected
+- Toggle: ground wire connected / disconnected
+- Toggle: ground wire firm / loose
+- Selector: supply voltage 3.3 V or 5 V. Selecting 5 V while the sensor is a 3.3 V part turns the sensor block red and shows: "OVERVOLTAGE. A 3.3 V part on a 5 V supply is how sensors die. Nothing in this book connects 5 V to a sensor or a GPIO pin."</p>
+<p>Visual elements:
+- Charge represented as evenly spaced dots moving slowly around the loop when current flows, and completely stationary when it does not. Movement is a state indicator, not decoration — it stops the instant the loop opens.
+- The break point drawn as a visible gap with a small spark-free "open" symbol
+- Sensor block changes color by state: normal, unpowered, erratic, destroyed</p>
+<p>Default parameters:
+- Both wires connected and firm
+- Supply: 3.3 V</p>
+<p>Instructional Rationale: The objective is Understand/explain, so the specification centers on visible state and concrete readouts rather than on animation for its own sake. The dot motion is included only because "current stops" needs a visual correlate; it carries information rather than decorating. The overvoltage case is included because the consequence is destructive and irreversible, and a safe place to see it happen is worth more than a warning box.</p>
+<p>Implementation: p5.js. Model the circuit as a boolean loop-complete state plus a supply voltage; derive all readouts from those two values rather than simulating real circuit physics.</p>
+</details>
+<h2 id="the-gpio-pins">The GPIO Pins<a class="headerlink" href="#the-gpio-pins" title="Permanent link">¶</a></h2>
+<p>Along one edge of the Raspberry Pi is a double row of 40 metal pins. This is the <strong>pin header</strong> — the physical connector that jumper wires plug onto. On the Pi Zero 2 W the header may need to be soldered on, or you may have bought a version with it pre-attached.</p>
+<p>Most of those pins are <strong>GPIO pins</strong>, short for General Purpose Input/Output. A GPIO pin is a connection whose behavior your software controls. Under program control, each one can either read a voltage that something else applies (input) or apply a voltage itself (output).</p>
+<p>That flexibility is what makes a single-board computer different from a laptop. Your program can decide, line by line, whether a given pin listens or talks.</p>
+<p>Not every pin on the header is a GPIO pin. The 40 pins break down into four groups:</p>
+<ul>
+<li><strong>Power pins</strong> — supply 3.3 V or 5 V to whatever you connect</li>
+<li><strong>Ground pins</strong> — the 0 V return path; there are several, and any of them works</li>
+<li><strong>GPIO pins</strong> — software-controlled input or output</li>
+<li><strong>Special-function pins</strong> — GPIO pins that also have a dedicated job, such as carrying the I2C bus covered in Chapter 12</li>
+</ul>
+<p>Before the pinout explorer below, one critical fact that determines whether your board survives this project.</p>
+<div class="admonition danger">
+<p class="admonition-title">3.3 volts, never 5</p>
+<p>The Raspberry Pi's GPIO pins run at <strong>3.3 volts</strong>. They are <strong>not</strong> 5-volt tolerant. Applying 5 V to a GPIO pin can permanently destroy the pin, and sometimes the whole processor. There is no fuse and no warning.</p>
+<p>The header does provide 5 V power pins, because some devices need 5 V to run. That is fine. What is never fine is letting 5 V reach a <em>GPIO</em> pin. When you buy a sensor, check that it is a 3.3 V part or has a built-in level shifter. The BME280 breakout boards used in this book are safe on 3.3 V.</p>
+</div>
+<h4 id="diagram-raspberry-pi-gpio-pinout-explorer">Diagram: Raspberry Pi GPIO Pinout Explorer<a class="headerlink" href="#diagram-raspberry-pi-gpio-pinout-explorer" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/gpio-pinout-explorer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Raspberry Pi GPIO Pinout Explorer</summary>
+<p>Type: infographic
+<strong>sim-id:</strong> gpio-pinout-explorer<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Remember (L1)
+Bloom Verb: locate</p>
+<p>Learning objective: The learner locates a specific pin on the 40-pin header by number and function, and identifies which pins are safe to connect a 3.3 V sensor to.</p>
+<p>Purpose: Printed pinout diagrams are dense and error-prone to read, and a misread pin number can destroy a board. An interactive pinout that answers "which pin is this, and what happens if I connect here" removes the most dangerous ambiguity in the whole build.</p>
+<p>Layout: A to-scale drawing of the 40-pin header as two rows of 20, with pin 1 clearly marked in the corner, matching the physical orientation of a Raspberry Pi Zero 2 W with the GPIO header along the top edge. An outline of the board is drawn around it for orientation. All positions computed as fractions of canvas dimensions; must respond correctly to window resize.</p>
+<p>Pin colour coding (with a legend):
+- Red: 5 V power
+- Orange: 3.3 V power
+- Black: Ground
+- Green: general-purpose GPIO
+- Blue: GPIO with a special function (I2C, SPI, UART)</p>
+<p>Clickable behaviour — every one of the 40 pins is clickable, opening an infobox containing:
+- The physical pin number (1 to 40)
+- The BCM GPIO number where applicable
+- The function, e.g. "GPIO 2 / I2C SDA"
+- A safety line, e.g. "Safe for 3.3 V sensors" or "5 V — never connect to a GPIO pin"
+- Where it is used in this book, e.g. "Pin 3 carries I2C data to the BME280 in Chapter 12"</p>
+<p>Required infobox content for the pins this book uses:
+- Pin 1 (3.3 V): "Powers the BME280. This is the pin your red wire goes to."
+- Pin 3 (GPIO 2, I2C SDA): "I2C data line. Chapter 12."
+- Pin 5 (GPIO 3, I2C SCL): "I2C clock line. Chapter 12."
+- Pin 6 (Ground): "One of eight ground pins. Your black wire goes here."
+- Pin 2 and Pin 4 (5 V): "5 volts. Useful for powering some peripherals. NEVER connect to a GPIO pin."</p>
+<p>Interactive features:
+- Hover: pin highlights and shows its number and function in a small tooltip
+- Click: full infobox opens in the side panel
+- Filter buttons: "Show only power", "Show only ground", "Show only I2C", "Show all" — non-matching pins dim rather than disappear so position is preserved
+- A "Wire the BME280" guided mode that highlights the four pins used in this book one at a time, in the order they should be connected, with the wire colour convention stated for each</p>
+<p>Instructional Rationale: The objective is Remember/locate, which is best served by a searchable, filterable reference the learner returns to rather than by an animation. The guided wiring mode exists because the highest-risk moment in this book is a student connecting the first wire, and a static diagram gives them no confirmation that they have found the right pin.</p>
+<p>Implementation: p5.js. Store the pinout as an array of 40 objects with number, bcm, function, colour category, safety text, and chapter reference. Compute pin positions from canvas size in draw().</p>
+</details>
+<h2 id="wires-and-breadboards">Wires and Breadboards<a class="headerlink" href="#wires-and-breadboards" title="Permanent link">¶</a></h2>
+<p>A <strong>jumper wire</strong> is a short wire with a connector on each end, made for temporary connections. Three kinds exist, named for what is on the ends:</p>
+<ul>
+<li><strong>Female-to-female</strong> — a socket on both ends. These connect the Pi's header pins directly to a sensor's header pins, and are what this book uses most.</li>
+<li><strong>Male-to-female</strong> — a pin on one end, a socket on the other. Used to get from a breadboard to the Pi.</li>
+<li><strong>Male-to-male</strong> — pins on both ends. Used between two points on a breadboard.</li>
+</ul>
+<p>Jumper wires come in colors, and the colors mean nothing electrically. A red wire and a green wire carry current identically. But there is a convention worth following anyway:</p>
+<ul>
+<li><strong>Red</strong> for power</li>
+<li><strong>Black</strong> for ground</li>
+<li><strong>Any other color</strong> for signals</li>
+</ul>
+<p>This is not fussiness. When a station has been in a box for six months and something stops working, the person opening the box — possibly you, having forgotten everything — needs to see at a glance where power and ground go. Following the convention costs nothing now and saves an hour later.</p>
+<p>A <strong>breadboard</strong> is a plastic block full of spring-loaded holes that lets you build a circuit without soldering. Push a wire into a hole and it grips, making an electrical connection.</p>
+<p>The connections inside a breadboard follow a fixed pattern, and this pattern is the one thing about breadboards that must be understood:</p>
+<ul>
+<li>The two long strips along each edge are the <strong>power rails</strong>, usually marked with a red line and a blue line. Every hole along a rail is connected to every other hole in that same rail, running the length of the board.</li>
+<li>The main area is divided into short rows of five holes. All five holes in a row are connected to each other.</li>
+<li>The channel running down the middle separates the left half from the right half. Rows do <strong>not</strong> connect across the channel.</li>
+</ul>
+<p>That center channel exists for a reason. Integrated circuit chips are made to straddle it, which puts each of the chip's legs in its own five-hole row, so each leg can be wired independently.</p>
+<h4 id="diagram-breadboard-connection-explorer">Diagram: Breadboard Connection Explorer<a class="headerlink" href="#diagram-breadboard-connection-explorer" title="Permanent link">¶</a></h4>
+<iframe src="../../sims/breadboard-connection-explorer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Breadboard Connection Explorer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> breadboard-connection-explorer<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Taxonomy Level: Understand (L2)
+Bloom Verb: explain</p>
+<p>Learning objective: The learner explains which holes on a breadboard are electrically connected to one another, and predicts whether two components placed in given holes will form a working circuit.</p>
+<p>Purpose: Breadboard internal connections are invisible, and every beginner wastes time on a circuit that is wired correctly in their head but not on the board. Revealing the hidden copper strips converts a mysterious plastic block into an understandable object.</p>
+<p>Canvas layout:
+- Center: a top-down view of a half-size breadboard with correctly numbered rows and lettered columns, power rails along both long edges, and the center channel clearly drawn
+- Right or below (responsive): an infobox describing the currently selected hole
+- Bottom: mode buttons and a "Reveal internal strips" toggle
+- Must respond to window resize; the breadboard scales to fit while preserving aspect ratio</p>
+<p>Data Visibility Requirements:
+  Stage 1: Show the breadboard as it physically appears — a grid of identical holes with no visible connections
+  Stage 2: When a hole is clicked, highlight in a bright color EVERY other hole electrically connected to it
+  Stage 3: Show a text statement naming the group, e.g. "Row 12, left half — 5 holes connected" or "Upper positive rail — 25 holes connected"
+  Stage 4: With "Reveal internal strips" on, draw the hidden metal strips underneath the holes as translucent bars, so the learner sees the physical reason for the grouping</p>
+<p>Modes:
+1. <strong>Explore</strong> — click any hole to see its connected group
+2. <strong>Continuity test</strong> — click two holes; the sim states "CONNECTED" or "NOT CONNECTED" and explains why, e.g. "Not connected: these are on opposite sides of the center channel."
+3. <strong>Build check</strong> — a small circuit is pre-placed (a sensor breakout straddling the channel, a power wire, a ground wire, one deliberately wrong connection). The learner must click the mistake. Feedback explains the fault. Three scenarios cycle: a wire in the wrong rail, both sensor legs in the same five-hole row shorting them together, and a ground wire that never reaches the rail.</p>
+<p>Interactive features:
+- Hover any hole: show its coordinate label, e.g. "E12"
+- Click: highlight the connected group
+- Toggle: reveal or hide internal strips
+- Reset clears all highlights</p>
+<p>Instructional Rationale: The objective is Understand/explain, so this is specified as click-to-reveal exploration rather than animation. The Build check mode is included because recognizing a broken circuit is a different and more useful skill than reciting the connection pattern, and it is the skill students will need at the bench. Revealing the internal strips is the mechanism that turns a memorized rule into an explanation.</p>
+<p>Implementation: p5.js. Model the breadboard as a map from hole coordinate to a group identifier; the highlight operation is a lookup of all holes sharing a group id. Draw strips beneath holes with reduced alpha when revealed.</p>
+</details>
+<h2 id="the-pull-up-resistor">The Pull-Up Resistor<a class="headerlink" href="#the-pull-up-resistor" title="Permanent link">¶</a></h2>
+<p>One component appears often enough in sensor wiring to deserve an explanation now.</p>
+<p>Start with the problem it solves. A GPIO pin set as an input reads the voltage applied to it. If nothing at all is connected, the pin is said to be <strong>floating</strong> — it is not held at any particular voltage, and it will pick up electrical noise from the air and report meaningless, fluctuating values. A floating input is not "off." It is unpredictable, which is worse.</p>
+<p>A <strong>pull-up resistor</strong> is a resistor connected between a signal wire and the positive supply voltage. Its job is to gently hold the signal line high — at 3.3 V — whenever nothing else is actively driving it. When a device does drive the line low, it easily overcomes the gentle pull, and the line reads 0 V.</p>
+<p>The word "gently" is doing real work there. The resistor has enough resistance that only a tiny current flows through it, so any device can pull the line down without fighting hard. Typical pull-up values in this project are between 1,800 and 10,000 ohms.</p>
+<p>This matters to you because the I2C bus in Chapter 12 requires pull-up resistors on both of its wires. There is good news, though: almost every BME280 breakout board sold today includes the pull-up resistors on the board itself. You will probably never solder one. But when a sensor is not detected and everything else looks right, missing pull-ups is on the short list of causes.</p>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>What the pin reads</th>
+<th>Is it usable?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nothing connected (floating)</td>
+<td>Random, fluctuating</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Pull-up resistor, nothing driving</td>
+<td>3.3 V (high)</td>
+<td>Yes — predictable</td>
+</tr>
+<tr>
+<td>Pull-up resistor, device driving low</td>
+<td>0 V (low)</td>
+<td>Yes — predictable</td>
+</tr>
+</tbody>
+</table>
+<h2 id="static-electricity-will-destroy-your-board">Static Electricity Will Destroy Your Board<a class="headerlink" href="#static-electricity-will-destroy-your-board" title="Permanent link">¶</a></h2>
+<p>Walk across a carpet on a dry day and touch a doorknob. That small snap is a spark carrying several thousand volts.</p>
+<p>You survive it because the current is tiny and lasts microseconds. The transistors inside a processor are a few nanometers across, and they do not survive it. <strong>Electrostatic discharge</strong>, usually written ESD, is the sudden flow of built-up static charge between two objects at different voltages.</p>
+<p>The genuinely dangerous part of ESD is that it is often invisible. A discharge you can feel is around 3,000 volts. A discharge you can see as a spark is around 5,000 volts. A discharge that can damage a chip can be as low as 100 volts — far below anything you would notice.</p>
+<p>This produces a nasty failure mode called latent damage. The board seems fine. It works on the bench, it works for a week, and then it starts behaving strangely, or dies in the field two months later when it is mounted on a pole in a box. You will not connect the failure to the moment you touched it, because there was no moment you noticed.</p>
+<p><strong>Static discipline</strong> is the short list of habits that prevents this:</p>
+<ol>
+<li><strong>Touch something grounded and metal before touching a board.</strong> A radiator, a metal desk leg, or the metal case of a plugged-in desktop computer all work. Do this every time, not just once per session.</li>
+<li><strong>Handle boards by the edges.</strong> Do not touch the pins, the connectors, or the chips.</li>
+<li><strong>Keep boards in their antistatic bags</strong> — the silvery or pink ones — until you need them. Those bags are not just packaging.</li>
+<li><strong>Avoid working on carpet</strong>, and avoid wool and fleece clothing. A wooden or laminate table is ideal.</li>
+<li><strong>Power everything off before rewiring.</strong> Connecting or disconnecting a sensor on a live board risks both ESD and a short circuit.</li>
+<li><strong>Dry air makes everything worse.</strong> Winter, heated indoor air, and air conditioning all raise static risk. On a dry day, ground yourself more often.</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">The two-second habit</p>
+<p>Before you pick up any board, touch a grounded metal object. It takes two seconds, it costs nothing, and it prevents the most frustrating category of failure in this entire project — the kind where nothing looks wrong and nothing works.</p>
+</div>
+<h2 id="your-first-look-at-the-hardware">Your First Look at the Hardware<a class="headerlink" href="#your-first-look-at-the-hardware" title="Permanent link">¶</a></h2>
+<p>Here is the full parts list for the electrical side of the station. You do not need all of it yet, but it is useful to know what is coming.</p>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Purpose</th>
+<th>First used in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Raspberry Pi Zero 2 W</td>
+<td>The station's computer</td>
+<td>Chapter 3</td>
+</tr>
+<tr>
+<td>microSD card (16 GB or larger)</td>
+<td>Storage and operating system</td>
+<td>Chapter 12</td>
+</tr>
+<tr>
+<td>40-pin header (if not pre-soldered)</td>
+<td>Physical connector for wires</td>
+<td>Chapter 3</td>
+</tr>
+<tr>
+<td>Female-to-female jumper wires</td>
+<td>Connect the Pi to the sensor</td>
+<td>Chapter 12</td>
+</tr>
+<tr>
+<td>BME280 breakout board</td>
+<td>Temperature, pressure, humidity</td>
+<td>Chapters 6, 7, 8, 12</td>
+</tr>
+<tr>
+<td>Breadboard (optional)</td>
+<td>Bench experiments before final build</td>
+<td>Chapter 3</td>
+</tr>
+<tr>
+<td>USB power supply</td>
+<td>Bench power while developing</td>
+<td>Chapter 3</td>
+</tr>
+<tr>
+<td>Antistatic bag</td>
+<td>Storage between sessions</td>
+<td>Always</td>
+</tr>
+</tbody>
+</table>
+<p>Before doing anything else with the board, do a visual check. This costs a minute and catches problems that would otherwise look like software bugs later:</p>
+<ol>
+<li>Look at the header pins. Are any bent or missing?</li>
+<li>Look at the board surface. Any scorch marks, or components knocked off?</li>
+<li>Check the microSD slot for debris.</li>
+<li>Confirm you have the right power supply. The Pi Zero 2 W uses a micro-USB connector, not USB-C, and needs a supply rated for at least 2.5 A.</li>
+</ol>
+<h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">¶</a></h2>
+<ul>
+<li>A <strong>single-board computer</strong> is a complete computer on one board. It trades upgradability for size, low power, and the ability to connect directly to electronic parts.</li>
+<li>The <strong>Raspberry Pi</strong> family was created to give students hands-on hardware experience. The <strong>Raspberry Pi Zero 2 W</strong> is used here for its size, low power draw, built-in Wi-Fi, and cost.</li>
+<li><strong>Voltage</strong> is electrical pressure, measured between two points. <strong>Current</strong> is rate of flow, drawn by the device. <strong>Ground</strong> is the 0 V reference that completes every circuit.</li>
+<li><strong>GPIO pins</strong> are software-controlled connections on the <strong>pin header</strong>. They run at <strong>3.3 V and are not 5 V tolerant</strong>.</li>
+<li><strong>Jumper wires</strong> make temporary connections; red for power and black for ground is a convention worth keeping. A <strong>breadboard</strong> connects holes in fixed groups, with no connection across the center channel.</li>
+<li>A <strong>pull-up resistor</strong> holds a signal line high when nothing is driving it, preventing a floating input. The I2C bus needs them, and most breakout boards include them.</li>
+<li><strong>Electrostatic discharge</strong> can destroy a board at voltages far below what you can feel. Ground yourself before touching hardware, every time.</li>
+</ul>
+<h2 id="check-yourself">Check Yourself<a class="headerlink" href="#check-yourself" title="Permanent link">¶</a></h2>
+<details class="question">
+<summary>A sensor is rated for 3.3 V and draws 2 mA. Your Pi's 3.3 V pin can supply up to 50 mA. Is this safe? Click to check.</summary>
+<p>Yes, and the reason is the asymmetry between voltage and current. Voltage must match: the sensor wants 3.3 V and the pin supplies 3.3 V. Current is drawn, not forced: the sensor takes the 2 mA it needs, and the pin's 50 mA capability is simply headroom. A supply that <em>can</em> provide more current than a device needs is exactly what you want.</p>
+</details>
+<details class="question">
+<summary>You put both legs of a component in holes E12 and E13 of a breadboard. Are they connected? What if you use E12 and F12? Click to check.</summary>
+<p>E12 and E13 are in different numbered rows, so they are <strong>not</strong> connected. E12 and F12 are in the same row 12 — but E and F sit on opposite sides of the center channel, so they are <strong>not</strong> connected either. Holes A12 through E12 form one connected group; F12 through J12 form a separate group.</p>
+</details>
+<details class="question">
+<summary>Your sensor worked yesterday and today reads nothing. Name the first three things to check. Click to check.</summary>
+<ol>
+<li><strong>Ground.</strong> A missing or loose ground wire is the most common cause. 2. <strong>Power.</strong> Is the red wire on a 3.3 V pin, and is it seated firmly? 3. <strong>The pins themselves.</strong> Did a wire slip one position along the header? Pin 1 and pin 3 are adjacent, and a wire on the wrong one looks identical from across the room. Only after all three should you suspect the software.</li>
+</ol>
+</details>
+<details class="question">
+<summary>You felt a static shock while holding your board, but it seems to work fine. Should you worry? Click to check.</summary>
+<p>Yes, somewhat. A shock you can feel is around 3,000 volts, and chip damage can occur at 100 volts. The board working right now does not mean it is undamaged — ESD frequently causes latent damage that appears days or weeks later. Note the date, and if the board starts behaving strangely in the field, remember this as a candidate cause. Then go back to grounding yourself first, every time.</p>
+</details>
+<hr>
+<h2 id="what-is-next">What Is Next<a class="headerlink" href="#what-is-next" title="Permanent link">¶</a></h2>
+<p>The board exists and you can connect wires to it without destroying anything. But a wire from a sensor to a pin is only useful if something on the other end can turn a physical property into a voltage.</p>
+<p>Chapter 4 covers exactly that. It introduces transduction — the process of converting a physical property into an electrical signal — and follows a measurement from the analog signal a sensor produces through analog-to-digital conversion into a number a computer can store. It also covers the materials that make sensing possible: semiconductors, MEMS structures, and the photoelectric effect. After that chapter, every sensor in the rest of the book is a variation on one idea you already understand.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../02-language-of-measurement/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 2. The Language of Measurement">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                2. The Language of Measurement
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../04-how-sensors-work/" class="md-footer__link md-footer__link--next" aria-label="Next: 4. How Sensors Turn the World Into Numbers">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                4. How Sensors Turn the World Into Numbers
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Hank R. Licensed under <a href="licensing/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
