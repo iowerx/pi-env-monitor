@@ -1,0 +1,65 @@
+{
+  "title": "Temperature Sensor Comparison",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Four sensor families on one temperature axis, with four real jobs to choose between them. Range rules sensors out before any other specification gets a vote.",
+  "date": "2026-09-02",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Temperature Sensor Comparison",
+    "learningObjectives": [
+      "Recommend a temperature sensor for a stated application.",
+      "Compare measurement range, sensitivity, linearity and cost against the requirements of a task."
+    ],
+    "bloomsTaxonomy": "Evaluate (L5)",
+    "duration": "20-25 minutes",
+    "prerequisites": [
+      "Chapter 2 on measurement range",
+      "Reading a horizontal bar chart"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "Chart.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 604
+    },
+    "canvasHeight": 604,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with learner-controlled parameters",
+    "keyQuestions": [
+      "Which specification should you check first, and why that one?",
+      "Why is the most accurate sensor not the right answer for a battery pack?",
+      "The BME280 is rated to minus 40. Why is that a problem in Minnesota and not in Georgia?"
+    ],
+    "commonMisconceptions": [
+      "Choosing the most accurate sensor regardless of the job.",
+      "Assuming a sensor outside its range simply reads inaccurately.",
+      "Believing high sensitivity and good linearity come together."
+    ],
+    "assessmentOpportunities": [
+      "Recommends a sensor for a stated job and defends it against at least two rejected alternatives.",
+      "Uses range as a disqualifier before considering cost or sensitivity.",
+      "Explains the tension between sensitivity and linearity."
+    ]
+  },
+  "chapter": "06-temperature"
+}

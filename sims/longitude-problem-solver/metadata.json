@@ -1,0 +1,65 @@
+{
+  "title": "The Longitude Problem Solver",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Calculate longitude from the gap between local noon and a chronometer, then introduce a clock error and watch the ship slide across the ocean.",
+  "date": "2026-09-02",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "The Longitude Problem Solver",
+    "learningObjectives": [
+      "Calculate longitude from a difference between local time and reference time.",
+      "Evaluate how a given clock error translates into a position error in kilometres."
+    ],
+    "bloomsTaxonomy": "Apply (L3)",
+    "duration": "20-25 minutes",
+    "prerequisites": [
+      "Multiplying decimals",
+      "Knowing that the Earth turns once in 24 hours"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 600
+    },
+    "canvasHeight": 600,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with learner-controlled parameters",
+    "keyQuestions": [
+      "Why is a clock the instrument that solves a position problem?",
+      "Your chronometer runs one minute fast. Do you think you are east or west of where you are?",
+      "Why was longitude harder to solve than latitude?"
+    ],
+    "commonMisconceptions": [
+      "Believing longitude can be measured directly from the sky the way latitude can.",
+      "Assuming a degree of longitude is the same distance everywhere.",
+      "Treating the clock as a convenience rather than as the measuring instrument."
+    ],
+    "assessmentOpportunities": [
+      "Converts a time difference into a longitude without being given the 15 degrees per hour rule.",
+      "Predicts the direction the calculated position moves when the chronometer runs fast.",
+      "Explains why the same clock error matters less at high latitude."
+    ]
+  },
+  "chapter": "05-time-and-place"
+}

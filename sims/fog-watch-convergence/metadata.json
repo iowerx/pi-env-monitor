@@ -1,0 +1,65 @@
+{
+  "title": "Fog Watch: Temperature and Dew Point Convergence",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Six overnight traces. Commit to dew, frost, fog or nothing at 22:00, then watch the rest of the night. One scenario is built so that relative humidity lies to you.",
+  "date": "2026-09-02",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Fog Watch: Temperature and Dew Point Convergence",
+    "learningObjectives": [
+      "Predict overnight dew, frost or fog from the converging gap between air temperature and dew point.",
+      "Justify the prediction from cooling rate and sky conditions rather than from relative humidity alone."
+    ],
+    "bloomsTaxonomy": "Evaluate (L5)",
+    "duration": "25-30 minutes",
+    "prerequisites": [
+      "The Humidity Three Ways MicroSim",
+      "Chapter 8 sections on dew point"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "Chart.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 590
+    },
+    "canvasHeight": 590,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with learner-controlled parameters",
+    "keyQuestions": [
+      "What does a spread of two degrees at midnight tell you?",
+      "Why can a clear calm night produce dew but not fog?",
+      "Relative humidity is 85 per cent. Is fog likely?"
+    ],
+    "commonMisconceptions": [
+      "Reading high relative humidity as an imminent fog warning.",
+      "Assuming a converging spread always finishes converging.",
+      "Treating frost as frozen dew rather than as direct deposition."
+    ],
+    "assessmentOpportunities": [
+      "Predicts overnight condensation from the spread and its rate of closing.",
+      "Names wind and cloud as reasons a converging spread may not finish.",
+      "Explains why relative humidity alone is insufficient for this forecast."
+    ]
+  },
+  "chapter": "08-humidity-and-dew-point"
+}

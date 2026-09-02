@@ -1,0 +1,65 @@
+{
+  "title": "Linear Versus Logarithmic Scale",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Plot the same eight earthquakes on a linear axis and then a logarithmic one. Nothing about the data changes; only the axis does.",
+  "date": "2026-09-02",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Linear Versus Logarithmic Scale",
+    "learningObjectives": [
+      "Compare the same dataset on linear and logarithmic axes.",
+      "Explain why a logarithmic scale is necessary when values span many orders of magnitude."
+    ],
+    "bloomsTaxonomy": "Analyze (L4)",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "Reading a bar chart",
+      "Knowing that 10^4 means 10000"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "Chart.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 502
+    },
+    "canvasHeight": 502,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with learner-controlled parameters",
+    "keyQuestions": [
+      "Why do seven bars vanish on the linear axis when none of them is zero?",
+      "What does one equal step up the logarithmic axis represent?",
+      "When would a linear axis be the honest choice instead?"
+    ],
+    "commonMisconceptions": [
+      "Reading a log axis as if equal heights meant equal differences.",
+      "Believing a magnitude 8 earthquake is \"twice as bad\" as a magnitude 4.",
+      "Treating a bar that looks like zero as a measurement of zero."
+    ],
+    "assessmentOpportunities": [
+      "States why the linear view is misleading without calling it wrong.",
+      "Explains equal spacing on a log axis as equal *ratios*, not equal differences.",
+      "Names a second quantity from this book that would need a log axis."
+    ]
+  },
+  "chapter": "02-language-of-measurement"
+}

@@ -1,24 +1,31 @@
 {
   "title": "Atmospheric Layers Explorer",
-  "creator": "Dan McCreary",
-  "subject": "High School Geometry",
-  "description": "Interactive MicroSim for atmospheric layers explorer",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "See the atmosphere drawn to honest scale, discover how thin the weather-producing layer really is, then stretch the troposphere to read the detail inside it.",
   "date": "2026-09-01",
   "educational": {
     "gradeLevel": [
+      "6",
+      "7",
+      "8",
       "9",
       "10",
       "11",
       "12"
     ],
-    "subjectArea": "Mathematics",
+    "subjectArea": "Science and Engineering",
     "topic": "Atmospheric Layers Explorer",
     "learningObjectives": [
-      "TODO: Add learning objectives"
+      "Interpret a scale drawing of the atmosphere to explain where weather occurs.",
+      "Recognise how thin the weather-producing layer is compared to the whole atmosphere."
     ],
     "bloomsTaxonomy": "Understand (L2)",
-    "duration": "10-15 minutes",
-    "prerequisites": [],
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "Knowing that air gets thinner with altitude",
+      "Reading a value off a vertical scale"
+    ],
     "standards": []
   },
   "technical": {
@@ -26,20 +33,33 @@
     "version": "1.0",
     "canvasDimensions": {
       "width": "responsive",
-      "height": 450
+      "height": 600
     },
     "responsive": true,
     "dependencies": [],
     "accessibility": {
-      "hasAltText": false,
+      "hasAltText": true,
       "keyboardNavigable": false
-    }
+    },
+    "canvasHeight": 600
   },
   "pedagogical": {
-    "teachingStrategy": "Interactive exploration",
-    "keyQuestions": [],
-    "commonMisconceptions": [],
-    "assessmentOpportunities": []
+    "teachingStrategy": "Interactive exploration with learner-controlled parameters",
+    "keyQuestions": [
+      "If the troposphere is only 12 km deep, why does the sky look infinite?",
+      "Why can a thunderstorm not punch into the stratosphere?",
+      "Is the International Space Station in the atmosphere or above it?"
+    ],
+    "commonMisconceptions": [
+      "Believing the atmosphere ends at a sharp boundary.",
+      "Assuming temperature falls continuously all the way up.",
+      "Thinking space begins immediately above the clouds."
+    ],
+    "assessmentOpportunities": [
+      "States that essentially all weather occurs in the bottom 12 km.",
+      "Explains why storms flatten out at the tropopause instead of continuing upward.",
+      "Reads pressure and temperature off the slider and relates them to a familiar altitude."
+    ]
   },
   "chapter": "01-why-we-measure"
 }

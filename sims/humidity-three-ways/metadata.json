@@ -1,0 +1,65 @@
+{
+  "title": "Humidity, Three Ways",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Lock the water content, change only the temperature, and watch relative humidity climb to 100 per cent while the dew point does not move at all.",
+  "date": "2026-09-02",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Humidity, Three Ways",
+    "learningObjectives": [
+      "Distinguish absolute humidity, relative humidity and dew point.",
+      "Explain why relative humidity changes when nothing was added to the air."
+    ],
+    "bloomsTaxonomy": "Analyze (L4)",
+    "duration": "20-25 minutes",
+    "prerequisites": [
+      "Chapter 8 sections on what water vapour is",
+      "Reading a curve off a graph"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 600
+    },
+    "canvasHeight": 600,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with learner-controlled parameters",
+    "keyQuestions": [
+      "You cooled the air and relative humidity went up. Where did the extra water come from?",
+      "Which of the three numbers would you log, and why?",
+      "Why does a heated house in winter feel dry?"
+    ],
+    "commonMisconceptions": [
+      "Believing cool air \"holds less water\" as a property of the water rather than of the temperature.",
+      "Treating relative humidity as a measure of how much water is present.",
+      "Thinking a heater dries the air."
+    ],
+    "assessmentOpportunities": [
+      "Explains why relative humidity changed when nothing was added to the air.",
+      "States the dew point as a property of the water content alone.",
+      "Distinguishes the three measures by saying what each one is a ratio of, or not."
+    ]
+  },
+  "chapter": "08-humidity-and-dew-point"
+}

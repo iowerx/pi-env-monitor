@@ -1,0 +1,65 @@
+{
+  "title": "GPS Trilateration Explorer",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Turn satellites on one at a time and watch the possible positions collapse, then break the receiver clock and discover why three satellites are not enough.",
+  "date": "2026-09-02",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "GPS Trilateration Explorer",
+    "learningObjectives": [
+      "Explain how distances from known satellites determine a position.",
+      "Explain why four satellites are required rather than three."
+    ],
+    "bloomsTaxonomy": "Understand (L2)",
+    "duration": "20-25 minutes",
+    "prerequisites": [
+      "Knowing that light travels at a finite, known speed",
+      "Reading a distance off a scale"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 580
+    },
+    "canvasHeight": 580,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with learner-controlled parameters",
+    "keyQuestions": [
+      "Why does the receiver not simply carry an accurate clock?",
+      "What is the same about all four range errors when the receiver clock is wrong?",
+      "Why does a receiver at the bottom of a narrow street do badly?"
+    ],
+    "commonMisconceptions": [
+      "Believing satellites track the receiver, rather than the receiver listening passively.",
+      "Assuming the fourth satellite is for redundancy or accuracy rather than for the clock.",
+      "Thinking more satellites always helps more than better-placed ones."
+    ],
+    "assessmentOpportunities": [
+      "Explains what each additional satellite rules out.",
+      "States why the receiver clock is an unknown rather than a known.",
+      "Connects satellite spread to position accuracy without using the phrase dilution of precision."
+    ]
+  },
+  "chapter": "05-time-and-place"
+}

@@ -1,0 +1,64 @@
+{
+  "title": "Raspberry Pi GPIO Pinout Explorer",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Every one of the 40 header pins, clickable, colour coded, with a safety line on each and a guided walkthrough of the four pins this book actually wires.",
+  "date": "2026-09-02",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Raspberry Pi GPIO Pinout Explorer",
+    "learningObjectives": [
+      "Locate a specific pin on the 40-pin header by number and by function.",
+      "Identify which pins are safe to connect a 3.3 V sensor to."
+    ],
+    "bloomsTaxonomy": "Remember (L1)",
+    "duration": "10-15 minutes",
+    "prerequisites": [
+      "No prior knowledge required"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 524
+    },
+    "canvasHeight": 524,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with learner-controlled parameters",
+    "keyQuestions": [
+      "What is the difference between physical pin 3 and GPIO 3?",
+      "Which pins would you use to connect an I2C sensor, and why those?",
+      "Why connect ground before power?"
+    ],
+    "commonMisconceptions": [
+      "Confusing the physical pin number with the BCM GPIO number - they are different, and pin 3 is GPIO 2.",
+      "Assuming 5 V is \"more power\" and therefore better.",
+      "Believing there is only one correct ground pin."
+    ],
+    "assessmentOpportunities": [
+      "Locates a pin by physical number and states its function.",
+      "Distinguishes physical pin numbering from BCM GPIO numbering.",
+      "Identifies the 5 V pins as the ones never to connect to a sensor or a GPIO pin."
+    ]
+  },
+  "chapter": "03-electricity-and-computer"
+}

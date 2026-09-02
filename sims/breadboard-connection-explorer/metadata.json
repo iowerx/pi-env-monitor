@@ -1,0 +1,65 @@
+{
+  "title": "Breadboard Connection Explorer",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Click any hole to light up every hole joined to it, reveal the hidden copper strips underneath, and then find the one wrong connection in three pre-wired circuits.",
+  "date": "2026-09-02",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Breadboard Connection Explorer",
+    "learningObjectives": [
+      "Explain which holes on a breadboard are electrically connected to one another.",
+      "Predict whether two components placed in given holes will form a working circuit."
+    ],
+    "bloomsTaxonomy": "Understand (L2)",
+    "duration": "20-25 minutes",
+    "prerequisites": [
+      "Chapter 3 sections on circuits and the complete loop",
+      "The Circuit Loop and the Missing Ground MicroSim"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 584
+    },
+    "canvasHeight": 584,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with learner-controlled parameters",
+    "keyQuestions": [
+      "Why is there a channel down the middle of the board?",
+      "A chip works fine on the bench but not on the breadboard. What would you check first?",
+      "Are the upper and lower positive rails connected to each other?"
+    ],
+    "commonMisconceptions": [
+      "Assuming a whole numbered column is one strip, when the channel splits it in two.",
+      "Assuming the two power rails on opposite edges are joined.",
+      "Thinking adjacent columns are connected because the holes are close together."
+    ],
+    "assessmentOpportunities": [
+      "States which holes on a breadboard are electrically joined, without looking it up.",
+      "Explains the purpose of the centre channel in terms of chips straddling it.",
+      "Finds a wiring fault from a described symptom rather than by trial and error."
+    ]
+  },
+  "chapter": "03-electricity-and-computer"
+}

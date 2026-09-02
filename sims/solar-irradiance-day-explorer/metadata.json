@@ -1,0 +1,65 @@
+{
+  "title": "Solar Irradiance Through the Day",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Irradiance and air temperature on one time axis, across seasons and latitudes, with the thermal lag measured as a horizontal offset rather than asserted.",
+  "date": "2026-09-02",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Solar Irradiance Through the Day",
+    "learningObjectives": [
+      "Compare irradiance curves across seasons, latitudes and cloud conditions.",
+      "Explain the lag between peak irradiance and peak air temperature."
+    ],
+    "bloomsTaxonomy": "Analyze (L4)",
+    "duration": "20-25 minutes",
+    "prerequisites": [
+      "The Solar Energy Budget MicroSim",
+      "Reading a chart with two y-axes"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "Chart.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 606
+    },
+    "canvasHeight": 606,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with learner-controlled parameters",
+    "keyQuestions": [
+      "Why is the hottest part of the day not noon?",
+      "Which delivers more energy over a day: a tall narrow curve or a low broad one?",
+      "Your sensor briefly reads above the clear-sky maximum. Is it broken?"
+    ],
+    "commonMisconceptions": [
+      "Expecting peak temperature at solar noon.",
+      "Assuming a higher peak always means more energy.",
+      "Treating cloud-edge over-readings as sensor errors."
+    ],
+    "assessmentOpportunities": [
+      "Explains the thermal lag in terms of heat capacity rather than restating it.",
+      "Distinguishes peak irradiance from daily total insolation.",
+      "Recognises brief over-readings under cumulus as real rather than faulty."
+    ]
+  },
+  "chapter": "09-solar-radiation"
+}

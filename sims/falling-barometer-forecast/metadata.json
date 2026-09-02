@@ -1,0 +1,66 @@
+{
+  "title": "Falling Barometer Forecast Trainer",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Six pressure traces, the last twelve hours hidden. Commit to a forecast, then find out. Several traces are built so that the value and the trend disagree.",
+  "date": "2026-09-02",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Falling Barometer Forecast Trainer",
+    "learningObjectives": [
+      "Predict approaching weather from a pressure trace.",
+      "Judge the rate of change rather than the absolute value.",
+      "Justify a prediction from the physical behaviour of rising and sinking air."
+    ],
+    "bloomsTaxonomy": "Evaluate (L5)",
+    "duration": "25-30 minutes",
+    "prerequisites": [
+      "Reading a line chart",
+      "Chapter 7 sections on highs, lows and why air rises"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 652
+    },
+    "canvasHeight": 652,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with learner-controlled parameters",
+    "keyQuestions": [
+      "Which tells you more, the pressure or the change in pressure?",
+      "A reading of 1025 hPa is falling 4 hPa every three hours. What do you do?",
+      "What was the second needle on an old barometer for?"
+    ],
+    "commonMisconceptions": [
+      "Believing low pressure by itself means bad weather.",
+      "Believing high pressure by itself means safe weather.",
+      "Reading the daily two-hectopascal tide as an approaching system."
+    ],
+    "assessmentOpportunities": [
+      "Predicts from the tendency rather than the absolute value.",
+      "Recognises the diurnal oscillation as non-weather.",
+      "Justifies a forecast by reference to a rate, in hPa per hour, and a physical mechanism."
+    ]
+  },
+  "chapter": "07-barometric-pressure"
+}

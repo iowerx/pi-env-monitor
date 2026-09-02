@@ -1,0 +1,66 @@
+{
+  "title": "Accuracy Versus Precision Target Range",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Drive bias and scatter as two independent sliders, produce all four quadrants of the accuracy-precision diagram yourself, and watch calibration fix exactly one of the two faults.",
+  "date": "2026-09-02",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Accuracy Versus Precision Target Range",
+    "learningObjectives": [
+      "Differentiate accuracy from precision by controlling bias and scatter independently.",
+      "Predict which fault a given sensor has.",
+      "Identify which fault calibration can repair."
+    ],
+    "bloomsTaxonomy": "Analyze (L4)",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "Reading a histogram",
+      "Knowing what an average is"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 600
+    },
+    "canvasHeight": 600,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with learner-controlled parameters",
+    "keyQuestions": [
+      "A sensor reads 25.1, 25.1, 25.0, 25.1 when the truth is 21. What is wrong with it, and can you fix it?",
+      "Why does averaging twenty readings not help a biased sensor?",
+      "Can an instrument be precise and useless at the same time?"
+    ],
+    "commonMisconceptions": [
+      "Using \"accurate\" and \"precise\" as synonyms.",
+      "Believing more decimal places means a better measurement.",
+      "Expecting calibration to reduce noise."
+    ],
+    "assessmentOpportunities": [
+      "Predicts which fault a described sensor has before running it.",
+      "States that calibration repairs bias and cannot repair scatter.",
+      "Explains why averaging helps an imprecise sensor but not an inaccurate one."
+    ]
+  },
+  "chapter": "02-language-of-measurement"
+}

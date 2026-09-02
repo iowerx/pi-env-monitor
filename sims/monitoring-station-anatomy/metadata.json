@@ -1,24 +1,31 @@
 {
   "title": "Anatomy of an Environmental Monitoring Station",
-  "creator": "Dan McCreary",
-  "subject": "High School Geometry",
-  "description": "Interactive MicroSim for anatomy of an environmental monitoring station",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Click through the eleven components of a small weather station, name the quantity each one measures, and see which chapter covers it in depth.",
   "date": "2026-09-01",
   "educational": {
     "gradeLevel": [
+      "6",
+      "7",
+      "8",
       "9",
       "10",
       "11",
       "12"
     ],
-    "subjectArea": "Mathematics",
+    "subjectArea": "Science and Engineering",
     "topic": "Anatomy of an Environmental Monitoring Station",
     "learningObjectives": [
-      "TODO: Add learning objectives"
+      "Identify each major component of an environmental monitoring station.",
+      "Name the quantity each component measures.",
+      "Locate where in the book each component is covered in depth."
     ],
     "bloomsTaxonomy": "Remember (L1)",
     "duration": "10-15 minutes",
-    "prerequisites": [],
+    "prerequisites": [
+      "No prior knowledge required"
+    ],
     "standards": []
   },
   "technical": {
@@ -26,20 +33,33 @@
     "version": "1.0",
     "canvasDimensions": {
       "width": "responsive",
-      "height": 450
+      "height": 560
     },
     "responsive": true,
     "dependencies": [],
     "accessibility": {
-      "hasAltText": false,
+      "hasAltText": true,
       "keyboardNavigable": false
-    }
+    },
+    "canvasHeight": 560
   },
   "pedagogical": {
-    "teachingStrategy": "Interactive exploration",
-    "keyQuestions": [],
-    "commonMisconceptions": [],
-    "assessmentOpportunities": []
+    "teachingStrategy": "Interactive exploration with learner-controlled parameters",
+    "keyQuestions": [
+      "Which components measure something, and which ones just keep the station alive?",
+      "What would the temperature reading do if the radiation shield were removed?",
+      "Why does a weather station need a GPS antenna when it never moves?"
+    ],
+    "commonMisconceptions": [
+      "Assuming the enclosure is just a box, rather than part of the measurement.",
+      "Thinking one sensor measures one quantity - the BME280 measures three.",
+      "Overlooking power and communications as part of the system."
+    ],
+    "assessmentOpportunities": [
+      "Names all eleven components and the quantity each one measures.",
+      "Explains why the thermometer needs a radiation shield.",
+      "Identifies which components are about power and communications rather than sensing."
+    ]
   },
   "chapter": "01-why-we-measure"
 }

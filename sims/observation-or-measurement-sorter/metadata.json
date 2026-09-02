@@ -1,24 +1,30 @@
 {
   "title": "Observation or Measurement Sorter",
-  "creator": "Dan McCreary",
-  "subject": "High School Geometry",
-  "description": "Interactive MicroSim for observation or measurement sorter",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Judge twelve statements about the environment as qualitative observation or quantitative data, with two deliberately tricky cards that break the belief that \"has a number\" is enough.",
   "date": "2026-09-01",
   "educational": {
     "gradeLevel": [
+      "6",
+      "7",
+      "8",
       "9",
       "10",
       "11",
       "12"
     ],
-    "subjectArea": "Mathematics",
+    "subjectArea": "Science and Engineering",
     "topic": "Observation or Measurement Sorter",
     "learningObjectives": [
-      "TODO: Add learning objectives"
+      "Judge whether a statement about the environment is a qualitative observation or quantitative data.",
+      "Justify the judgement by identifying whether both a number and a unit are present."
     ],
     "bloomsTaxonomy": "Evaluate (L5)",
     "duration": "10-15 minutes",
-    "prerequisites": [],
+    "prerequisites": [
+      "No prior knowledge required - this is the first MicroSim in the book"
+    ],
     "standards": []
   },
   "technical": {
@@ -26,20 +32,33 @@
     "version": "1.0",
     "canvasDimensions": {
       "width": "responsive",
-      "height": 450
+      "height": 480
     },
     "responsive": true,
     "dependencies": [],
     "accessibility": {
-      "hasAltText": false,
+      "hasAltText": true,
       "keyboardNavigable": false
-    }
+    },
+    "canvasHeight": 480
   },
   "pedagogical": {
-    "teachingStrategy": "Interactive exploration",
-    "keyQuestions": [],
-    "commonMisconceptions": [],
-    "assessmentOpportunities": []
+    "teachingStrategy": "Interactive exploration with learner-controlled parameters",
+    "keyQuestions": [
+      "What is missing from \"The temperature is 25.\"?",
+      "Can an observation be expert and still not be data?",
+      "Why does a unit matter as much as a number?"
+    ],
+    "commonMisconceptions": [
+      "Believing any sentence containing a digit is quantitative.",
+      "Treating \"qualitative\" as a polite word for \"worthless\".",
+      "Assuming a technical-sounding sentence must be a measurement."
+    ],
+    "assessmentOpportunities": [
+      "Applies the number-and-unit rule rather than guessing from how technical the sentence sounds.",
+      "Correctly classifies \"The temperature is 25.\" as an observation and explains why.",
+      "Accepts that a qualitative observation can be skilled and useful and still not be data."
+    ]
   },
   "chapter": "01-why-we-measure"
 }
