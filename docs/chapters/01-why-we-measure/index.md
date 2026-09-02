@@ -84,7 +84,7 @@ Before the next element, two more terms. A **sorter** here means a small program
 
 #### Diagram: Observation or Measurement Sorter
 
-<iframe src="../../sims/observation-or-measurement-sorter/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/observation-or-measurement-sorter/main.html" width="100%" height="482px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Observation or Measurement Sorter</summary>
@@ -172,7 +172,7 @@ Before the next element, here are the parts you will be clicking on. A **sensor*
 
 #### Diagram: Anatomy of an Environmental Monitoring Station
 
-<iframe src="../../sims/monitoring-station-anatomy/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/monitoring-station-anatomy/main.html" width="100%" height="562px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Anatomy of an Environmental Monitoring Station</summary>
@@ -242,7 +242,7 @@ Before the next element, one term. **Altitude** means height above sea level, an
 
 #### Diagram: Atmospheric Layers Explorer
 
-<iframe src="../../sims/atmospheric-layers-explorer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/atmospheric-layers-explorer/main.html" width="100%" height="602px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Atmospheric Layers Explorer</summary>
@@ -332,7 +332,7 @@ And here is the part that matters for you personally: your station cannot measur
 
 #### Diagram: Weather Versus Climate Explorer
 
-<iframe src="../../sims/weather-versus-climate-explorer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/weather-versus-climate-explorer/main.html" width="100%" height="582px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Weather Versus Climate Explorer</summary>
