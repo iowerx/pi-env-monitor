@@ -404,17 +404,46 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#remote-environmental-monitor" class="md-nav__link">
+  <a href="#computer-system-components" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Remote Environmental Monitor
+        Computer System Components
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Computer System Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remote-computer-system-and-os" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remote Computer System and OS
       
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
+  <a href="#tested-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tested Configurations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tested Configurations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#base-station" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -424,8 +453,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#network" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -433,6 +462,11 @@
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -611,6 +645,14 @@
           
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -760,17 +802,46 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#remote-environmental-monitor" class="md-nav__link">
+  <a href="#computer-system-components" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Remote Environmental Monitor
+        Computer System Components
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Computer System Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remote-computer-system-and-os" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remote Computer System and OS
       
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
+  <a href="#tested-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tested Configurations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tested Configurations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#base-station" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -780,8 +851,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#network" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -789,6 +860,11 @@
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -826,7 +902,28 @@
 
 
 <h1 id="components-used">Components Used<a class="headerlink" href="#components-used" title="Permanent link">¶</a></h1>
-<h2 id="remote-environmental-monitor">Remote Environmental Monitor<a class="headerlink" href="#remote-environmental-monitor" title="Permanent link">¶</a></h2>
+<h2 id="computer-system-components">Computer System Components<a class="headerlink" href="#computer-system-components" title="Permanent link">¶</a></h2>
+<p>The following computer systems have been tested. Please refer to the section
+<a href="#tested-configurations">Tested Configurations</a> to see if the integrated setup was tested with all your hardware and software.</p>
+<h3 id="remote-computer-system-and-os">Remote Computer System and OS<a class="headerlink" href="#remote-computer-system-and-os" title="Permanent link">¶</a></h3>
+<p>The Remote Computer System (Remote or Remote Station) should be a low power system intended to run 24/7/365 with solar and/or battery power. However, there is no reason it could not be located near a safe power source, such as an outside plug that is shielded and grounded against water and electrical short. </p>
+<p>The Remote Station should run some version of Linux -- no other operating system has been tested and no instructions for installation of sensor hardware currently exist. The Raspberry Pi foundation has several low cost systems and other manufacturers have built systems with matching wiring/pins. </p>
+<p>Software for these systems is generally free and open source. The available packages, such as Python are also available. </p>
+<table>
+<thead>
+<tr>
+<th>System</th>
+<th>OS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RPi Zero 2 W</td>
+<td>Ubuntu 24.04 Server</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tested-configurations">Tested Configurations<a class="headerlink" href="#tested-configurations" title="Permanent link">¶</a></h2>
 <table>
 <thead>
 <tr>
@@ -863,7 +960,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="base-station">Base Station<a class="headerlink" href="#base-station" title="Permanent link">¶</a></h2>
+<h3 id="base-station">Base Station<a class="headerlink" href="#base-station" title="Permanent link">¶</a></h3>
 <table>
 <thead>
 <tr>
@@ -878,7 +975,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="network">Network<a class="headerlink" href="#network" title="Permanent link">¶</a></h2>
+<h3 id="network">Network<a class="headerlink" href="#network" title="Permanent link">¶</a></h3>
 <table>
 <thead>
 <tr>
