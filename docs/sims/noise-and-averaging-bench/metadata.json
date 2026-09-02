@@ -1,0 +1,65 @@
+{
+  "title": "Noise and Averaging Bench",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Discover the square-root rule yourself, verify it against the measurement, then meet the two costs that make \"average more\" the wrong answer.",
+  "date": "2026-09-02",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Noise and Averaging Bench",
+    "learningObjectives": [
+      "Justify a choice of averaging depth for a given sensor and purpose.",
+      "Weigh noise reduction against power cost and against the risk of smoothing away a real event."
+    ],
+    "bloomsTaxonomy": "Evaluate (L5)",
+    "duration": "25-30 minutes",
+    "prerequisites": [
+      "The Accuracy Versus Precision MicroSim from Chapter 2",
+      "Knowing what a standard deviation describes"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 590
+    },
+    "canvasHeight": 590,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with learner-controlled parameters",
+    "keyQuestions": [
+      "Averaging 256 readings instead of 64 cuts the noise by half. What does it cost?",
+      "Why does averaging cost almost nothing in Slow change mode?",
+      "Your station is for catching sudden events. Does that argue for more averaging or less?"
+    ],
+    "commonMisconceptions": [
+      "Believing more averaging is always better.",
+      "Expecting the noise to fall in proportion to N rather than to the square root of N.",
+      "Assuming a smoother line is a more accurate line."
+    ],
+    "assessmentOpportunities": [
+      "Justifies a specific averaging depth by reference to more than one cost.",
+      "Explains the square-root rule and can say what it does not promise.",
+      "Recognises that a filter which removes noise also removes fast real signals."
+    ]
+  },
+  "chapter": "04-how-sensors-work"
+}

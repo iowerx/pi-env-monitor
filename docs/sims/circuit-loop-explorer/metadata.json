@@ -1,0 +1,65 @@
+{
+  "title": "Circuit Loop and the Missing Ground",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Open either wire of a simple sensor circuit and watch the charge stop moving. The missing-ground fault, made visible before you meet it on a real bench.",
+  "date": "2026-09-02",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Circuit Loop and the Missing Ground",
+    "learningObjectives": [
+      "Explain why a circuit must form a complete loop.",
+      "Predict what a sensor does when its ground wire is disconnected while power remains connected."
+    ],
+    "bloomsTaxonomy": "Understand (L2)",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "Knowing that electricity needs somewhere to go",
+      "Chapter 3 sections on voltage and current"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 500
+    },
+    "canvasHeight": 500,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with learner-controlled parameters",
+    "keyQuestions": [
+      "If the red wire is still connected, why is the sensor dead?",
+      "Does it matter which side of the loop you break?",
+      "What would a loose ground look like from across the room?"
+    ],
+    "commonMisconceptions": [
+      "Thinking of ground as an optional return, or as \"just the negative side\".",
+      "Believing a sensor with power connected must be at least partly working.",
+      "Blaming an intermittent reading on a faulty sensor rather than a faulty connection."
+    ],
+    "assessmentOpportunities": [
+      "States that current requires a complete loop and names both wires as equally necessary.",
+      "Predicts that a sensor with power but no ground reads nothing at all.",
+      "Recognises intermittent readings as the signature of a loose connection rather than a broken sensor."
+    ]
+  },
+  "chapter": "03-electricity-and-computer"
+}

@@ -175,7 +175,7 @@ A useful rough conversion for mental arithmetic: double the Celsius value and ad
 
 #### Diagram: Three Scales Thermometer
 
-<iframe src="../../sims/three-scales-thermometer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/three-scales-thermometer/main.html" width="100%" height="610px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Three Scales Thermometer</summary>
@@ -274,7 +274,7 @@ The sensor in your station uses the fourth column. The BME280 contains a silicon
 
 #### Diagram: Temperature Sensor Comparison Chart
 
-<iframe src="../../sims/temperature-sensor-comparison/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/temperature-sensor-comparison/main.html" width="100%" height="606px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Temperature Sensor Comparison Chart</summary>
@@ -355,7 +355,7 @@ That last one is a standardization decision exactly like the prime meridian. The
 
 #### Diagram: Radiation Shield Comparison Lab
 
-<iframe src="../../sims/radiation-shield-lab/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/radiation-shield-lab/main.html" width="100%" height="592px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Radiation Shield Comparison Lab</summary>

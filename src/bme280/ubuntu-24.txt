@@ -1,0 +1,31 @@
+# Ubuntu Server 24.04 (Raspberry Pi image) -- I2C-specific setup for the BME280.
+# Run this BEFORE setup-common.txt.
+
+sudo apt update
+sudo apt upgrade
+sudo systemctl reboot
+
+# Ubuntu's official Raspberry Pi images ship with I2C already enabled
+# (dtparam=i2c_arm=on already set in /boot/firmware/config.txt).
+# Confirm rather than assume -- if this shows nothing, it needs adding:
+grep i2c /boot/firmware/config.txt
+
+sudo apt install i2c-tools
+sudo apt install python3-smbus
+lsmod | grep i2c
+i2cdetect -y 1
+# Note which address the sensor shows at -- 0x76 or 0x77.
+# probe1.py must be edited to match if it's not 0x77.
+
+# Ubuntu's default (cloud-init) user is NOT added to the i2c group
+# automatically -- fix permissions explicitly. Don't assume the user
+# is named "pi"; $USER covers whatever account is actually logged in.
+sudo usermod -aG i2c $USER
+
+# If the i2c group doesn't exist yet on this image:
+#   sudo groupadd i2c
+#   sudo chown root:i2c /dev/i2c-1
+#   sudo chmod g+rw /dev/i2c-1
+#   sudo usermod -aG i2c $USER
+
+sudo reboot

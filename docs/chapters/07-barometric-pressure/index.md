@@ -129,7 +129,7 @@ The unit of pressure now bears Pascal's name, which is a fair outcome, though it
 
 #### Diagram: Torricelli and Puy de Dome Experiment
 
-<iframe src="../../sims/torricelli-puy-de-dome/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/torricelli-puy-de-dome/main.html" width="100%" height="622px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Torricelli and Puy de Dome Experiment</summary>
@@ -226,7 +226,7 @@ Aircraft altimeters are barometers. This has a consequence that pilots handle co
 
 #### Diagram: Pressure and Altitude Calculator
 
-<iframe src="../../sims/pressure-altitude-calculator/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/pressure-altitude-calculator/main.html" width="100%" height="622px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Pressure and Altitude Calculator</summary>
@@ -318,7 +318,7 @@ Your station will do this far better than any dial, because it records every rea
 
 #### Diagram: Falling Barometer Forecast Trainer
 
-<iframe src="../../sims/falling-barometer-forecast/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/falling-barometer-forecast/main.html" width="100%" height="654px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Falling Barometer Forecast Trainer</summary>

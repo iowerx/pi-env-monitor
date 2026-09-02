@@ -126,7 +126,7 @@ Here is a piece of good news about your specific hardware. The Raspberry Pi has 
 
 #### Diagram: Analog to Digital Conversion Step-Through
 
-<iframe src="../../sims/analog-to-digital-stepthrough/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/analog-to-digital-stepthrough/main.html" width="100%" height="592px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Analog to Digital Conversion Step-Through</summary>
@@ -219,7 +219,7 @@ For your purposes the consequence is practical. A piece of silicon exposed to li
 
 #### Diagram: Transduction Mechanism Matcher
 
-<iframe src="../../sims/transduction-mechanism-matcher/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/transduction-mechanism-matcher/main.html" width="100%" height="508px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Transduction Mechanism Matcher</summary>
@@ -307,7 +307,7 @@ That square root is important, and slightly disappointing. To cut noise in half 
 
 #### Diagram: Noise and Averaging Bench
 
-<iframe src="../../sims/noise-and-averaging-bench/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/noise-and-averaging-bench/main.html" width="100%" height="592px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Noise and Averaging Bench</summary>

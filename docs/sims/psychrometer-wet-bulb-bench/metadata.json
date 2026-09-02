@@ -1,0 +1,65 @@
+{
+  "title": "Psychrometer Wet Bulb Bench",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Wet the wick, watch one thermometer cool below the other, and read humidity out of the difference. In saturated air nothing happens at all, which is the proof.",
+  "date": "2026-09-02",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Psychrometer Wet Bulb Bench",
+    "learningObjectives": [
+      "Demonstrate how the difference between a dry and a wet bulb yields relative humidity and dew point.",
+      "Apply a psychrometric lookup to determine humidity from two temperature readings."
+    ],
+    "bloomsTaxonomy": "Apply (L3)",
+    "duration": "20-25 minutes",
+    "prerequisites": [
+      "The Humidity Three Ways MicroSim",
+      "Knowing that evaporation takes heat"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 590
+    },
+    "canvasHeight": 590,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with learner-controlled parameters",
+    "keyQuestions": [
+      "Why does the wet bulb read lower than the dry bulb?",
+      "What happens at 100 per cent humidity, and why is that the important case?",
+      "Why did Assmann bolt a fan onto his instrument?"
+    ],
+    "commonMisconceptions": [
+      "Believing the wet bulb is colder because the water is cold.",
+      "Assuming still air gives a truer reading because it is undisturbed.",
+      "Trusting an electronic sensor over two thermometers because it is newer."
+    ],
+    "assessmentOpportunities": [
+      "Reads relative humidity from a dry bulb and a wet bulb without prompting.",
+      "Explains the null result at saturation in terms of evaporation.",
+      "States why an aspirated psychrometer is a usable reference for an electronic sensor."
+    ]
+  },
+  "chapter": "08-humidity-and-dew-point"
+}

@@ -1,0 +1,65 @@
+{
+  "title": "Three Scales Thermometer",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Fahrenheit, Celsius and kelvin on one shared physical column, with a difference mode that shows why 5 degrees of warming is 9 Fahrenheit degrees and not 41.",
+  "date": "2026-09-02",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Three Scales Thermometer",
+    "learningObjectives": [
+      "Convert a temperature between Fahrenheit, Celsius and kelvin.",
+      "Distinguish converting a temperature value from converting a temperature difference."
+    ],
+    "bloomsTaxonomy": "Apply (L3)",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "Multiplying by a fraction",
+      "Adding and subtracting negative numbers"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 608
+    },
+    "canvasHeight": 608,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with learner-controlled parameters",
+    "keyQuestions": [
+      "Why do Celsius and kelvin give the same number for a difference?",
+      "The forecast says it will warm by 10 C tonight. How many Fahrenheit degrees is that?",
+      "What is special about 0 K that is not special about 0 C?"
+    ],
+    "commonMisconceptions": [
+      "Applying the +32 offset to a temperature change.",
+      "Believing 98.6 F is a precise measurement rather than a conversion of 37 C.",
+      "Thinking kelvin is just Celsius with a different name."
+    ],
+    "assessmentOpportunities": [
+      "Converts in both directions between all three scales.",
+      "Explains why kelvin and Celsius differences are numerically identical.",
+      "States that a temperature difference does not take the +32 offset."
+    ]
+  },
+  "chapter": "06-temperature"
+}

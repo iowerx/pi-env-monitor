@@ -121,7 +121,7 @@ That principle did not go away. It is exactly how GPS works today.
 
 #### Diagram: The Longitude Problem Solver
 
-<iframe src="../../sims/longitude-problem-solver/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/longitude-problem-solver/main.html" width="100%" height="602px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>The Longitude Problem Solver</summary>
@@ -215,7 +215,7 @@ This has a valuable side effect. A GPS receiver ends up knowing the time to well
 
 #### Diagram: GPS Trilateration Explorer
 
-<iframe src="../../sims/gps-trilateration-explorer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/gps-trilateration-explorer/main.html" width="100%" height="582px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>GPS Trilateration Explorer</summary>
@@ -332,7 +332,7 @@ ISO 8601 has one property that makes it worth using even if you dislike the look
 
 #### Diagram: Timestamp Trouble Simulator
 
-<iframe src="../../sims/timestamp-trouble-simulator/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/timestamp-trouble-simulator/main.html" width="100%" height="552px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Timestamp Trouble Simulator</summary>

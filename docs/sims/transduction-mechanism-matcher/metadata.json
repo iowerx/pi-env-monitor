@@ -1,0 +1,64 @@
+{
+  "title": "Transduction Mechanism Matcher",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Join each physical property to the material mechanism that senses it and the electrical output it produces, with hints that name the missing idea rather than the answer.",
+  "date": "2026-09-02",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Transduction Mechanism Matcher",
+    "learningObjectives": [
+      "Attribute each of the station's sensors to the physical mechanism it uses.",
+      "Explain the chain from physical property through material change to electrical output."
+    ],
+    "bloomsTaxonomy": "Analyze (L4)",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "Chapter 4 sections on what transduction means"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 506
+    },
+    "canvasHeight": 506,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with learner-controlled parameters",
+    "keyQuestions": [
+      "What does the middle column actually do, in every case?",
+      "Which two chains end in the same electrical output, and why is that not a problem?",
+      "The BME280 measures three things. How many different mechanisms is that?"
+    ],
+    "commonMisconceptions": [
+      "Treating a sensor as a single indivisible component.",
+      "Assuming every sensor ultimately produces a voltage.",
+      "Confusing the mechanism named \"capacitance change\" with the output named the same thing - one is what happens in the material, the other is what the circuit sees."
+    ],
+    "assessmentOpportunities": [
+      "Attributes each sensor to its physical mechanism without prompting.",
+      "Describes a sensor as a three-link chain rather than a black box.",
+      "Explains why two sensors can share an output type and still measure different things."
+    ]
+  },
+  "chapter": "04-how-sensors-work"
+}

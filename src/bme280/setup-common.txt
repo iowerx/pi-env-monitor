@@ -1,0 +1,17 @@
+# Common setup -- steps that do NOT depend on which OS/board this is.
+# Run this AFTER the OS-specific i2c file for this board (e.g. pios.txt,
+# ubuntu-24.txt) and after `i2cdetect -y 1` confirms the sensor is visible.
+#
+# This assumes an apt-based Debian/Ubuntu-family Linux (true for both
+# Raspberry Pi OS and Ubuntu Server today). A board/OS that is NOT
+# apt-based (e.g. a non-Armbian OrangePi image, or anything not
+# Debian-derived) would need its own package-install lines too, not
+# just its own i2c file -- don't assume this file covers it unmodified.
+
+sudo apt install python3-pip
+sudo apt install python3-venv
+python3 -m venv .venv
+source .venv/bin/activate
+pip install smbus2
+pip install RPi.bme280
+python3 probe1.py

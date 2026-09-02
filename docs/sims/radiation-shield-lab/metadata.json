@@ -1,0 +1,65 @@
+{
+  "title": "Radiation Shield Comparison Lab",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Four differently sited sensors, one simulated day, one known true air temperature. Then the labels come off and you have to name the fault from the shape of the error.",
+  "date": "2026-09-02",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Radiation Shield Comparison Lab",
+    "learningObjectives": [
+      "Differentiate the effect of solar radiation, mounting surface and airflow on a temperature reading.",
+      "Attribute an error in a day's data to a specific siting fault."
+    ],
+    "bloomsTaxonomy": "Analyze (L4)",
+    "duration": "25-30 minutes",
+    "prerequisites": [
+      "Chapter 6 sections on what a thermometer actually measures",
+      "Reading a line chart against a reference line"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 590
+    },
+    "canvasHeight": 590,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with learner-controlled parameters",
+    "keyQuestions": [
+      "Why does the wall sensor peak later than the roof sensor?",
+      "A breeze fixes one of these faults and barely touches another. Which, and why?",
+      "Your data looks fine for a week of rain and then goes strange. What would you check?"
+    ],
+    "commonMisconceptions": [
+      "Believing shade alone is enough, without ventilation.",
+      "Assuming a sensor reading a plausible number is reading a correct one.",
+      "Treating siting as a finishing touch rather than part of the measurement."
+    ],
+    "assessmentOpportunities": [
+      "Attributes a specific error shape to a specific siting fault.",
+      "Distinguishes a radiation error from a ventilation error by how a breeze affects it.",
+      "Explains why a cloudy day hides a siting fault."
+    ]
+  },
+  "chapter": "06-temperature"
+}

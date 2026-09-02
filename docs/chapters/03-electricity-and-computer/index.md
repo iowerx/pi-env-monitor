@@ -98,7 +98,7 @@ Before the next element, one term. A **circuit** is a complete loop that charge 
 
 #### Diagram: Circuit Loop and the Missing Ground
 
-<iframe src="../../sims/circuit-loop-explorer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/circuit-loop-explorer/main.html" width="100%" height="502px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Circuit Loop and the Missing Ground</summary>
@@ -170,7 +170,7 @@ Before the pinout explorer below, one critical fact that determines whether your
 
 #### Diagram: Raspberry Pi GPIO Pinout Explorer
 
-<iframe src="../../sims/gpio-pinout-explorer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/gpio-pinout-explorer/main.html" width="100%" height="526px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Raspberry Pi GPIO Pinout Explorer</summary>
@@ -248,7 +248,7 @@ That center channel exists for a reason. Integrated circuit chips are made to st
 
 #### Diagram: Breadboard Connection Explorer
 
-<iframe src="../../sims/breadboard-connection-explorer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/breadboard-connection-explorer/main.html" width="100%" height="586px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Breadboard Connection Explorer</summary>

@@ -1,0 +1,65 @@
+{
+  "title": "Solar Constant to Ground: Where the Energy Goes",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Follow 1361 W/m2 down through the atmosphere, losing a named and quantified amount at every stage, until you arrive at whatever your station actually reads.",
+  "date": "2026-09-02",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Solar Constant to Ground: Where the Energy Goes",
+    "learningObjectives": [
+      "Attribute the difference between the solar constant and ground irradiance to specific causes.",
+      "Quantify the contribution of zenith angle, absorption, scattering, cloud and albedo."
+    ],
+    "bloomsTaxonomy": "Analyze (L4)",
+    "duration": "20-25 minutes",
+    "prerequisites": [
+      "Knowing what a cosine is",
+      "Chapter 9 sections on the solar constant"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 630
+    },
+    "canvasHeight": 630,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with learner-controlled parameters",
+    "keyQuestions": [
+      "Your station reads 700 W/m2 at noon. Is something wrong?",
+      "Why is the loss to the angle bigger in December than in June?",
+      "What does air mass 2 mean physically?"
+    ],
+    "commonMisconceptions": [
+      "Believing seasons are caused by distance from the Sun.",
+      "Expecting a ground sensor to read anywhere near 1361 W/m2.",
+      "Treating cloud as the only reason irradiance is low."
+    ],
+    "assessmentOpportunities": [
+      "Attributes a measured irradiance to named causes with numbers attached.",
+      "Explains why air mass matters and why it grows non-linearly.",
+      "States that a low reading is usually geometry and weather rather than a fault."
+    ]
+  },
+  "chapter": "09-solar-radiation"
+}

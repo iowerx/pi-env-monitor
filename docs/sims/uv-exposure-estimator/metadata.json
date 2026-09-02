@@ -1,0 +1,65 @@
+{
+  "title": "UV Exposure Risk Estimator",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "UV index, perceived brightness and perceived warmth on three separate scales at once, so you can watch them disagree.",
+  "date": "2026-09-02",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "UV Exposure Risk Estimator",
+    "learningObjectives": [
+      "Assess ultraviolet risk for a given time, place and surface.",
+      "Justify why the UV index cannot be inferred from how bright or how warm a day feels."
+    ],
+    "bloomsTaxonomy": "Evaluate (L5)",
+    "duration": "20-25 minutes",
+    "prerequisites": [
+      "Chapter 9 sections on the solar spectrum",
+      "The Solar Energy Budget MicroSim"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 670
+    },
+    "canvasHeight": 670,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with learner-controlled parameters",
+    "keyQuestions": [
+      "It is freezing and you are on a snowfield. Do you need sunscreen?",
+      "Cloud has cut the light by two thirds. How much has it cut the UV?",
+      "Why does altitude raise UV when it lowers the temperature?"
+    ],
+    "commonMisconceptions": [
+      "Using warmth as a proxy for UV risk.",
+      "Believing cloud gives meaningful UV protection.",
+      "Assuming you cannot burn below freezing."
+    ],
+    "assessmentOpportunities": [
+      "Assesses UV risk from time, place, altitude and surface rather than from appearance.",
+      "Explains why cloud is a poor guide to UV.",
+      "Identifies snow and altitude as risk multipliers."
+    ]
+  },
+  "chapter": "09-solar-radiation"
+}

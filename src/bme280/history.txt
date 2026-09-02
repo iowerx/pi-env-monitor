@@ -1,0 +1,30 @@
+# Check system is up-to-date:
+sudo apt update
+sudo apt upgrade
+sudo systemctl reboot
+
+# General setup for serial comms on Ubuntu:
+sudo systemctl stop serial-getty@ttyS0.service
+sudo systemctl disable serial-getty@ttyS0.service
+sudo systemctl mask serial-getty@ttyS0.service
+systemctl reboot
+sudo apt install minicom
+sudo minicom -D /dev/ttyS0 -b 115200
+
+# i2c interface setup:
+sudo apt install i2c-tools 
+lsmod | grep i2c
+i2cdetect -y 1
+sudo usermod -aG i2c pi
+sudo reboot
+
+# Present/Active test:
+sudo apt install python3-pip
+sudo apt install python3-venv
+python3 -m venv .venv
+source .venv/bin/activate
+sudo apt install python3-smbus 
+pip install smbus2
+pip install RPi.bme280
+python3 probe1.py 
+

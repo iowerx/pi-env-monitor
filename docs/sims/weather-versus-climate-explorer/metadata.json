@@ -1,24 +1,32 @@
 {
   "title": "Weather Versus Climate Explorer",
-  "creator": "Dan McCreary",
-  "subject": "High School Geometry",
-  "description": "Interactive MicroSim for weather versus climate explorer",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "View one temperature record at three time windows - a week, a year, thirty years - with the trend line refusing to appear until the window is wide enough to justify it.",
   "date": "2026-09-01",
   "educational": {
     "gradeLevel": [
+      "6",
+      "7",
+      "8",
       "9",
       "10",
       "11",
       "12"
     ],
-    "subjectArea": "Mathematics",
+    "subjectArea": "Science and Engineering",
     "topic": "Weather Versus Climate Explorer",
     "learningObjectives": [
-      "TODO: Add learning objectives"
+      "Distinguish short-term variation from long-term trend within the same dataset.",
+      "Explain why a single unusual reading does not establish a trend."
     ],
     "bloomsTaxonomy": "Analyze (L4)",
-    "duration": "10-15 minutes",
-    "prerequisites": [],
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "Reading a line chart",
+      "Knowing what an average is",
+      "Understanding that seasons repeat annually"
+    ],
     "standards": []
   },
   "technical": {
@@ -26,20 +34,33 @@
     "version": "1.0",
     "canvasDimensions": {
       "width": "responsive",
-      "height": 450
+      "height": 580
     },
     "responsive": true,
     "dependencies": [],
     "accessibility": {
-      "hasAltText": false,
+      "hasAltText": true,
       "keyboardNavigable": false
-    }
+    },
+    "canvasHeight": 580
   },
   "pedagogical": {
-    "teachingStrategy": "Interactive exploration",
-    "keyQuestions": [],
-    "commonMisconceptions": [],
-    "assessmentOpportunities": []
+    "teachingStrategy": "Interactive exploration with learner-controlled parameters",
+    "keyQuestions": [
+      "How long a record do you need before the word \"climate\" is honest?",
+      "A record-breaking hot day is reported on the news. What does it prove?",
+      "Why is it important that the y-axis stays the same in all three views?"
+    ],
+    "commonMisconceptions": [
+      "Treating a cold week as evidence against long-term warming.",
+      "Confusing the seasonal cycle with a trend.",
+      "Believing a single record day shifts the climate normal."
+    ],
+    "assessmentOpportunities": [
+      "Explains why a trend cannot be fitted to seven days.",
+      "Distinguishes the seasonal cycle from a long-term trend.",
+      "States that one extreme day is evidence of weather, not of climate."
+    ]
   },
   "chapter": "01-why-we-measure"
 }

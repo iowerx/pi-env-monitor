@@ -1,0 +1,66 @@
+{
+  "title": "Torricelli and the Puy de Dome",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Stand up a mercury column, swap the liquid for water and watch it need a ten-metre tube, then carry a barometer up a mountain and see which of two rival hypotheses survives.",
+  "date": "2026-09-02",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Torricelli and the Puy de Dome",
+    "learningObjectives": [
+      "Explain why a mercury column stands at a particular height.",
+      "Predict how that height changes with altitude and with the density of the liquid.",
+      "Explain how the Puy de Dome result ruled out the competing hypothesis."
+    ],
+    "bloomsTaxonomy": "Understand (L2)",
+    "duration": "20-25 minutes",
+    "prerequisites": [
+      "Knowing that density is mass per unit volume",
+      "Chapter 7 sections on what pressure is"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 620
+    },
+    "canvasHeight": 620,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with learner-controlled parameters",
+    "keyQuestions": [
+      "Why did Torricelli use mercury rather than water?",
+      "What was at the top of the tube, and why was that controversial?",
+      "Why did Perier leave a second barometer at the bottom of the mountain?"
+    ],
+    "commonMisconceptions": [
+      "Believing something inside the tube holds the liquid up.",
+      "Thinking the column height depends on the width of the tube.",
+      "Assuming a vacuum sucks, rather than that the air outside pushes."
+    ],
+    "assessmentOpportunities": [
+      "Explains the column height as a balance between the weight of the liquid and the pressure of the air.",
+      "Predicts the direction and rough size of the change with altitude before measuring.",
+      "States what the Puy de Dome result ruled out, not only what it showed."
+    ]
+  },
+  "chapter": "07-barometric-pressure"
+}

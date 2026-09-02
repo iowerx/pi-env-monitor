@@ -1,0 +1,66 @@
+{
+  "title": "Pressure and Altitude Calculator",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Correct a station reading to sea level, see it in five units at once, and settle whether a difference between two stations is weather or geography.",
+  "date": "2026-09-02",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Pressure and Altitude Calculator",
+    "learningObjectives": [
+      "Solve for sea level pressure given a station reading and elevation.",
+      "Convert between all common pressure units.",
+      "Evaluate whether a pressure difference between two stations is weather or elevation."
+    ],
+    "bloomsTaxonomy": "Apply (L3)",
+    "duration": "20-25 minutes",
+    "prerequisites": [
+      "Dividing decimals",
+      "Chapter 2 on unit conversion"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 620
+    },
+    "canvasHeight": 620,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with learner-controlled parameters",
+    "keyQuestions": [
+      "Why must every station report pressure corrected to sea level?",
+      "Your neighbour 300 m uphill reads 35 hPa lower. Is that a storm?",
+      "Why is flying from high pressure into low the dangerous direction?"
+    ],
+    "commonMisconceptions": [
+      "Comparing raw station pressures between places at different elevations.",
+      "Believing the correction is a small refinement.",
+      "Thinking hPa and mbar are different units rather than the same size."
+    ],
+    "assessmentOpportunities": [
+      "Computes a sea level correction from an elevation without prompting.",
+      "Decomposes a two-station difference into elevation and weather.",
+      "Explains why an altimeter set to the wrong pressure is dangerous in one direction more than the other."
+    ]
+  },
+  "chapter": "07-barometric-pressure"
+}

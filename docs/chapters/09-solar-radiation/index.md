@@ -120,7 +120,7 @@ They also showed something the name "solar constant" does not admit: **it is not
 
 #### Diagram: Solar Constant to Ground — Where the Energy Goes
 
-<iframe src="../../sims/solar-energy-budget/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/solar-energy-budget/main.html" width="100%" height="632px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Solar Constant to Ground — Where the Energy Goes</summary>
@@ -263,7 +263,7 @@ That last row is the honest limitation. A photodiode responds strongly to visibl
 
 #### Diagram: Solar Irradiance Through the Day
 
-<iframe src="../../sims/solar-irradiance-day-explorer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/solar-irradiance-day-explorer/main.html" width="100%" height="608px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Solar Irradiance Through the Day</summary>
@@ -340,7 +340,7 @@ Note that measuring the UV index properly requires a UV-specific sensor with the
 
 #### Diagram: UV Exposure Risk Estimator
 
-<iframe src="../../sims/uv-exposure-estimator/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/uv-exposure-estimator/main.html" width="100%" height="672px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>UV Exposure Risk Estimator</summary>

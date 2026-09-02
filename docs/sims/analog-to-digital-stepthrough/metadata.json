@@ -1,0 +1,65 @@
+{
+  "title": "Analog to Digital Conversion Step-Through",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Step one sample at a time through a smooth signal becoming a sequence of numbers, with the true value, the code it rounds to, and the error all on screen at once.",
+  "date": "2026-09-02",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Analog to Digital Conversion Step-Through",
+    "learningObjectives": [
+      "Explain how a smooth analog signal becomes a sequence of numbers.",
+      "Distinguish information lost to sampling in time from information lost to quantization in value."
+    ],
+    "bloomsTaxonomy": "Understand (L2)",
+    "duration": "20-25 minutes",
+    "prerequisites": [
+      "Reading a value off a graph",
+      "Chapter 4 sections on what a sensor produces"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 590
+    },
+    "canvasHeight": 590,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with learner-controlled parameters",
+    "keyQuestions": [
+      "Which control changes what happens between the samples, and which changes what happens at them?",
+      "Why is the quantization error in this sim always negative or zero?",
+      "A cold front arrives at 4.3 seconds and your next reading is at 5.0. What did you record?"
+    ],
+    "commonMisconceptions": [
+      "Treating \"digitizing\" as one process rather than two independent ones.",
+      "Believing more bits will recover detail that a slow sample rate threw away.",
+      "Assuming the stair-step is a drawing convention rather than what the numbers actually are."
+    ],
+    "assessmentOpportunities": [
+      "Distinguishes a loss caused by sampling from a loss caused by quantizing.",
+      "Explains why quantization error is never positive with a floor-based converter.",
+      "States what raising the sample rate buys and what it costs."
+    ]
+  },
+  "chapter": "04-how-sensors-work"
+}

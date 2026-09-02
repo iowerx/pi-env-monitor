@@ -67,10 +67,53 @@ nav:
 
   - MicroSims:
     - List of MicroSims: sims/index.md
+    - Accuracy Versus Precision Target Range: sims/accuracy-versus-precision-targets/index.md
+    - Analog to Digital Conversion Step-Through: sims/analog-to-digital-stepthrough/index.md
     - Anatomy of an Environmental Monitoring Station: sims/monitoring-station-anatomy/index.md
     - Atmospheric Layers Explorer: sims/atmospheric-layers-explorer/index.md
+    - Breadboard Connection Explorer: sims/breadboard-connection-explorer/index.md
+    - Circuit Loop and the Missing Ground: sims/circuit-loop-explorer/index.md
+    - Falling Barometer Forecast Trainer: sims/falling-barometer-forecast/index.md
+    - "Fog Watch: Temperature and Dew Point Convergence": sims/fog-watch-convergence/index.md
+    - GPS Trilateration Explorer: sims/gps-trilateration-explorer/index.md
+    - Humidity, Three Ways: sims/humidity-three-ways/index.md
+    - Linear Versus Logarithmic Scale: sims/linear-versus-log-scale/index.md
+    - Noise and Averaging Bench: sims/noise-and-averaging-bench/index.md
     - Observation or Measurement Sorter: sims/observation-or-measurement-sorter/index.md
+    - Pressure and Altitude Calculator: sims/pressure-altitude-calculator/index.md
+    - Psychrometer Wet Bulb Bench: sims/psychrometer-wet-bulb-bench/index.md
+    - Radiation Shield Comparison Lab: sims/radiation-shield-lab/index.md
+    - Raspberry Pi GPIO Pinout Explorer: sims/gpio-pinout-explorer/index.md
+    - SI Prefix and Scale Explorer: sims/si-prefix-scale-explorer/index.md
+    - "Solar Constant to Ground: Where the Energy Goes": sims/solar-energy-budget/index.md
+    - Solar Irradiance Through the Day: sims/solar-irradiance-day-explorer/index.md
+    - Temperature Sensor Comparison: sims/temperature-sensor-comparison/index.md
+    - The Longitude Problem Solver: sims/longitude-problem-solver/index.md
+    - Three Scales Thermometer: sims/three-scales-thermometer/index.md
+    - Timestamp Trouble Simulator: sims/timestamp-trouble-simulator/index.md
+    - Torricelli and the Puy de Dome: sims/torricelli-puy-de-dome/index.md
+    - Transduction Mechanism Matcher: sims/transduction-mechanism-matcher/index.md
+    - Unit Conversion Workbench: sims/unit-conversion-workbench/index.md
+    - UV Exposure Risk Estimator: sims/uv-exposure-estimator/index.md
     - Weather Versus Climate Explorer: sims/weather-versus-climate-explorer/index.md
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

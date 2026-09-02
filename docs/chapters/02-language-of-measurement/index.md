@@ -140,7 +140,7 @@ This is how scientists talk about size when precision does not matter but scale 
 
 #### Diagram: SI Prefix and Scale Explorer
 
-<iframe src="../../sims/si-prefix-scale-explorer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/si-prefix-scale-explorer/main.html" width="100%" height="582px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>SI Prefix and Scale Explorer</summary>
@@ -234,7 +234,7 @@ Here are the conversions this book uses constantly. You do not need to memorize 
 
 #### Diagram: Unit Conversion Workbench
 
-<iframe src="../../sims/unit-conversion-workbench/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/unit-conversion-workbench/main.html" width="100%" height="562px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Unit Conversion Workbench</summary>
@@ -312,7 +312,7 @@ You will meet logarithmic scales twice more in this book: in Chapter 11 for eart
 
 #### Diagram: Linear Versus Logarithmic Scale
 
-<iframe src="../../sims/linear-versus-log-scale/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/linear-versus-log-scale/main.html" width="100%" height="504px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Linear Versus Logarithmic Scale</summary>
@@ -388,7 +388,7 @@ Uncertainty is not an admission of failure. It is the opposite — reporting a n
 
 #### Diagram: Accuracy Versus Precision Target Range
 
-<iframe src="../../sims/accuracy-versus-precision-targets/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/accuracy-versus-precision-targets/main.html" width="100%" height="602px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Accuracy Versus Precision Target Range</summary>

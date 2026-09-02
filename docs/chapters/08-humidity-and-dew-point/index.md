@@ -170,7 +170,7 @@ Now return to the opening puzzle one last time. Day one, 32 °C at 50 percent, h
 
 #### Diagram: Humidity Three Ways
 
-<iframe src="../../sims/humidity-three-ways/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/humidity-three-ways/main.html" width="100%" height="602px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Humidity Three Ways</summary>
@@ -285,7 +285,7 @@ Vaisala introduced the first practical version, the HUMICAP, in 1973, and it cha
 
 #### Diagram: Psychrometer Wet Bulb Bench
 
-<iframe src="../../sims/psychrometer-wet-bulb-bench/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/psychrometer-wet-bulb-bench/main.html" width="100%" height="592px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Psychrometer Wet Bulb Bench</summary>
@@ -345,7 +345,7 @@ For rough mental work there is a much simpler rule that is good to within a degr
 
 #### Diagram: Fog Watch — Temperature and Dew Point Convergence
 
-<iframe src="../../sims/fog-watch-convergence/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/fog-watch-convergence/main.html" width="100%" height="592px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Fog Watch — Temperature and Dew Point Convergence</summary>

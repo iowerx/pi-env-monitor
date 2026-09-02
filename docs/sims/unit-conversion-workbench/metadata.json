@@ -1,0 +1,65 @@
+{
+  "title": "Unit Conversion Workbench",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Convert temperature, pressure, speed and length by watching the units cancel in a worked fraction chain, with a deliberate upside-down demo that shows the method failing.",
+  "date": "2026-09-02",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Unit Conversion Workbench",
+    "learningObjectives": [
+      "Calculate unit conversions for temperature, pressure, speed and length.",
+      "Demonstrate the cancellation method rather than applying a memorised formula."
+    ],
+    "bloomsTaxonomy": "Apply (L3)",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "Multiplying and dividing decimals",
+      "Reading a fraction as a division"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 560
+    },
+    "canvasHeight": 560,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with learner-controlled parameters",
+    "keyQuestions": [
+      "How do you know which way up the conversion fraction goes?",
+      "Why does a temperature conversion need two steps when a length conversion needs one?",
+      "If the units do not cancel, what does that tell you about your setup?"
+    ],
+    "commonMisconceptions": [
+      "Multiplying when you should divide, because the fraction was written upside down.",
+      "Applying the +32 offset to a temperature *difference*.",
+      "Believing 1 hPa and 1 mbar are different amounts of pressure. They are identical."
+    ],
+    "assessmentOpportunities": [
+      "Sets up a conversion fraction the right way up without being told which way it goes.",
+      "Identifies the surviving unit before computing the number.",
+      "Distinguishes converting a temperature from converting a temperature difference."
+    ]
+  },
+  "chapter": "02-language-of-measurement"
+}

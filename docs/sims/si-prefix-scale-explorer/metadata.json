@@ -1,0 +1,65 @@
+{
+  "title": "SI Prefix and Scale Explorer",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Drag a marker along a scale spanning many powers of ten and read the same value three ways at once - plain decimal, scientific notation, and with its SI prefix - beside a familiar object of that size.",
+  "date": "2026-09-02",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "SI Prefix and Scale Explorer",
+    "learningObjectives": [
+      "Interpret a value written in scientific notation by connecting it to an SI prefix and to a familiar physical object at that scale.",
+      "Explain what one order of magnitude means in concrete terms."
+    ],
+    "bloomsTaxonomy": "Understand (L2)",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "Reading a number in scientific notation",
+      "Knowing that 10^3 means 1000"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 580
+    },
+    "canvasHeight": 580,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with learner-controlled parameters",
+    "keyQuestions": [
+      "Why does the SI prefix change every three decades rather than every one?",
+      "Which is bigger: 5000 hPa or 0.5 MPa?",
+      "How many orders of magnitude separate a bacterium from a two-storey house?"
+    ],
+    "commonMisconceptions": [
+      "Treating \"micro\" as a vague word for \"small\" rather than as exactly 10^-6.",
+      "Assuming a value with a large-sounding prefix must be a large quantity, without checking the unit.",
+      "Reading 10^-9 as \"nine times smaller\" instead of \"a billionth\"."
+    ],
+    "assessmentOpportunities": [
+      "Given a value in scientific notation, states the matching SI prefix without consulting a table.",
+      "Explains \"one order of magnitude\" as a factor of ten rather than as \"a lot\".",
+      "Correctly identifies 101325 Pa as roughly 1013 hPa and recognises it as ordinary sea level pressure."
+    ]
+  },
+  "chapter": "02-language-of-measurement"
+}

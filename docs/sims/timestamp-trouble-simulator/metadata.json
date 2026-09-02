@@ -1,0 +1,65 @@
+{
+  "title": "Timestamp Trouble Simulator",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Run identical readings through four timestamp formats and a daylight saving transition, and judge which failures can be repaired and which destroyed the information for good.",
+  "date": "2026-09-02",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Timestamp Trouble Simulator",
+    "learningObjectives": [
+      "Critique four timestamp formats against the same logged data.",
+      "Judge which failures are recoverable and which permanently destroy information."
+    ],
+    "bloomsTaxonomy": "Evaluate (L5)",
+    "duration": "20-25 minutes",
+    "prerequisites": [
+      "Knowing what a time zone is",
+      "Chapter 5 sections on why the station needs a clock"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 550
+    },
+    "canvasHeight": 550,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with learner-controlled parameters",
+    "keyQuestions": [
+      "Two readings share a timestamp. What exactly has been lost?",
+      "Why does a missing hour look like a hardware fault?",
+      "What property of ISO 8601 makes an alphabetical sort come out chronological?"
+    ],
+    "commonMisconceptions": [
+      "Believing a time zone abbreviation is enough to disambiguate a repeated hour.",
+      "Assuming any timestamp problem can be fixed in post-processing.",
+      "Treating \"use UTC\" as a style preference rather than a data integrity requirement."
+    ],
+    "assessmentOpportunities": [
+      "Distinguishes a recoverable timestamp failure from an unrecoverable one and defends the distinction.",
+      "Explains why ISO 8601 sorts correctly as plain text.",
+      "Argues for UTC from a demonstrated consequence rather than from authority."
+    ]
+  },
+  "chapter": "05-time-and-place"
+}
