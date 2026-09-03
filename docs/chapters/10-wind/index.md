@@ -111,7 +111,7 @@ This is genuinely useful. You can look at a pressure map with no wind informatio
 
 #### Diagram: Pressure Gradient Wind Map
 
-<iframe src="../../sims/pressure-gradient-wind-map/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/pressure-gradient-wind-map/main.html" width="100%" height="602px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Pressure Gradient Wind Map</summary>
@@ -299,7 +299,7 @@ And unlike wind chill, heat index describes a genuine danger with a physical lim
 
 #### Diagram: Apparent Temperature Explorer
 
-<iframe src="../../sims/apparent-temperature-explorer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/apparent-temperature-explorer/main.html" width="100%" height="532px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Apparent Temperature Explorer</summary>
@@ -383,7 +383,7 @@ The **Enhanced Fujita scale** rates tornado intensity from EF0 to EF5, based on 
 
 #### Diagram: Beaufort Scale Observation Trainer
 
-<iframe src="../../sims/beaufort-observation-trainer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/beaufort-observation-trainer/main.html" width="100%" height="632px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Beaufort Scale Observation Trainer</summary>

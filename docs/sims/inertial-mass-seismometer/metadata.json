@@ -1,0 +1,69 @@
+{
+  "title": "Inertial Mass Seismometer",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "A cutaway seismometer driven as a damped harmonic oscillator, showing ground position, mass position and their difference at once, with a stiffness control that destroys the recording to prove why soft suspensions are required.",
+  "date": "2026-09-03",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Inertial Mass Seismometer",
+    "learningObjectives": [
+      "Explain how a suspended mass provides a stationary reference inside a moving frame.",
+      "Predict how changing the mass or the suspension stiffness changes the record.",
+      "Identify instrument ringing as a damping artefact rather than as ground motion.",
+      "Describe why force feedback flattens the instrument response across frequencies."
+    ],
+    "bloomsTaxonomy": "Understand (L2)",
+    "duration": "20-25 minutes",
+    "prerequisites": [
+      "Chapter 11: Zhang Heng's seismoscope and the inertial-mass principle",
+      "Basic behaviour of a mass on a spring"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 656
+    },
+    "canvasHeight": 656,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration",
+    "keyQuestions": [
+      "What quantity does a seismometer actually record?",
+      "Why does a stiff spring make the instrument useless?",
+      "What happens to a slow ground movement, like a creeping landslide?",
+      "Why do modern seismometers output a current rather than a displacement?"
+    ],
+    "commonMisconceptions": [
+      "The suspended mass is genuinely stationary rather than approximately so.",
+      "A seismometer records the ground's motion directly.",
+      "A heavier mass or a stiffer spring always makes a better instrument.",
+      "Ringing on a seismogram means aftershocks."
+    ],
+    "assessmentOpportunities": [
+      "States that the recorded signal is frame position minus mass position.",
+      "Predicts and then measures the attenuation caused by a stiff suspension.",
+      "Distinguishes an underdamped instrument artefact from real ground motion."
+    ]
+  },
+  "chapter": "11-ground-motion"
+}

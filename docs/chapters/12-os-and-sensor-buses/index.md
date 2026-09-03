@@ -211,7 +211,7 @@ Two permission problems will bite you in this project, and both look like softwa
 
 #### Diagram: Command Line Sandbox
 
-<iframe src="../../sims/command-line-sandbox/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/command-line-sandbox/main.html" width="100%" height="656px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Command Line Sandbox</summary>
@@ -427,7 +427,7 @@ UART matters here because of one specific part. The **SIM7600A module** is the c
 
 #### Diagram: I2C Bus Explorer
 
-<iframe src="../../sims/i2c-bus-explorer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/i2c-bus-explorer/main.html" width="100%" height="688px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>I2C Bus Explorer</summary>
@@ -514,7 +514,7 @@ The current draw of about 3.6 microamperes is remarkably low, and Chapter 16 wil
 
 #### Diagram: Inside the BME280
 
-<iframe src="../../sims/inside-the-bme280/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/inside-the-bme280/main.html" width="100%" height="636px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Inside the BME280</summary>

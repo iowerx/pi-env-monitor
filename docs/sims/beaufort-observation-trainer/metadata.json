@@ -1,0 +1,69 @@
+{
+  "title": "Beaufort Scale Observation Trainer",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "An animated scene whose smoke, tree, flag, loose paper, pond surface and walker are all driven from one wind speed, used to train Beaufort force estimation by eye with scored feedback naming the deciding cue.",
+  "date": "2026-09-03",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Beaufort Scale Observation Trainer",
+    "learningObjectives": [
+      "Classify a wind condition into a Beaufort force by observing its effects.",
+      "Convert a Beaufort force into a wind speed range in m/s, km/h, mph and knots.",
+      "Identify which observable cue most reliably separates two adjacent forces.",
+      "Explain why the Beaufort scale is an ordinal scale."
+    ],
+    "bloomsTaxonomy": "Understand (L2)",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "Chapter 2: ordinal scales and standardization",
+      "Chapter 10: the Beaufort scale table and the wind speed unit conversions"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 628
+    },
+    "canvasHeight": 628,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration",
+    "keyQuestions": [
+      "Which single cue tells you most about the wind force in this scene?",
+      "How would you take a comparable wind observation with no instrument at all?",
+      "Why can force 8 not be described as twice force 4?",
+      "Which pairs of adjacent forces are hardest to tell apart, and why?"
+    ],
+    "commonMisconceptions": [
+      "The Beaufort scale is an interval scale, so force 8 is twice force 4.",
+      "A single cue such as the flag is enough to fix the force.",
+      "The Beaufort scale is obsolete because anemometers exist.",
+      "Beaufort numbers are wind speeds rather than bands of wind speed."
+    ],
+    "assessmentOpportunities": [
+      "Scores at least 7 out of 10 in the Identify mode without the cheat sheet.",
+      "States the speed range of a named force in two different units.",
+      "Names the deciding cue for a given force rather than guessing from the whole scene."
+    ]
+  },
+  "chapter": "10-wind"
+}

@@ -140,7 +140,7 @@ Real seismometers add one refinement worth knowing. A simple mass on a spring ha
 
 #### Diagram: Inertial Mass Seismometer
 
-<iframe src="../../sims/inertial-mass-seismometer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/inertial-mass-seismometer/main.html" width="100%" height="660px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Inertial Mass Seismometer</summary>
@@ -256,7 +256,7 @@ Because it measures the rupture itself, moment magnitude does not saturate. It a
 
 #### Diagram: Magnitude Versus Intensity Map
 
-<iframe src="../../sims/magnitude-versus-intensity-map/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/magnitude-versus-intensity-map/main.html" width="100%" height="662px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Magnitude Versus Intensity Map</summary>
@@ -381,7 +381,7 @@ Japan has operated a nationwide system since 2007. Mexico's SASMEX has run since
 
 #### Diagram: Early Warning Race — P Wave Versus Alert
 
-<iframe src="../../sims/early-warning-race/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/early-warning-race/main.html" width="100%" height="636px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Early Warning Race — P Wave Versus Alert</summary>

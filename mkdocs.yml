@@ -70,17 +70,26 @@ nav:
     - Accuracy Versus Precision Target Range: sims/accuracy-versus-precision-targets/index.md
     - Analog to Digital Conversion Step-Through: sims/analog-to-digital-stepthrough/index.md
     - Anatomy of an Environmental Monitoring Station: sims/monitoring-station-anatomy/index.md
+    - Apparent Temperature Explorer: sims/apparent-temperature-explorer/index.md
     - Atmospheric Layers Explorer: sims/atmospheric-layers-explorer/index.md
+    - Beaufort Scale Observation Trainer: sims/beaufort-observation-trainer/index.md
     - Breadboard Connection Explorer: sims/breadboard-connection-explorer/index.md
     - Circuit Loop and the Missing Ground: sims/circuit-loop-explorer/index.md
+    - Command Line Sandbox: sims/command-line-sandbox/index.md
+    - Early Warning Race - P Wave Versus Alert: sims/early-warning-race/index.md
     - Falling Barometer Forecast Trainer: sims/falling-barometer-forecast/index.md
     - "Fog Watch: Temperature and Dew Point Convergence": sims/fog-watch-convergence/index.md
     - GPS Trilateration Explorer: sims/gps-trilateration-explorer/index.md
     - Humidity, Three Ways: sims/humidity-three-ways/index.md
+    - I2C Bus Explorer: sims/i2c-bus-explorer/index.md
+    - Inertial Mass Seismometer: sims/inertial-mass-seismometer/index.md
+    - Inside the BME280: sims/inside-the-bme280/index.md
     - Linear Versus Logarithmic Scale: sims/linear-versus-log-scale/index.md
+    - Magnitude Versus Intensity Map: sims/magnitude-versus-intensity-map/index.md
     - Noise and Averaging Bench: sims/noise-and-averaging-bench/index.md
     - Observation or Measurement Sorter: sims/observation-or-measurement-sorter/index.md
     - Pressure and Altitude Calculator: sims/pressure-altitude-calculator/index.md
+    - Pressure Gradient Wind Map: sims/pressure-gradient-wind-map/index.md
     - Psychrometer Wet Bulb Bench: sims/psychrometer-wet-bulb-bench/index.md
     - Radiation Shield Comparison Lab: sims/radiation-shield-lab/index.md
     - Raspberry Pi GPIO Pinout Explorer: sims/gpio-pinout-explorer/index.md
@@ -96,6 +105,12 @@ nav:
     - Unit Conversion Workbench: sims/unit-conversion-workbench/index.md
     - UV Exposure Risk Estimator: sims/uv-exposure-estimator/index.md
     - Weather Versus Climate Explorer: sims/weather-versus-climate-explorer/index.md
+
+
+
+
+
+
 
 
 

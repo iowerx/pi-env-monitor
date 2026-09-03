@@ -1,0 +1,68 @@
+{
+  "title": "Command Line Sandbox",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "A simulated Linux shell over the chapter's station file system, paired with a live file tree that highlights the working directory, a seven-task checklist, and an rm that really deletes so the consequence can be experienced safely.",
+  "date": "2026-09-03",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Command Line Sandbox",
+    "learningObjectives": [
+      "Execute shell commands to navigate a Linux file system and inspect its contents.",
+      "Read a permission block character by character and say what each position means.",
+      "Diagnose a missing execute bit as the reason a script will not run, and fix it with chmod.",
+      "State what rm does and why there is no way to undo it."
+    ],
+    "bloomsTaxonomy": "Apply (L3)",
+    "duration": "25-30 minutes",
+    "prerequisites": [
+      "Chapter 12: the file system, shell commands and file permissions"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 650
+    },
+    "canvasHeight": 650,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration",
+    "keyQuestions": [
+      "How do you find out where you are in the file system?",
+      "Why does your Python script refuse to run even though the file is clearly there?",
+      "What does each of the ten characters in -rw-r--r-- mean?",
+      "What happens to a file after rm, and how would you get it back?"
+    ],
+    "commonMisconceptions": [
+      "A file that exists and is readable can always be run.",
+      "rm asks for confirmation, or puts the file somewhere recoverable.",
+      "Permissions are a security feature that does not affect ordinary work.",
+      "cd tells you where you are."
+    ],
+    "assessmentOpportunities": [
+      "Completes all seven guided tasks unaided and records the commands used.",
+      "Explains the ls -l output for /dev/i2c-1 in terms of the i2c group.",
+      "Describes what would have been lost had the deletion been on a real station."
+    ]
+  },
+  "chapter": "12-os-and-sensor-buses"
+}
