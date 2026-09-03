@@ -1,0 +1,69 @@
+{
+  "title": "I2C Bus Explorer",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "An I2C transaction rendered as a schematic, a logic-analyser waveform and a simulated i2cdetect grid from one shared state machine, with five injectable faults matching the chapter's troubleshooting list.",
+  "date": "2026-09-03",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "I2C Bus Explorer",
+    "learningObjectives": [
+      "Examine an I2C transaction and explain how addressing lets many devices share two wires.",
+      "Read an i2cdetect grid and say what it rules in and out.",
+      "Diagnose common bus faults from their symptoms.",
+      "Explain why two devices may not share an address on one bus."
+    ],
+    "bloomsTaxonomy": "Analyze (L4)",
+    "duration": "20-25 minutes",
+    "prerequisites": [
+      "Chapter 3: pull-up resistors and the GPIO header",
+      "Chapter 12: I2C, device addresses and i2cdetect"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 684
+    },
+    "canvasHeight": 684,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration",
+    "keyQuestions": [
+      "How can three devices share two wires without interfering?",
+      "What does an empty i2cdetect grid tell you, and what does it not tell you?",
+      "Which fault looks most like a bug in your code, and why?",
+      "What happens on the wire when two devices answer at once?"
+    ],
+    "commonMisconceptions": [
+      "Each sensor needs its own pair of wires.",
+      "An empty i2cdetect grid means the code is wrong.",
+      "Two identical sensors can always be used on one bus.",
+      "The controller can tell how many devices acknowledged."
+    ],
+    "assessmentOpportunities": [
+      "Converts the seven broadcast address bits to hex by hand and checks against the panel.",
+      "Identifies an injected fault from the grid and waveform alone.",
+      "Explains why breakout boards provide an address-select pin."
+    ]
+  },
+  "chapter": "12-os-and-sensor-buses"
+}

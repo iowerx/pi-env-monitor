@@ -149,12 +149,12 @@ function pushReading() {
   cTru.push(cTru[cTru.length - 1] + v);
   cRaw.push(cRaw[cRaw.length - 1] + r);
   tNow += 1;
-  if (raw.length > BUFFER + 2000) trim();
+  if (raw.length > BUFFER + 2000) trimBuffer();
 }
 
 // Drop the oldest quarter and rebuild the prefix sums. Infrequent, and much
 // cheaper than shifting an array of this size on every reading.
-function trim() {
+function trimBuffer() {
   const cut = floor(raw.length / 4);
   raw = raw.slice(cut);
   tru = tru.slice(cut);

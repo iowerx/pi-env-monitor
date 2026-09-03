@@ -1,0 +1,69 @@
+{
+  "title": "Pressure Gradient Wind Map",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "An analytic isobar field where a deep low blows a gentle breeze and a shallow one blows a near gale, so the gradient rather than the central pressure becomes the readable signal.",
+  "date": "2026-09-03",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Pressure Gradient Wind Map",
+    "learningObjectives": [
+      "Examine an isobar map and predict wind speed and direction at any point.",
+      "Differentiate the effect of gradient steepness from the effect of absolute pressure.",
+      "Explain why surface air crosses isobars at an angle instead of flowing straight downhill.",
+      "Locate the strongest wind on a chart from isobar spacing alone."
+    ],
+    "bloomsTaxonomy": "Analyze (L4)",
+    "duration": "20-25 minutes",
+    "prerequisites": [
+      "Chapter 7: barometric pressure and isobars",
+      "Chapter 10: pressure systems, fronts and the Coriolis effect"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 600
+    },
+    "canvasHeight": 600,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration",
+    "keyQuestions": [
+      "Which is the better predictor of wind: how low the pressure is, or how fast it changes with distance?",
+      "Why does the wind not blow straight from high pressure to low pressure?",
+      "Where on a chart with a high and a low next to each other would you expect the strongest wind?",
+      "What changes about the wind when a cold front passes over you?"
+    ],
+    "commonMisconceptions": [
+      "Low central pressure always means strong wind.",
+      "Wind blows directly downhill from high pressure to low pressure.",
+      "Strong winds only happen around low pressure systems.",
+      "The windiest place on a chart is at a pressure centre."
+    ],
+    "assessmentOpportunities": [
+      "Ranks two maps by wind speed using isobar spacing rather than central pressure.",
+      "Predicts wind direction, including the Coriolis deflection, for a given hemisphere.",
+      "Scores above 80 per cent of the map maximum in the hidden-arrow prediction mode."
+    ]
+  },
+  "chapter": "10-wind"
+}

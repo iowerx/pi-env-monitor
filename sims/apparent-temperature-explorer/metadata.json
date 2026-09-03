@@ -1,0 +1,69 @@
+{
+  "title": "Apparent Temperature Explorer",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Wind chill and heat index drawn as two regimes of one apparent-temperature surface, with a target selector that shows objects cooling to the air temperature and a wet bulb zone where evaporative cooling fails.",
+  "date": "2026-09-03",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Apparent Temperature Explorer",
+    "learningObjectives": [
+      "Calculate apparent temperature from air temperature, wind speed and humidity.",
+      "Explain why wind dominates in cold conditions and humidity dominates in hot ones.",
+      "State that wind chill is a rate of heat loss from a warm body, not a temperature the air reaches.",
+      "Identify the wet bulb limit beyond which evaporative cooling cannot work."
+    ],
+    "bloomsTaxonomy": "Apply (L3)",
+    "duration": "20-25 minutes",
+    "prerequisites": [
+      "Chapter 8: relative humidity and wet bulb temperature",
+      "Chapter 10: wind chill, heat index and the wind speed unit table"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "Chart.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 528
+    },
+    "canvasHeight": 528,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration",
+    "keyQuestions": [
+      "Why does the same wind speed matter enormously at minus 20 degrees and not at all at 20 degrees?",
+      "Does a car parked in a freezing wind get colder than the air around it?",
+      "Why is 45 degrees in the Sahara easier to survive than 33 degrees on the Gulf Coast?",
+      "What is physically happening when the wet bulb temperature passes 35 degrees?"
+    ],
+    "commonMisconceptions": [
+      "Wind chill is a temperature the air actually reaches.",
+      "Pipes and cars freeze at the wind chill value rather than the air temperature.",
+      "Hotter air is always more dangerous than cooler air.",
+      "Wind chill and heat index are unrelated ideas that happen to share a name."
+    ],
+    "assessmentOpportunities": [
+      "Reads an apparent temperature and its difference from the actual reading for a given condition.",
+      "Explains the object-versus-body distinction in their own words.",
+      "Uses the cross-section view to describe the diminishing return of extra wind speed."
+    ]
+  },
+  "chapter": "10-wind"
+}

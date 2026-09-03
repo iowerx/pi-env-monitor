@@ -1,0 +1,70 @@
+{
+  "title": "Inside the BME280",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "A clickable cutaway of the BME280 with a seven-stage trace of one pressure reading using the real Bosch compensation formulas, and a skip-the-temperature fault that makes the reported pressure swing by over 60 hPa with no weather involved.",
+  "date": "2026-09-03",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Inside the BME280",
+    "learningObjectives": [
+      "Summarise how three separate transduction mechanisms coexist on one chip.",
+      "Explain why the temperature element is required even by a program that only wants pressure.",
+      "Describe the role of the factory calibration registers.",
+      "Recognise temperature-driven pressure drift as a software fault rather than a hardware failure."
+    ],
+    "bloomsTaxonomy": "Understand (L2)",
+    "duration": "20-25 minutes",
+    "prerequisites": [
+      "Chapter 4: analog-to-digital conversion",
+      "Chapters 6, 7 and 8: temperature, pressure and humidity sensing",
+      "Chapter 12: I2C addressing"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 632
+    },
+    "canvasHeight": 632,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration",
+    "keyQuestions": [
+      "How do three different sensing mechanisms fit in a package 2.5 mm across?",
+      "Why can a raw ADC count not be reported as a pressure?",
+      "Why does a pressure-only program still have to read the temperature?",
+      "If your pressure readings drift with the room, what would you check first?"
+    ],
+    "commonMisconceptions": [
+      "Each sensing element has its own ADC.",
+      "Calibration constants are the same for every chip of this model.",
+      "Raw counts are already a physical measurement.",
+      "Pressure drifting with room temperature means the sensor has failed."
+    ],
+    "assessmentOpportunities": [
+      "Names each block and connects it to the chapter that taught its mechanism.",
+      "Records the trace values and identifies where units first appear.",
+      "Plots reported pressure against ambient temperature with the fault on and explains the slope."
+    ]
+  },
+  "chapter": "12-os-and-sensor-buses"
+}

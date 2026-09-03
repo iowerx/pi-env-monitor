@@ -1,0 +1,69 @@
+{
+  "title": "Magnitude Versus Intensity Map",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "One magnitude pinned to a banner while a field of Modified Mercalli intensities appears beneath it, computed from the Allen, Wald and Worden (2012) intensity prediction equation with per-town site amplification.",
+  "date": "2026-09-03",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Magnitude Versus Intensity Map",
+    "learningObjectives": [
+      "Differentiate magnitude, which describes the earthquake, from intensity, which describes a place.",
+      "Analyse how depth, distance and local ground conditions change the intensity at a given place.",
+      "Explain why a town further from the epicentre can shake harder than a nearer one.",
+      "Convert a magnitude difference into an energy ratio."
+    ],
+    "bloomsTaxonomy": "Analyze (L4)",
+    "duration": "20-25 minutes",
+    "prerequisites": [
+      "Chapter 2: ordinal scales",
+      "Chapter 11: the Mercalli intensity scale and the moment magnitude scale"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 658
+    },
+    "canvasHeight": 658,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration",
+    "keyQuestions": [
+      "How many magnitudes does one earthquake have, and how many intensities?",
+      "Why did Mexico City suffer so badly 350 km from the 1985 epicentre?",
+      "What does the same magnitude do differently at 10 km depth and at 250 km?",
+      "How much more energy is a magnitude 7 than a magnitude 5?"
+    ],
+    "commonMisconceptions": [
+      "Magnitude and intensity are two names for the same thing.",
+      "The nearest place to the epicentre always shakes hardest.",
+      "A high magnitude always means severe damage.",
+      "Intensity VIII is twice as strong as intensity IV."
+    ],
+    "assessmentOpportunities": [
+      "Reads six different intensities off one magnitude and explains the spread.",
+      "Predicts the effect of switching a town from bedrock to artificial fill.",
+      "Assigns a Mercalli grade from an effect description in the Did You Feel It mode."
+    ]
+  },
+  "chapter": "11-ground-motion"
+}

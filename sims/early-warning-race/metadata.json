@@ -1,0 +1,69 @@
+{
+  "title": "Early Warning Race - P Wave Versus Alert",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "A P wave, an S wave and a radio alert race outward from one rupture while four cities accumulate warning time, with the blind zone drawn as a shaded circle that grows and shrinks with the system's processing delay.",
+  "date": "2026-09-03",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Early Warning Race - P Wave Versus Alert",
+    "learningObjectives": [
+      "Assess how much warning time a city receives from an earthquake early warning system.",
+      "Justify why a blind zone exists near the epicentre that no system can eliminate.",
+      "Explain why early warning is not prediction.",
+      "Judge whether a given number of seconds of warning is useful."
+    ],
+    "bloomsTaxonomy": "Evaluate (L5)",
+    "duration": "20-25 minutes",
+    "prerequisites": [
+      "Chapter 11: P and S waves and their speeds",
+      "Chapter 5: trilateration, for how a network locates an epicentre"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 632
+    },
+    "canvasHeight": 632,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration",
+    "keyQuestions": [
+      "If the alert arrives before the shaking, has the earthquake happened yet?",
+      "Why does the city closest to the epicentre get the least warning?",
+      "What can actually be done in three seconds, and in fifty?",
+      "How does putting accelerometers in ordinary phones shrink the blind zone?"
+    ],
+    "commonMisconceptions": [
+      "Early warning predicts earthquakes before they happen.",
+      "A better system could warn everybody, including people at the epicentre.",
+      "The alert travels as a seismic wave.",
+      "A few seconds of warning is not worth having."
+    ],
+    "assessmentOpportunities": [
+      "Computes warning time as S wave arrival minus alert time for a named city.",
+      "Records how the blind zone radius responds to the processing delay.",
+      "Argues, using the action lines, whether a given warning time is useful."
+    ]
+  },
+  "chapter": "11-ground-motion"
+}
