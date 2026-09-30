@@ -21,7 +21,7 @@
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../img/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
@@ -53,6 +53,8 @@
     
     
       <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -118,8 +120,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="../../img/mascot/neutral.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -235,8 +236,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="../../img/mascot/neutral.png" alt="logo">
 
     </a>
     Raspberry Pi Environmental Monitoring: Grades 6–12
@@ -1252,6 +1252,8 @@
       
         
       
+        
+      
     
     
     
@@ -1868,6 +1870,11 @@
 <li><a href="../04-how-sensors-work/">Chapter 4: How Sensors Turn the World Into Numbers</a></li>
 </ul>
 <hr>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Hold Still, Observers</p>
+<p><img alt="Mecha waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png">
+How do you measure shaking when everything around you is shaking too? In this chapter you will follow the answer from Zhang Heng's dragon vessel to the tiny MEMS chip that could sit in your station, and learn why magnitude and intensity are not the same thing. Let's take a reading!</p>
+</div>
 <h2 id="how-do-you-measure-a-moving-room">How Do You Measure a Moving Room?<a class="headerlink" href="#how-do-you-measure-a-moving-room" title="Permanent link">¶</a></h2>
 <p>Here is a problem that sounds impossible.</p>
 <p>You are standing in a room. The room begins to shake. You want to measure how much it is shaking — but you are shaking too, along with your notebook, your pen, and the table you would put an instrument on. Everything you could measure <em>against</em> is moving with the thing you are trying to measure.</p>
@@ -1940,6 +1947,11 @@
 <p><strong>The gap between arrivals gives you distance.</strong> Because P waves travel roughly 1.7 times faster than S waves, the delay between them grows with distance from the epicenter. A single seismometer can estimate its own distance from the earthquake just by timing the gap — roughly 8 kilometres for every second of separation. Three stations doing this independently locate the epicenter by trilateration, the same technique GPS uses in Chapter 5.</p>
 <p><strong>The gap also buys warning time.</strong> The P wave arrives first and is relatively harmless. Detect it, and you have seconds before the destructive S wave arrives. That is the entire basis of earthquake early warning, covered later in this chapter.</p>
 <p><strong>S waves cannot cross liquid</strong>, and this discovery mapped the inside of the planet. In the 1910s Beno Gutenberg noticed that S waves never arrive on the far side of the Earth from a large earthquake — there is an S wave shadow zone. Since shear waves require a material that resists twisting, and liquids do not, the only explanation was a liquid layer in the way. That is how we know the Earth has a liquid outer core. Nobody drilled. They listened.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Timestamp Both Arrivals</p>
+<p><img alt="Mecha pointing out a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png">
+When your log shows a small jolt followed by bigger shaking, record the time of each, not just the big part. That gap in seconds, times about 8, tells you roughly how many kilometres away the earthquake was.</p>
+</div>
 <h2 id="the-oldest-instrument-in-this-book">The Oldest Instrument in This Book<a class="headerlink" href="#the-oldest-instrument-in-this-book" title="Permanent link">¶</a></h2>
 <p>Around 138 AD, the Chinese polymath Zhang Heng built a device to detect distant earthquakes.</p>
 <p>A <strong>seismoscope</strong> is an instrument that detects and indicates that ground motion has occurred, without producing a continuous record of it.</p>
@@ -1950,6 +1962,11 @@
 <h2 id="measuring-against-something-that-will-not-move">Measuring Against Something That Will Not Move<a class="headerlink" href="#measuring-against-something-that-will-not-move" title="Permanent link">¶</a></h2>
 <p>The breakthrough that turned detection into measurement rests on a principle from basic physics.</p>
 <p><strong>Inertial mass</strong> is the property of matter that resists any change in its motion. A heavy object at rest tends to stay at rest, and it takes force to change that.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Something That Stays Put</p>
+<p><img alt="Mecha thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png">
+This is the cleverest trick in the chapter for me. The reading is not where the mass is or where the frame is, but the difference between them, so the instrument builds its own fixed point out of inertia.</p>
+</div>
 <p>Here is how it solves the moving-room problem. Suspend a heavy mass from a spring or a long wire, attached to a frame that is bolted to the ground. When the ground shakes:</p>
 <ul>
 <li>The frame, bolted down, moves with the ground</li>
@@ -2004,6 +2021,11 @@ Bloom Verb: explain</p>
 <li><strong>Intensity</strong> describes the shaking experienced at one location. A single earthquake has <strong>many</strong> intensities — high near the epicenter, lower further away, and varying with local ground conditions.</li>
 </ul>
 <p>An analogy that holds up well: magnitude is the wattage of a light bulb; intensity is how bright it looks from where you are sitting. One bulb, one wattage, many brightnesses.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Your Peak Is Not a Magnitude</p>
+<p><img alt="Mecha raising a caution" class="mascot-admonition-img" src="../../img/mascot/warning.png">
+A big spike from your own accelerometer describes the shaking at your station, not the size of the earthquake. Label it as ground acceleration at your location, and never report it as the earthquake's magnitude.</p>
+</div>
 <h3 id="intensity-scales">Intensity Scales<a class="headerlink" href="#intensity-scales" title="Permanent link">¶</a></h3>
 <p>Intensity came first historically, because it needs no instrument — only observers, which is the same insight Beaufort had for wind in Chapter 10.</p>
 <p>The <strong>Mercalli intensity scale</strong>, developed by Giuseppe Mercalli in 1902 and revised as the Modified Mercalli scale in 1931, rates shaking from I to XII based on observed effects on people, objects, and buildings.</p>
@@ -2314,6 +2336,11 @@ Bloom Verb: assess</p>
 <li><strong>Acceleration</strong> is what shaking is. The <strong>accelerometer</strong>, and specifically the <strong>MEMS accelerometer</strong> built for car airbags, makes dense low-cost seismic networks possible.</li>
 <li><strong>Earthquake early warning</strong> is not prediction. It exploits the P–S gap and the speed of radio to deliver seconds of notice.</li>
 </ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Seismologist Skills Unlocked!</p>
+<p><img alt="Mecha celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png">
+You solved the moving-room problem with inertia and can explain why one earthquake has one magnitude but many intensities. Next, your station gets its brain: Chapter 12 covers the operating system, the command line, and the I2C bus that lets the Pi talk to the BME280!</p>
+</div>
 <h2 id="check-yourself">Check Yourself<a class="headerlink" href="#check-yourself" title="Permanent link">¶</a></h2>
 <details class="question">
 <summary>One earthquake. Town A reports intensity VIII, Town B reports intensity IV. What was the magnitude? Click to check.</summary>

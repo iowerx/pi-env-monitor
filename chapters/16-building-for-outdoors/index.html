@@ -21,7 +21,7 @@
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../img/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
@@ -53,6 +53,8 @@
     
     
       <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -118,8 +120,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="../../img/mascot/neutral.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -235,8 +236,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="../../img/mascot/neutral.png" alt="logo">
 
     </a>
     Raspberry Pi Environmental Monitoring: Grades 6–12
@@ -1257,6 +1257,8 @@
       
         
       
+        
+      
     
     
     
@@ -1881,6 +1883,11 @@
 <li><a href="../15-charting-and-analysis/">Chapter 15: Charting and Interpreting Your Data</a></li>
 </ul>
 <hr>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Welcome, Station Builders</p>
+<p><img alt="Mecha waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png">
+Your station is leaving the desk for a post in a field, where nobody is coming to fix it. In this chapter you will choose a site, pick a vented weatherproof enclosure, and work out a power budget that survives winter, then get the data home even when the link drops. Let's take a reading!</p>
+</div>
 <h2 id="nobody-is-coming-to-fix-it">Nobody Is Coming to Fix It<a class="headerlink" href="#nobody-is-coming-to-fix-it" title="Permanent link">¶</a></h2>
 <p>Everything so far has assumed a bench, a wall socket, and you sitting nearby.</p>
 <p>Now put it on a post in a field.</p>
@@ -1979,6 +1986,11 @@
 </tbody>
 </table>
 <p>Notice the conflict. Temperature wants shade; solar radiation wants no shade at all. They cannot share a location on the mast. The solar sensor goes on top, level and clear; the temperature and humidity go in a shield below it, positioned so the shield never shades the solar sensor.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">One Mast, Many Needs</p>
+<p><img alt="Mecha thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png">
+Temperature wants shade while solar radiation wants open sky, so no single spot on the mast can please them both. I find it fascinating that every sensor asks something different of the same location.</p>
+</div>
 <p>The seismic sensor conflicts too. It wants to be rigidly coupled to the ground, and a station on a pole is the worst possible mounting — the pole sways in the wind and the accelerometer faithfully records that instead of earthquakes.</p>
 <div class="admonition warning">
 <p class="admonition-title">Do not skip this and fix it later</p>
@@ -2159,6 +2171,11 @@ Bloom Verb: recommend</p>
 <p>The autonomy calculation asks how long the station runs with no solar input at all:</p>
 <div class="arithmatex">\[ \text{days of autonomy} = \frac{\text{usable capacity (mAh)}}{\text{daily consumption (mAh)}} \]</div>
 <p>A 20,000 mAh battery at 80 percent usable is 16,000 mAh. Against 3,600 mAh per day, that is <strong>4.4 days</strong> — and less in the cold. Aim for at least three days of autonomy, and five if your winters are overcast.</p>
+<div class="admonition mascot-encouraging">
+<p class="admonition-title">One Step at a Time</p>
+<p><img alt="Mecha giving a thumbs-up" class="mascot-admonition-img" src="../../img/mascot/encouraging.png">
+The power budget stacks up a lot of numbers, but each step is plain arithmetic: milliamps times hours, then capacity divided by daily use. Work the example slowly, because every number here tells you whether your station makes it through December.</p>
+</div>
 <h3 id="step-3-size-the-solar-panel">Step 3: Size the Solar Panel<a class="headerlink" href="#step-3-size-the-solar-panel" title="Permanent link">¶</a></h3>
 <p>A <strong>solar panel</strong> converts sunlight into electricity by the photovoltaic effect from Chapter 9.</p>
 <p>Panels are rated in watts under standard test conditions of 1000 W/m². Real output is far lower, and this is where Chapter 15's insolation figure earns its place.</p>
@@ -2281,6 +2298,11 @@ Bloom Verb: judge</p>
 <p>Without it, a remote station is a data recorder that somebody has to visit. With it, you find out about a failure in hours rather than months.</p>
 <p>Three options, in increasing order of independence:</p>
 <p>A <strong>Wi-Fi network</strong> is the simplest when the station is within range of one. It is free to run, fast, and needs no additional hardware since the Pi Zero 2 W has Wi-Fi built in. The limits are range — typically under 100 metres outdoors — and that it ties your station's siting to a building, which Chapter 6's siting rules argue against.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Do Not Follow the Wi-Fi</p>
+<p><img alt="Mecha raising a caution" class="mascot-admonition-img" src="../../img/mascot/warning.png">
+Many station builders put the station right beside the building because that is where the Wi-Fi reaches. Choose the spot for sensor exposure first, then pick the link that can reach it, even if that means a cellular data link.</p>
+</div>
 <p>A <strong>cellular data link</strong> uses the mobile phone network, through the SIM7600A module in this project's parts list. It works anywhere with coverage, which is most places, and frees the station's location entirely. The costs are a data plan, higher power consumption, and the complexity of AT commands over the serial UART from Chapter 12.</p>
 <p>A <strong>base station</strong> is a computer at a fixed, convenient location that collects data from one or more remote stations. <a href="../../components/">Components Used</a> specifies a Raspberry Pi 2B running Raspberry Pi OS for this role. A base station has mains power, a reliable network, and no weather exposure, so it can do the work the remote station cannot afford: storing the full archive, running charts and dashboards, alerting you when a station goes quiet, and serving as one of the 3-2-1 backup copies from Chapter 14.</p>
 <table>
@@ -2386,6 +2408,11 @@ Bloom Verb: judge</p>
 <li><strong>Intermittent connectivity</strong> is normal. Write locally first, always; transmit as an optional later step with back-off and batching.</li>
 <li>A <strong>seismic network</strong> locates events by trilateration and rejects false alarms by requiring agreement — the argument for density over individual precision.</li>
 </ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Ready for the Field!</p>
+<p><img alt="Mecha celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png">
+You just planned a station that can run on its own, from the vented IP65 box and the December-sized solar panel to store-and-forward upload code. Next, Chapter 17 follows your seven measurements out into the world, into forecasts, building codes, and flood warnings.</p>
+</div>
 <h2 id="check-yourself">Check Yourself<a class="headerlink" href="#check-yourself" title="Permanent link">¶</a></h2>
 <details class="question">
 <summary>Your station uses 3,600 mAh/day. Your 10 W panel produces 2,100 mAh/day in December. What are your options? Click to check.</summary>

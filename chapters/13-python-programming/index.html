@@ -21,7 +21,7 @@
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../img/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
@@ -53,6 +53,8 @@
     
     
       <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -118,8 +120,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="../../img/mascot/neutral.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -235,8 +236,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="../../img/mascot/neutral.png" alt="logo">
 
     </a>
     Raspberry Pi Environmental Monitoring: Grades 6–12
@@ -1207,6 +1207,8 @@
       
         
       
+        
+      
     
     
     
@@ -1768,6 +1770,11 @@
 <li><a href="../12-os-and-sensor-buses/">Chapter 12: The Station's Brain: Operating System, Command Line, and Sensor Buses</a></li>
 </ul>
 <hr>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Welcome, Station Builders</p>
+<p><img alt="Mecha waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png">
+Your BME280 is on the bus, and now it is time to tell the Pi what to do with it. Let's take a reading! In this chapter you will learn variables, functions, loops, conditionals, and libraries, then write a script that reads temperature, pressure, and humidity and keeps running even when the sensor hiccups.</p>
+</div>
 <h2 id="instructions-for-a-machine-that-does-not-guess">Instructions for a Machine That Does Not Guess<a class="headerlink" href="#instructions-for-a-machine-that-does-not-guess" title="Permanent link">¶</a></h2>
 <p>You now have a sensor the Pi can see on the bus. Nobody has told the Pi what to do with it.</p>
 <p>That is the job of a program: a list of instructions, written in a language the computer can follow exactly. And "exactly" is the operative word. A computer does precisely what you wrote, not what you meant. That sounds like a limitation, and mostly it is the reason programming is frustrating on your first day and reliable on your hundredth.</p>
@@ -1894,6 +1901,11 @@
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">temp_f</span><span class="p">)</span>    <span class="c1"># 70.52</span>
 </span></code></pre></div>
 <p>That indentation is not decoration. <strong>Python uses indentation to determine structure</strong>, where most languages use braces. The indented lines belong to the function; the unindented lines that follow do not. Inconsistent indentation is a syntax error, and mixing tabs with spaces produces errors that are invisible on screen. Configure your editor to insert four spaces when you press Tab, and the problem disappears permanently.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Tabs and Spaces Clash</p>
+<p><img alt="Mecha raising a caution" class="mascot-admonition-img" src="../../img/mascot/warning.png">
+Mix a tab on one line with four spaces on the next and your code can look perfectly lined up while Python refuses to run it. Set your editor to insert four spaces for Tab before you type out <code>calculate_dew_point</code>, and that invisible error never shows up.</p>
+</div>
 <p>Functions earn their place for three reasons:</p>
 <ul>
 <li><strong>They avoid repetition.</strong> Write the conversion once, use it everywhere.</li>
@@ -1979,6 +1991,11 @@
 <h2 id="loops">Loops<a class="headerlink" href="#loops" title="Permanent link">¶</a></h2>
 <p>A <strong>loop</strong> repeats a block of code.</p>
 <p>A monitoring station is essentially one enormous loop: read the sensors, write the values, wait, repeat, for months.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">One Loop, Many Months</p>
+<p><img alt="Mecha thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png">
+Read, write, wait, repeat. I like to picture a station as a single loop that never gets tired, where every reading you will ever collect is one more trip around it.</p>
+</div>
 <p>Two kinds are worth knowing.</p>
 <p>A <code>for</code> loop repeats a known number of times, or once for each item in a collection:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">readings</span> <span class="o">=</span> <span class="p">[</span><span class="mf">21.4</span><span class="p">,</span> <span class="mf">21.5</span><span class="p">,</span> <span class="mf">21.3</span><span class="p">,</span> <span class="mf">21.6</span><span class="p">]</span>
@@ -2116,6 +2133,11 @@ Bloom Verb: execute</p>
 <h2 id="when-things-go-wrong">When Things Go Wrong<a class="headerlink" href="#when-things-go-wrong" title="Permanent link">¶</a></h2>
 <p>Here is the situation that separates a demonstration from a station.</p>
 <p>Your logger has been running for three weeks. At 03:17 on a Tuesday, a temperature swing causes a marginal solder joint to open briefly. The sensor does not respond. Your program crashes. It is 03:17, nobody notices, and you lose eleven days of data before anyone checks.</p>
+<div class="admonition mascot-encouraging">
+<p class="admonition-title">A Crash Is a Clue</p>
+<p><img alt="Mecha giving a thumbs-up" class="mascot-admonition-img" src="../../img/mascot/encouraging.png">
+If the 03:17 story makes you a little nervous, good: that means you are thinking like a station builder. An <code>OSError</code> is not a failure on your part, it is the sensor leaving you a clue, and <code>try</code> and <code>except</code> let your loop note that clue and keep going.</p>
+</div>
 <p><strong>Exception handling</strong> is a way of catching errors when they occur and deciding what to do about them, instead of letting the program stop.</p>
 <p>An exception is Python's way of reporting that something went wrong. Without handling, it prints a message and terminates:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>OSError: [Errno 121] Remote I/O error
@@ -2235,6 +2257,11 @@ Bloom Verb: critique</p>
 <li><strong>Exception handling</strong> keeps a station alive through a transient fault. Catch specific errors, never use a bare <code>except: pass</code>, and always log the failure.</li>
 <li><strong>Script execution</strong> runs a <code>.py</code> file. A shebang plus execute permission makes it runnable directly.</li>
 </ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Your Station Speaks Python</p>
+<p><img alt="Mecha celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png">
+You went from a sensor on a bus to a Python script that reads it, checks it, and survives a failed read in the middle of the night! Next, Chapter 14 teaches that script to remember, with timestamped CSV files, header rows that name the units, rotation, backup, and metadata.</p>
+</div>
 <h2 id="check-yourself">Check Yourself<a class="headerlink" href="#check-yourself" title="Permanent link">¶</a></h2>
 <details class="question">
 <summary>Why does <code>print(0.1 + 0.2 == 0.3)</code> print False? Click to check.</summary>

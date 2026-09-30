@@ -21,7 +21,7 @@
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../img/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
@@ -53,6 +53,8 @@
     
     
       <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -118,8 +120,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="../../img/mascot/neutral.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -235,8 +236,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="../../img/mascot/neutral.png" alt="logo">
 
     </a>
     Raspberry Pi Environmental Monitoring: Grades 6–12
@@ -1302,6 +1302,8 @@
       
         
       
+        
+      
     
     
     
@@ -1973,6 +1975,11 @@
 <li><a href="../07-barometric-pressure/">Chapter 7: Barometric Pressure: The Weight of the Atmosphere</a></li>
 </ul>
 <hr>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Hello, Moisture Hunters</p>
+<p><img alt="Mecha waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png">
+Water vapor is all around you, and you cannot see a single molecule of it. In this chapter you will untangle absolute humidity, relative humidity, and dew point, then meet the instruments, from a strand of hair to the thin film in your BME280, that measure the invisible. Let's take a reading!</p>
+</div>
 <h2 id="two-days-same-number-different-worlds">Two Days, Same Number, Different Worlds<a class="headerlink" href="#two-days-same-number-different-worlds" title="Permanent link">¶</a></h2>
 <p>Here are two days. Both report 50 percent humidity.</p>
 <ul>
@@ -2061,6 +2068,11 @@
 <p>This is the number in every forecast, and now the opening puzzle resolves. Fifty percent means "half of the maximum for <em>this</em> temperature," and the maximum changes enormously with temperature. Fifty percent at 32 °C is about 15 g/m³ of water. Fifty percent at 5 °C is about 3.4 g/m³. The hot day genuinely has more than four times the water in it, despite both reading 50 percent.</p>
 <p>Relative humidity has a property that trips people up constantly: <strong>it changes when the temperature changes, even if no water enters or leaves the air.</strong> Cool a parcel of air and its relative humidity climbs, purely because the denominator shrank. This is why relative humidity almost always peaks just before dawn — the coldest moment — and bottoms out in mid-afternoon, with no change in the actual water content at all.</p>
 <p>Relative humidity reaches 100 percent when the actual vapor pressure equals the saturation vapor pressure. At that point the air is saturated, and any further cooling forces condensation.</p>
+<div class="admonition mascot-encouraging">
+<p class="admonition-title">Stick With It</p>
+<p><img alt="Mecha giving a thumbs-up" class="mascot-admonition-img" src="../../img/mascot/encouraging.png">
+Absolute humidity, vapor pressure, relative humidity: that is a lot of new ideas stacked in one place, and they trip up plenty of adults too. You have almost cracked the two-days puzzle, and dew point is the piece that makes it click.</p>
+</div>
 <h3 id="dew-point">Dew Point<a class="headerlink" href="#dew-point" title="Permanent link">¶</a></h3>
 <p><strong>Dew point</strong> is the temperature to which air must be cooled, at constant pressure, for it to become saturated and begin condensing.</p>
 <p>Of the three measures, this is the most useful outdoors, for three reasons:</p>
@@ -2194,6 +2206,11 @@ Bloom Verb: distinguish</p>
 <p><strong>Dew and frost formation</strong> happens at ground level on clear, calm nights. Surfaces radiate heat to the sky and cool below the surrounding air temperature — often several degrees below. When a surface cools past the dew point, the air touching it condenses onto it. If the dew point is above freezing, you get dew. If it is below freezing, vapor deposits directly as ice crystals and you get frost.</p>
 <p>This is why dew appears on grass and car roofs but not under a tree or a carport: those surfaces are shielded from the open sky and cannot radiate away their heat as effectively.</p>
 <p><strong>Fog formation</strong> is the same event happening in the air itself rather than on a surface. When a whole layer of air cools to its dew point, condensation occurs throughout it, producing suspended droplets. Fog is a cloud that forms at ground level.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Do Not Trust RH Alone</p>
+<p><img alt="Mecha raising a caution" class="mascot-admonition-img" src="../../img/mascot/warning.png">
+A high relative humidity at bedtime does not guarantee fog by morning. If the dew point sits far below the air temperature, the gap may never close, so check the spread before you make the call.</p>
+</div>
 <p>The conditions that favour it are specific and worth knowing, because they are also the conditions that make your station's overnight data interesting:</p>
 <ul>
 <li>A <strong>clear sky</strong>, so heat radiates away freely</li>
@@ -2325,6 +2342,11 @@ Bloom Verb: demonstrate</p>
 <div class="arithmatex">\[ \gamma = \frac{a \cdot T}{b + T} + \ln\left(\frac{\text{RH}}{100}\right) \]</div>
 <div class="arithmatex">\[ T_{dp} = \frac{b \cdot \gamma}{a - \gamma} \]</div>
 <p>where <span class="arithmatex">\(T\)</span> is air temperature in °C, RH is relative humidity in percent, and the constants are <span class="arithmatex">\(a = 17.27\)</span> and <span class="arithmatex">\(b = 237.7\)</span>. The result is the dew point in °C, accurate to a few tenths of a degree across ordinary weather conditions.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">A Built-In Double Check</p>
+<p><img alt="Mecha pointing out a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png">
+When Chapter 13 has you coding the Magnus formula, keep the quick rule below handy as a test. Above 50 percent humidity the two answers should land within about a degree, so a bigger gap is a clue to chase, not a failure.</p>
+</div>
 <p>For rough mental work there is a much simpler rule that is good to within a degree or so above 50 percent humidity: <strong>the dew point is about 1 °C below the air temperature for every 5 percent that relative humidity falls below 100.</strong> At 25 °C and 70 percent, that gives <span class="arithmatex">\(25 - 6 = 19\)</span> °C, and the exact answer is 19.1 °C.</p>
 <h4 id="diagram-fog-watch-temperature-and-dew-point-convergence">Diagram: Fog Watch — Temperature and Dew Point Convergence<a class="headerlink" href="#diagram-fog-watch-temperature-and-dew-point-convergence" title="Permanent link">¶</a></h4>
 <iframe src="../../sims/fog-watch-convergence/main.html" width="100%" height="592px" scrolling="no"></iframe>
@@ -2381,6 +2403,11 @@ Y-axis: Temperature in °C, FIXED range across all scenarios so gaps are visuall
 <li>The <strong>hair hygrometer</strong> (1783) gave the first readable numbers. The <strong>psychrometer</strong> uses evaporative cooling and the <strong>wet bulb temperature</strong>. The <strong>chilled mirror hygrometer</strong> measures dew point directly and serves as a reference standard.</li>
 <li><strong>Capacitive sensing</strong> through a moisture-absorbing polymer film gives the <strong>capacitive humidity sensor</strong> in the BME280 — fast, small, cheap, and the modern standard since 1973.</li>
 </ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Invisible Water, Measured!</p>
+<p><img alt="Mecha celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png">
+Way to go, station builders! You can now explain why the same 50 percent can feel like a wet towel or a crisp winter morning, and you can turn a humidity reading into a dew point. Next, Chapter 9 follows the Sun's energy, from Herschel's infrared surprise to the insolation that decides whether your solar panel keeps up.</p>
+</div>
 <h2 id="check-yourself">Check Yourself<a class="headerlink" href="#check-yourself" title="Permanent link">¶</a></h2>
 <details class="question">
 <summary>Overnight the temperature falls from 20 °C to 8 °C. No water enters or leaves the air. What happens to absolute humidity, relative humidity, and dew point? Click to check.</summary>

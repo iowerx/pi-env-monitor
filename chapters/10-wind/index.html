@@ -21,7 +21,7 @@
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../img/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
@@ -53,6 +53,8 @@
     
     
       <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -118,8 +120,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="../../img/mascot/neutral.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -235,8 +236,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="../../img/mascot/neutral.png" alt="logo">
 
     </a>
     Raspberry Pi Environmental Monitoring: Grades 6–12
@@ -1274,6 +1274,8 @@
       
         
       
+        
+      
     
     
     
@@ -1917,6 +1919,11 @@
 <li><a href="../08-humidity-and-dew-point/">Chapter 8: Humidity and Dew Point: The Water Hidden in the Air</a></li>
 </ul>
 <hr>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Welcome, Wind Watchers</p>
+<p><img alt="Mecha waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png">
+This chapter follows air as it rolls from high pressure toward low, then meets the vanes and anemometers that turn that motion into numbers. You will also see how wind changes what a temperature feels like and how hard it pushes on a building. Let's take a reading!</p>
+</div>
 <h2 id="air-rolling-downhill">Air Rolling Downhill<a class="headerlink" href="#air-rolling-downhill" title="Permanent link">¶</a></h2>
 <p>Open a door between a warm room and a cold one and you feel a draught.</p>
 <p>That draught is wind, and it happens for the same reason all wind happens. The two rooms are at slightly different pressures, and air moves from the higher pressure to the lower one until the difference is gone.</p>
@@ -1995,6 +2002,11 @@
 <h2 id="the-pressure-gradient">The Pressure Gradient<a class="headerlink" href="#the-pressure-gradient" title="Permanent link">¶</a></h2>
 <p><strong>Pressure gradient</strong> is the rate at which pressure changes with horizontal distance. It is the <em>steepness</em> of the pressure landscape, not its height.</p>
 <p>This distinction is the key to predicting wind, and it is where beginners go wrong. Wind speed is not determined by how low the pressure is. It is determined by how rapidly pressure changes over distance.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Steepness, Not Depth</p>
+<p><img alt="Mecha thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png">
+Here is what makes me curious: one barometer can read very low pressure while the wind barely stirs. For wind, a number only tells its story when you compare it with the pressure some distance away.</p>
+</div>
 <p>The analogy is a hill. A ball rolls fast down a steep slope and slowly down a gentle one, regardless of how high up it started. A deep low pressure system with gentle gradients around it produces light winds. A modest low with tight gradients produces strong ones.</p>
 <p>On a weather map, pressure is drawn as isobars — lines connecting points of equal pressure, exactly like contour lines on a topographic map. And they are read the same way:</p>
 <ul>
@@ -2044,6 +2056,11 @@ Bloom Verb: examine</p>
 <h2 id="direction-and-the-vane">Direction and the Vane<a class="headerlink" href="#direction-and-the-vane" title="Permanent link">¶</a></h2>
 <p><strong>Wind direction</strong> is the compass direction the wind is coming <em>from</em>, not the direction it is going toward.</p>
 <p>This convention catches everybody once. A north wind blows from the north toward the south. A "westerly" comes from the west. The reason is practical and old: a sailor cares where the weather is arriving from, because that is where the next weather is coming from too.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">From, Not Toward!</p>
+<p><img alt="Mecha raising a caution" class="mascot-admonition-img" src="../../img/mascot/warning.png">
+A wind blowing out of the north should be logged as 0 degrees, not 180. Mix up from and toward in your code and every direction in your log comes out exactly backwards.</p>
+</div>
 <p>Direction is reported in degrees clockwise from true north, so 0 or 360 is north, 90 is east, 180 is south, and 270 is west. Storing degrees rather than compass points matters for your data, and Chapter 15 explains a subtlety in averaging them.</p>
 <p>A <strong>weather vane</strong> is an instrument that indicates wind direction by pivoting freely so its tail is pushed downwind and its pointer aims into the wind.</p>
 <p>The design is ancient. The Tower of the Winds in Athens, built around 50 BC by Andronicus of Cyrrhus, carried a bronze vane on its roof and personified the eight winds in relief carvings on its faces. Weather vanes have been on rooftops continuously since.</p>
@@ -2151,6 +2168,11 @@ Bloom Verb: examine</p>
 </table>
 <p>It is worth appreciating what Beaufort actually achieved here, because it is a measurement-theory lesson as much as a meteorological one. He did not invent an instrument. He solved a <strong>standardization</strong> problem of exactly the kind Chapter 2 described: he made observations from thousands of ships comparable to one another, using equipment every ship already had — a person with eyes. It is one of the most successful measurement standards ever created, and it is still in daily use over two centuries later.</p>
 <p>Note from Chapter 2 that the Beaufort scale is ordinal. Force 8 is not twice force 4.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">No Anemometer Yet?</p>
+<p><img alt="Mecha pointing out a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png">
+No problem, station builders. Watch the smoke, leaves, and trees, and log a Beaufort force with a note that it came from your eyes rather than an instrument.</p>
+</div>
 <h3 id="the-cup-anemometer">The Cup Anemometer<a class="headerlink" href="#the-cup-anemometer" title="Permanent link">¶</a></h3>
 <p>John Thomas Romney Robinson gave the world the standard instrument in 1846.</p>
 <p>A <strong>cup anemometer</strong> has three or four hemispherical cups on horizontal arms mounted on a vertical shaft. The cups catch more wind on their concave side than their convex side, so the assembly spins, and the rotation rate is proportional to wind speed.</p>
@@ -2435,6 +2457,11 @@ Bloom Verb: classify</p>
 <li><strong>Apparent temperature</strong> covers both <strong>wind chill</strong> in the cold and <strong>heat index</strong> in the heat. Wind chill applies to warm bodies, not to objects.</li>
 <li><strong>Wind load</strong> scales with the square of wind speed. The <strong>Enhanced Fujita scale</strong> rates tornadoes by inferring wind speed from damage.</li>
 </ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Air in Motion, Measured!</p>
+<p><img alt="Mecha celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png">
+You can now read wind strength straight off the spacing of isobars and explain why a cup anemometer can read zero on a breezy day. Next we head underground to chase earthquakes, seismic waves, and instruments that begin with a bronze dragon vessel from 138 AD!</p>
+</div>
 <h2 id="check-yourself">Check Yourself<a class="headerlink" href="#check-yourself" title="Permanent link">¶</a></h2>
 <details class="question">
 <summary>System A is a 970 hPa low with widely spaced isobars. System B is a 1002 hPa low with tightly packed isobars. Which has stronger winds? Click to check.</summary>

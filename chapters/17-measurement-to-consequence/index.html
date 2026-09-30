@@ -21,7 +21,7 @@
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../img/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
@@ -53,6 +53,8 @@
     
     
       <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -118,8 +120,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="../../img/mascot/neutral.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -235,8 +236,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="../../img/mascot/neutral.png" alt="logo">
 
     </a>
     Raspberry Pi Environmental Monitoring: Grades 6–12
@@ -1207,6 +1207,8 @@
       
         
       
+        
+      
     
     
     
@@ -1785,6 +1787,11 @@
 <li><a href="../16-building-for-outdoors/">Chapter 16: Building the Station for the Outdoors</a></li>
 </ul>
 <hr>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">So, What Is It For?</p>
+<p><img alt="Mecha waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png">
+Your station sits outside writing numbers to a file, and now it is time to ask what those numbers are for. In this chapter you will follow each measurement into real decisions, from growing degree days and building codes to flood warnings, and then plan what to do with your own data. Let's take a reading!</p>
+</div>
 <h2 id="so-what">So What?<a class="headerlink" href="#so-what" title="Permanent link">¶</a></h2>
 <p>You have built a station. It sits outside and writes numbers to a file.</p>
 <p>It is entirely fair to ask what any of that is for.</p>
@@ -1806,6 +1813,11 @@
 <p><strong>Weather forecasting</strong> is the prediction of future atmospheric conditions from current measurements.</p>
 <p>Chapter 7 covered the mechanism at one station: falling pressure means deteriorating weather. A modern forecast does the same thing across a continent, feeding readings from thousands of surface stations, weather balloons, aircraft, buoys, and satellites into numerical models that solve the physics of the atmosphere forward in time.</p>
 <p>Those models cannot start from nothing. They need an accurate picture of the atmosphere <em>right now</em>, at as many points as possible — a process called data assimilation. Every reading improves the starting point, and the forecast is only as good as the observations underneath it. This is the direct answer to "what is one more station worth."</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">One More Point Counts</p>
+<p><img alt="Mecha thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png">
+A forecast model can only start from the snapshot of the atmosphere that stations give it. That means your pressure reading is one more point in the picture, and I love knowing that a single station can make that picture a little sharper.</p>
+</div>
 <p><strong>Severe weather warning</strong> is the alerting of the public to imminent dangerous conditions.</p>
 <p>The distinction the professionals draw is worth learning, because it is widely misunderstood:</p>
 <ul>
@@ -1852,6 +1864,11 @@
 </ul>
 <p>The consequences are unevenly distributed, and that is the part that makes this a policy question rather than a curiosity. Heat is the deadliest weather hazard in many countries, and within a single city the hottest neighbourhoods are frequently those with the least tree cover, the most pavement, and the fewest resources to adapt. Mapping the difference is the first step toward addressing it, and city governments now run tree-planting, cool-roof, and cooling-centre programmes based on exactly this kind of data.</p>
 <p>Here is the important part for you: <strong>an urban heat island is measured with stations like yours.</strong> Official networks are far too sparse to resolve differences between neighbourhoods. Dense volunteer and school networks are how these maps get made.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Catch a Heat Island</p>
+<p><img alt="Mecha pointing out a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png">
+Want to see an urban heat island for yourself? With a second station, compare the school car park to the grass field on a clear, calm night, when the gap is at its biggest.</p>
+</div>
 <p><strong>Air quality</strong> is another quantity your station influences without directly measuring.</p>
 <p>Your station does not have a pollution sensor. But Chapter 10's wind and Chapter 8's humidity largely determine what happens to pollution once it exists. Wind disperses it; calm conditions let it accumulate. A temperature inversion — warm air sitting above cool air, which suppresses the convection of Chapter 8 — traps pollution near the ground and is responsible for most severe urban smog episodes. Humidity affects particle formation and how far you can see.</p>
 <p><strong>Wildfire risk</strong> is assessed from a combination of measurements, and your station provides most of them.</p>
@@ -1945,6 +1962,11 @@ Bloom Verb: organize</p>
 </tbody>
 </table>
 <p>These corrections are sometimes accused of being manipulation. They are the opposite, and you are now in a position to see why. A record assembled from a hundred different instruments in a hundred changing locations means nothing <em>unless</em> those changes are found and accounted for. You will face the same problem the first time you move your own station or replace a sensor, and Chapter 15 already told you the answer: document every change, never edit historical data, record the correction separately.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Hands Off Old Readings</p>
+<p><img alt="Mecha raising a caution" class="mascot-admonition-img" src="../../img/mascot/warning.png">
+When you move your station or swap a sensor, it is tempting to go back and fix the old numbers in your CSV. Leave the original readings untouched and record the change and any correction separately, or the jump in your record becomes a mystery nobody can solve.</p>
+</div>
 <p>Your station cannot produce a climate record. A school year is weather. But every climate record that exists was built out of weather readings taken by people who kept showing up, one day at a time — and the ones taken in the 1880s were taken by people who had no idea what they would eventually be used for.</p>
 <h2 id="what-to-do-with-yours">What To Do With Yours<a class="headerlink" href="#what-to-do-with-yours" title="Permanent link">¶</a></h2>
 <p><strong>Citizen science</strong> is scientific work carried out wholly or partly by members of the public, often in collaboration with professional scientists.</p>
@@ -2082,6 +2104,11 @@ Bloom Verb: critique</p>
 <li>A <strong>climate record</strong> requires finding and correcting every instrument change, station move, and drift. That work is what makes a century of different instruments mean anything.</li>
 <li><strong>Citizen science</strong> networks accept and use amateur data. <strong>Data sharing</strong> requires format, metadata, units, flags, licence, and a stable home. <strong>Science communication</strong> leads with the finding, shows one honest chart, and states the limitations.</li>
 </ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">You Built an Instrument!</p>
+<p><img alt="Mecha celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png">
+Observers, you did it: you turned bare wires into an outdoor station and can now trace its measurements to the decisions people make with them. The book ends here, but your record does not have to, so leave it running, join a network like CoCoRaHS, and hand it on so your readings keep telling their story for years.</p>
+</div>
 <h2 id="check-yourself">Check Yourself<a class="headerlink" href="#check-yourself" title="Permanent link">¶</a></h2>
 <details class="question">
 <summary>A news article says a city set a record at 47 °C. What should you ask before believing it? Click to check.</summary>

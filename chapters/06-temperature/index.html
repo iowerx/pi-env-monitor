@@ -21,7 +21,7 @@
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../img/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
@@ -53,6 +53,8 @@
     
     
       <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -118,8 +120,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="../../img/mascot/neutral.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -235,8 +236,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="../../img/mascot/neutral.png" alt="logo">
 
     </a>
     Raspberry Pi Environmental Monitoring: Grades 6–12
@@ -1280,6 +1280,8 @@
       
         
       
+        
+      
     
     
     
@@ -1928,6 +1930,11 @@
 <li><a href="../04-how-sensors-work/">Chapter 4: How Sensors Turn the World Into Numbers</a></li>
 </ul>
 <hr>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Let's Get Warmed Up</p>
+<p><img alt="Mecha waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png">
+Temperature feels familiar, but underneath it is the motion of atoms. In this chapter we trace thermometers from Galileo's thermoscope to the silicon diode in your BME280, convert between Fahrenheit, Celsius, and Kelvin, and see why a Stevenson screen matters. Let's take a reading!</p>
+</div>
 <h2 id="what-is-actually-happening-when-something-is-hot">What Is Actually Happening When Something Is Hot<a class="headerlink" href="#what-is-actually-happening-when-something-is-hot" title="Permanent link">¶</a></h2>
 <p>Everything is vibrating.</p>
 <p>The atoms in this page, in the air around you, and in your own hand are in constant motion — jiggling, colliding, bouncing off one another. They never stop. In a solid they vibrate in place; in a gas they fly around and crash into things.</p>
@@ -1954,6 +1961,11 @@
 <p>William Herschel found infrared in 1800 without looking for it. He was measuring how much heat different colors of sunlight carried, using a prism to spread sunlight into a spectrum and placing thermometers in each color band. He put one thermometer just past the red end as a control, expecting it to read room temperature.</p>
 <p>It read higher than any of the colored bands.</p>
 <p>There was something beyond red carrying more energy than visible light did, and no eye could see it. Herschel called it "calorific rays." We call it infrared, and it is the basis of thermal cameras, non-contact thermometers, night vision, and the greenhouse effect.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Air or Ground?</p>
+<p><img alt="Mecha thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png">
+This is a distinction I watch closely: the air and the asphalt beneath it can report very different temperatures at the same moment. Your station is built to measure the air, so keep both ideas in view as you read on.</p>
+</div>
 <p>This gives your station two distinct temperatures to keep straight:</p>
 <p><strong>Air temperature</strong> is the temperature of the air itself, measured in shade with good airflow. This is the number in every weather report, and it is what your station is built to measure.</p>
 <p><strong>Surface temperature</strong> is the temperature of a solid surface — asphalt, grass, a roof, soil. It is measured either by contact or by reading the infrared a surface emits.</p>
@@ -2050,6 +2062,11 @@
 <div class="arithmatex">\[ °C = K - 273.15 \]</div>
 <p>There is one trap worth naming now, because it catches people every time they meet it. <strong>A temperature and a temperature difference convert differently.</strong></p>
 <p>If the temperature rises by 5 °C, it has risen by 9 °F, not 41 °F. For a <em>change</em>, you apply only the ratio, never the offset — the two zero points cancel out when you subtract. Confusing a value with a difference produces answers that are wrong by exactly 32, which is a recognizable fingerprint when you see it in someone's data.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Spot the Stray 32</p>
+<p><img alt="Mecha raising a caution" class="mascot-admonition-img" src="../../img/mascot/warning.png">
+Watch for this in your own spreadsheets: run a 5 °C rise through the full formula and you get 41 °F instead of 9 °F. If a temperature change looks about 32 degrees too big, check whether the offset sneaked in.</p>
+</div>
 <p>A useful rough conversion for mental arithmetic: double the Celsius value and add 30. For 20 °C that gives 70 °F, and the exact answer is 68 °F. Close enough to decide about a jacket.</p>
 <h4 id="diagram-three-scales-thermometer">Diagram: Three Scales Thermometer<a class="headerlink" href="#diagram-three-scales-thermometer" title="Permanent link">¶</a></h4>
 <iframe src="../../sims/three-scales-thermometer/main.html" width="100%" height="610px" scrolling="no"></iframe>
@@ -2221,6 +2238,11 @@ Plots the response of each sensor type so the learner can see that platinum is n
 <p>Put a thermometer in direct sunlight on a clear day and let it settle. Then put an identical thermometer a meter away in the shade. Wait, and compare.</p>
 <p>The difference will commonly be 10 °C or more. Neither thermometer is broken. Neither is lying.</p>
 <p>The reason is radiation, the third mode of heat transfer. The sunlit thermometer is absorbing solar energy directly and heating up above the air around it. It is faithfully reporting its own temperature — it just is not reporting the air's.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Run the Shade Test</p>
+<p><img alt="Mecha pointing out a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png">
+You can try the sun-versus-shade experiment yourself with two identical sensors, station builders. Seeing a gap of 10 °C or more in your own data is a clue about siting that you will never forget.</p>
+</div>
 <p>This means an important thing about the phrase "air temperature." <strong>There is no such thing as the temperature outside.</strong> There is the temperature at a particular height, with particular shading, with particular airflow, over a particular surface. Change any of those and the number changes.</p>
 <p>Which is a problem for a worldwide record. If every station shields its thermometer differently, no two stations can be compared, and Chapter 1's whole premise falls apart.</p>
 <p>The solution was designed in 1864 by Thomas Stevenson, a Scottish lighthouse engineer better known today as the father of the novelist Robert Louis Stevenson.</p>
@@ -2290,6 +2312,11 @@ Bloom Verb: differentiate</p>
 <li>The <strong>thermoelectric effect</strong> gives us the <strong>thermocouple</strong>; metal resistance gives the <strong>resistance thermometer</strong>; semiconductors give the <strong>thermistor</strong>. Your station uses a silicon diode inside the BME280.</li>
 <li>The <strong>Stevenson screen</strong> standardizes exposure. Without shade, airflow, and a standard height, a thermometer measures itself rather than the air.</li>
 </ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Scales Mastered</p>
+<p><img alt="Mecha celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png">
+You can now convert between all three temperature scales and explain why absolute zero is a real boundary. Next, Chapter 7 takes on barometric pressure, from Torricelli's tube of mercury to the silicon diaphragm inside your own sensor. Check the data, then check it again!</p>
+</div>
 <h2 id="check-yourself">Check Yourself<a class="headerlink" href="#check-yourself" title="Permanent link">¶</a></h2>
 <details class="question">
 <summary>Two thermometers a meter apart read 22 °C and 34 °C. Both are working correctly. How? Click to check.</summary>

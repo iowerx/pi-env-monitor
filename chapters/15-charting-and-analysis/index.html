@@ -21,7 +21,7 @@
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../img/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
@@ -53,6 +53,8 @@
     
     
       <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -118,8 +120,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="../../img/mascot/neutral.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -235,8 +236,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="../../img/mascot/neutral.png" alt="logo">
 
     </a>
     Raspberry Pi Environmental Monitoring: Grades 6–12
@@ -1291,6 +1291,8 @@
       
         
       
+        
+      
     
     
     
@@ -1948,6 +1950,11 @@
 <li><a href="../14-data-logging/">Chapter 14: Logging Data: Timestamps, Intervals, and Files</a></li>
 </ul>
 <hr>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Welcome, Observers</p>
+<p><img alt="Mecha waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png">
+A week of logging leaves you about ten thousand rows that no one can read by eye. Let's take a reading of the whole week at once! In this chapter you will build honest line charts and scatter plots, smooth noise with moving averages, compute pressure tendency, insolation, and wind gusts, and learn to catch outliers, gaps, and drift.</p>
+</div>
 <h2 id="ten-thousand-numbers">Ten Thousand Numbers<a class="headerlink" href="#ten-thousand-numbers" title="Permanent link">¶</a></h2>
 <p>Your station has been running for a week. The file has about ten thousand rows.</p>
 <p>Open it in a text editor and you will see something like this, ten thousand times:</p>
@@ -2033,6 +2040,11 @@ Bloom Verb: critique</p>
 </details>
 <h2 id="scatter-plots-and-correlation">Scatter Plots and Correlation<a class="headerlink" href="#scatter-plots-and-correlation" title="Permanent link">¶</a></h2>
 <p>A <strong>scatter plot</strong> shows the relationship between two variables by plotting one against the other, as unconnected points.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Where Did Time Go?</p>
+<p><img alt="Mecha thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png">
+Here is something I find fascinating, observers: in a scatter plot, time vanishes from the axes. Each dot is one moment when two readings happened together, so a week of temperature and humidity becomes a cloud of points you can read for a relationship.</p>
+</div>
 <p>Note what changed. In a line chart the x-axis is time. In a scatter plot <strong>both axes are measurements</strong>, and time disappears. Each point is one moment when both quantities had those two values.</p>
 <p>The points are not joined, because there is no assertion that intermediate combinations occurred.</p>
 <p>Scatter plots answer a different question than line charts: not "how did this change?" but "do these two things move together?"</p>
@@ -2170,6 +2182,11 @@ Bloom Verb: critique</p>
 </tbody>
 </table>
 <p><strong>Barometric forecasting</strong> is predicting weather from pressure tendency, and it is the technique FitzRoy built the first storm warning service on in the 1860s.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Subtract in the Right Order</p>
+<p><img alt="Mecha raising a caution" class="mascot-admonition-img" src="../../img/mascot/warning.png">
+Pressure tendency is the current pressure minus the pressure three hours ago, never the other way around. Flip the subtraction and a storm's 4 hPa fall shows up as +4 hPa rising, the opposite forecast.</p>
+</div>
 <p>Combined with the wind direction shift and dew point change that Chapter 10 described, a falling tendency of more than 3 hPa in three hours is a genuine forecast you can make from your own station, hours before there is anything to see.</p>
 <h3 id="insolation">Insolation<a class="headerlink" href="#insolation" title="Permanent link">¶</a></h3>
 <p><strong>Insolation</strong> is solar energy accumulated over a period of time, as opposed to the instantaneous irradiance of Chapter 9.</p>
@@ -2278,6 +2295,11 @@ Bloom Verb: calculate</p>
 <p>Implementation: p5.js. Pre-generate realistic multi-day series as static data. Compute each derived measure directly from the samples inside the window so the displayed arithmetic and the plotted result cannot disagree.</p>
 </details>
 <h2 id="when-the-data-is-wrong">When the Data Is Wrong<a class="headerlink" href="#when-the-data-is-wrong" title="Permanent link">¶</a></h2>
+<div class="admonition mascot-encouraging">
+<p class="admonition-title">Strange Readings Are Clues</p>
+<p><img alt="Mecha giving a thumbs-up" class="mascot-admonition-img" src="../../img/mascot/encouraging.png">
+A weird spike or a six-hour gap can feel like the station let you down, but it has really handed you a clue. The range check, the rate-of-change check, and asking whether other channels agree are how you follow that clue to its cause.</p>
+</div>
 <p>Charts do a second job: they show you that something has gone wrong. This half of the chapter is about that.</p>
 <p><strong>Data validation</strong> is the process of checking whether readings are plausible and identifying those that are not.</p>
 <p>The first line of defence is the range check from Chapter 2, now written as code. Before it: each entry gives a physically plausible range for that quantity, generous enough not to reject real extreme weather.</p>
@@ -2462,6 +2484,11 @@ Bloom Verb: differentiate</p>
 <li><strong>Data validation</strong> checks range and rate of change. An <strong>outlier</strong> is a question — check whether other channels agree. Flag, never delete.</li>
 <li><strong>Missing data</strong> must stay visible. <strong>Sensor drift</strong> is detected by comparison against a reference, physical fixed points, or a nearby station.</li>
 </ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Now the Data Talks</p>
+<p><img alt="Mecha celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png">
+You turned ten thousand rows into charts, forecasts, and quality checks that can tell a cold front from a loose wire! Every number tells a story, and now you can read it. Next, Chapter 16 takes the station outdoors with siting, weatherproof enclosures, a power budget built on your insolation numbers, and telemetry.</p>
+</div>
 <h2 id="check-yourself">Check Yourself<a class="headerlink" href="#check-yourself" title="Permanent link">¶</a></h2>
 <details class="question">
 <summary>Temperature and relative humidity in your data have a correlation of −0.8. Does low humidity cause high temperature? Click to check.</summary>

@@ -21,7 +21,7 @@
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../img/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
@@ -53,6 +53,8 @@
     
     
       <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -118,8 +120,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="../../img/mascot/neutral.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -235,8 +236,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="../../img/mascot/neutral.png" alt="logo">
 
     </a>
     Raspberry Pi Environmental Monitoring: Grades 6–12
@@ -1280,6 +1280,8 @@
       
         
       
+        
+      
     
     
     
@@ -1927,6 +1929,11 @@
 <li><a href="../08-humidity-and-dew-point/">Chapter 8: Humidity and Dew Point: The Water Hidden in the Air</a></li>
 </ul>
 <hr>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Boot Up, Station Builders</p>
+<p><img alt="Mecha waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png">
+This is the chapter where your Raspberry Pi becomes a real station. You will work at the command line, make your logger run as a systemd service, and use <code>i2cdetect</code> to watch your BME280 answer on the I2C bus. Let's take a reading!</p>
+</div>
 <h2 id="no-desktop-no-icons-no-mouse">No Desktop, No Icons, No Mouse<a class="headerlink" href="#no-desktop-no-icons-no-mouse" title="Permanent link">¶</a></h2>
 <p>Plug in the Raspberry Pi and connect to it. What you get is a screen that looks like this:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ubuntu@station01:~$
@@ -2145,6 +2152,11 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>-rw-r--r-- 1 ubuntu ubuntu 2048 Aug 25 14:30 readings.csv
 </span></code></pre></div>
 <p>Reading the permission block <code>-rw-r--r--</code> from left to right: the first character is the file type (<code>-</code> for a normal file, <code>d</code> for a directory). Then three characters for owner (<code>rw-</code> — read and write, no execute), three for group (<code>r--</code> — read only), and three for others (<code>r--</code> — read only).</p>
+<div class="admonition mascot-encouraging">
+<p class="admonition-title">Three Letters at a Time</p>
+<p><img alt="Mecha giving a thumbs-up" class="mascot-admonition-img" src="../../img/mascot/encouraging.png">
+If <code>-rw-r--r--</code> looks like a secret code right now, that is completely normal. Read it in groups of three and it turns into plain answers about who may read, write, or run a file.</p>
+</div>
 <p>Two permission problems will bite you in this project, and both look like software bugs:</p>
 <ol>
 <li><strong>Your Python script will not run</strong> because it lacks execute permission. Fix with <code>chmod +x logger.py</code>.</li>
@@ -2265,6 +2277,11 @@ Bloom Verb: execute</p>
 <p>That works because of addressing. An <strong>I2C device address</strong> is a number, usually 7 bits, that uniquely identifies a device on the bus. The controller broadcasts an address, and only the device with that address responds. Everything else stays silent.</p>
 <p>This creates the one rule that matters: <strong>no two devices on the same bus may share an address.</strong> Most sensor chips offer a choice of two addresses, selected by tying a pin high or low, so you can run two identical sensors. Beyond two, you need a second bus or an I2C multiplexer.</p>
 <p>The BME280 uses address <code>0x76</code> or <code>0x77</code> — hexadecimal, base 16, which is the conventional way to write these. Which one depends on how the breakout board wires its address pin, and it varies by manufacturer.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Match the Address</p>
+<p><img alt="Mecha raising a caution" class="mascot-admonition-img" src="../../img/mascot/warning.png">
+If your code asks for <code>0x77</code> but your breakout board answers at <code>0x76</code>, the sensor will look dead even though the wiring is perfect. Check which address <code>i2cdetect</code> actually shows, then use that exact number in your code.</p>
+</div>
 <p>Enable I2C and check your wiring in two commands:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo raspi-config      # Interface Options -&gt; I2C -&gt; Enable
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>i2cdetect -y 1
@@ -2398,6 +2415,11 @@ Bloom Verb: examine</p>
 <li><strong>Temperature</strong> — a <strong>silicon diode sensor</strong>, the mechanism Chapter 6 identified. A diode's forward voltage falls by roughly 2 millivolts per degree Celsius, a small and highly predictable shift.</li>
 </ol>
 <p>The temperature element has a second job that is easy to miss. Both the pressure and humidity elements are themselves temperature-sensitive, so their raw readings would drift with temperature even at constant pressure and humidity. The chip measures its own temperature and uses it to compensate the other two. This means <strong>the temperature reading is not optional</strong> — even a program that only wants pressure must read temperature first, because the pressure compensation formula requires it.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">The Chip Checks Itself</p>
+<p><img alt="Mecha thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png">
+What I love about the BME280 is that its temperature element keeps the other two readings honest. That is why even a pressure-only program must read temperature first, because every number on this chip leans on that one.</p>
+</div>
 <p>Key specifications, which are the Chapter 4 datasheet questions answered:</p>
 <table>
 <thead>
@@ -2516,6 +2538,11 @@ Bloom Verb: summarize</p>
 <li>The <strong>I2C bus</strong> carries data on two wires using an <strong>I2C device address</strong> per device. <code>i2cdetect</code> separates wiring faults from code faults instantly. <strong>SPI bus</strong> is faster but pin-hungry; <strong>serial UART</strong> is point-to-point and connects the <strong>SIM7600A module</strong>.</li>
 <li>The <strong>BME280 sensor</strong> combines a piezoresistive pressure element, a capacitive humidity element, and a <strong>silicon diode sensor</strong> for temperature — which also compensates the other two.</li>
 </ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Your Station Is Alive!</p>
+<p><img alt="Mecha celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png">
+Your Pi now boots, runs your logger as a service that survives a reboot, and can see the BME280 on the I2C bus. Next, Chapter 13 teaches the Python that reads that sensor, from variables and loops to the exception handling that keeps the station running at three in the morning!</p>
+</div>
 <h2 id="check-yourself">Check Yourself<a class="headerlink" href="#check-yourself" title="Permanent link">¶</a></h2>
 <details class="question">
 <summary>Your program runs fine, but stops when you close your terminal. Why, and what fixes it? Click to check.</summary>

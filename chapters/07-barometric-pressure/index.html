@@ -21,7 +21,7 @@
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../img/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
@@ -53,6 +53,8 @@
     
     
       <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -118,8 +120,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="../../img/mascot/neutral.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -235,8 +236,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="../../img/mascot/neutral.png" alt="logo">
 
     </a>
     Raspberry Pi Environmental Monitoring: Grades 6–12
@@ -1235,6 +1235,8 @@
       
         
       
+        
+      
     
     
     
@@ -1835,6 +1837,11 @@
 <li><a href="../05-time-and-place/">Chapter 5: Time and Place: Recording Where and When</a></li>
 </ul>
 <hr>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Welcome, Station Builders</p>
+<p><img alt="Mecha waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png">
+Right now your BME280 is weighing the sky, and this chapter shows how people first discovered that air has weight at all. You will follow Torricelli's tube and Pascal's mountain climb, sort hectopascals from inches of mercury, and see why your station's elevation matters. Let's take a reading!</p>
+</div>
 <h2 id="there-is-a-column-of-air-on-your-head">There Is a Column of Air on Your Head<a class="headerlink" href="#there-is-a-column-of-air-on-your-head" title="Permanent link">¶</a></h2>
 <p>Right now, a column of air about 100 kilometers tall is standing on top of you.</p>
 <p>It weighs roughly the same as a small car spread across your shoulders — about 10,000 kilograms pressing on every square meter. You do not feel it, because the air inside you pushes out with exactly the same force. Balanced pressure is invisible.</p>
@@ -1853,6 +1860,11 @@
 <p><strong>Barometric pressure</strong> — also called atmospheric pressure — is the hydrostatic pressure produced by the weight of the atmosphere above a point.</p>
 <p>Air is a fluid, just a very light one. It has weight, it stacks up, and the stack presses down. The atmosphere is a fluid ocean, and you live at the bottom of it.</p>
 <p>Underwater, this effect is dramatic: seawater is so dense that about every 10 metres of depth adds another atmosphere of pressure. Divers feel the change within seconds. Air is roughly 800 times less dense than water, so the same pressure change takes about 8 kilometres of altitude. The mechanism is identical; only the density differs.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Weighing the Sky</p>
+<p><img alt="Mecha thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png">
+Think about it: every pressure number your station logs is the weight of a 100-kilometre column of air pressing on one tiny sensor. Every number tells a story, and this one took people two thousand years to read.</p>
+</div>
 <h2 id="two-thousand-years-of-being-wrong">Two Thousand Years of Being Wrong<a class="headerlink" href="#two-thousand-years-of-being-wrong" title="Permanent link">¶</a></h2>
 <p>Aristotle, writing in the 4th century BC, concluded that "nature abhors a vacuum." A <strong>vacuum</strong> is a space containing no matter, and Aristotle argued that such a thing was impossible — any emptiness would immediately be filled, because nothingness could not persist.</p>
 <p>He had no instrument to test the idea. He had logic, and the logic seemed sound. The idea stood for nearly two thousand years, and it became the standard explanation for a range of everyday effects. Why does water rise when you pull a piston up a pipe? Because nature abhors a vacuum and the water rushes in to prevent one.</p>
@@ -1922,6 +1934,11 @@ Bloom Verb: explain</p>
 <p><strong>Inches of mercury</strong>, written inHg, is the pressure that supports a mercury column one inch high. It comes directly from Torricelli's instrument, and it is still standard in United States weather reports and aviation. Standard sea level pressure is <strong>29.92 inHg</strong>.</p>
 <p>The <strong>pascal unit</strong>, symbol Pa, is the SI unit of pressure, defined as one newton per square metre and named for Blaise Pascal in 1971. It is a very small unit — standard atmospheric pressure is 101,325 Pa — which makes it awkward for weather use.</p>
 <p>The <strong>millibar</strong>, symbol mbar or mb, is one thousandth of a bar, where the bar was defined in the early twentieth century as a convenient meteorological unit close to average sea level pressure. Standard sea level pressure is <strong>1013.25 mbar</strong>.</p>
+<div class="admonition mascot-encouraging">
+<p class="admonition-title">One Pressure, Many Names</p>
+<p><img alt="Mecha giving a thumbs-up" class="mascot-admonition-img" src="../../img/mascot/encouraging.png">
+Four units for one pressure can feel like a lot to juggle, observers. Take a breath, because the next paragraph is the good news, and the table below will always be here to translate for you.</p>
+</div>
 <p>The <strong>hectopascal</strong>, symbol hPa, is 100 pascals. And here is the tidy part: <strong>one hectopascal equals one millibar exactly.</strong> When the world moved to SI units, weather services switched from millibars to hectopascals without changing a single number on a single chart. Standard sea level pressure is <strong>1013.25 hPa</strong>.</p>
 <p><strong>One atmosphere</strong>, symbol atm, is a unit defined as the standard average pressure at sea level. It is used for comparison rather than for reporting weather.</p>
 <table>
@@ -1986,6 +2003,11 @@ Bloom Verb: explain</p>
 <p>The simple approximation used for small elevations:</p>
 <div class="arithmatex">\[ P_{\text{sea level}} \approx P_{\text{station}} + \left(\frac{h}{8.3}\right) \]</div>
 <p>where <span class="arithmatex">\(h\)</span> is the station elevation in metres and pressure is in hPa. For a station at 152 m reading 995 hPa, the sea level pressure is about <span class="arithmatex">\(995 + 18.3 = 1013\)</span> hPa — a perfectly ordinary day that looked like a storm before correction.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Metres, Not Feet!</p>
+<p><img alt="Mecha raising a caution" class="mascot-admonition-img" src="../../img/mascot/warning.png">
+The <code>h / 8.3</code> shortcut expects your station elevation in metres. Type in the height in feet and the correction comes out more than three times too big, turning an ordinary day into a suspiciously high reading.</p>
+</div>
 <p>Now run the same physics backwards. If pressure depends on height in a known way, then measuring pressure tells you your height.</p>
 <p><strong>Pressure altitude</strong> is altitude calculated from a barometric pressure reading, assuming a standard atmosphere. An <strong>altimeter</strong> is an instrument that does exactly this — a barometer with its scale marked in metres or feet instead of hectopascals.</p>
 <p>Aircraft altimeters are barometers. This has a consequence that pilots handle constantly: since real pressure differs from the standard atmosphere, an altimeter must be corrected. Before landing, pilots set the current local sea level pressure into the instrument. An uncorrected altimeter flying from high pressure into low pressure reads <em>higher</em> than the aircraft actually is, which is the dangerous direction. The aviation memory aid is blunt: "High to low, look out below."</p>
@@ -2151,6 +2173,11 @@ Bloom Verb: predict</p>
 <li>Pressure falls about 12 hPa per 100 m. <strong>Sea level pressure</strong> is a computed correction using station elevation, without which stations cannot be compared. Run backwards, the same physics gives <strong>pressure altitude</strong> and the <strong>altimeter</strong>.</li>
 <li>The <strong>aneroid barometer</strong> of 1844 made the instrument portable and enabled the first storm warnings. The <strong>piezoresistive effect</strong> shrinks the same flexing-capsule idea onto a silicon chip.</li>
 </ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">You Weighed the Atmosphere!</p>
+<p><img alt="Mecha celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png">
+Nice work, observers! You can now turn a raw BME280 reading into a sea level pressure that lines up with every weather report. Next, Chapter 8 hunts for the invisible water in the air and shows why dew point beats the humidity percentage.</p>
+</div>
 <h2 id="check-yourself">Check Yourself<a class="headerlink" href="#check-yourself" title="Permanent link">¶</a></h2>
 <details class="question">
 <summary>Why did Torricelli use mercury instead of water? Click to check.</summary>

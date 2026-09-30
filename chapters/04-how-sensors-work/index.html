@@ -21,7 +21,7 @@
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../img/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
@@ -53,6 +53,8 @@
     
     
       <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -118,8 +120,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="../../img/mascot/neutral.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -235,8 +236,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="../../img/mascot/neutral.png" alt="logo">
 
     </a>
     Raspberry Pi Environmental Monitoring: Grades 6–12
@@ -1263,6 +1263,8 @@
       
         
       
+        
+      
     
     
     
@@ -1886,6 +1888,11 @@
 <li><a href="../03-electricity-and-computer/">Chapter 3: Electricity and the Single-Board Computer</a></li>
 </ul>
 <hr>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Welcome, Observers</p>
+<p><img alt="Mecha waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png">
+A computer cannot feel heat or light, so how does a number ever reach it? In this chapter we follow a measurement from a physical change inside a sensor, through analog-to-digital conversion, to the digital value your Pi reads, and we learn to read a datasheet like a pro. Let's take a reading!</p>
+</div>
 <h2 id="the-problem-with-computers">The Problem With Computers<a class="headerlink" href="#the-problem-with-computers" title="Permanent link">¶</a></h2>
 <p>A computer cannot feel anything.</p>
 <p>It has no skin, no eyes, and no sense of hot or cold. It can do exactly one thing: move numbers around and do arithmetic on them. Everything a computer appears to do — show a photograph, play a song, warn you about a storm — is numbers underneath.</p>
@@ -1981,6 +1988,11 @@
 <h2 id="analog-to-digital-conversion">Analog-to-Digital Conversion<a class="headerlink" href="#analog-to-digital-conversion" title="Permanent link">¶</a></h2>
 <p><strong>Analog-to-digital conversion</strong> is the process of measuring an analog signal at particular moments and representing each measurement as a number. The circuit that does it is called an ADC.</p>
 <p>Conversion involves two separate approximations, and confusing them is a common source of error later.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Two Losses, Not One</p>
+<p><img alt="Mecha thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png">
+Here is something I find fascinating: an ADC throws away information in two different ways, once in time and once in value. Keep sampling and quantization separate in your head, and the step-through below will show you each loss on its own.</p>
+</div>
 <p><strong>Sampling</strong> happens in time. Instead of watching the signal continuously, the ADC looks at it at regular instants and ignores everything in between. Sample once per second and you have one value per second — whatever happened during that second is gone.</p>
 <p><strong>Quantization</strong> happens in value. The ADC must round each sample to one of a fixed set of levels. The number of available levels is set by the converter's bit depth. An 8-bit ADC has <span class="arithmatex">\(2^8 = 256\)</span> levels. A 12-bit ADC has <span class="arithmatex">\(2^{12} = 4096\)</span>. A 16-bit ADC has <span class="arithmatex">\(2^{16} = 65536\)</span>.</p>
 <p>More levels means finer resolution — and resolution is the word you met in Chapter 2, meaning the smallest change that can be detected and reported. Suppose an ADC covers a 0 to 3.3 V range:</p>
@@ -2070,6 +2082,11 @@ Bloom Verb: explain</p>
 <li>The microphone in wireless earbuds</li>
 </ul>
 <p>The airbag application is what created the industry. Cars needed a crash sensor that was cheap enough to put in every vehicle and reliable enough to be trusted with a life. Analog Devices shipped the ADXL50 in 1991, and within a decade the manufacturing volume had driven prices low enough that MEMS sensors became worth putting into everything. Chapter 11 returns to this, because a MEMS accelerometer is how a student station can detect an earthquake at all.</p>
+<div class="admonition mascot-encouraging">
+<p class="admonition-title">One Idea to Hold</p>
+<p><img alt="Mecha giving a thumbs-up" class="mascot-admonition-img" src="../../img/mascot/encouraging.png">
+This next part leaps from radio waves to gamma rays to Einstein, so it is fine if it feels like a lot. Hold on to the practical piece: light landing on silicon makes a current you can measure, and that is how the Chapter 9 solar sensor works.</p>
+</div>
 <h3 id="the-photoelectric-effect">The Photoelectric Effect<a class="headerlink" href="#the-photoelectric-effect" title="Permanent link">¶</a></h3>
 <p>The third mechanism concerns light, so it needs one idea from physics first.</p>
 <p>The <strong>electromagnetic spectrum</strong> is the full range of electromagnetic radiation, ordered by wavelength. Visible light is a narrow band in the middle of it. On the long-wavelength side sit infrared, microwaves, and radio waves. On the short-wavelength side sit ultraviolet, X-rays, and gamma rays.</p>
@@ -2186,6 +2203,11 @@ Bloom Verb: attribute</p>
 </tbody>
 </table>
 <p>This produces a rule you will use in Chapter 14: <strong>never sample faster than your sensor can respond.</strong> If a sensor needs a second to settle and you read it ten times per second, nine of those readings are the sensor still catching up to the previous change. You get more data and less information.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Match the Sensor's Pace</p>
+<p><img alt="Mecha pointing out a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png">
+Before you decide how often your script reads a sensor, look up its response time in the table above or in its datasheet. For BME280 temperature, about one reading per second already keeps up with what the sensor can deliver.</p>
+</div>
 <h2 id="filtering-and-averaging">Filtering and Averaging<a class="headerlink" href="#filtering-and-averaging" title="Permanent link">¶</a></h2>
 <p>Real sensor readings are noisy. Take a hundred readings of an unchanging temperature and you will get a hundred slightly different values, scattered around the truth. That is the imprecision described in Chapter 2, and it comes from thermal noise in the electronics, tiny voltage fluctuations, and rounding in the ADC.</p>
 <p>Two related techniques reduce it.</p>
@@ -2304,6 +2326,11 @@ Bloom Verb: justify</p>
 <li><strong>Sensor averaging</strong> cuts random noise by <span class="arithmatex">\(\sqrt{N}\)</span>. <strong>Sensor filtering</strong> removes unwanted signal — including, if overdone, real events.</li>
 <li>A <strong>sensor datasheet</strong> answers seven questions: range, accuracy, resolution, supply voltage, current draw, interface, and response time.</li>
 </ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">You Speak Sensor Now</p>
+<p><img alt="Mecha celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png">
+Station builders, you can now trace a reading from transduction all the way to a digital number, and you know the seven datasheet facts to check before wiring anything. Next, Chapter 5 gives every reading its where and when, with coordinates, GPS, and UTC timestamps.</p>
+</div>
 <h2 id="check-yourself">Check Yourself<a class="headerlink" href="#check-yourself" title="Permanent link">¶</a></h2>
 <details class="question">
 <summary>Why can't a Raspberry Pi read a thermistor directly, but it can read a BME280 directly? Click to check.</summary>

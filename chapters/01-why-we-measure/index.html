@@ -21,7 +21,7 @@
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../img/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
@@ -53,6 +53,8 @@
     
     
       <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -118,8 +120,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="../../img/mascot/neutral.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -235,8 +236,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="../../img/mascot/neutral.png" alt="logo">
 
     </a>
     Raspberry Pi Environmental Monitoring: Grades 6–12
@@ -1230,6 +1230,8 @@
       
         
       
+        
+      
     
     
     
@@ -1814,6 +1816,11 @@
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
 <p>This chapter assumes only the prerequisites listed in the <a href="../../course-description/">course description</a>.</p>
 <hr>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Welcome, Observers</p>
+<p><img alt="Mecha waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png">
+In this chapter you'll find out why a thermometer beats your hands, meet the seven quantities your station will record, and learn why weather and climate are not the same thing. Let's take a reading!</p>
+</div>
 <h2 id="it-is-cold-outside">It Is Cold Outside<a class="headerlink" href="#it-is-cold-outside" title="Permanent link">¶</a></h2>
 <p>Step outside on a winter morning and you know something right away. It is cold.</p>
 <p>You did not need a thermometer to know that. Your skin told you. But now try to answer a harder question. Is it colder than yesterday? Most people cannot say for sure. Your body is good at telling you <em>cold</em>. It is bad at telling you <em>how much</em>.</p>
@@ -1832,6 +1839,11 @@
 <p>A <strong>measurement</strong> is the act of comparing something in the world to an agreed-upon standard, and reporting the result as a number with a unit. When you measure a table with a meter stick, you are comparing the table to a standard length that everyone has agreed on. The meter stick is the agreement made physical.</p>
 <p>What gets measured is a <strong>physical property</strong> — a feature of an object or a place that can be described by a number. Temperature is a physical property. Pressure is a physical property. So are length, mass, speed, and brightness. "Beautiful" is not a physical property. Neither is "scary." You cannot build an instrument that reads out how scary something is, because there is nothing physical to compare against a standard.</p>
 <p>Before the table below, one warning. It is easy to read this comparison and conclude that qualitative observations are the weak, unscientific option. They are not. They are how you <em>notice</em> that something needs measuring in the first place.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Keep a Notes Column</p>
+<p><img alt="Mecha pointing out a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png">
+Station builders, jot down plain-words observations like fog at 7 a.m. or wind bending the small trees right next to your numbers. Those notes are often the clue that explains a strange reading weeks later.</p>
+</div>
 <p>Here is how the two kinds of information compare:</p>
 <table>
 <thead>
@@ -1942,6 +1954,11 @@ Bloom Verb: judge</p>
 <li>Did the ground move last Tuesday, or was that a truck?</li>
 </ul>
 <p>None of those have an answer after one reading. They all have an answer after a year of readings.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">One Reading Is a Snapshot</p>
+<p><img alt="Mecha thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png">
+Mecha loves this idea: a single reading can't tell you if it's getting warmer here, but a year of readings from the same spot can. Every number tells a story, as long as the numbers keep coming.</p>
+</div>
 <p>A monitoring station is just a machine built to be patient. It takes a reading, writes it down with the time and the place attached, and then does it again. It does this while you are asleep, while you are at school, and while nobody is thinking about it at all. That patience is the entire product.</p>
 <p>The station you will build in this book measures seven things:</p>
 <ol>
@@ -2065,6 +2082,11 @@ Bloom Verb: interpret</p>
 <p>Climate is what you expect. Weather is what you get.</p>
 </blockquote>
 <p>If you plan a July picnic in Arizona, you are using climate. You expect it to be hot and dry, because it usually is. If it rains on your picnic anyway, that is weather.</p>
+<div class="admonition mascot-encouraging">
+<p class="admonition-title">Hang On to the Picnic</p>
+<p><img alt="Mecha giving a thumbs-up" class="mascot-admonition-img" src="../../img/mascot/encouraging.png">
+If weather and climate still blur together, you're in good company, because people argue about this on the news all the time. Keep the picnic in mind, then try the three time windows in the explorer below.</p>
+</div>
 <p>This distinction has a sharp practical edge. A single cold day does not tell you the climate is cooling, in exactly the way that a single tall student does not tell you the school is getting taller. One reading is weather. A pattern across decades is climate.</p>
 <p>And here is the part that matters for you personally: your station cannot measure climate. It can only measure weather. Climate is what you get when somebody adds up thirty years of weather. But every climate record that exists was built out of weather readings taken by stations like yours, one at a time, by people who kept showing up.</p>
 <table>
@@ -2217,6 +2239,11 @@ Y-axis: Mean temperature in degrees Celsius. The axis range must stay FIXED acro
 <li><strong>Weather</strong> is the atmosphere right now. <strong>Climate</strong> is the 30-year pattern. Your station measures weather, and contributes to climate records.</li>
 <li><strong>Meteorologists</strong> forecast the near term. <strong>Climatologists</strong> study long-term patterns. Both depend on station data.</li>
 </ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Station Map Complete!</p>
+<p><img alt="Mecha celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png">
+You can now tell an observation from a measurement and name all seven things your station will record. Next, Chapter 2 tackles units, the SI system, and what accuracy, precision, and uncertainty really mean.</p>
+</div>
 <h2 id="check-yourself">Check Yourself<a class="headerlink" href="#check-yourself" title="Permanent link">¶</a></h2>
 <details class="question">
 <summary>Is 'the barometric pressure is 1013' quantitative data? Click to check.</summary>

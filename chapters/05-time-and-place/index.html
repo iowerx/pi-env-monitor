@@ -21,7 +21,7 @@
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../img/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
@@ -53,6 +53,8 @@
     
     
       <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -118,8 +120,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="../../img/mascot/neutral.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -235,8 +236,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="../../img/mascot/neutral.png" alt="logo">
 
     </a>
     Raspberry Pi Environmental Monitoring: Grades 6–12
@@ -1213,6 +1213,8 @@
       
         
       
+        
+      
     
     
     
@@ -1791,6 +1793,11 @@
 <li><a href="../04-how-sensors-work/">Chapter 4: How Sensors Turn the World Into Numbers</a></li>
 </ul>
 <hr>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Where and When?</p>
+<p><img alt="Mecha waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png">
+A number without a place and a time is only half a reading. In this chapter we build latitude, longitude, and elevation, follow the race to solve the longitude problem, see how GPS finds you, and learn why your station stamps every reading in UTC. Let's take a reading!</p>
+</div>
 <h2 id="a-number-that-lost-its-meaning">A Number That Lost Its Meaning<a class="headerlink" href="#a-number-that-lost-its-meaning" title="Permanent link">¶</a></h2>
 <p>Here is a temperature reading: <strong>18.3 °C</strong>.</p>
 <p>It has a number. It has a unit. By Chapter 2's definition it is quantitative data. And it is almost completely useless.</p>
@@ -1866,6 +1873,11 @@
 <p>So longitude is really a clock problem. And no clock could survive a sea voyage. Pendulum clocks, the best timekeepers on land, were useless on a rolling deck. Temperature changes made springs and metal parts expand and contract. Humidity and salt corroded mechanisms. Being wrong by four minutes put you a degree off, which near the equator is over 100 kilometers of open ocean.</p>
 <p>The cost was measured in ships. In 1707 a British fleet under Admiral Shovell misjudged its longitude in fog and struck the Isles of Scilly, losing four ships and around 1,500 men. In 1714 Parliament passed the Longitude Act, offering a prize of £20,000 — an enormous sum — for a practical solution.</p>
 <p>John Harrison, a Yorkshire carpenter and self-taught clockmaker, spent decades on the problem. His answer was a <strong>marine chronometer</strong>: a clock accurate and rugged enough to keep reference time through a long sea voyage. His fourth attempt, called H4 and finished in 1761, was a large watch about 13 centimeters across. On a voyage to Jamaica it lost only about five seconds over 81 days.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">A Clock That Finds You</p>
+<p><img alt="Mecha thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png">
+Look at those numbers: H4 drifted only about five seconds in 81 days, while a four-minute error put a ship a whole degree off. Every number tells a story, and this one says a good clock is really a position sensor.</p>
+</div>
 <p>Harrison had a long fight to be paid, and the story of that fight is worth reading elsewhere. What matters here is the principle: <strong>finding where you are turned out to be a problem of knowing what time it is.</strong></p>
 <p>That principle did not go away. It is exactly how GPS works today.</p>
 <h4 id="diagram-the-longitude-problem-solver">Diagram: The Longitude Problem Solver<a class="headerlink" href="#diagram-the-longitude-problem-solver" title="Permanent link">¶</a></h4>
@@ -1914,6 +1926,11 @@ Bloom Verb: calculate</p>
 <p><strong>Time zones</strong> are regions that share a common clock time, mostly defined as whole-hour offsets from the prime meridian. Before railways, every town kept its own local solar noon, and that was fine when travel took days. Trains made it untenable: a timetable is impossible if every station's clock differs. Standard time zones were a railway invention before they were a legal one.</p>
 <p>Time zones are also a political construct rather than a scientific one, and it shows. China spans five geographic time zones and uses one. India and Iran use half-hour offsets, and Nepal uses a 45-minute offset. Many places shift by an hour twice a year for daylight saving, on dates that change by country and occasionally by year.</p>
 <p>Every one of those irregularities is a reason your station will not use local time.</p>
+<div class="admonition mascot-encouraging">
+<p class="admonition-title">One Satellite at a Time</p>
+<p><img alt="Mecha giving a thumbs-up" class="mascot-admonition-img" src="../../img/mascot/encouraging.png">
+GPS has more moving parts than anything so far, but it runs on ideas you already have: distances, circles, and a clock. Take it one satellite at a time, and the four-satellite rule will click into place.</p>
+</div>
 <h2 id="how-gps-finds-you">How GPS Finds You<a class="headerlink" href="#how-gps-finds-you" title="Permanent link">¶</a></h2>
 <p><strong>GPS</strong> — the Global Positioning System — is a satellite navigation system that lets a receiver anywhere on Earth determine its position and the exact time.</p>
 <p>The idea began by accident. When Sputnik launched in 1957, two researchers at the Johns Hopkins Applied Physics Laboratory, William Guier and George Weiffenbach, tracked it by listening to the Doppler shift in its radio signal and worked out its orbit from a known ground position. Their colleague Frank McClure asked the reverse question: if you know the satellite's orbit, could you find your position on the ground? That inversion became Transit, the first satellite navigation system, operational for the US Navy in 1964.</p>
@@ -2030,6 +2047,11 @@ Bloom Verb: explain</p>
 <li><strong>Sorting breaks.</strong> Local timestamps do not sort into chronological order across a daylight saving transition.</li>
 </ul>
 <p>UTC has none of these problems. Convert to local time for display, if you want, at the moment you show it to a human. Never store it.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Don't Fix It Later</p>
+<p><img alt="Mecha raising a caution" class="mascot-admonition-img" src="../../img/mascot/warning.png">
+A common trap is logging local time and planning to convert it afterward. Once clocks go back and your file holds two readings stamped 01:30, no script can ever untangle them, so store UTC from the very first reading.</p>
+</div>
 <p>The format matters too. Use ISO 8601, which is the international standard:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>2026-08-25T14:30:00Z
 </span></code></pre></div>
@@ -2114,6 +2136,11 @@ Bloom Verb: critique</p>
 <li>The <strong>WGS 84 datum</strong> is the Earth-shape model GPS coordinates refer to. <strong>GNSS</strong> covers GPS, GLONASS, Galileo, and BeiDou together.</li>
 <li>Every <strong>timestamp</strong> is recorded in <strong>Coordinated Universal Time</strong> using ISO 8601, because local time creates duplicate hours, missing hours, and unsortable records.</li>
 </ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Every Reading Has a Home</p>
+<p><img alt="Mecha celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png">
+Nice work, observers! You can now pin a reading to latitude, longitude, and elevation and stamp it in ISO 8601 UTC, just like a real station. Next, Chapter 6 turns to temperature: the motion of atoms, three scales that disagree about zero, and why shading a thermometer matters so much.</p>
+</div>
 <h2 id="check-yourself">Check Yourself<a class="headerlink" href="#check-yourself" title="Permanent link">¶</a></h2>
 <details class="question">
 <summary>Why does a GPS receiver need four satellites instead of three? Click to check.</summary>

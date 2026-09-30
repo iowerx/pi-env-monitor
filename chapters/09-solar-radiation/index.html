@@ -21,7 +21,7 @@
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../img/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
@@ -53,6 +53,8 @@
     
     
       <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -118,8 +120,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="../../img/mascot/neutral.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -235,8 +236,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="../../img/mascot/neutral.png" alt="logo">
 
     </a>
     Raspberry Pi Environmental Monitoring: Grades 6–12
@@ -1230,6 +1230,8 @@
       
         
       
+        
+      
     
     
     
@@ -1827,6 +1829,11 @@
 <li><a href="../06-temperature/">Chapter 6: Temperature: From the Thermoscope to the Silicon Chip</a></li>
 </ul>
 <hr>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Good Morning, Observers</p>
+<p><img alt="Mecha waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png">
+The Sun powers almost every number your station records, from temperature to wind. In this chapter you will measure sunlight in watts per square metre, see why the Sun's angle matters more than its distance, and compare the instruments that catch it. Let's take a reading!</p>
+</div>
 <h2 id="everything-else-runs-on-this">Everything Else Runs on This<a class="headerlink" href="#everything-else-runs-on-this" title="Permanent link">¶</a></h2>
 <p>Turn off the Sun and here is what stops.</p>
 <p>Temperature stops changing through the day. Evaporation stops, so the water cycle stops, so clouds and rain stop. The ground stops warming unevenly, so air stops rising, so pressure differences stop forming, so wind stops. Within a few weeks the atmosphere would be a still, uniformly frozen shell.</p>
@@ -1876,6 +1883,11 @@
 <p>He found that temperature rose steadily as he moved from violet toward red. Then he placed a thermometer just beyond the red edge, in the dark region where no visible light fell, expecting a control reading at room temperature.</p>
 <p>It read higher than any of the visible colors.</p>
 <p>There was something past red, invisible, carrying more energy than the light he could see. Herschel called it "calorific rays." We call it infrared, and the discovery did two things at once: it revealed that the electromagnetic spectrum extends beyond human vision, and it established that <strong>a thermometer can measure light</strong>. That second point is the operating principle of most solar instruments even today.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">The Reading That Did Not Fit</p>
+<p><img alt="Mecha thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png">
+Herschel expected a boring control reading and got the highest number on the table. I love that kind of surprise, because a reading that does not fit is exactly where discoveries hide.</p>
+</div>
 <h2 id="irradiance-and-the-solar-constant">Irradiance and the Solar Constant<a class="headerlink" href="#irradiance-and-the-solar-constant" title="Permanent link">¶</a></h2>
 <p><strong>Irradiance</strong> is the power of radiation arriving per unit area of surface. It is the fundamental quantity this chapter measures.</p>
 <p>Its unit is <strong>watts per square meter</strong>, written W/m². Recall from Chapter 2 that a watt is a joule per second, so irradiance is energy arriving per second per square metre — a rate, not a total.</p>
@@ -2012,6 +2024,11 @@ Bloom Verb: attribute</p>
 <p>This cosine is the mechanism behind both cycles your station will record.</p>
 <p>The <strong>diurnal cycle</strong> is the daily pattern of variation driven by the Earth's rotation. As the Earth turns, the solar zenith angle at your station sweeps from 90° at sunrise, down to a minimum at solar noon, and back to 90° at sunset. Irradiance follows a smooth arch, and everything downstream follows behind it.</p>
 <p>Not immediately, though. Air temperature peaks two to three hours <em>after</em> peak irradiance, because the ground has to warm first and then warm the air above it. That lag will be visible in your own data, and it is one of the more satisfying things to find in a first week of logging.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Find the Lag Yourself</p>
+<p><img alt="Mecha pointing out a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png">
+On your first sunny day of logging, find the time of your highest irradiance reading and the time of your highest temperature. If the temperature peak shows up a couple of hours later, your station is telling the true story of the ground warming first.</p>
+</div>
 <p><strong>Seasonal variation</strong> is the annual pattern driven by the tilt of Earth's rotational axis, about 23.5° from the plane of its orbit. That tilt changes the Sun's maximum height in the sky across the year, which changes the noon zenith angle, which changes irradiance by the cosine rule. It also changes day length, so the effect compounds: summer days are both longer and more intense.</p>
 <div class="admonition warning">
 <p class="admonition-title">Seasons are not about distance</p>
@@ -2261,6 +2278,11 @@ Bloom Verb: assess</p>
 <li>The <strong>photovoltaic effect</strong> gives us the <strong>photodiode</strong> for measurement and the <strong>solar cell</strong> for power. Photodiodes are cheap and fast but spectrally uneven.</li>
 <li>The <strong>UV index</strong> weights ultraviolet by its skin-damaging effect and requires a dedicated UV sensor.</li>
 </ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Sunlight, Measured!</p>
+<p><img alt="Mecha celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png">
+Brilliant work, observers! You can now explain why your ground-level sensor reads far less than the 1361 W/m² solar constant, and why seasons come from tilt, not distance. Next, Chapter 10 follows the Sun's uneven heating all the way to wind, with anemometers, the Beaufort scale, and wind chill.</p>
+</div>
 <h2 id="check-yourself">Check Yourself<a class="headerlink" href="#check-yourself" title="Permanent link">¶</a></h2>
 <details class="question">
 <summary>Your sensor reads 850 W/m² at noon but the solar constant is 1361 W/m². Is it broken? Click to check.</summary>
