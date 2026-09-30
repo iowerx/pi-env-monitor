@@ -140,9 +140,9 @@ nav:
 # Theme configuration
 theme:
   name: material
-  # Once a logo is generated, point this at docs/img/logo.png or a mascot pose:
-  # logo: img/logo.png
-  # favicon: img/favicon.ico
+  # Paths are relative to docs/ (img/... means docs/img/...).
+  logo: img/mascot/neutral.png
+  favicon: img/favicon.ico
   palette:
     primary: 'indigo'
     accent: 'orange'
@@ -216,6 +216,7 @@ exclude_docs: |
   **/image-prompts*.md
   **/cover-prompt.md
   **/TODO.md
+  img/bubo.png
 
 # Rebuild on changes during `mkdocs serve`
 watch:
