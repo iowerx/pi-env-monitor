@@ -48,6 +48,10 @@ This chapter builds on concepts from:
 
 ---
 
+!!! mascot-welcome "Welcome, Wind Watchers"
+    ![Mecha waving welcome](../../img/mascot/welcome.png){ class="mascot-admonition-img" }
+    This chapter follows air as it rolls from high pressure toward low, then meets the vanes and anemometers that turn that motion into numbers. You will also see how wind changes what a temperature feels like and how hard it pushes on a building. Let's take a reading!
+
 ## Air Rolling Downhill
 
 Open a door between a warm room and a cold one and you feel a draught.
@@ -99,6 +103,10 @@ Your station can identify a cold front passage from its own data with no radar a
 **Pressure gradient** is the rate at which pressure changes with horizontal distance. It is the *steepness* of the pressure landscape, not its height.
 
 This distinction is the key to predicting wind, and it is where beginners go wrong. Wind speed is not determined by how low the pressure is. It is determined by how rapidly pressure changes over distance.
+
+!!! mascot-thinking "Steepness, Not Depth"
+    ![Mecha thinking](../../img/mascot/thinking.png){ class="mascot-admonition-img" }
+    Here is what makes me curious: one barometer can read very low pressure while the wind barely stirs. For wind, a number only tells its story when you compare it with the pressure some distance away.
 
 The analogy is a hill. A ball rolls fast down a steep slope and slowly down a gentle one, regardless of how high up it started. A deep low pressure system with gentle gradients around it produces light winds. A modest low with tight gradients produces strong ones.
 
@@ -165,6 +173,10 @@ Implementation: p5.js. Define pressure fields analytically as sums of Gaussian c
 
 This convention catches everybody once. A north wind blows from the north toward the south. A "westerly" comes from the west. The reason is practical and old: a sailor cares where the weather is arriving from, because that is where the next weather is coming from too.
 
+!!! mascot-warning "From, Not Toward!"
+    ![Mecha raising a caution](../../img/mascot/warning.png){ class="mascot-admonition-img" }
+    A wind blowing out of the north should be logged as 0 degrees, not 180. Mix up from and toward in your code and every direction in your log comes out exactly backwards.
+
 Direction is reported in degrees clockwise from true north, so 0 or 360 is north, 90 is east, 180 is south, and 270 is west. Storing degrees rather than compass points matters for your data, and Chapter 15 explains a subtlety in averaging them.
 
 A **weather vane** is an instrument that indicates wind direction by pivoting freely so its tail is pushed downwind and its pointer aims into the wind.
@@ -214,6 +226,10 @@ The **Beaufort scale** is a 13-point scale from 0 to 12 relating wind speed to o
 It is worth appreciating what Beaufort actually achieved here, because it is a measurement-theory lesson as much as a meteorological one. He did not invent an instrument. He solved a **standardization** problem of exactly the kind Chapter 2 described: he made observations from thousands of ships comparable to one another, using equipment every ship already had — a person with eyes. It is one of the most successful measurement standards ever created, and it is still in daily use over two centuries later.
 
 Note from Chapter 2 that the Beaufort scale is ordinal. Force 8 is not twice force 4.
+
+!!! mascot-tip "No Anemometer Yet?"
+    ![Mecha pointing out a tip](../../img/mascot/tip.png){ class="mascot-admonition-img" }
+    No problem, station builders. Watch the smoke, leaves, and trees, and log a Beaufort force with a note that it came from your eyes rather than an instrument.
 
 ### The Cup Anemometer
 
@@ -440,6 +456,10 @@ The Enhanced Fujita scale works backwards from damage to wind speed, which is un
 - **Meters per second** is the SI unit; the **knot unit** derives from latitude and persists in marine and aviation use.
 - **Apparent temperature** covers both **wind chill** in the cold and **heat index** in the heat. Wind chill applies to warm bodies, not to objects.
 - **Wind load** scales with the square of wind speed. The **Enhanced Fujita scale** rates tornadoes by inferring wind speed from damage.
+
+!!! mascot-celebration "Air in Motion, Measured!"
+    ![Mecha celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
+    You can now read wind strength straight off the spacing of isobars and explain why a cup anemometer can read zero on a breezy day. Next we head underground to chase earthquakes, seismic waves, and instruments that begin with a bronze dragon vessel from 138 AD!
 
 ## Check Yourself
 

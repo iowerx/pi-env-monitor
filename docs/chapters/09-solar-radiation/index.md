@@ -46,6 +46,10 @@ This chapter builds on concepts from:
 
 ---
 
+!!! mascot-welcome "Good Morning, Observers"
+    ![Mecha waving welcome](../../img/mascot/welcome.png){ class="mascot-admonition-img" }
+    The Sun powers almost every number your station records, from temperature to wind. In this chapter you will measure sunlight in watts per square metre, see why the Sun's angle matters more than its distance, and compare the instruments that catch it. Let's take a reading!
+
 ## Everything Else Runs on This
 
 Turn off the Sun and here is what stops.
@@ -83,6 +87,10 @@ He found that temperature rose steadily as he moved from violet toward red. Then
 It read higher than any of the visible colors.
 
 There was something past red, invisible, carrying more energy than the light he could see. Herschel called it "calorific rays." We call it infrared, and the discovery did two things at once: it revealed that the electromagnetic spectrum extends beyond human vision, and it established that **a thermometer can measure light**. That second point is the operating principle of most solar instruments even today.
+
+!!! mascot-thinking "The Reading That Did Not Fit"
+    ![Mecha thinking](../../img/mascot/thinking.png){ class="mascot-admonition-img" }
+    Herschel expected a boring control reading and got the highest number on the table. I love that kind of surprise, because a reading that does not fit is exactly where discoveries hide.
 
 ## Irradiance and the Solar Constant
 
@@ -191,6 +199,10 @@ This cosine is the mechanism behind both cycles your station will record.
 The **diurnal cycle** is the daily pattern of variation driven by the Earth's rotation. As the Earth turns, the solar zenith angle at your station sweeps from 90° at sunrise, down to a minimum at solar noon, and back to 90° at sunset. Irradiance follows a smooth arch, and everything downstream follows behind it.
 
 Not immediately, though. Air temperature peaks two to three hours *after* peak irradiance, because the ground has to warm first and then warm the air above it. That lag will be visible in your own data, and it is one of the more satisfying things to find in a first week of logging.
+
+!!! mascot-tip "Find the Lag Yourself"
+    ![Mecha pointing out a tip](../../img/mascot/tip.png){ class="mascot-admonition-img" }
+    On your first sunny day of logging, find the time of your highest irradiance reading and the time of your highest temperature. If the temperature peak shows up a couple of hours later, your station is telling the true story of the ground warming first.
 
 **Seasonal variation** is the annual pattern driven by the tilt of Earth's rotational axis, about 23.5° from the plane of its orbit. That tilt changes the Sun's maximum height in the sky across the year, which changes the noon zenith angle, which changes irradiance by the cosine rule. It also changes day length, so the effect compounds: summer days are both longer and more intense.
 
@@ -402,6 +414,10 @@ Implementation: p5.js. Build UV index from a clear-sky model driven by solar zen
 - A **thermopile** in a **pyranometer** measures total sky irradiance; a **pyrheliometer** measures direct beam only; Langley's **bolometer** measured energy by resistance change.
 - The **photovoltaic effect** gives us the **photodiode** for measurement and the **solar cell** for power. Photodiodes are cheap and fast but spectrally uneven.
 - The **UV index** weights ultraviolet by its skin-damaging effect and requires a dedicated UV sensor.
+
+!!! mascot-celebration "Sunlight, Measured!"
+    ![Mecha celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
+    Brilliant work, observers! You can now explain why your ground-level sensor reads far less than the 1361 W/m² solar constant, and why seasons come from tilt, not distance. Next, Chapter 10 follows the Sun's uneven heating all the way to wind, with anemometers, the Beaufort scale, and wind chill.
 
 ## Check Yourself
 

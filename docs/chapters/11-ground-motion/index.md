@@ -43,6 +43,10 @@ This chapter builds on concepts from:
 
 ---
 
+!!! mascot-welcome "Hold Still, Observers"
+    ![Mecha waving welcome](../../img/mascot/welcome.png){ class="mascot-admonition-img" }
+    How do you measure shaking when everything around you is shaking too? In this chapter you will follow the answer from Zhang Heng's dragon vessel to the tiny MEMS chip that could sit in your station, and learn why magnitude and intensity are not the same thing. Let's take a reading!
+
 ## How Do You Measure a Moving Room?
 
 Here is a problem that sounds impossible.
@@ -100,6 +104,10 @@ Three consequences follow from that table, and each is genuinely important.
 
 **S waves cannot cross liquid**, and this discovery mapped the inside of the planet. In the 1910s Beno Gutenberg noticed that S waves never arrive on the far side of the Earth from a large earthquake — there is an S wave shadow zone. Since shear waves require a material that resists twisting, and liquids do not, the only explanation was a liquid layer in the way. That is how we know the Earth has a liquid outer core. Nobody drilled. They listened.
 
+!!! mascot-tip "Timestamp Both Arrivals"
+    ![Mecha pointing out a tip](../../img/mascot/tip.png){ class="mascot-admonition-img" }
+    When your log shows a small jolt followed by bigger shaking, record the time of each, not just the big part. That gap in seconds, times about 8, tells you roughly how many kilometres away the earthquake was.
+
 ## The Oldest Instrument in This Book
 
 Around 138 AD, the Chinese polymath Zhang Heng built a device to detect distant earthquakes.
@@ -119,6 +127,10 @@ It detected, and it pointed. What it could not do was record — there was no tr
 The breakthrough that turned detection into measurement rests on a principle from basic physics.
 
 **Inertial mass** is the property of matter that resists any change in its motion. A heavy object at rest tends to stay at rest, and it takes force to change that.
+
+!!! mascot-thinking "Something That Stays Put"
+    ![Mecha thinking](../../img/mascot/thinking.png){ class="mascot-admonition-img" }
+    This is the cleverest trick in the chapter for me. The reading is not where the mass is or where the frame is, but the difference between them, so the instrument builds its own fixed point out of inertia.
 
 Here is how it solves the moving-room problem. Suspend a heavy mass from a spring or a long wire, attached to a frame that is bolted to the ground. When the ground shakes:
 
@@ -193,6 +205,10 @@ This is the most commonly confused pair of ideas in this book, and news coverage
 - **Intensity** describes the shaking experienced at one location. A single earthquake has **many** intensities — high near the epicenter, lower further away, and varying with local ground conditions.
 
 An analogy that holds up well: magnitude is the wattage of a light bulb; intensity is how bright it looks from where you are sitting. One bulb, one wattage, many brightnesses.
+
+!!! mascot-warning "Your Peak Is Not a Magnitude"
+    ![Mecha raising a caution](../../img/mascot/warning.png){ class="mascot-admonition-img" }
+    A big spike from your own accelerometer describes the shaking at your station, not the size of the earthquake. Label it as ground acceleration at your location, and never report it as the earthquake's magnitude.
 
 ### Intensity Scales
 
@@ -437,6 +453,10 @@ Implementation: p5.js. Ring radii = velocity x elapsed time; the alert ring is e
 - The **Richter scale** (1935) is logarithmic — each step is 10× ground motion and ~32× energy — but saturates above about magnitude 7. The **moment magnitude scale** (1979) measures the physical rupture and does not saturate.
 - **Acceleration** is what shaking is. The **accelerometer**, and specifically the **MEMS accelerometer** built for car airbags, makes dense low-cost seismic networks possible.
 - **Earthquake early warning** is not prediction. It exploits the P–S gap and the speed of radio to deliver seconds of notice.
+
+!!! mascot-celebration "Seismologist Skills Unlocked!"
+    ![Mecha celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
+    You solved the moving-room problem with inertia and can explain why one earthquake has one magnitude but many intensities. Next, your station gets its brain: Chapter 12 covers the operating system, the command line, and the I2C bus that lets the Pi talk to the BME280!
 
 ## Check Yourself
 

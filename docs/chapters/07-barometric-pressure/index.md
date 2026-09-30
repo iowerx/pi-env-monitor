@@ -44,6 +44,10 @@ This chapter builds on concepts from:
 
 ---
 
+!!! mascot-welcome "Welcome, Station Builders"
+    ![Mecha waving welcome](../../img/mascot/welcome.png){ class="mascot-admonition-img" }
+    Right now your BME280 is weighing the sky, and this chapter shows how people first discovered that air has weight at all. You will follow Torricelli's tube and Pascal's mountain climb, sort hectopascals from inches of mercury, and see why your station's elevation matters. Let's take a reading!
+
 ## There Is a Column of Air on Your Head
 
 Right now, a column of air about 100 kilometers tall is standing on top of you.
@@ -74,6 +78,10 @@ Two features of hydrostatic pressure matter for everything that follows:
 Air is a fluid, just a very light one. It has weight, it stacks up, and the stack presses down. The atmosphere is a fluid ocean, and you live at the bottom of it.
 
 Underwater, this effect is dramatic: seawater is so dense that about every 10 metres of depth adds another atmosphere of pressure. Divers feel the change within seconds. Air is roughly 800 times less dense than water, so the same pressure change takes about 8 kilometres of altitude. The mechanism is identical; only the density differs.
+
+!!! mascot-thinking "Weighing the Sky"
+    ![Mecha thinking](../../img/mascot/thinking.png){ class="mascot-admonition-img" }
+    Think about it: every pressure number your station logs is the weight of a 100-kilometre column of air pressing on one tiny sensor. Every number tells a story, and this one took people two thousand years to read.
 
 ## Two Thousand Years of Being Wrong
 
@@ -182,6 +190,10 @@ The **pascal unit**, symbol Pa, is the SI unit of pressure, defined as one newto
 
 The **millibar**, symbol mbar or mb, is one thousandth of a bar, where the bar was defined in the early twentieth century as a convenient meteorological unit close to average sea level pressure. Standard sea level pressure is **1013.25 mbar**.
 
+!!! mascot-encouraging "One Pressure, Many Names"
+    ![Mecha giving a thumbs-up](../../img/mascot/encouraging.png){ class="mascot-admonition-img" }
+    Four units for one pressure can feel like a lot to juggle, observers. Take a breath, because the next paragraph is the good news, and the table below will always be here to translate for you.
+
 The **hectopascal**, symbol hPa, is 100 pascals. And here is the tidy part: **one hectopascal equals one millibar exactly.** When the world moved to SI units, weather services switched from millibars to hectopascals without changing a single number on a single chart. Standard sea level pressure is **1013.25 hPa**.
 
 **One atmosphere**, symbol atm, is a unit defined as the standard average pressure at sea level. It is used for comparison rather than for reporting weather.
@@ -217,6 +229,10 @@ The simple approximation used for small elevations:
 \[ P_{\text{sea level}} \approx P_{\text{station}} + \left(\frac{h}{8.3}\right) \]
 
 where \(h\) is the station elevation in metres and pressure is in hPa. For a station at 152 m reading 995 hPa, the sea level pressure is about \(995 + 18.3 = 1013\) hPa — a perfectly ordinary day that looked like a storm before correction.
+
+!!! mascot-warning "Metres, Not Feet!"
+    ![Mecha raising a caution](../../img/mascot/warning.png){ class="mascot-admonition-img" }
+    The `h / 8.3` shortcut expects your station elevation in metres. Type in the height in feet and the correction comes out more than three times too big, turning an ordinary day into a suspiciously high reading.
 
 Now run the same physics backwards. If pressure depends on height in a known way, then measuring pressure tells you your height.
 
@@ -376,6 +392,10 @@ Implementation: p5.js. Store scenarios as arrays of {hour, pressure} plus an out
 - **Hectopascal**, **millibar**, **inches of mercury**, **pascal unit**, and **one atmosphere** all describe the same pressure. 1 hPa = 1 mbar exactly; standard sea level is 1013.25 hPa or 29.92 inHg.
 - Pressure falls about 12 hPa per 100 m. **Sea level pressure** is a computed correction using station elevation, without which stations cannot be compared. Run backwards, the same physics gives **pressure altitude** and the **altimeter**.
 - The **aneroid barometer** of 1844 made the instrument portable and enabled the first storm warnings. The **piezoresistive effect** shrinks the same flexing-capsule idea onto a silicon chip.
+
+!!! mascot-celebration "You Weighed the Atmosphere!"
+    ![Mecha celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
+    Nice work, observers! You can now turn a raw BME280 reading into a sea level pressure that lines up with every weather report. Next, Chapter 8 hunts for the invisible water in the air and shows why dew point beats the humidity percentage.
 
 ## Check Yourself
 

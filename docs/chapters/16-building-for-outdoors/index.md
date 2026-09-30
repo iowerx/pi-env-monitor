@@ -46,6 +46,10 @@ This chapter builds on concepts from:
 
 ---
 
+!!! mascot-welcome "Welcome, Station Builders"
+    ![Mecha waving welcome](../../img/mascot/welcome.png){ class="mascot-admonition-img" }
+    Your station is leaving the desk for a post in a field, where nobody is coming to fix it. In this chapter you will choose a site, pick a vented weatherproof enclosure, and work out a power budget that survives winter, then get the data home even when the link drops. Let's take a reading!
+
 ## Nobody Is Coming to Fix It
 
 Everything so far has assumed a bench, a wall socket, and you sitting nearby.
@@ -93,6 +97,10 @@ Chapter 6 gave the warning: a badly sited station produces plausible-looking dat
 | GPS | Clear view of the sky | Dense canopy, deep valleys, metal above |
 
 Notice the conflict. Temperature wants shade; solar radiation wants no shade at all. They cannot share a location on the mast. The solar sensor goes on top, level and clear; the temperature and humidity go in a shield below it, positioned so the shield never shades the solar sensor.
+
+!!! mascot-thinking "One Mast, Many Needs"
+    ![Mecha thinking](../../img/mascot/thinking.png){ class="mascot-admonition-img" }
+    Temperature wants shade while solar radiation wants open sky, so no single spot on the mast can please them both. I find it fascinating that every sensor asks something different of the same location.
 
 The seismic sensor conflicts too. It wants to be rigidly coupled to the ground, and a station on a pole is the worst possible mounting — the pole sways in the wind and the accelerometer faithfully records that instead of earthquakes.
 
@@ -238,6 +246,10 @@ The autonomy calculation asks how long the station runs with no solar input at a
 
 A 20,000 mAh battery at 80 percent usable is 16,000 mAh. Against 3,600 mAh per day, that is **4.4 days** — and less in the cold. Aim for at least three days of autonomy, and five if your winters are overcast.
 
+!!! mascot-encouraging "One Step at a Time"
+    ![Mecha giving a thumbs-up](../../img/mascot/encouraging.png){ class="mascot-admonition-img" }
+    The power budget stacks up a lot of numbers, but each step is plain arithmetic: milliamps times hours, then capacity divided by daily use. Work the example slowly, because every number here tells you whether your station makes it through December.
+
 ### Step 3: Size the Solar Panel
 
 A **solar panel** converts sunlight into electricity by the photovoltaic effect from Chapter 9.
@@ -366,6 +378,10 @@ Three options, in increasing order of independence:
 
 A **Wi-Fi network** is the simplest when the station is within range of one. It is free to run, fast, and needs no additional hardware since the Pi Zero 2 W has Wi-Fi built in. The limits are range — typically under 100 metres outdoors — and that it ties your station's siting to a building, which Chapter 6's siting rules argue against.
 
+!!! mascot-warning "Do Not Follow the Wi-Fi"
+    ![Mecha raising a caution](../../img/mascot/warning.png){ class="mascot-admonition-img" }
+    Many station builders put the station right beside the building because that is where the Wi-Fi reaches. Choose the spot for sensor exposure first, then pick the link that can reach it, even if that means a cellular data link.
+
 A **cellular data link** uses the mobile phone network, through the SIM7600A module in this project's parts list. It works anywhere with coverage, which is most places, and frees the station's location entirely. The costs are a data plan, higher power consumption, and the complexity of AT commands over the serial UART from Chapter 12.
 
 A **base station** is a computer at a fixed, convenient location that collects data from one or more remote stations. [Components Used](../../components.md) specifies a Raspberry Pi 2B running Raspberry Pi OS for this role. A base station has mains power, a reliable network, and no weather exposure, so it can do the work the remote station cannot afford: storing the full archive, running charts and dashboards, alerting you when a station goes quiet, and serving as one of the 3-2-1 backup copies from Chapter 14.
@@ -447,6 +463,10 @@ The same logic applies to weather. Your station is one point. Contributing it to
 - **Telemetry** by **Wi-Fi** or **cellular data link** to a **base station** turns a recorder into a monitored instrument.
 - **Intermittent connectivity** is normal. Write locally first, always; transmit as an optional later step with back-off and batching.
 - A **seismic network** locates events by trilateration and rejects false alarms by requiring agreement — the argument for density over individual precision.
+
+!!! mascot-celebration "Ready for the Field!"
+    ![Mecha celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
+    You just planned a station that can run on its own, from the vented IP65 box and the December-sized solar panel to store-and-forward upload code. Next, Chapter 17 follows your seven measurements out into the world, into forecasts, building codes, and flood warnings.
 
 ## Check Yourself
 

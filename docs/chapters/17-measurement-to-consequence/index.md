@@ -50,6 +50,10 @@ This chapter builds on concepts from:
 
 ---
 
+!!! mascot-welcome "So, What Is It For?"
+    ![Mecha waving welcome](../../img/mascot/welcome.png){ class="mascot-admonition-img" }
+    Your station sits outside writing numbers to a file, and now it is time to ask what those numbers are for. In this chapter you will follow each measurement into real decisions, from growing degree days and building codes to flood warnings, and then plan what to do with your own data. Let's take a reading!
+
 ## So What?
 
 You have built a station. It sits outside and writes numbers to a file.
@@ -91,6 +95,10 @@ There is a particularly sharp case. On a hot afternoon, air conditioning demand 
 Chapter 7 covered the mechanism at one station: falling pressure means deteriorating weather. A modern forecast does the same thing across a continent, feeding readings from thousands of surface stations, weather balloons, aircraft, buoys, and satellites into numerical models that solve the physics of the atmosphere forward in time.
 
 Those models cannot start from nothing. They need an accurate picture of the atmosphere *right now*, at as many points as possible — a process called data assimilation. Every reading improves the starting point, and the forecast is only as good as the observations underneath it. This is the direct answer to "what is one more station worth."
+
+!!! mascot-thinking "One More Point Counts"
+    ![Mecha thinking](../../img/mascot/thinking.png){ class="mascot-admonition-img" }
+    A forecast model can only start from the snapshot of the atmosphere that stations give it. That means your pressure reading is one more point in the picture, and I love knowing that a single station can make that picture a little sharper.
 
 **Severe weather warning** is the alerting of the public to imminent dangerous conditions.
 
@@ -165,6 +173,10 @@ Every cause is something this book has measured:
 The consequences are unevenly distributed, and that is the part that makes this a policy question rather than a curiosity. Heat is the deadliest weather hazard in many countries, and within a single city the hottest neighbourhoods are frequently those with the least tree cover, the most pavement, and the fewest resources to adapt. Mapping the difference is the first step toward addressing it, and city governments now run tree-planting, cool-roof, and cooling-centre programmes based on exactly this kind of data.
 
 Here is the important part for you: **an urban heat island is measured with stations like yours.** Official networks are far too sparse to resolve differences between neighbourhoods. Dense volunteer and school networks are how these maps get made.
+
+!!! mascot-tip "Catch a Heat Island"
+    ![Mecha pointing out a tip](../../img/mascot/tip.png){ class="mascot-admonition-img" }
+    Want to see an urban heat island for yourself? With a second station, compare the school car park to the grass field on a clear, calm night, when the gap is at its biggest.
 
 **Air quality** is another quantity your station influences without directly measuring.
 
@@ -249,6 +261,10 @@ Building a usable record out of a century of instruments is genuinely hard, and 
 | Coverage was uneven | 16 | Weight by area; acknowledge uncertainty |
 
 These corrections are sometimes accused of being manipulation. They are the opposite, and you are now in a position to see why. A record assembled from a hundred different instruments in a hundred changing locations means nothing *unless* those changes are found and accounted for. You will face the same problem the first time you move your own station or replace a sensor, and Chapter 15 already told you the answer: document every change, never edit historical data, record the correction separately.
+
+!!! mascot-warning "Hands Off Old Readings"
+    ![Mecha raising a caution](../../img/mascot/warning.png){ class="mascot-admonition-img" }
+    When you move your station or swap a sensor, it is tempting to go back and fix the old numbers in your CSV. Leave the original readings untouched and record the change and any correction separately, or the jump in your record becomes a mystery nobody can solve.
 
 Your station cannot produce a climate record. A school year is weather. But every climate record that exists was built out of weather readings taken by people who kept showing up, one day at a time — and the ones taken in the 1880s were taken by people who had no idea what they would eventually be used for.
 
@@ -374,6 +390,10 @@ Implementation: p5.js. Store each case as claim text, medium styling, per-questi
 - **Urban heat island** effects are caused by albedo, thermal mass, reduced **evapotranspiration**, and blocked wind — and are mapped by dense volunteer networks, not official ones. **Air quality** and **wildfire risk** are governed by the wind and humidity your station measures.
 - A **climate record** requires finding and correcting every instrument change, station move, and drift. That work is what makes a century of different instruments mean anything.
 - **Citizen science** networks accept and use amateur data. **Data sharing** requires format, metadata, units, flags, licence, and a stable home. **Science communication** leads with the finding, shows one honest chart, and states the limitations.
+
+!!! mascot-celebration "You Built an Instrument!"
+    ![Mecha celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
+    Observers, you did it: you turned bare wires into an outdoor station and can now trace its measurements to the decisions people make with them. The book ends here, but your record does not have to, so leave it running, join a network like CoCoRaHS, and hand it on so your readings keep telling their story for years.
 
 ## Check Yourself
 

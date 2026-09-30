@@ -34,6 +34,10 @@ This chapter assumes only the prerequisites listed in the [course description](.
 
 ---
 
+!!! mascot-welcome "Welcome, Observers"
+    ![Mecha waving welcome](../../img/mascot/welcome.png){ class="mascot-admonition-img" }
+    In this chapter you'll find out why a thermometer beats your hands, meet the seven quantities your station will record, and learn why weather and climate are not the same thing. Let's take a reading!
+
 ## It Is Cold Outside
 
 Step outside on a winter morning and you know something right away. It is cold.
@@ -64,6 +68,10 @@ A **measurement** is the act of comparing something in the world to an agreed-up
 What gets measured is a **physical property** — a feature of an object or a place that can be described by a number. Temperature is a physical property. Pressure is a physical property. So are length, mass, speed, and brightness. "Beautiful" is not a physical property. Neither is "scary." You cannot build an instrument that reads out how scary something is, because there is nothing physical to compare against a standard.
 
 Before the table below, one warning. It is easy to read this comparison and conclude that qualitative observations are the weak, unscientific option. They are not. They are how you *notice* that something needs measuring in the first place.
+
+!!! mascot-tip "Keep a Notes Column"
+    ![Mecha pointing out a tip](../../img/mascot/tip.png){ class="mascot-admonition-img" }
+    Station builders, jot down plain-words observations like fog at 7 a.m. or wind bending the small trees right next to your numbers. Those notes are often the clue that explains a strange reading weeks later.
 
 Here is how the two kinds of information compare:
 
@@ -153,6 +161,10 @@ That last part is what makes monitoring different from an ordinary science exper
 - Did the ground move last Tuesday, or was that a truck?
 
 None of those have an answer after one reading. They all have an answer after a year of readings.
+
+!!! mascot-thinking "One Reading Is a Snapshot"
+    ![Mecha thinking](../../img/mascot/thinking.png){ class="mascot-admonition-img" }
+    Mecha loves this idea: a single reading can't tell you if it's getting warmer here, but a year of readings from the same spot can. Every number tells a story, as long as the numbers keep coming.
 
 A monitoring station is just a machine built to be patient. It takes a reading, writes it down with the time and the place attached, and then does it again. It does this while you are asleep, while you are at school, and while nobody is thinking about it at all. That patience is the entire product.
 
@@ -317,6 +329,10 @@ A useful way to hold the difference:
 
 If you plan a July picnic in Arizona, you are using climate. You expect it to be hot and dry, because it usually is. If it rains on your picnic anyway, that is weather.
 
+!!! mascot-encouraging "Hang On to the Picnic"
+    ![Mecha giving a thumbs-up](../../img/mascot/encouraging.png){ class="mascot-admonition-img" }
+    If weather and climate still blur together, you're in good company, because people argue about this on the news all the time. Keep the picnic in mind, then try the three time windows in the explorer below.
+
 This distinction has a sharp practical edge. A single cold day does not tell you the climate is cooling, in exactly the way that a single tall student does not tell you the school is getting taller. One reading is weather. A pattern across decades is climate.
 
 And here is the part that matters for you personally: your station cannot measure climate. It can only measure weather. Climate is what you get when somebody adds up thirty years of weather. But every climate record that exists was built out of weather readings taken by stations like yours, one at a time, by people who kept showing up.
@@ -429,6 +445,10 @@ There is a second reason, and it is more personal. Once you have wired a sensor,
 - An **air mass** is a large body of air with roughly uniform temperature and moisture. Most day-to-day change at your station is air masses arriving and leaving.
 - **Weather** is the atmosphere right now. **Climate** is the 30-year pattern. Your station measures weather, and contributes to climate records.
 - **Meteorologists** forecast the near term. **Climatologists** study long-term patterns. Both depend on station data.
+
+!!! mascot-celebration "Station Map Complete!"
+    ![Mecha celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
+    You can now tell an observation from a measurement and name all seven things your station will record. Next, Chapter 2 tackles units, the SI system, and what accuracy, precision, and uncertainty really mean.
 
 ## Check Yourself
 

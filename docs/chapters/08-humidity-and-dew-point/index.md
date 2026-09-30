@@ -48,6 +48,10 @@ This chapter builds on concepts from:
 
 ---
 
+!!! mascot-welcome "Hello, Moisture Hunters"
+    ![Mecha waving welcome](../../img/mascot/welcome.png){ class="mascot-admonition-img" }
+    Water vapor is all around you, and you cannot see a single molecule of it. In this chapter you will untangle absolute humidity, relative humidity, and dew point, then meet the instruments, from a strand of hair to the thin film in your BME280, that measure the invisible. Let's take a reading!
+
 ## Two Days, Same Number, Different Worlds
 
 Here are two days. Both report 50 percent humidity.
@@ -136,6 +140,10 @@ Relative humidity has a property that trips people up constantly: **it changes w
 
 Relative humidity reaches 100 percent when the actual vapor pressure equals the saturation vapor pressure. At that point the air is saturated, and any further cooling forces condensation.
 
+!!! mascot-encouraging "Stick With It"
+    ![Mecha giving a thumbs-up](../../img/mascot/encouraging.png){ class="mascot-admonition-img" }
+    Absolute humidity, vapor pressure, relative humidity: that is a lot of new ideas stacked in one place, and they trip up plenty of adults too. You have almost cracked the two-days puzzle, and dew point is the piece that makes it click.
+
 ### Dew Point
 
 **Dew point** is the temperature to which air must be cooled, at constant pressure, for it to become saturated and begin condensing.
@@ -223,6 +231,10 @@ Three familiar phenomena are all the same physics, differing only in where the c
 This is why dew appears on grass and car roofs but not under a tree or a carport: those surfaces are shielded from the open sky and cannot radiate away their heat as effectively.
 
 **Fog formation** is the same event happening in the air itself rather than on a surface. When a whole layer of air cools to its dew point, condensation occurs throughout it, producing suspended droplets. Fog is a cloud that forms at ground level.
+
+!!! mascot-warning "Do Not Trust RH Alone"
+    ![Mecha raising a caution](../../img/mascot/warning.png){ class="mascot-admonition-img" }
+    A high relative humidity at bedtime does not guarantee fog by morning. If the dew point sits far below the air temperature, the gap may never close, so check the spread before you make the call.
 
 The conditions that favour it are specific and worth knowing, because they are also the conditions that make your station's overnight data interesting:
 
@@ -341,6 +353,10 @@ The standard method for dew point is the Magnus formula. It looks worse than it 
 
 where \(T\) is air temperature in °C, RH is relative humidity in percent, and the constants are \(a = 17.27\) and \(b = 237.7\). The result is the dew point in °C, accurate to a few tenths of a degree across ordinary weather conditions.
 
+!!! mascot-tip "A Built-In Double Check"
+    ![Mecha pointing out a tip](../../img/mascot/tip.png){ class="mascot-admonition-img" }
+    When Chapter 13 has you coding the Magnus formula, keep the quick rule below handy as a test. Above 50 percent humidity the two answers should land within about a degree, so a bigger gap is a clue to chase, not a failure.
+
 For rough mental work there is a much simpler rule that is good to within a degree or so above 50 percent humidity: **the dew point is about 1 °C below the air temperature for every 5 percent that relative humidity falls below 100.** At 25 °C and 70 percent, that gives \(25 - 6 = 19\) °C, and the exact answer is 19.1 °C.
 
 #### Diagram: Fog Watch — Temperature and Dew Point Convergence
@@ -408,6 +424,10 @@ Implementation: Chart.js with two datasets on a shared y-axis, a third on a seco
 - Relative humidity changes with temperature alone. Cooling air raises it without adding any water, which is what produces **dew and frost formation** and **fog formation**.
 - The **hair hygrometer** (1783) gave the first readable numbers. The **psychrometer** uses evaporative cooling and the **wet bulb temperature**. The **chilled mirror hygrometer** measures dew point directly and serves as a reference standard.
 - **Capacitive sensing** through a moisture-absorbing polymer film gives the **capacitive humidity sensor** in the BME280 — fast, small, cheap, and the modern standard since 1973.
+
+!!! mascot-celebration "Invisible Water, Measured!"
+    ![Mecha celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
+    Way to go, station builders! You can now explain why the same 50 percent can feel like a wet towel or a crisp winter morning, and you can turn a humidity reading into a dew point. Next, Chapter 9 follows the Sun's energy, from Herschel's infrared surprise to the insolation that decides whether your solar panel keeps up.
 
 ## Check Yourself
 

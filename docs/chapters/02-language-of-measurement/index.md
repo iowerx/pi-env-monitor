@@ -40,6 +40,10 @@ This chapter builds on concepts from:
 
 ---
 
+!!! mascot-welcome "Units Aboard, Observers"
+    ![Mecha waving welcome](../../img/mascot/welcome.png){ class="mascot-admonition-img" }
+    Let's take a reading! This chapter makes sure every reading carries its unit, then shows you SI prefixes, unit conversion, scientific notation, and the words for how trustworthy a measurement is.
+
 ## The $327 Million Unit Error
 
 On 11 December 1998, NASA launched the Mars Climate Orbiter. It was a small spacecraft with a straightforward job: circle Mars and study its atmosphere and weather.
@@ -79,6 +83,10 @@ The history of the meter shows how these have changed:
 Notice the direction of travel. Standards moved from *an object somebody owns* to *a procedure anyone can repeat*. That matters because an object can be scratched, stolen, or slowly drift.
 
 That is not hypothetical. Until 2019 the kilogram was defined by a single platinum-iridium cylinder in a vault outside Paris, nicknamed Le Grand K. Official copies were distributed worldwide. When they were periodically compared, they had drifted apart by roughly 50 micrograms over a century. The unsettling part is that nobody could say which one had changed — because by definition, Le Grand K weighed exactly one kilogram no matter what happened to it. In 2019 the kilogram was redefined in terms of a fixed constant of nature, and the vault became a museum piece.
+
+!!! mascot-thinking "Who Checks the Checker?"
+    ![Mecha thinking](../../img/mascot/thinking.png){ class="mascot-admonition-img" }
+    Le Grand K is one of Mecha's favorite puzzles: how do you check the very object everything else is checked against? Standards that anyone can repeat mean nobody has to trust one metal cylinder in a vault.
 
 ## The SI System
 
@@ -211,6 +219,10 @@ Suppose you want to convert 12 inches to centimeters:
 \[ 12\ \text{in} \times \frac{2.54\ \text{cm}}{1\ \text{in}} = 30.48\ \text{cm} \]
 
 The inches cancel, top and bottom, leaving centimeters. If you set the fraction up upside down, the units will not cancel — you would get inches squared per centimeter, which is nonsense. That failure is the method's best feature. Watching the units cancel tells you whether you set the problem up correctly *before* you do any arithmetic.
+
+!!! mascot-tip "Ask If It Is Plausible"
+    ![Mecha pointing out a tip](../../img/mascot/tip.png){ class="mascot-admonition-img" }
+    After any conversion, ask whether the answer makes sense before you log it. Sea level pressure is about 1013 hPa, so if your converted reading comes out near 30 hPa or near 100,000 hPa, a unit slipped somewhere.
 
 Temperature is the awkward exception. Celsius and Fahrenheit do not share a zero point, so you cannot convert them by multiplying alone:
 
@@ -365,6 +377,10 @@ Implementation: Chart.js with `type: 'logarithmic'` swapped on the y-axis scale 
 
 The rest of this chapter is vocabulary you will use in every remaining chapter. These words get used loosely in conversation. They mean specific and different things here.
 
+!!! mascot-encouraging "Six Words, One at a Time"
+    ![Mecha giving a thumbs-up](../../img/mascot/encouraging.png){ class="mascot-admonition-img" }
+    This section brings six measurement-quality words at once, and even working scientists mix up accuracy and precision. Take them one at a time, and let the target range below show you each one in action.
+
 **Resolution** is the smallest change an instrument can detect and report. A thermometer that displays 21.3 °C has a resolution of 0.1 °C. If the true temperature rises by 0.04 °C, that thermometer will not notice.
 
 Resolution is about the *display*, not about correctness. A thermometer can have wonderful resolution and still be badly wrong. Reporting 21.347 °C when the truth is 25 °C is high resolution and terrible accuracy at the same time.
@@ -462,6 +478,10 @@ Calibration is not permanent. Sensors drift as they age, and Chapter 15 covers h
 - A **measurement scale** determines what arithmetic is legal. Celsius has an arbitrary zero, so 20 °C is not twice 10 °C. A **logarithmic scale** steps by multiplication, and is needed when values span many orders of magnitude.
 - **Resolution** is the smallest change detectable. **Accuracy** is closeness to truth. **Precision** is consistency between repeats. They are independent.
 - **Measurement uncertainty** states honestly how far off a reading might be. **Measurement range** is what the instrument can read at all. **Calibration** compares against a standard and corrects the difference.
+
+!!! mascot-celebration "Fluent in Measurement!"
+    ![Mecha celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
+    You can convert inches of mercury to hectopascals and tell a precise sensor from an accurate one, which is real instrument-builder vocabulary. Next, Chapter 3 moves to hardware: the Raspberry Pi, voltage, current, ground, GPIO pins, and static-safe habits.
 
 ## Check Yourself
 

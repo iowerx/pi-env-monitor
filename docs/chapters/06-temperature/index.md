@@ -47,6 +47,10 @@ This chapter builds on concepts from:
 
 ---
 
+!!! mascot-welcome "Let's Get Warmed Up"
+    ![Mecha waving welcome](../../img/mascot/welcome.png){ class="mascot-admonition-img" }
+    Temperature feels familiar, but underneath it is the motion of atoms. In this chapter we trace thermometers from Galileo's thermoscope to the silicon diode in your BME280, convert between Fahrenheit, Celsius, and Kelvin, and see why a Stevenson screen matters. Let's take a reading!
+
 ## What Is Actually Happening When Something Is Hot
 
 Everything is vibrating.
@@ -87,6 +91,10 @@ William Herschel found infrared in 1800 without looking for it. He was measuring
 It read higher than any of the colored bands.
 
 There was something beyond red carrying more energy than visible light did, and no eye could see it. Herschel called it "calorific rays." We call it infrared, and it is the basis of thermal cameras, non-contact thermometers, night vision, and the greenhouse effect.
+
+!!! mascot-thinking "Air or Ground?"
+    ![Mecha thinking](../../img/mascot/thinking.png){ class="mascot-admonition-img" }
+    This is a distinction I watch closely: the air and the asphalt beneath it can report very different temperatures at the same moment. Your station is built to measure the air, so keep both ideas in view as you read on.
 
 This gives your station two distinct temperatures to keep straight:
 
@@ -170,6 +178,10 @@ Kelvin and Celsius share a degree size, so only the offset is needed:
 There is one trap worth naming now, because it catches people every time they meet it. **A temperature and a temperature difference convert differently.**
 
 If the temperature rises by 5 °C, it has risen by 9 °F, not 41 °F. For a *change*, you apply only the ratio, never the offset — the two zero points cancel out when you subtract. Confusing a value with a difference produces answers that are wrong by exactly 32, which is a recognizable fingerprint when you see it in someone's data.
+
+!!! mascot-warning "Spot the Stray 32"
+    ![Mecha raising a caution](../../img/mascot/warning.png){ class="mascot-admonition-img" }
+    Watch for this in your own spreadsheets: run a 5 °C rise through the full formula and you get 41 °F instead of 9 °F. If a temperature change looks about 32 degrees too big, check whether the offset sneaked in.
 
 A useful rough conversion for mental arithmetic: double the Celsius value and add 30. For 20 °C that gives 70 °F, and the exact answer is 68 °F. Close enough to decide about a jacket.
 
@@ -335,6 +347,10 @@ The difference will commonly be 10 °C or more. Neither thermometer is broken. N
 
 The reason is radiation, the third mode of heat transfer. The sunlit thermometer is absorbing solar energy directly and heating up above the air around it. It is faithfully reporting its own temperature — it just is not reporting the air's.
 
+!!! mascot-tip "Run the Shade Test"
+    ![Mecha pointing out a tip](../../img/mascot/tip.png){ class="mascot-admonition-img" }
+    You can try the sun-versus-shade experiment yourself with two identical sensors, station builders. Seeing a gap of 10 °C or more in your own data is a clue about siting that you will never forget.
+
 This means an important thing about the phrase "air temperature." **There is no such thing as the temperature outside.** There is the temperature at a particular height, with particular shading, with particular airflow, over a particular surface. Change any of those and the number changes.
 
 Which is a problem for a worldwide record. If every station shields its thermometer differently, no two stations can be compared, and Chapter 1's whole premise falls apart.
@@ -420,6 +436,10 @@ Implementation: p5.js. Model each sensor's reading as trueAirTemp + solarLoad x 
 - **Temperature conversion** between Fahrenheit and Celsius needs both a ratio and an offset. A temperature *difference* uses the ratio only.
 - The **thermoelectric effect** gives us the **thermocouple**; metal resistance gives the **resistance thermometer**; semiconductors give the **thermistor**. Your station uses a silicon diode inside the BME280.
 - The **Stevenson screen** standardizes exposure. Without shade, airflow, and a standard height, a thermometer measures itself rather than the air.
+
+!!! mascot-celebration "Scales Mastered"
+    ![Mecha celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
+    You can now convert between all three temperature scales and explain why absolute zero is a real boundary. Next, Chapter 7 takes on barometric pressure, from Torricelli's tube of mercury to the silicon diaphragm inside your own sensor. Check the data, then check it again!
 
 ## Check Yourself
 

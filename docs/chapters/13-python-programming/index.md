@@ -33,6 +33,10 @@ This chapter builds on concepts from:
 
 ---
 
+!!! mascot-welcome "Welcome, Station Builders"
+    ![Mecha waving welcome](../../img/mascot/welcome.png){ class="mascot-admonition-img" }
+    Your BME280 is on the bus, and now it is time to tell the Pi what to do with it. Let's take a reading! In this chapter you will learn variables, functions, loops, conditionals, and libraries, then write a script that reads temperature, pressure, and humidity and keeps running even when the sensor hiccups.
+
 ## Instructions for a Machine That Does Not Guess
 
 You now have a sensor the Pi can see on the bus. Nobody has told the Pi what to do with it.
@@ -159,6 +163,10 @@ print(temp_f)    # 70.52
 
 That indentation is not decoration. **Python uses indentation to determine structure**, where most languages use braces. The indented lines belong to the function; the unindented lines that follow do not. Inconsistent indentation is a syntax error, and mixing tabs with spaces produces errors that are invisible on screen. Configure your editor to insert four spaces when you press Tab, and the problem disappears permanently.
 
+!!! mascot-warning "Tabs and Spaces Clash"
+    ![Mecha raising a caution](../../img/mascot/warning.png){ class="mascot-admonition-img" }
+    Mix a tab on one line with four spaces on the next and your code can look perfectly lined up while Python refuses to run it. Set your editor to insert four spaces for Tab before you type out `calculate_dew_point`, and that invisible error never shows up.
+
 Functions earn their place for three reasons:
 
 - **They avoid repetition.** Write the conversion once, use it everywhere.
@@ -234,6 +242,10 @@ That is Chapter 2's measurement range check written as code, and Chapter 15 buil
 A **loop** repeats a block of code.
 
 A monitoring station is essentially one enormous loop: read the sensors, write the values, wait, repeat, for months.
+
+!!! mascot-thinking "One Loop, Many Months"
+    ![Mecha thinking](../../img/mascot/thinking.png){ class="mascot-admonition-img" }
+    Read, write, wait, repeat. I like to picture a station as a single loop that never gets tired, where every reading you will ever collect is one more trip around it.
 
 Two kinds are worth knowing.
 
@@ -384,6 +396,10 @@ Note that this particular library returns pressure already converted to hectopas
 Here is the situation that separates a demonstration from a station.
 
 Your logger has been running for three weeks. At 03:17 on a Tuesday, a temperature swing causes a marginal solder joint to open briefly. The sensor does not respond. Your program crashes. It is 03:17, nobody notices, and you lose eleven days of data before anyone checks.
+
+!!! mascot-encouraging "A Crash Is a Clue"
+    ![Mecha giving a thumbs-up](../../img/mascot/encouraging.png){ class="mascot-admonition-img" }
+    If the 03:17 story makes you a little nervous, good: that means you are thinking like a station builder. An `OSError` is not a failure on your part, it is the sensor leaving you a clue, and `try` and `except` let your loop note that clue and keep going.
 
 **Exception handling** is a way of catching errors when they occur and deciding what to do about them, instead of letting the program stop.
 
@@ -549,6 +565,10 @@ That conditional means "only run `main()` if this file is being executed directl
 - A **Python library** is pre-written code. Seven lines with `adafruit_bme280` replace several hundred written from scratch. Always check what units a library returns.
 - **Exception handling** keeps a station alive through a transient fault. Catch specific errors, never use a bare `except: pass`, and always log the failure.
 - **Script execution** runs a `.py` file. A shebang plus execute permission makes it runnable directly.
+
+!!! mascot-celebration "Your Station Speaks Python"
+    ![Mecha celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
+    You went from a sensor on a bus to a Python script that reads it, checks it, and survives a failed read in the middle of the night! Next, Chapter 14 teaches that script to remember, with timestamped CSV files, header rows that name the units, rotation, backup, and metadata.
 
 ## Check Yourself
 

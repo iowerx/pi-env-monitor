@@ -39,6 +39,10 @@ This chapter builds on concepts from:
 
 ---
 
+!!! mascot-welcome "Welcome, Observers"
+    ![Mecha waving welcome](../../img/mascot/welcome.png){ class="mascot-admonition-img" }
+    A computer cannot feel heat or light, so how does a number ever reach it? In this chapter we follow a measurement from a physical change inside a sensor, through analog-to-digital conversion, to the digital value your Pi reads, and we learn to read a datasheet like a pro. Let's take a reading!
+
 ## The Problem With Computers
 
 A computer cannot feel anything.
@@ -106,6 +110,10 @@ So a computer needs a digital signal, and physics hands us an analog one. Someth
 **Analog-to-digital conversion** is the process of measuring an analog signal at particular moments and representing each measurement as a number. The circuit that does it is called an ADC.
 
 Conversion involves two separate approximations, and confusing them is a common source of error later.
+
+!!! mascot-thinking "Two Losses, Not One"
+    ![Mecha thinking](../../img/mascot/thinking.png){ class="mascot-admonition-img" }
+    Here is something I find fascinating: an ADC throws away information in two different ways, once in time and once in value. Keep sampling and quantization separate in your head, and the step-through below will show you each loss on its own.
 
 **Sampling** happens in time. Instead of watching the signal continuously, the ADC looks at it at regular instants and ignores everything in between. Sample once per second and you have one value per second — whatever happened during that second is gone.
 
@@ -198,6 +206,10 @@ MEMS devices are all around you:
 
 The airbag application is what created the industry. Cars needed a crash sensor that was cheap enough to put in every vehicle and reliable enough to be trusted with a life. Analog Devices shipped the ADXL50 in 1991, and within a decade the manufacturing volume had driven prices low enough that MEMS sensors became worth putting into everything. Chapter 11 returns to this, because a MEMS accelerometer is how a student station can detect an earthquake at all.
 
+!!! mascot-encouraging "One Idea to Hold"
+    ![Mecha giving a thumbs-up](../../img/mascot/encouraging.png){ class="mascot-admonition-img" }
+    This next part leaps from radio waves to gamma rays to Einstein, so it is fine if it feels like a lot. Hold on to the practical piece: light landing on silicon makes a current you can measure, and that is how the Chapter 9 solar sensor works.
+
 ### The Photoelectric Effect
 
 The third mechanism concerns light, so it needs one idea from physics first.
@@ -284,6 +296,10 @@ Typical figures for the sensors in this book:
 | MEMS accelerometer | Under a millisecond | Must be fast enough to catch a seismic P wave |
 
 This produces a rule you will use in Chapter 14: **never sample faster than your sensor can respond.** If a sensor needs a second to settle and you read it ten times per second, nine of those readings are the sensor still catching up to the previous change. You get more data and less information.
+
+!!! mascot-tip "Match the Sensor's Pace"
+    ![Mecha pointing out a tip](../../img/mascot/tip.png){ class="mascot-admonition-img" }
+    Before you decide how often your script reads a sensor, look up its response time in the table above or in its datasheet. For BME280 temperature, about one reading per second already keeps up with what the sensor can deliver.
 
 ## Filtering and Averaging
 
@@ -395,6 +411,10 @@ Datasheets look intimidating. The BME280's runs to about 60 pages of tables and 
 - **Sensor response time** is how long a sensor takes to reflect a change. Never sample faster than the sensor can respond.
 - **Sensor averaging** cuts random noise by \(\sqrt{N}\). **Sensor filtering** removes unwanted signal — including, if overdone, real events.
 - A **sensor datasheet** answers seven questions: range, accuracy, resolution, supply voltage, current draw, interface, and response time.
+
+!!! mascot-celebration "You Speak Sensor Now"
+    ![Mecha celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
+    Station builders, you can now trace a reading from transduction all the way to a digital number, and you know the seven datasheet facts to check before wiring anything. Next, Chapter 5 gives every reading its where and when, with coordinates, GPS, and UTC timestamps.
 
 ## Check Yourself
 

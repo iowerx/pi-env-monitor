@@ -41,6 +41,10 @@ This chapter builds on concepts from:
 
 ---
 
+!!! mascot-welcome "Time to Remember"
+    ![Mecha waving welcome](../../img/mascot/welcome.png){ class="mascot-admonition-img" }
+    Let's take a reading! And this time, let's keep it. In this chapter you will choose a sampling interval, write timestamped rows to a CSV file with units in the header, and protect that data with rotation, backup, and metadata.
+
 ## Everything So Far Has Been Thrown Away
 
 Every reading in this book so far has gone to the screen and then vanished.
@@ -95,6 +99,10 @@ A one-minute interval is the right default for a first station. It produces 1,44
 ## Time Series
 
 A **time series** is a sequence of measurements of the same quantity taken at successive points in time.
+
+!!! mascot-thinking "Order Is Information"
+    ![Mecha thinking](../../img/mascot/thinking.png){ class="mascot-admonition-img" }
+    A time series is a story told in order: 21.4, 21.5, 21.5 only means something because we know which reading came first and how far apart they were. That is why every row your station writes carries a timestamp.
 
 This is the fundamental shape of all your data, and it has properties that ordinary data does not:
 
@@ -196,6 +204,10 @@ def utc_timestamp():
 ```
 
 That `os.fsync` line is worth understanding. `flush()` pushes data out of Python's buffer to the operating system; `fsync()` tells the operating system to write it to the physical card. Without both, a power cut can lose readings that your program believed were saved. For a station running on battery in a field, that is not a theoretical concern.
+
+!!! mascot-warning "Append, Do Not Overwrite"
+    ![Mecha raising a caution](../../img/mascot/warning.png){ class="mascot-admonition-img" }
+    Open your data file with mode `"w"` instead of `"a"` and every restart of the script wipes `readings.csv` and starts over from nothing. Check that one letter in `open()` before you leave the logger running overnight.
 
 ## Storage on a Small Computer
 
@@ -454,6 +466,10 @@ Implementation: p5.js. Store each file as literal text plus a metadata object th
 
 ## Putting It Together
 
+!!! mascot-encouraging "One Function at a Time"
+    ![Mecha giving a thumbs-up](../../img/mascot/encouraging.png){ class="mascot-admonition-img" }
+    This is the longest program in the book so far, but you have already met every piece of it: `utc_now`, `calculate_dew_point`, `write_reading`, and the `try` block from Chapter 13. Read it one function at a time and it turns into a list of old friends.
+
 Here is the complete logger, assembling everything from Chapters 12, 13, and 14. Before reading it: it opens the sensor over I2C, then loops forever. Each pass computes the aligned next-minute time, reads the sensor inside a `try` block, computes dew point, appends a row to today's rotated file, and sleeps until the next whole minute. Failures are logged and the loop continues.
 
 ```python
@@ -541,6 +557,10 @@ Combine this with the systemd service from Chapter 12 and you have a station tha
 - **Data storage** on SD cards is limited by write endurance and sudden failure, not capacity. **File rotation** by ISO date keeps files small and contains corruption. **Data backup** follows 3-2-1, and an untested backup is not a backup.
 - A **database** buys fast queries and concurrent access at the cost of readability. Start with CSV; add SQLite when a specific problem demands it.
 - **Metadata** records where, how high, with what sensor, under what exposure, and with what processing. Without it, data is a pile of numbers. Write it on day one.
+
+!!! mascot-celebration "Your Station Remembers"
+    ![Mecha celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
+    Your station finally remembers, station builders! You built a logger that writes aligned, unit-labeled rows to a daily CSV file and logs its own failures. Next, Chapter 15 turns those rows into charts, moving averages, and forecasts, and shows you how to spot outliers, gaps, and drift.
 
 ## Check Yourself
 

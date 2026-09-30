@@ -46,6 +46,10 @@ This chapter builds on concepts from:
 
 ---
 
+!!! mascot-welcome "Boot Up, Station Builders"
+    ![Mecha waving welcome](../../img/mascot/welcome.png){ class="mascot-admonition-img" }
+    This is the chapter where your Raspberry Pi becomes a real station. You will work at the command line, make your logger run as a systemd service, and use `i2cdetect` to watch your BME280 answer on the I2C bus. Let's take a reading!
+
 ## No Desktop, No Icons, No Mouse
 
 Plug in the Raspberry Pi and connect to it. What you get is a screen that looks like this:
@@ -203,6 +207,10 @@ Running `ls -l` shows them:
 ```
 
 Reading the permission block `-rw-r--r--` from left to right: the first character is the file type (`-` for a normal file, `d` for a directory). Then three characters for owner (`rw-` — read and write, no execute), three for group (`r--` — read only), and three for others (`r--` — read only).
+
+!!! mascot-encouraging "Three Letters at a Time"
+    ![Mecha giving a thumbs-up](../../img/mascot/encouraging.png){ class="mascot-admonition-img" }
+    If `-rw-r--r--` looks like a secret code right now, that is completely normal. Read it in groups of three and it turns into plain answers about who may read, write, or run a file.
 
 Two permission problems will bite you in this project, and both look like software bugs:
 
@@ -374,6 +382,10 @@ This creates the one rule that matters: **no two devices on the same bus may sha
 
 The BME280 uses address `0x76` or `0x77` — hexadecimal, base 16, which is the conventional way to write these. Which one depends on how the breakout board wires its address pin, and it varies by manufacturer.
 
+!!! mascot-warning "Match the Address"
+    ![Mecha raising a caution](../../img/mascot/warning.png){ class="mascot-admonition-img" }
+    If your code asks for `0x77` but your breakout board answers at `0x76`, the sensor will look dead even though the wiring is perfect. Check which address `i2cdetect` actually shows, then use that exact number in your code.
+
 Enable I2C and check your wiring in two commands:
 
 ```
@@ -489,6 +501,10 @@ Inside it are three separate sensing elements, each of which you have already me
 
 The temperature element has a second job that is easy to miss. Both the pressure and humidity elements are themselves temperature-sensitive, so their raw readings would drift with temperature even at constant pressure and humidity. The chip measures its own temperature and uses it to compensate the other two. This means **the temperature reading is not optional** — even a program that only wants pressure must read temperature first, because the pressure compensation formula requires it.
 
+!!! mascot-thinking "The Chip Checks Itself"
+    ![Mecha thinking](../../img/mascot/thinking.png){ class="mascot-admonition-img" }
+    What I love about the BME280 is that its temperature element keeps the other two readings honest. That is why even a pressure-only program must read temperature first, because every number on this chip leans on that one.
+
 Key specifications, which are the Chapter 4 datasheet questions answered:
 
 | Specification | Value |
@@ -579,6 +595,10 @@ Implementation: p5.js. Draw blocks as labeled rectangles with bezier signal path
 - A **systemd service** starts your logger at boot, restarts it on failure, and keeps it running after you disconnect. Test it by rebooting.
 - The **I2C bus** carries data on two wires using an **I2C device address** per device. `i2cdetect` separates wiring faults from code faults instantly. **SPI bus** is faster but pin-hungry; **serial UART** is point-to-point and connects the **SIM7600A module**.
 - The **BME280 sensor** combines a piezoresistive pressure element, a capacitive humidity element, and a **silicon diode sensor** for temperature — which also compensates the other two.
+
+!!! mascot-celebration "Your Station Is Alive!"
+    ![Mecha celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
+    Your Pi now boots, runs your logger as a service that survives a reboot, and can see the BME280 on the I2C bus. Next, Chapter 13 teaches the Python that reads that sensor, from variables and loops to the exception handling that keeps the station running at three in the morning!
 
 ## Check Yourself
 

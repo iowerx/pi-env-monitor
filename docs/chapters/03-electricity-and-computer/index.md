@@ -36,6 +36,10 @@ This chapter builds on concepts from:
 
 ---
 
+!!! mascot-welcome "Meet Your Station's Brain"
+    ![Mecha waving welcome](../../img/mascot/welcome.png){ class="mascot-admonition-img" }
+    Welcome, station builders! This chapter introduces the Raspberry Pi Zero 2 W and the voltage, current, and ground basics you need to wire a sensor without harming it. Let's take a reading of the hardware first!
+
 ## A Whole Computer, Smaller Than a Credit Card
 
 Open the box. Inside is a green circuit board about the size of a stick of gum.
@@ -76,6 +80,10 @@ The relationship that matters for your safety and the board's:
 - Current is *drawn by* a device. The device decides how much it needs, and your job is to make sure the supply can provide it.
 
 That asymmetry catches beginners. Plugging a 3.3-volt sensor into a 5-volt pin will likely destroy the sensor, because you forced the wrong pressure on it. But connecting a sensor that draws 2 mA to a supply capable of 500 mA is completely fine — the sensor takes what it needs and ignores the rest.
+
+!!! mascot-thinking "Measured From Where?"
+    ![Mecha thinking](../../img/mascot/thinking.png){ class="mascot-admonition-img" }
+    Mecha notices something familiar here: a voltage only makes sense between two points, just as a measurement only makes sense against a standard. Watch for the point every voltage in your station is measured from.
 
 **Ground** is the reference point that all voltages are measured against, defined as zero volts. In the water analogy, ground is the drain that everything eventually returns to.
 
@@ -236,6 +244,10 @@ Jumper wires come in colors, and the colors mean nothing electrically. A red wir
 
 This is not fussiness. When a station has been in a box for six months and something stops working, the person opening the box — possibly you, having forgotten everything — needs to see at a glance where power and ground go. Following the convention costs nothing now and saves an hour later.
 
+!!! mascot-warning "Which Pin Two?"
+    ![Mecha raising a caution](../../img/mascot/warning.png){ class="mascot-admonition-img" }
+    Pin numbers come in two flavors, and mixing them up is a classic slip: the chip's GPIO 2 sits on physical pin 3, while physical pin 2 is a 5 V power pin. Count from pin 1 and check the pinout explorer before you push a jumper on.
+
 A **breadboard** is a plastic block full of spring-loaded holes that lets you build a circuit without soldering. Push a wire into a hole and it grips, making an electrical connection.
 
 The connections inside a breadboard follow a fixed pattern, and this pattern is the one thing about breadboards that must be understood:
@@ -300,6 +312,10 @@ Start with the problem it solves. A GPIO pin set as an input reads the voltage a
 
 A **pull-up resistor** is a resistor connected between a signal wire and the positive supply voltage. Its job is to gently hold the signal line high — at 3.3 V — whenever nothing else is actively driving it. When a device does drive the line low, it easily overcomes the gentle pull, and the line reads 0 V.
 
+!!! mascot-encouraging "Floating Pins Happen"
+    ![Mecha giving a thumbs-up](../../img/mascot/encouraging.png){ class="mascot-admonition-img" }
+    If pull-ups feel slippery, hold on to one picture: a gentle hand holding the line at 3.3 V until a device pulls it down. You'll meet this idea again with the I2C bus in Chapter 12, and it gets easier every time.
+
 The word "gently" is doing real work there. The resistor has enough resistance that only a tiny current flows through it, so any device can pull the line down without fighting hard. Typical pull-up values in this project are between 1,800 and 10,000 ohms.
 
 This matters to you because the I2C bus in Chapter 12 requires pull-up resistors on both of its wires. There is good news, though: almost every BME280 breakout board sold today includes the pull-up resistors on the board itself. You will probably never solder one. But when a sensor is not detected and everything else looks right, missing pull-ups is on the short list of causes.
@@ -363,6 +379,10 @@ Before doing anything else with the board, do a visual check. This costs a minut
 - **Jumper wires** make temporary connections; red for power and black for ground is a convention worth keeping. A **breadboard** connects holes in fixed groups, with no connection across the center channel.
 - A **pull-up resistor** holds a signal line high when nothing is driving it, preventing a floating input. The I2C bus needs them, and most breakout boards include them.
 - **Electrostatic discharge** can destroy a board at voltages far below what you can feel. Ground yourself before touching hardware, every time.
+
+!!! mascot-celebration "Hardware Ready!"
+    ![Mecha celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
+    Your board is inspected, your ground wire is in place, and you know why 5 V must never touch a GPIO pin. Next, Chapter 4 shows how a sensor turns a physical property into an electrical signal and then into a number.
 
 ## Check Yourself
 

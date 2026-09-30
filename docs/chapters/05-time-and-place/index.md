@@ -44,6 +44,10 @@ This chapter builds on concepts from:
 
 ---
 
+!!! mascot-welcome "Where and When?"
+    ![Mecha waving welcome](../../img/mascot/welcome.png){ class="mascot-admonition-img" }
+    A number without a place and a time is only half a reading. In this chapter we build latitude, longitude, and elevation, follow the race to solve the longitude problem, see how GPS finds you, and learn why your station stamps every reading in UTC. Let's take a reading!
+
 ## A Number That Lost Its Meaning
 
 Here is a temperature reading: **18.3 °C**.
@@ -115,6 +119,10 @@ The cost was measured in ships. In 1707 a British fleet under Admiral Shovell mi
 
 John Harrison, a Yorkshire carpenter and self-taught clockmaker, spent decades on the problem. His answer was a **marine chronometer**: a clock accurate and rugged enough to keep reference time through a long sea voyage. His fourth attempt, called H4 and finished in 1761, was a large watch about 13 centimeters across. On a voyage to Jamaica it lost only about five seconds over 81 days.
 
+!!! mascot-thinking "A Clock That Finds You"
+    ![Mecha thinking](../../img/mascot/thinking.png){ class="mascot-admonition-img" }
+    Look at those numbers: H4 drifted only about five seconds in 81 days, while a four-minute error put a ship a whole degree off. Every number tells a story, and this one says a good clock is really a position sensor.
+
 Harrison had a long fight to be paid, and the story of that fight is worth reading elsewhere. What matters here is the principle: **finding where you are turned out to be a problem of knowing what time it is.**
 
 That principle did not go away. It is exactly how GPS works today.
@@ -184,6 +192,10 @@ The same conference did something else that matters to your station. It establis
 Time zones are also a political construct rather than a scientific one, and it shows. China spans five geographic time zones and uses one. India and Iran use half-hour offsets, and Nepal uses a 45-minute offset. Many places shift by an hour twice a year for daylight saving, on dates that change by country and occasionally by year.
 
 Every one of those irregularities is a reason your station will not use local time.
+
+!!! mascot-encouraging "One Satellite at a Time"
+    ![Mecha giving a thumbs-up](../../img/mascot/encouraging.png){ class="mascot-admonition-img" }
+    GPS has more moving parts than anything so far, but it runs on ideas you already have: distances, circles, and a clock. Take it one satellite at a time, and the four-satellite rule will click into place.
 
 ## How GPS Finds You
 
@@ -313,6 +325,10 @@ Your station records UTC, always, and here is why local time fails:
 
 UTC has none of these problems. Convert to local time for display, if you want, at the moment you show it to a human. Never store it.
 
+!!! mascot-warning "Don't Fix It Later"
+    ![Mecha raising a caution](../../img/mascot/warning.png){ class="mascot-admonition-img" }
+    A common trap is logging local time and planning to convert it afterward. Once clocks go back and your file holds two readings stamped 01:30, no script can ever untangle them, so store UTC from the very first reading.
+
 The format matters too. Use ISO 8601, which is the international standard:
 
 ```
@@ -387,6 +403,10 @@ Implementation: p5.js. Store readings internally as true UTC instants and render
 - **Position fix accuracy** varies with satellite geometry, atmosphere, multipath, and obstruction. Vertical accuracy is always worse than horizontal.
 - The **WGS 84 datum** is the Earth-shape model GPS coordinates refer to. **GNSS** covers GPS, GLONASS, Galileo, and BeiDou together.
 - Every **timestamp** is recorded in **Coordinated Universal Time** using ISO 8601, because local time creates duplicate hours, missing hours, and unsortable records.
+
+!!! mascot-celebration "Every Reading Has a Home"
+    ![Mecha celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
+    Nice work, observers! You can now pin a reading to latitude, longitude, and elevation and stamp it in ISO 8601 UTC, just like a real station. Next, Chapter 6 turns to temperature: the motion of atoms, three scales that disagree about zero, and why shading a thermometer matters so much.
 
 ## Check Yourself
 

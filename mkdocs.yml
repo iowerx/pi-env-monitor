@@ -64,6 +64,7 @@ nav:
       - Graph Quality Analysis: learning-graph/quality-metrics.md
       - Taxonomy Distribution: learning-graph/taxonomy-distribution.md
       - Glossary Quality Report: learning-graph/glossary-quality-report.md
+      - Mascot Test: learning-graph/mascot-test.md
 
   - MicroSims:
     - List of MicroSims: sims/index.md
@@ -203,6 +204,7 @@ markdown_extensions:
 # Custom CSS — file is created by init-textbook
 extra_css:
   - css/extra.css
+  - css/mascot.css
 
 # Custom JavaScript — uncomment once a corresponding file exists
 # extra_javascript:

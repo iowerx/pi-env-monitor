@@ -45,6 +45,10 @@ This chapter builds on concepts from:
 
 ---
 
+!!! mascot-welcome "Welcome, Observers"
+    ![Mecha waving welcome](../../img/mascot/welcome.png){ class="mascot-admonition-img" }
+    A week of logging leaves you about ten thousand rows that no one can read by eye. Let's take a reading of the whole week at once! In this chapter you will build honest line charts and scatter plots, smooth noise with moving averages, compute pressure tendency, insolation, and wind gusts, and learn to catch outliers, gaps, and drift.
+
 ## Ten Thousand Numbers
 
 Your station has been running for a week. The file has about ten thousand rows.
@@ -160,6 +164,10 @@ Implementation: p5.js. Plot both charts from one shared dataset array so they pr
 
 A **scatter plot** shows the relationship between two variables by plotting one against the other, as unconnected points.
 
+!!! mascot-thinking "Where Did Time Go?"
+    ![Mecha thinking](../../img/mascot/thinking.png){ class="mascot-admonition-img" }
+    Here is something I find fascinating, observers: in a scatter plot, time vanishes from the axes. Each dot is one moment when two readings happened together, so a week of temperature and humidity becomes a cloud of points you can read for a relationship.
+
 Note what changed. In a line chart the x-axis is time. In a scatter plot **both axes are measurements**, and time disappears. Each point is one moment when both quantities had those two values.
 
 The points are not joined, because there is no assertion that intermediate combinations occurred.
@@ -236,6 +244,10 @@ The standard interpretation:
 | Falling more than −6 hPa | Falling very rapidly | Severe weather likely |
 
 **Barometric forecasting** is predicting weather from pressure tendency, and it is the technique FitzRoy built the first storm warning service on in the 1860s.
+
+!!! mascot-warning "Subtract in the Right Order"
+    ![Mecha raising a caution](../../img/mascot/warning.png){ class="mascot-admonition-img" }
+    Pressure tendency is the current pressure minus the pressure three hours ago, never the other way around. Flip the subtraction and a storm's 4 hPa fall shows up as +4 hPa rising, the opposite forecast.
 
 Combined with the wind direction shift and dew point change that Chapter 10 described, a falling tendency of more than 3 hPa in three hours is a genuine forecast you can make from your own station, hours before there is anything to see.
 
@@ -348,6 +360,10 @@ Implementation: p5.js. Pre-generate realistic multi-day series as static data. C
 </details>
 
 ## When the Data Is Wrong
+
+!!! mascot-encouraging "Strange Readings Are Clues"
+    ![Mecha giving a thumbs-up](../../img/mascot/encouraging.png){ class="mascot-admonition-img" }
+    A weird spike or a six-hour gap can feel like the station let you down, but it has really handed you a clue. The range check, the rate-of-change check, and asking whether other channels agree are how you follow that clue to its cause.
 
 Charts do a second job: they show you that something has gone wrong. This half of the chapter is about that.
 
@@ -507,6 +523,10 @@ Implementation: p5.js. Generate each case as static multi-channel data with a do
 - **Pressure tendency** over 3 hours enables **barometric forecasting**. **Insolation** is the area under the irradiance curve. **Sustained wind speed** and **wind gust** are computed over windows, and the **Saffir Simpson scale** depends on which window.
 - **Data validation** checks range and rate of change. An **outlier** is a question — check whether other channels agree. Flag, never delete.
 - **Missing data** must stay visible. **Sensor drift** is detected by comparison against a reference, physical fixed points, or a nearby station.
+
+!!! mascot-celebration "Now the Data Talks"
+    ![Mecha celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
+    You turned ten thousand rows into charts, forecasts, and quality checks that can tell a cold front from a loose wire! Every number tells a story, and now you can read it. Next, Chapter 16 takes the station outdoors with siting, weatherproof enclosures, a power budget built on your insolation numbers, and telemetry.
 
 ## Check Yourself
 
