@@ -1,0 +1,69 @@
+{
+  "title": "Sampling Interval Trade-off Bench",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Five continuous signals sampled at six intervals, showing the true signal, the reconstruction a CSV reader would see, which annotated events were missed, the storage and power cost of each interval, and a verdict that depends on the stated monitoring purpose.",
+  "date": "2026-09-30",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Sampling Interval Trade-off Bench",
+    "learningObjectives": [
+      "Justify a sampling interval for a stated monitoring purpose.",
+      "Weigh captured detail against file size, power and SD card wear.",
+      "Identify an event that a given interval misses entirely.",
+      "State why dense data can be thinned but sparse data cannot be enriched."
+    ],
+    "bloomsTaxonomy": "Evaluate (L5)",
+    "duration": "20-25 minutes",
+    "prerequisites": [
+      "Chapter 14: sampling interval, storage and card endurance",
+      "Chapters 9, 10 and 11 for the cloud, gust and P wave events"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 648
+    },
+    "canvasHeight": 648,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration",
+    "keyQuestions": [
+      "What is the fastest thing you actually need to see?",
+      "Is 60 seconds a good interval? Good for what?",
+      "What does a year of data at this interval cost in megabytes?",
+      "If you are unsure, should you sample faster or slower than you think you need?"
+    ],
+    "commonMisconceptions": [
+      "Faster sampling is always better.",
+      "There is one correct sampling interval for a weather station.",
+      "Storage capacity is the reason not to sample quickly.",
+      "Data that has gaps in an event can be interpolated back."
+    ],
+    "assessmentOpportunities": [
+      "Records the sample count inside an event at each interval.",
+      "Explains why one interval is adequate for one purpose and not another.",
+      "Defends a chosen interval against detail, volume and card wear together."
+    ]
+  },
+  "chapter": "14-data-logging"
+}

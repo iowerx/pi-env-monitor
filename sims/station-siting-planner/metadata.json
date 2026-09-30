@@ -1,0 +1,69 @@
+{
+  "title": "Station Siting Planner",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "A plan view of a school site with a draggable station, geometrically computed shadow, clearance, surface and sky-view layers, a mast configuration panel, and a scorecard rating all seven measured quantities from one placement.",
+  "date": "2026-09-30",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Station Siting Planner",
+    "learningObjectives": [
+      "Recommend a station location and justify it against all seven exposure requirements.",
+      "Identify which exposure requirements conflict with each other.",
+      "Explain why the shield must not sit above the solar sensor.",
+      "Explain why a seismometer cannot share the mast."
+    ],
+    "bloomsTaxonomy": "Evaluate (L5)",
+    "duration": "25-30 minutes",
+    "prerequisites": [
+      "Chapter 16: siting, clearance and enclosures",
+      "Chapter 6 radiation shields; Chapter 9 albedo; Chapter 11 seismic mounting"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 652
+    },
+    "canvasHeight": 652,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration",
+    "keyQuestions": [
+      "Where on this site can all seven sensors be well exposed at once?",
+      "What does the four-times-height rule actually rule out?",
+      "Why is the best-exposed spot the hardest one to power?",
+      "What is the mast doing to your accelerometer?"
+    ],
+    "commonMisconceptions": [
+      "A convenient location near power is good enough.",
+      "Shade is only a problem in summer.",
+      "One location can be optimal for every sensor without compromise.",
+      "An accelerometer can be mounted anywhere on the station."
+    ],
+    "assessmentOpportunities": [
+      "Records all seven scores for each candidate and names the trade in each.",
+      "Finds an all-good placement unaided and explains what makes it work.",
+      "Creates and then resolves the shield-over-solar shadow."
+    ]
+  },
+  "chapter": "16-building-for-outdoors"
+}

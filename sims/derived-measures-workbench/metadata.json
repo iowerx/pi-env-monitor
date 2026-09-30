@@ -1,0 +1,69 @@
+{
+  "title": "Derived Measures Workbench",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "A draggable window over realistic multi-day series, with the arithmetic on the samples inside it written out in full and the resulting derived series plotted beneath on the same time axis, for pressure tendency, insolation, sustained wind and gust.",
+  "date": "2026-09-30",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Derived Measures Workbench",
+    "learningObjectives": [
+      "Calculate pressure tendency, insolation, sustained wind and gust from a raw series.",
+      "Explain why each measure requires a span rather than a single reading.",
+      "State the gust definition relative to sustained speed and apply it to a borderline case.",
+      "Recognise that sustained wind depends on the averaging period chosen."
+    ],
+    "bloomsTaxonomy": "Apply (L3)",
+    "duration": "20-25 minutes",
+    "prerequisites": [
+      "Chapter 15: pressure tendency, insolation, sustained wind and gust",
+      "Chapter 7 on value versus trend; Chapter 9 on irradiance"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 660
+    },
+    "canvasHeight": 660,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration",
+    "keyQuestions": [
+      "Why can pressure tendency not be read from one row of your CSV?",
+      "What is the difference between irradiance and insolation?",
+      "Does a 2-minute and a 10-minute average of the same wind give the same answer?",
+      "Why is a visible spike sometimes not reported as a gust?"
+    ],
+    "commonMisconceptions": [
+      "A derived measure is just a unit conversion.",
+      "A low pressure reading means a storm is coming.",
+      "Sustained wind speed has one correct definition.",
+      "Any peak above the average is a gust."
+    ],
+    "assessmentOpportunities": [
+      "Reproduces a tendency calculation by hand from the marked values.",
+      "Records the two sustained-wind answers for one window and explains the difference.",
+      "Identifies a spike that fails the gust threshold and states why."
+    ]
+  },
+  "chapter": "15-charting-and-analysis"
+}

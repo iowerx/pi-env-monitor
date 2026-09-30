@@ -153,11 +153,19 @@
          <lastmod>2026-09-30</lastmod>
     </url>
     <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/sims/anatomy-of-a-data-file/</loc>
+         <lastmod>2026-09-30</lastmod>
+    </url>
+    <url>
          <loc>https://iowerx.github.io/pi-env-monitor/sims/apparent-temperature-explorer/</loc>
          <lastmod>2026-09-30</lastmod>
     </url>
     <url>
          <loc>https://iowerx.github.io/pi-env-monitor/sims/atmospheric-layers-explorer/</loc>
+         <lastmod>2026-09-30</lastmod>
+    </url>
+    <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/sims/axis-honesty-lab/</loc>
          <lastmod>2026-09-30</lastmod>
     </url>
     <url>
@@ -177,7 +185,19 @@
          <lastmod>2026-09-30</lastmod>
     </url>
     <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/sims/data-quality-detective/</loc>
+         <lastmod>2026-09-30</lastmod>
+    </url>
+    <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/sims/derived-measures-workbench/</loc>
+         <lastmod>2026-09-30</lastmod>
+    </url>
+    <url>
          <loc>https://iowerx.github.io/pi-env-monitor/sims/early-warning-race/</loc>
+         <lastmod>2026-09-30</lastmod>
+    </url>
+    <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/sims/environmental-claim-checker/</loc>
          <lastmod>2026-09-30</lastmod>
     </url>
     <url>
@@ -225,6 +245,10 @@
          <lastmod>2026-09-30</lastmod>
     </url>
     <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/sims/measurement-to-decision-explorer/</loc>
+         <lastmod>2026-09-30</lastmod>
+    </url>
+    <url>
          <loc>https://iowerx.github.io/pi-env-monitor/sims/monitoring-station-anatomy/</loc>
          <lastmod>2026-09-30</lastmod>
     </url>
@@ -234,6 +258,10 @@
     </url>
     <url>
          <loc>https://iowerx.github.io/pi-env-monitor/sims/observation-or-measurement-sorter/</loc>
+         <lastmod>2026-09-30</lastmod>
+    </url>
+    <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/sims/power-budget-calculator/</loc>
          <lastmod>2026-09-30</lastmod>
     </url>
     <url>
@@ -249,7 +277,19 @@
          <lastmod>2026-09-30</lastmod>
     </url>
     <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/sims/python-code-tracer/</loc>
+         <lastmod>2026-09-30</lastmod>
+    </url>
+    <url>
          <loc>https://iowerx.github.io/pi-env-monitor/sims/radiation-shield-lab/</loc>
+         <lastmod>2026-09-30</lastmod>
+    </url>
+    <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/sims/resilient-logger-bench/</loc>
+         <lastmod>2026-09-30</lastmod>
+    </url>
+    <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/sims/sampling-interval-bench/</loc>
          <lastmod>2026-09-30</lastmod>
     </url>
     <url>
@@ -262,6 +302,10 @@
     </url>
     <url>
          <loc>https://iowerx.github.io/pi-env-monitor/sims/solar-irradiance-day-explorer/</loc>
+         <lastmod>2026-09-30</lastmod>
+    </url>
+    <url>
+         <loc>https://iowerx.github.io/pi-env-monitor/sims/station-siting-planner/</loc>
          <lastmod>2026-09-30</lastmod>
     </url>
     <url>
