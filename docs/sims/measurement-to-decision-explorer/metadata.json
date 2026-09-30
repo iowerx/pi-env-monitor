@@ -1,0 +1,70 @@
+{
+  "title": "Measurement to Decision Explorer",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "A three-layer directed graph of seven measurements, ten derived quantities and fifteen real-world decisions, with downstream and upstream highlighting, a chapter filter, and a sensor-failure mode that counts which decisions become impossible.",
+  "date": "2026-09-30",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Measurement to Decision Explorer",
+    "learningObjectives": [
+      "Organise the relationships between measured quantities and the decisions they drive.",
+      "Trace any decision back to the measurements it requires.",
+      "Identify which decisions depend on more than one quantity.",
+      "Judge which measurement matters most for a given decision."
+    ],
+    "bloomsTaxonomy": "Analyze (L4)",
+    "duration": "20-25 minutes",
+    "prerequisites": [
+      "Chapters 5 to 11, which introduce the seven measurements",
+      "Chapter 15 on derived quantities",
+      "Chapter 17 on measurement and consequence"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "vis-network",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 648
+    },
+    "canvasHeight": 648,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration",
+    "keyQuestions": [
+      "How many decisions does one measurement reach?",
+      "Which decisions need more than one measurement?",
+      "What stops working if this sensor fails?",
+      "What does this station not measure that these decisions need?"
+    ],
+    "commonMisconceptions": [
+      "Each measurement supports one kind of decision.",
+      "A single measurement is enough to support a consequential decision.",
+      "Every sensor on the station is equally important.",
+      "A station measures everything a decision needs."
+    ],
+    "assessmentOpportunities": [
+      "Lists every measurement a named decision requires.",
+      "Ranks the seven sensors by how many decisions fail without each.",
+      "Names the decisions with inputs the station cannot supply."
+    ]
+  },
+  "chapter": "17-measurement-to-consequence"
+}

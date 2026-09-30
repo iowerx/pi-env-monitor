@@ -111,7 +111,7 @@ There is a related trap specific to comparison. When you plot two charts side by
 
 #### Diagram: Axis Honesty Lab
 
-<iframe src="../../sims/axis-honesty-lab/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/axis-honesty-lab/main.html" width="100%" height="662px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Axis Honesty Lab</summary>
@@ -306,7 +306,7 @@ Chapter 10's wind load rule applies here too. A category 5 is not five times a c
 
 #### Diagram: Derived Measures Workbench
 
-<iframe src="../../sims/derived-measures-workbench/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/derived-measures-workbench/main.html" width="100%" height="666px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Derived Measures Workbench</summary>
@@ -468,7 +468,7 @@ Four ways to detect it:
 
 #### Diagram: Data Quality Detective
 
-<iframe src="../../sims/data-quality-detective/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/data-quality-detective/main.html" width="100%" height="692px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Data Quality Detective</summary>

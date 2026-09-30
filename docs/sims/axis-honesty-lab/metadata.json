@@ -1,0 +1,68 @@
+{
+  "title": "Axis Honesty Lab",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Two charts plotting one shared dataset with independently draggable y-axes, a live reader impression under each, an occupancy readout, and a verdict that judges the axis choice against a learner-selected claim.",
+  "date": "2026-09-30",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Axis Honesty Lab",
+    "learningObjectives": [
+      "Critique chart presentations of identical data.",
+      "Judge which axis choices are honest for a stated claim and which mislead.",
+      "Construct a defensible presentation for a given audience and claim.",
+      "Explain why joining a line across a data gap is misleading regardless of scale."
+    ],
+    "bloomsTaxonomy": "Evaluate (L5)",
+    "duration": "20-25 minutes",
+    "prerequisites": [
+      "Chapter 15: line charts and honest axis labelling"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 656
+    },
+    "canvasHeight": 656,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration",
+    "keyQuestions": [
+      "Can two accurate charts of the same data tell opposite stories?",
+      "Is truncating the y-axis always dishonest?",
+      "What would protect a reader from a misleading axis without changing the data?",
+      "What does a line drawn across a six-hour gap assert?"
+    ],
+    "commonMisconceptions": [
+      "Never truncate the y-axis.",
+      "A chart cannot mislead if every plotted point is accurate.",
+      "Including zero always makes a chart honest.",
+      "Gaps should be joined up so the line is continuous."
+    ],
+    "assessmentOpportunities": [
+      "Explains how both charts can be accurate while implying opposite conclusions.",
+      "Identifies the dataset where a tight axis is the honest choice.",
+      "Names the disclosures that make a truncated axis defensible."
+    ]
+  },
+  "chapter": "15-charting-and-analysis"
+}

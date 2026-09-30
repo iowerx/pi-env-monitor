@@ -111,7 +111,7 @@ The seismic sensor conflicts too. It wants to be rigidly coupled to the ground, 
 
 #### Diagram: Station Siting Planner
 
-<iframe src="../../sims/station-siting-planner/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/station-siting-planner/main.html" width="100%" height="658px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Station Siting Planner</summary>
@@ -315,7 +315,7 @@ Batching transmissions is the biggest software-only win. Writing every reading t
 
 #### Diagram: Power Budget Calculator
 
-<iframe src="../../sims/power-budget-calculator/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/power-budget-calculator/main.html" width="100%" height="690px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Power Budget Calculator</summary>

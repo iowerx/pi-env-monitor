@@ -1,0 +1,68 @@
+{
+  "title": "Environmental Claim Checker",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Eight environmental claims styled as the media they came from, each critiqued against the book's six diagnostic questions, scored on both the overall judgment and the per-question verdicts, with one sound claim included deliberately.",
+  "date": "2026-09-30",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Environmental Claim Checker",
+    "learningObjectives": [
+      "Critique environmental claims against explicit criteria.",
+      "Identify the specific question that decides each case.",
+      "Judge whether the evidence presented supports the conclusion drawn.",
+      "Recognise a well-supported claim rather than applying blanket scepticism."
+    ],
+    "bloomsTaxonomy": "Evaluate (L5)",
+    "duration": "30-35 minutes",
+    "prerequisites": [
+      "The whole book: each case turns on a specific chapter's lesson"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 672
+    },
+    "canvasHeight": 672,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration",
+    "keyQuestions": [
+      "What exactly was measured, and with what exposure?",
+      "Over what period, and is that weather or climate?",
+      "How many digits does the instrument's accuracy justify?",
+      "Is a physical mechanism named, or only a correlation?"
+    ],
+    "commonMisconceptions": [
+      "Any claim with a number in it is evidence.",
+      "All media claims about the environment are misleading.",
+      "An official source does not need to state its method.",
+      "A record temperature is comparable to older records regardless of exposure."
+    ],
+    "assessmentOpportunities": [
+      "Scores well on both the verdict and the per-question breakdown.",
+      "Writes the single sentence that would make a misleading claim defensible.",
+      "Correctly identifies the sound claim as sound."
+    ]
+  },
+  "chapter": "17-measurement-to-consequence"
+}

@@ -1,0 +1,70 @@
+{
+  "title": "Anatomy of a Good Data File",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Six CSV files, each broken in exactly one way, each paired with an analysis question it cannot answer, plus a repair mode and a seven-question metadata checklist judged by a six-months-later test.",
+  "date": "2026-09-30",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Anatomy of a Good Data File",
+    "learningObjectives": [
+      "Critique real data files against a usability standard.",
+      "Identify the specific omission that makes a given file uninterpretable.",
+      "Construct a header row and metadata record that repairs it.",
+      "Judge a file against a reader who has no memory of the installation."
+    ],
+    "bloomsTaxonomy": "Evaluate (L5)",
+    "duration": "25-30 minutes",
+    "prerequisites": [
+      "Chapter 14: CSV structure, header rows and metadata",
+      "Chapter 5: ISO 8601 and time zones",
+      "Chapter 7: station versus sea-level pressure"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 664
+    },
+    "canvasHeight": 664,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration",
+    "keyQuestions": [
+      "What is the third column of a file with no header?",
+      "Can 995 hPa be interpreted without knowing the elevation?",
+      "Which of two rows stamped 01:30 came first?",
+      "Would this file still be usable to you next spring?"
+    ],
+    "commonMisconceptions": [
+      "My own data is self-explanatory.",
+      "A header row is enough documentation.",
+      "Units can be inferred from the magnitude of the numbers.",
+      "Local timestamps are fine as long as you know your own time zone."
+    ],
+    "assessmentOpportunities": [
+      "Selects 'cannot be determined' correctly and names the missing information.",
+      "Repairs a file until the original question becomes answerable.",
+      "Passes the six-months-later test with a file of their own design."
+    ]
+  },
+  "chapter": "14-data-logging"
+}

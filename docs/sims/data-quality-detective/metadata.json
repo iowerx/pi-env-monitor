@@ -1,0 +1,69 @@
+{
+  "title": "Data Quality Detective",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Seven cases of multi-channel station data on a shared time axis with a log strip and a comparison-station overlay, each containing exactly one anomaly, scored on both the diagnosis and the evidence cited for it.",
+  "date": "2026-09-30",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Data Quality Detective",
+    "learningObjectives": [
+      "Differentiate instrument faults from real environmental events.",
+      "Justify a diagnosis by checking whether other channels moved consistently.",
+      "Recognise sensor drift, which no single reading reveals.",
+      "Apply the flag-do-not-delete rule to suspect data."
+    ],
+    "bloomsTaxonomy": "Analyze (L4)",
+    "duration": "30-35 minutes",
+    "prerequisites": [
+      "Chapter 15: outliers, missing data, drift and validation",
+      "Chapter 6 on radiation shields; Chapter 9 on cloud-edge enhancement"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 686
+    },
+    "canvasHeight": 686,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration",
+    "keyQuestions": [
+      "If one channel moves and the others do not, what does that tell you?",
+      "How would you detect a fault that no single reading reveals?",
+      "Is every real reading a weather observation?",
+      "Should a suspect row be deleted or flagged?"
+    ],
+    "commonMisconceptions": [
+      "An extreme reading is always an error.",
+      "A fault can be diagnosed from the channel it appears in.",
+      "Bad data should be deleted from the file.",
+      "Any irradiance reading above the clear-sky value must be a fault."
+    ],
+    "assessmentOpportunities": [
+      "Diagnoses each case and cites only the evidence that actually holds.",
+      "Solves the drift case using the comparison overlay.",
+      "Distinguishes the breathing case from the frontal passage and explains both."
+    ]
+  },
+  "chapter": "15-charting-and-analysis"
+}

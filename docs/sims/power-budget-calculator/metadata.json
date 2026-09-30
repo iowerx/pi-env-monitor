@@ -1,0 +1,69 @@
+{
+  "title": "Power Budget Calculator",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "A year-long day-by-day battery state-of-charge simulation starting in March, with an itemised daily load, the 0.7 panel loss factor shown as a separate step, temperature derating, a bad-week stress test and a pass or fail verdict naming the month of failure.",
+  "date": "2026-09-30",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Power Budget Calculator",
+    "learningObjectives": [
+      "Judge whether a panel, battery and duty cycle will survive the worst month.",
+      "Justify a design against a simulated year rather than an average day.",
+      "Quantify how much of a fix comes from software rather than hardware.",
+      "Explain why cold weather attacks both solar input and battery capacity."
+    ],
+    "bloomsTaxonomy": "Evaluate (L5)",
+    "duration": "25-30 minutes",
+    "prerequisites": [
+      "Chapter 16: power budgets, solar sizing, autonomy and duty cycling",
+      "Chapter 15: insolation"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 684
+    },
+    "canvasHeight": 684,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration",
+    "keyQuestions": [
+      "Will this station survive December?",
+      "Why does a station built in May fail in November?",
+      "Does a bigger battery fix an energy deficit?",
+      "What is the cheapest change that keeps this station alive?"
+    ],
+    "commonMisconceptions": [
+      "A design that works in summer will work all year.",
+      "A bigger battery solves a power shortfall.",
+      "Sizing the panel is a hardware problem only.",
+      "Battery capacity is the same in winter as in summer."
+    ],
+    "assessmentOpportunities": [
+      "Names the month a default design fails and explains why spring testing misses it.",
+      "Records the saving from each duty-cycle measure and its cost.",
+      "Specifies a configuration that survives a bad week in the worst month."
+    ]
+  },
+  "chapter": "16-building-for-outdoors"
+}

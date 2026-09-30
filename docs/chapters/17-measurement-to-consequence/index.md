@@ -196,7 +196,7 @@ The particularly dangerous combination has a name in several regions: hot, very 
 
 #### Diagram: Measurement to Decision Explorer
 
-<iframe src="../../sims/measurement-to-decision-explorer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/measurement-to-decision-explorer/main.html" width="100%" height="654px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Measurement to Decision Explorer</summary>
@@ -327,7 +327,7 @@ The structure that works for a project write-up:
 
 #### Diagram: Environmental Claim Checker
 
-<iframe src="../../sims/environmental-claim-checker/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/environmental-claim-checker/main.html" width="100%" height="678px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Environmental Claim Checker</summary>

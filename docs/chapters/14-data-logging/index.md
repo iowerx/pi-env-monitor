@@ -278,7 +278,7 @@ For a school station that might be: the SD card in the station, a copy on a scho
 
 #### Diagram: Sampling Interval Trade-off Bench
 
-<iframe src="../../sims/sampling-interval-bench/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/sampling-interval-bench/main.html" width="100%" height="654px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Sampling Interval Trade-off Bench</summary>
@@ -425,7 +425,7 @@ Two entries in it deserve highlighting. `"pressure_reported": "station pressure,
 
 #### Diagram: Anatomy of a Good Data File
 
-<iframe src="../../sims/anatomy-of-a-data-file/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/anatomy-of-a-data-file/main.html" width="100%" height="670px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Anatomy of a Good Data File</summary>

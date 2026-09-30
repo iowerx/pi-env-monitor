@@ -1,0 +1,68 @@
+{
+  "title": "Python Code Tracer",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Six pre-authored Python programs replayed forwards and backwards, showing the current line, every variable with its value and type, and console output, with a prediction prompt before each state change.",
+  "date": "2026-09-30",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Python Code Tracer",
+    "learningObjectives": [
+      "Execute a Python program mentally by stepping through it line by line.",
+      "Predict the value and type of a variable before it is revealed.",
+      "Explain how loops and conditionals change the order of execution.",
+      "State why floating point values must not be compared with =="
+    ],
+    "bloomsTaxonomy": "Apply (L3)",
+    "duration": "25-30 minutes",
+    "prerequisites": [
+      "Chapter 13: variables, data types, functions, conditionals and loops"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 644
+    },
+    "canvasHeight": 644,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration",
+    "keyQuestions": [
+      "What is the value and type of this variable after the next line runs?",
+      "Why does nothing after an unhandled exception run?",
+      "Which branch of the ladder runs, and why are the later tests skipped?",
+      "Why does 0.1 + 0.2 == 0.3 evaluate to False?"
+    ],
+    "commonMisconceptions": [
+      "A string that looks like a number can be used in arithmetic.",
+      "range(4) produces 1, 2, 3, 4.",
+      "The value stored in a variable is the value printed to the console.",
+      "Every branch of an if/elif ladder is tested."
+    ],
+    "assessmentOpportunities": [
+      "Scores well in prediction mode across several programs.",
+      "Explains the difference between average in the variables panel and in the console.",
+      "Identifies the zero-start in range() as the cause of the off-by-one program's output."
+    ]
+  },
+  "chapter": "13-python-programming"
+}

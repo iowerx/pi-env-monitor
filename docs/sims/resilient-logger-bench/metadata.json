@@ -1,0 +1,69 @@
+{
+  "title": "Resilient Logger Fault Bench",
+  "creator": "Hank R. & Claude Code",
+  "subject": "Environmental Monitoring",
+  "description": "Five logger loops running the same read-and-append cycle against one shared fault timeline, each producing its own data file, log file and end-of-run verdict, plus a learner-configured fifth strategy.",
+  "date": "2026-09-30",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Science and Engineering",
+    "topic": "Resilient Logger Fault Bench",
+    "learningObjectives": [
+      "Critique four error-handling strategies against injected faults.",
+      "Judge which strategy preserves both the data and the ability to explain it later.",
+      "Explain why a bare except is worse than no handling at all.",
+      "Identify which exception types a handler must catch to survive a given fault."
+    ],
+    "bloomsTaxonomy": "Evaluate (L5)",
+    "duration": "25-30 minutes",
+    "prerequisites": [
+      "Chapter 13: exception handling and the logger loop",
+      "Chapter 12: what an OSError from an I2C read means"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 664
+    },
+    "canvasHeight": 664,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration",
+    "keyQuestions": [
+      "Which matters more, a logger that never stops or a logger that records why it stopped?",
+      "What happens when you press Ctrl-C on a logger with a bare except?",
+      "How would you tell, six months later, whether a gap was weather or a bug?",
+      "Can the code inside an except block fail?"
+    ],
+    "commonMisconceptions": [
+      "Any try/except is better than none.",
+      "except: pass makes a program robust.",
+      "A logger that keeps running has not lost anything.",
+      "An exception handler cannot itself raise an exception."
+    ],
+    "assessmentOpportunities": [
+      "Records the outcome of one fault across all five strategies and explains the differences.",
+      "Explains the KeyboardInterrupt case in their own words.",
+      "Configures a fifth logger that matches or beats the recommended pattern on both criteria."
+    ]
+  },
+  "chapter": "13-python-programming"
+}
