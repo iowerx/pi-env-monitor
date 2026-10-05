@@ -1,6 +1,6 @@
 {
   "title": "Apparent Temperature Explorer",
-  "creator": "Hank R. & Claude Code",
+  "creator": "Hank Ratzesberger & Claude Code",
   "subject": "Environmental Monitoring",
   "description": "Wind chill and heat index drawn as two regimes of one apparent-temperature surface, with a target selector that shows objects cooling to the air temperature and a wet bulb zone where evaporative cooling fails.",
   "date": "2026-09-03",

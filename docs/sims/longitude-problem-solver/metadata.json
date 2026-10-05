@@ -1,6 +1,6 @@
 {
   "title": "The Longitude Problem Solver",
-  "creator": "Hank R. & Claude Code",
+  "creator": "Hank Ratzesberger & Claude Code",
   "subject": "Environmental Monitoring",
   "description": "Calculate longitude from the gap between local noon and a chronometer, then introduce a clock error and watch the ship slide across the ocean.",
   "date": "2026-09-02",

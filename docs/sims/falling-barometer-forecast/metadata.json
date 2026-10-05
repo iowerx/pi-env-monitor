@@ -1,6 +1,6 @@
 {
   "title": "Falling Barometer Forecast Trainer",
-  "creator": "Hank R. & Claude Code",
+  "creator": "Hank Ratzesberger & Claude Code",
   "subject": "Environmental Monitoring",
   "description": "Six pressure traces, the last twelve hours hidden. Commit to a forecast, then find out. Several traces are built so that the value and the trend disagree.",
   "date": "2026-09-02",

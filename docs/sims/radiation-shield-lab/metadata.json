@@ -1,6 +1,6 @@
 {
   "title": "Radiation Shield Comparison Lab",
-  "creator": "Hank R. & Claude Code",
+  "creator": "Hank Ratzesberger & Claude Code",
   "subject": "Environmental Monitoring",
   "description": "Four differently sited sensors, one simulated day, one known true air temperature. Then the labels come off and you have to name the fault from the shape of the error.",
   "date": "2026-09-02",

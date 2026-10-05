@@ -1,6 +1,6 @@
 {
   "title": "Pressure and Altitude Calculator",
-  "creator": "Hank R. & Claude Code",
+  "creator": "Hank Ratzesberger & Claude Code",
   "subject": "Environmental Monitoring",
   "description": "Correct a station reading to sea level, see it in five units at once, and settle whether a difference between two stations is weather or geography.",
   "date": "2026-09-02",

@@ -1,6 +1,6 @@
 {
   "title": "Fog Watch: Temperature and Dew Point Convergence",
-  "creator": "Hank R. & Claude Code",
+  "creator": "Hank Ratzesberger & Claude Code",
   "subject": "Environmental Monitoring",
   "description": "Six overnight traces. Commit to dew, frost, fog or nothing at 22:00, then watch the rest of the night. One scenario is built so that relative humidity lies to you.",
   "date": "2026-09-02",

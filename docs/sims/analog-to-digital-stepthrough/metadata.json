@@ -1,6 +1,6 @@
 {
   "title": "Analog to Digital Conversion Step-Through",
-  "creator": "Hank R. & Claude Code",
+  "creator": "Hank Ratzesberger & Claude Code",
   "subject": "Environmental Monitoring",
   "description": "Step one sample at a time through a smooth signal becoming a sequence of numbers, with the true value, the code it rounds to, and the error all on screen at once.",
   "date": "2026-09-02",

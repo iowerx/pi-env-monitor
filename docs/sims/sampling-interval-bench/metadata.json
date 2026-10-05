@@ -1,6 +1,6 @@
 {
   "title": "Sampling Interval Trade-off Bench",
-  "creator": "Hank R. & Claude Code",
+  "creator": "Hank Ratzesberger & Claude Code",
   "subject": "Environmental Monitoring",
   "description": "Five continuous signals sampled at six intervals, showing the true signal, the reconstruction a CSV reader would see, which annotated events were missed, the storage and power cost of each interval, and a verdict that depends on the stated monitoring purpose.",
   "date": "2026-09-30",

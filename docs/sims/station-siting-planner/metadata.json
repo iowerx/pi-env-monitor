@@ -1,6 +1,6 @@
 {
   "title": "Station Siting Planner",
-  "creator": "Hank R. & Claude Code",
+  "creator": "Hank Ratzesberger & Claude Code",
   "subject": "Environmental Monitoring",
   "description": "A plan view of a school site with a draggable station, geometrically computed shadow, clearance, surface and sky-view layers, a mast configuration panel, and a scorecard rating all seven measured quantities from one placement.",
   "date": "2026-09-30",

@@ -1,6 +1,6 @@
 {
   "title": "Beaufort Scale Observation Trainer",
-  "creator": "Hank R. & Claude Code",
+  "creator": "Hank Ratzesberger & Claude Code",
   "subject": "Environmental Monitoring",
   "description": "An animated scene whose smoke, tree, flag, loose paper, pond surface and walker are all driven from one wind speed, used to train Beaufort force estimation by eye with scored feedback naming the deciding cue.",
   "date": "2026-09-03",

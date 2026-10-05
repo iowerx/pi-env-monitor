@@ -1,6 +1,6 @@
 {
   "title": "Timestamp Trouble Simulator",
-  "creator": "Hank R. & Claude Code",
+  "creator": "Hank Ratzesberger & Claude Code",
   "subject": "Environmental Monitoring",
   "description": "Run identical readings through four timestamp formats and a daylight saving transition, and judge which failures can be repaired and which destroyed the information for good.",
   "date": "2026-09-02",

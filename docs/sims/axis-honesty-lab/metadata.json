@@ -1,6 +1,6 @@
 {
   "title": "Axis Honesty Lab",
-  "creator": "Hank R. & Claude Code",
+  "creator": "Hank Ratzesberger & Claude Code",
   "subject": "Environmental Monitoring",
   "description": "Two charts plotting one shared dataset with independently draggable y-axes, a live reader impression under each, an occupancy readout, and a verdict that judges the axis choice against a learner-selected claim.",
   "date": "2026-09-30",

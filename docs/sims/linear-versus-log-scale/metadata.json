@@ -1,6 +1,6 @@
 {
   "title": "Linear Versus Logarithmic Scale",
-  "creator": "Hank R. & Claude Code",
+  "creator": "Hank Ratzesberger & Claude Code",
   "subject": "Environmental Monitoring",
   "description": "Plot the same eight earthquakes on a linear axis and then a logarithmic one. Nothing about the data changes; only the axis does.",
   "date": "2026-09-02",

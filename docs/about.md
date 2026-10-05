@@ -44,4 +44,13 @@ This is one of several editions covering the same subject at different levels:
 
 ## Author
 
-Hank R.
+Hank Ratzesberger has been programming computers since their only color was
+green. He is working with local schools in Santa Cruz, California to build
+environmental monitoring stations. He looks forward to hearing from interested
+teachers and schools to incorporate digital instruments in the curricula or
+clubs.
+
+<figure markdown>
+  ![Hank Ratzesberger](img/hank-ratzesberger.jpeg){ width="240" }
+  <figcaption>Hank (sure, I'm an engineer) Ratzesberger</figcaption>
+</figure>

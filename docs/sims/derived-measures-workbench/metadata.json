@@ -1,6 +1,6 @@
 {
   "title": "Derived Measures Workbench",
-  "creator": "Hank R. & Claude Code",
+  "creator": "Hank Ratzesberger & Claude Code",
   "subject": "Environmental Monitoring",
   "description": "A draggable window over realistic multi-day series, with the arithmetic on the samples inside it written out in full and the resulting derived series plotted beneath on the same time axis, for pressure tendency, insolation, sustained wind and gust.",
   "date": "2026-09-30",

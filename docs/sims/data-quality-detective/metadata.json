@@ -1,6 +1,6 @@
 {
   "title": "Data Quality Detective",
-  "creator": "Hank R. & Claude Code",
+  "creator": "Hank Ratzesberger & Claude Code",
   "subject": "Environmental Monitoring",
   "description": "Seven cases of multi-channel station data on a shared time axis with a log strip and a comparison-station overlay, each containing exactly one anomaly, scored on both the diagnosis and the evidence cited for it.",
   "date": "2026-09-30",

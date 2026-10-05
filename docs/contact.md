@@ -4,4 +4,4 @@ Please connect with me on [LinkedIn](https://www.linkedin.com/in/hank-ratzesberg
 
 I am looking forward to your feedback!
 
- - Hank R.
+ - Hank Ratzesberger

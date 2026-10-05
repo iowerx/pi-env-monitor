@@ -1,6 +1,6 @@
 {
   "title": "Python Code Tracer",
-  "creator": "Hank R. & Claude Code",
+  "creator": "Hank Ratzesberger & Claude Code",
   "subject": "Environmental Monitoring",
   "description": "Six pre-authored Python programs replayed forwards and backwards, showing the current line, every variable with its value and type, and console output, with a prediction prompt before each state change.",
   "date": "2026-09-30",

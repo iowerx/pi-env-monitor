@@ -1,6 +1,6 @@
 {
   "title": "Magnitude Versus Intensity Map",
-  "creator": "Hank R. & Claude Code",
+  "creator": "Hank Ratzesberger & Claude Code",
   "subject": "Environmental Monitoring",
   "description": "One magnitude pinned to a banner while a field of Modified Mercalli intensities appears beneath it, computed from the Allen, Wald and Worden (2012) intensity prediction equation with per-town site amplification.",
   "date": "2026-09-03",

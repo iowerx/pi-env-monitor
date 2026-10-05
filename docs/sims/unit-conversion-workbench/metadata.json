@@ -1,6 +1,6 @@
 {
   "title": "Unit Conversion Workbench",
-  "creator": "Hank R. & Claude Code",
+  "creator": "Hank Ratzesberger & Claude Code",
   "subject": "Environmental Monitoring",
   "description": "Convert temperature, pressure, speed and length by watching the units cancel in a worked fraction chain, with a deliberate upside-down demo that shows the method failing.",
   "date": "2026-09-02",

@@ -56,4 +56,4 @@ The licensor cannot revoke these freedoms as long as you follow the license term
 
 The NonCommercial restriction applies to the **book content only** — the GPL-3.0 licensed code carries no such restriction.
 
-For commercial licensing of the book content, publication inquiries, or permission to use this work in commercial contexts, please contact [Hank R.](https://www.linkedin.com/in/hank-ratzesberger-9391331/).
+For commercial licensing of the book content, publication inquiries, or permission to use this work in commercial contexts, please contact [Hank Ratzesberger](https://www.linkedin.com/in/hank-ratzesberger-9391331/).

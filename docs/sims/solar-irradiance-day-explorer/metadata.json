@@ -1,6 +1,6 @@
 {
   "title": "Solar Irradiance Through the Day",
-  "creator": "Hank R. & Claude Code",
+  "creator": "Hank Ratzesberger & Claude Code",
   "subject": "Environmental Monitoring",
   "description": "Irradiance and air temperature on one time axis, across seasons and latitudes, with the thermal lag measured as a horizontal offset rather than asserted.",
   "date": "2026-09-02",

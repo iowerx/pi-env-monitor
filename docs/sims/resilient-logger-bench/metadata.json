@@ -1,6 +1,6 @@
 {
   "title": "Resilient Logger Fault Bench",
-  "creator": "Hank R. & Claude Code",
+  "creator": "Hank Ratzesberger & Claude Code",
   "subject": "Environmental Monitoring",
   "description": "Five logger loops running the same read-and-append cycle against one shared fault timeline, each producing its own data file, log file and end-of-run verdict, plus a learner-configured fifth strategy.",
   "date": "2026-09-30",
