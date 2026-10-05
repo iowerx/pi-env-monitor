@@ -98,6 +98,8 @@ nav:
       - Taxonomy Distribution: learning-graph/taxonomy-distribution.md
       - Glossary Quality Report: learning-graph/glossary-quality-report.md
       - Quiz Generation Report: learning-graph/quiz-generation-report.md
+      - FAQ Quality Report: learning-graph/faq-quality-report.md
+      - FAQ Coverage Gaps: learning-graph/faq-coverage-gaps.md
       - Mascot Test: learning-graph/mascot-test.md
 
   - MicroSims:
@@ -180,6 +182,7 @@ nav:
 
 
 
+  - FAQ: faq.md
   - Glossary: glossary.md
   - License: licensing.md
   - Contact: contact.md
