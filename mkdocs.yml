@@ -37,23 +37,57 @@ nav:
 
   - Chapters:
       - List of Chapters: chapters/index.md
-      - 1. Why We Measure the Natural Environment: chapters/01-why-we-measure/index.md
-      - 2. The Language of Measurement: chapters/02-language-of-measurement/index.md
-      - 3. Electricity and the Single-Board Computer: chapters/03-electricity-and-computer/index.md
-      - 4. How Sensors Turn the World Into Numbers: chapters/04-how-sensors-work/index.md
-      - 5. Time and Place - Recording Where and When: chapters/05-time-and-place/index.md
-      - 6. Temperature - From the Thermoscope to the Silicon Chip: chapters/06-temperature/index.md
-      - 7. Barometric Pressure - The Weight of the Atmosphere: chapters/07-barometric-pressure/index.md
-      - 8. Humidity and Dew Point - The Water Hidden in the Air: chapters/08-humidity-and-dew-point/index.md
-      - 9. Solar Radiation - The Energy That Drives the Weather: chapters/09-solar-radiation/index.md
-      - 10. Wind - Measuring Air in Motion: chapters/10-wind/index.md
-      - 11. Ground Motion - Measuring Earthquakes: chapters/11-ground-motion/index.md
-      - 12. The Station's Brain - Operating System, Command Line, and Sensor Buses: chapters/12-os-and-sensor-buses/index.md
-      - 13. Programming the Station in Python: chapters/13-python-programming/index.md
-      - 14. Logging Data - Timestamps, Intervals, and Files: chapters/14-data-logging/index.md
-      - 15. Charting and Interpreting Your Data: chapters/15-charting-and-analysis/index.md
-      - 16. Building the Station for the Outdoors: chapters/16-building-for-outdoors/index.md
-      - 17. From Measurement to Consequence: chapters/17-measurement-to-consequence/index.md
+      - 1. Why We Measure the Natural Environment:
+        - Content: chapters/01-why-we-measure/index.md
+        - Quiz: chapters/01-why-we-measure/quiz.md
+      - 2. The Language of Measurement:
+        - Content: chapters/02-language-of-measurement/index.md
+        - Quiz: chapters/02-language-of-measurement/quiz.md
+      - 3. Electricity and the Single-Board Computer:
+        - Content: chapters/03-electricity-and-computer/index.md
+        - Quiz: chapters/03-electricity-and-computer/quiz.md
+      - 4. How Sensors Turn the World Into Numbers:
+        - Content: chapters/04-how-sensors-work/index.md
+        - Quiz: chapters/04-how-sensors-work/quiz.md
+      - 5. Time and Place - Recording Where and When:
+        - Content: chapters/05-time-and-place/index.md
+        - Quiz: chapters/05-time-and-place/quiz.md
+      - 6. Temperature - From the Thermoscope to the Silicon Chip:
+        - Content: chapters/06-temperature/index.md
+        - Quiz: chapters/06-temperature/quiz.md
+      - 7. Barometric Pressure - The Weight of the Atmosphere:
+        - Content: chapters/07-barometric-pressure/index.md
+        - Quiz: chapters/07-barometric-pressure/quiz.md
+      - 8. Humidity and Dew Point - The Water Hidden in the Air:
+        - Content: chapters/08-humidity-and-dew-point/index.md
+        - Quiz: chapters/08-humidity-and-dew-point/quiz.md
+      - 9. Solar Radiation - The Energy That Drives the Weather:
+        - Content: chapters/09-solar-radiation/index.md
+        - Quiz: chapters/09-solar-radiation/quiz.md
+      - 10. Wind - Measuring Air in Motion:
+        - Content: chapters/10-wind/index.md
+        - Quiz: chapters/10-wind/quiz.md
+      - 11. Ground Motion - Measuring Earthquakes:
+        - Content: chapters/11-ground-motion/index.md
+        - Quiz: chapters/11-ground-motion/quiz.md
+      - 12. The Station's Brain - Operating System, Command Line, and Sensor Buses:
+        - Content: chapters/12-os-and-sensor-buses/index.md
+        - Quiz: chapters/12-os-and-sensor-buses/quiz.md
+      - 13. Programming the Station in Python:
+        - Content: chapters/13-python-programming/index.md
+        - Quiz: chapters/13-python-programming/quiz.md
+      - 14. Logging Data - Timestamps, Intervals, and Files:
+        - Content: chapters/14-data-logging/index.md
+        - Quiz: chapters/14-data-logging/quiz.md
+      - 15. Charting and Interpreting Your Data:
+        - Content: chapters/15-charting-and-analysis/index.md
+        - Quiz: chapters/15-charting-and-analysis/quiz.md
+      - 16. Building the Station for the Outdoors:
+        - Content: chapters/16-building-for-outdoors/index.md
+        - Quiz: chapters/16-building-for-outdoors/quiz.md
+      - 17. From Measurement to Consequence:
+        - Content: chapters/17-measurement-to-consequence/index.md
+        - Quiz: chapters/17-measurement-to-consequence/quiz.md
 
   - Learning Graph:
       - Introduction: learning-graph/index.md
@@ -63,6 +97,7 @@ nav:
       - Graph Quality Analysis: learning-graph/quality-metrics.md
       - Taxonomy Distribution: learning-graph/taxonomy-distribution.md
       - Glossary Quality Report: learning-graph/glossary-quality-report.md
+      - Quiz Generation Report: learning-graph/quiz-generation-report.md
       - Mascot Test: learning-graph/mascot-test.md
 
   - MicroSims:
