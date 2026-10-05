@@ -1,6 +1,6 @@
 {
   "title": "I2C Bus Explorer",
-  "creator": "Hank R. & Claude Code",
+  "creator": "Hank Ratzesberger & Claude Code",
   "subject": "Environmental Monitoring",
   "description": "An I2C transaction rendered as a schematic, a logic-analyser waveform and a simulated i2cdetect grid from one shared state machine, with five injectable faults matching the chapter's troubleshooting list.",
   "date": "2026-09-03",

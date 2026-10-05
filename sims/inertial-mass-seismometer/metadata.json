@@ -1,6 +1,6 @@
 {
   "title": "Inertial Mass Seismometer",
-  "creator": "Hank R. & Claude Code",
+  "creator": "Hank Ratzesberger & Claude Code",
   "subject": "Environmental Monitoring",
   "description": "A cutaway seismometer driven as a damped harmonic oscillator, showing ground position, mass position and their difference at once, with a stiffness control that destroys the recording to prove why soft suspensions are required.",
   "date": "2026-09-03",

@@ -1,6 +1,6 @@
 {
   "title": "GPS Trilateration Explorer",
-  "creator": "Hank R. & Claude Code",
+  "creator": "Hank Ratzesberger & Claude Code",
   "subject": "Environmental Monitoring",
   "description": "Turn satellites on one at a time and watch the possible positions collapse, then break the receiver clock and discover why three satellites are not enough.",
   "date": "2026-09-02",

@@ -1,6 +1,6 @@
 {
   "title": "Circuit Loop and the Missing Ground",
-  "creator": "Hank R. & Claude Code",
+  "creator": "Hank Ratzesberger & Claude Code",
   "subject": "Environmental Monitoring",
   "description": "Open either wire of a simple sensor circuit and watch the charge stop moving. The missing-ground fault, made visible before you meet it on a real bench.",
   "date": "2026-09-02",

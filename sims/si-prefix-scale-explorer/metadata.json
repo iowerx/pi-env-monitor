@@ -1,6 +1,6 @@
 {
   "title": "SI Prefix and Scale Explorer",
-  "creator": "Hank R. & Claude Code",
+  "creator": "Hank Ratzesberger & Claude Code",
   "subject": "Environmental Monitoring",
   "description": "Drag a marker along a scale spanning many powers of ten and read the same value three ways at once - plain decimal, scientific notation, and with its SI prefix - beside a familiar object of that size.",
   "date": "2026-09-02",

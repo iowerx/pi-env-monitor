@@ -1,6 +1,6 @@
 {
   "title": "Command Line Sandbox",
-  "creator": "Hank R. & Claude Code",
+  "creator": "Hank Ratzesberger & Claude Code",
   "subject": "Environmental Monitoring",
   "description": "A simulated Linux shell over the chapter's station file system, paired with a live file tree that highlights the working directory, a seven-task checklist, and an rm that really deletes so the consequence can be experienced safely.",
   "date": "2026-09-03",

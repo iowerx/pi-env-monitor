@@ -1,6 +1,6 @@
 {
   "title": "Measurement to Decision Explorer",
-  "creator": "Hank R. & Claude Code",
+  "creator": "Hank Ratzesberger & Claude Code",
   "subject": "Environmental Monitoring",
   "description": "A three-layer directed graph of seven measurements, ten derived quantities and fifteen real-world decisions, with downstream and upstream highlighting, a chapter filter, and a sensor-failure mode that counts which decisions become impossible.",
   "date": "2026-09-30",

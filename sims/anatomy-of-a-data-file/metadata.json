@@ -1,6 +1,6 @@
 {
   "title": "Anatomy of a Good Data File",
-  "creator": "Hank R. & Claude Code",
+  "creator": "Hank Ratzesberger & Claude Code",
   "subject": "Environmental Monitoring",
   "description": "Six CSV files, each broken in exactly one way, each paired with an analysis question it cannot answer, plus a repair mode and a seven-question metadata checklist judged by a six-months-later test.",
   "date": "2026-09-30",

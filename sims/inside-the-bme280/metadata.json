@@ -1,6 +1,6 @@
 {
   "title": "Inside the BME280",
-  "creator": "Hank R. & Claude Code",
+  "creator": "Hank Ratzesberger & Claude Code",
   "subject": "Environmental Monitoring",
   "description": "A clickable cutaway of the BME280 with a seven-stage trace of one pressure reading using the real Bosch compensation formulas, and a skip-the-temperature fault that makes the reported pressure swing by over 60 hPa with no weather involved.",
   "date": "2026-09-03",

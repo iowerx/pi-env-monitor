@@ -1,6 +1,6 @@
 {
   "title": "Power Budget Calculator",
-  "creator": "Hank R. & Claude Code",
+  "creator": "Hank Ratzesberger & Claude Code",
   "subject": "Environmental Monitoring",
   "description": "A year-long day-by-day battery state-of-charge simulation starting in March, with an itemised daily load, the 0.7 panel loss factor shown as a separate step, temperature derating, a bad-week stress test and a pass or fail verdict naming the month of failure.",
   "date": "2026-09-30",

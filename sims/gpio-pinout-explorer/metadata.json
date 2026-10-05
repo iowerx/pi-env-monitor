@@ -1,6 +1,6 @@
 {
   "title": "Raspberry Pi GPIO Pinout Explorer",
-  "creator": "Hank R. & Claude Code",
+  "creator": "Hank Ratzesberger & Claude Code",
   "subject": "Environmental Monitoring",
   "description": "Every one of the 40 header pins, clickable, colour coded, with a safety line on each and a guided walkthrough of the four pins this book actually wires.",
   "date": "2026-09-02",

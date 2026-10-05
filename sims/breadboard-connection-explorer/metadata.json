@@ -1,6 +1,6 @@
 {
   "title": "Breadboard Connection Explorer",
-  "creator": "Hank R. & Claude Code",
+  "creator": "Hank Ratzesberger & Claude Code",
   "subject": "Environmental Monitoring",
   "description": "Click any hole to light up every hole joined to it, reveal the hidden copper strips underneath, and then find the one wrong connection in three pre-wired circuits.",
   "date": "2026-09-02",
