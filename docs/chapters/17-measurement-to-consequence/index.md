@@ -107,7 +107,7 @@ The distinction the professionals draw is worth learning, because it is widely m
 - A **watch** means conditions are favourable for severe weather. Be prepared.
 - A **warning** means severe weather is happening or imminent. Act now.
 
-Warnings are built from the signatures this book has taught you to recognize. Rapid pressure falls (Chapter 15's tendency), wind speeds crossing the Saffir-Simpson thresholds (Chapter 10), and the temperature-humidity combinations that produce dangerous heat index values (Chapter 8) all trigger specific warning products.
+Warnings are built from the signatures this book has taught you to recognize. Rapid pressure falls (Chapter 15's tendency), wind speeds crossing the Saffir-Simpson thresholds (Chapter 15), and the temperature-humidity combinations that produce dangerous heat index values (Chapter 10) all trigger specific warning products.
 
 Chapter 7's Admiral FitzRoy issued the first of these in the 1860s using nothing but a network of aneroid barometers and the telegraph. He was criticized for presuming to predict the weather at all. He was also right often enough to save lives, and the service he founded still exists.
 

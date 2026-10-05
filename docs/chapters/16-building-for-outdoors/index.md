@@ -177,6 +177,7 @@ An **ingress protection rating**, written IP followed by two digits, is a standa
 | IP65 | Dust-tight | Water jets | General outdoor use |
 | IP66 | Dust-tight | Powerful water jets | Exposed outdoor |
 | IP67 | Dust-tight | Temporary immersion | Flood-prone locations |
+| IP68 | Dust-tight | Continuous immersion | Underwater equipment |
 
 IP65 is the sensible target for a station enclosure. Higher ratings cost more and, past a point, work against you — which is the counter-intuitive part of this section.
 
@@ -195,7 +196,7 @@ IP65 is the sensible target for a station enclosure. Higher ratings cost more an
 
 Other enclosure requirements:
 
-- **White or light coloured.** Chapter 9's albedo applies to your box. A black enclosure in summer sun can exceed 60 °C inside, which is past the BME280's 85 °C limit sooner than you would think and shortens battery life considerably.
+- **White or light coloured.** Chapter 9's albedo applies to your box. A black enclosure in summer sun can exceed 60 °C inside. That is closer to the BME280's 85 °C limit than you would think, and heat like that shortens battery life considerably.
 - **UV-resistant plastic.** Ordinary plastics become brittle and crack after a year or two of sunlight.
 - **Cable glands, not holes.** Every wire entering needs a proper compression gland. A drilled hole with a wire through it is a drain.
 - **A drip loop.** Cables should hang below their entry point so water runs off the low point rather than following the cable inside.
@@ -434,7 +435,7 @@ def try_upload():
 Four refinements make this robust in the field:
 
 - **Persist the queue.** If `pending` lives only in memory, a reboot loses it. Track the last acknowledged timestamp in a small file instead, and re-send from there.
-- **Back off on repeated failures.** Retrying every minute against a dead network wastes power on the radio, which Chapter 15's power budget cannot spare. Double the interval after each failure, up to an hour.
+- **Back off on repeated failures.** Retrying every minute against a dead network wastes power on the radio, which the power budget from earlier in this chapter cannot spare. Double the interval after each failure, up to an hour.
 - **Batch.** Sending 60 rows once an hour uses far less radio time than one row 60 times.
 - **Send a heartbeat.** A short message even when there is nothing new lets the base station distinguish "the station is fine and quiet" from "the station is dead."
 

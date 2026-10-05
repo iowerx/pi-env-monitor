@@ -283,9 +283,10 @@ Both come from the same fast samples:
 
 ```python
 def wind_summary(samples, sustained_window=120, gust_threshold=2.6):
-    """Return (sustained, gust) from a list of fast wind samples."""
-    sustained = sum(samples) / len(samples)
-    peak = max(samples)
+    """Return (sustained, gust) from one-per-second wind samples."""
+    recent = samples[-sustained_window:]  # the last 120 s = 2 minutes
+    sustained = sum(recent) / len(recent)
+    peak = max(recent)
     gust = peak if (peak - sustained) >= gust_threshold else None
     return sustained, gust
 ```
@@ -298,7 +299,7 @@ The **Saffir Simpson scale** rates hurricanes by their maximum sustained wind sp
 |----------|----------------|----------------|
 | 1 | 33–42 m/s | Damage to roofs, siding, trees |
 | 2 | 43–49 m/s | Major roof and siding damage |
-| 3 | 50–58 m/s | Devastating; structural damage |
+| 3 | 50–57 m/s | Devastating; structural damage |
 | 4 | 58–70 m/s | Catastrophic; walls and roofs fail |
 | 5 | Over 70 m/s | Total roof failure and wall collapse |
 
@@ -435,7 +436,7 @@ Gaps must be **visible**, not silently closed. Two rules:
 
 Finding gaps is straightforward when timestamps are aligned as Chapter 14 described — check whether consecutive timestamps differ by more than the expected interval, and report anything larger.
 
-This is where Chapter 13's logging pays off. A gap with a matching line in `station.log` reading `Sensor read failed: Remote I/O error` is a diagnosed gap. A gap with nothing in the log is a mystery you will never solve.
+This is where Chapter 14's logging pays off. A gap with a matching line in `station.log` reading `Sensor read failed: Remote I/O error` is a diagnosed gap. A gap with nothing in the log is a mystery you will never solve.
 
 ### Sensor Drift
 

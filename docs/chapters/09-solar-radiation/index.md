@@ -96,7 +96,7 @@ There was something past red, invisible, carrying more energy than the light he 
 
 **Irradiance** is the power of radiation arriving per unit area of surface. It is the fundamental quantity this chapter measures.
 
-Its unit is **watts per square meter**, written W/m². Recall from Chapter 2 that a watt is a joule per second, so irradiance is energy arriving per second per square metre — a rate, not a total.
+Its unit is **watts per square meter**, written W/m². A **watt** is a unit of power: one joule of energy (the SI unit of energy) delivered every second. So irradiance is energy arriving per second per square metre — a rate, not a total.
 
 Some values worth carrying around:
 

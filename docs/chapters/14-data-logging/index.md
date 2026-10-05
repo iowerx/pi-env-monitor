@@ -86,7 +86,7 @@ Working figures for this project:
 | Pressure | Near instant | 60 s | Weather-relevant change takes minutes |
 | Humidity | ~1 s | 60 s | Matches temperature for dew point calculation |
 | Solar radiation | Fast | 60 s, or 10 s for cloud detail | Passing cloud changes it in seconds |
-| Wind speed | Seconds | 1–3 s, reported as 60 s averages | Gusts are brief and matter |
+| Wind speed | Seconds | 1–3 s, summarized once a minute | Gusts are brief and matter |
 | Ground motion | Sub-millisecond | 100 samples/s | A P wave lasts fractions of a second |
 
 Notice the range: from once a minute to a hundred times a second, across sensors on one station. Wind and seismic have to be sampled fast and *summarized* — you record gust and sustained values each minute rather than every raw sample, a technique Chapter 15 covers.
