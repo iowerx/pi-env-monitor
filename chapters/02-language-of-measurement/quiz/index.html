@@ -1,0 +1,2453 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A hands-on textbook for middle and high school students: build a Raspberry Pi station that measures temperature, pressure, and humidity, logs the data, and reports it from the field.">
+      
+      
+        <meta name="author" content="Hank Ratzesberger">
+      
+      
+        <link rel="canonical" href="https://iowerx.github.io/pi-env-monitor/chapters/02-language-of-measurement/quiz/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../../03-electricity-and-computer/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Quiz - Raspberry Pi Environmental Monitoring: Grades 6–12</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website">
+<meta property="og:title" content="Quiz - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="og:description" content="A hands-on textbook for middle and high school students: build a Raspberry Pi station that measures temperature, pressure, and humidity, logs the data, and reports it from the field.">
+<meta property="og:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/02-language-of-measurement/quiz.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://iowerx.github.io/pi-env-monitor/chapters/02-language-of-measurement/quiz/">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Quiz - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="twitter:description" content="A hands-on textbook for middle and high school students: build a Raspberry Pi station that measures temperature, pressure, and humidity, logs the data, and reports it from the field.">
+<meta property="twitter:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/02-language-of-measurement/quiz.png">
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#quiz-the-language-of-measurement" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  <img src="../../../img/mascot/neutral.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Raspberry Pi Environmental Monitoring: Grades 6–12
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Quiz
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  <img src="../../../img/mascot/neutral.png" alt="logo">
+
+    </a>
+    Raspberry Pi Environmental Monitoring: Grades 6–12
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components Used
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../01-why-we-measure/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Why We Measure the Natural Environment
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. The Language of Measurement
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2. The Language of Measurement
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#1-weather-reports-give-air-pressure-in-hectopascals-how-many-pascals-are-in-one-hectopascal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Weather reports give air pressure in hectopascals. How many pascals are in one hectopascal?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-when-you-calibrate-your-stations-thermometer-what-should-you-compare-it-to" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. When you calibrate your station's thermometer, what should you compare it to?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-the-bme280-sensor-measures-pressure-from-300-to-1100-hpa-what-happens-if-the-real-pressure-is-outside-that-span" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. The BME280 sensor measures pressure from 300 to 1100 hPa. What happens if the real pressure is outside that span?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-which-term-names-the-smallest-change-an-instrument-can-detect-and-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Which term names the smallest change an instrument can detect and report?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-what-caused-the-loss-of-the-mars-climate-orbiter-in-1999" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. What caused the loss of the Mars Climate Orbiter in 1999?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-why-is-20-c-not-twice-as-warm-as-10-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Why is 20 °C not twice as warm as 10 °C?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-a-station-builder-reports-a-temperature-as-213-05-c-what-does-the-05-tell-readers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. A station builder reports a temperature as 21.3 ± 0.5 °C. What does the "± 0.5" tell readers?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-why-is-earthquake-ground-motion-usually-shown-on-a-logarithmic-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Why is earthquake ground motion usually shown on a logarithmic scale?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-your-wind-sensor-reports-5-ms-one-meter-per-second-equals-36-kmh-using-the-fraction-method-what-is-the-wind-speed-in-kmh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Your wind sensor reports 5 m/s. One meter per second equals 3.6 km/h. Using the fraction method, what is the wind speed in km/h?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-the-true-temperature-is-200-c-sensor-x-reads-231-230-231-230-sensor-y-reads-18-22-19-21-which-plan-best-fixes-each-sensors-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. The true temperature is 20.0 °C. Sensor X reads 23.1, 23.0, 23.1, 23.0. Sensor Y reads 18, 22, 19, 21. Which plan best fixes each sensor's problem?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../03-electricity-and-computer/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Electricity and the Single-Board Computer
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../04-how-sensors-work/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. How Sensors Turn the World Into Numbers
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../05-time-and-place/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Time and Place - Recording Where and When
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../06-temperature/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Temperature - From the Thermoscope to the Silicon Chip
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../07-barometric-pressure/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Barometric Pressure - The Weight of the Atmosphere
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../08-humidity-and-dew-point/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Humidity and Dew Point - The Water Hidden in the Air
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../09-solar-radiation/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Solar Radiation - The Energy That Drives the Weather
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../10-wind/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Wind - Measuring Air in Motion
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../11-ground-motion/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Ground Motion - Measuring Earthquakes
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../12-os-and-sensor-buses/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. The Station's Brain - Operating System, Command Line, and Sensor Buses
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../13-python-programming/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Programming the Station in Python
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../14-data-logging/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Logging Data - Timestamps, Intervals, and Files
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../15-charting-and-analysis/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Charting and Interpreting Your Data
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../16-building-for-outdoors/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Building the Station for the Outdoors
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../17-measurement-to-consequence/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. From Measurement to Consequence
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../licensing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#1-weather-reports-give-air-pressure-in-hectopascals-how-many-pascals-are-in-one-hectopascal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Weather reports give air pressure in hectopascals. How many pascals are in one hectopascal?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-when-you-calibrate-your-stations-thermometer-what-should-you-compare-it-to" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. When you calibrate your station's thermometer, what should you compare it to?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-the-bme280-sensor-measures-pressure-from-300-to-1100-hpa-what-happens-if-the-real-pressure-is-outside-that-span" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. The BME280 sensor measures pressure from 300 to 1100 hPa. What happens if the real pressure is outside that span?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-which-term-names-the-smallest-change-an-instrument-can-detect-and-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Which term names the smallest change an instrument can detect and report?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-what-caused-the-loss-of-the-mars-climate-orbiter-in-1999" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. What caused the loss of the Mars Climate Orbiter in 1999?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-why-is-20-c-not-twice-as-warm-as-10-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Why is 20 °C not twice as warm as 10 °C?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-a-station-builder-reports-a-temperature-as-213-05-c-what-does-the-05-tell-readers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. A station builder reports a temperature as 21.3 ± 0.5 °C. What does the "± 0.5" tell readers?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-why-is-earthquake-ground-motion-usually-shown-on-a-logarithmic-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Why is earthquake ground motion usually shown on a logarithmic scale?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-your-wind-sensor-reports-5-ms-one-meter-per-second-equals-36-kmh-using-the-fraction-method-what-is-the-wind-speed-in-kmh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Your wind sensor reports 5 m/s. One meter per second equals 3.6 km/h. Using the fraction method, what is the wind speed in km/h?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-the-true-temperature-is-200-c-sensor-x-reads-231-230-231-230-sensor-y-reads-18-22-19-21-which-plan-best-fixes-each-sensors-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. The true temperature is 20.0 °C. Sensor X reads 23.1, 23.0, 23.1, 23.0. Sensor Y reads 18, 22, 19, 21. Which plan best fixes each sensor's problem?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    2. The Language of Measurement
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/iowerx/pi-env-monitor/blob/main/docs/chapters/02-language-of-measurement/quiz.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="quiz-the-language-of-measurement">Quiz: The Language of Measurement<a class="headerlink" href="#quiz-the-language-of-measurement" title="Permanent link">¶</a></h1>
+<p>Test your understanding of units, SI prefixes, unit conversion, measurement scales, and the vocabulary of measurement quality with these review questions.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Look for the Unit</p>
+<p><img alt="Mecha pointing out a tip" class="mascot-admonition-img" src="../../../img/mascot/tip.png">
+When a question gives you a number, find its unit before you do anything else. A number without its unit is only half a reading!</p>
+</div>
+<hr>
+<h4 id="1-weather-reports-give-air-pressure-in-hectopascals-how-many-pascals-are-in-one-hectopascal">1. Weather reports give air pressure in hectopascals. How many pascals are in one hectopascal?<a class="headerlink" href="#1-weather-reports-give-air-pressure-in-hectopascals-how-many-pascals-are-in-one-hectopascal" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>10 pascals</li>
+<li>100 pascals</li>
+<li>1000 pascals</li>
+<li>One-hundredth of a pascal</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>B</strong>. An SI prefix is a syllable added to the front of a unit that multiplies it by a power of ten. The prefix hecto means 100, or <span class="arithmatex">\(10^{2}\)</span>, so one hectopascal is 100 pascals. Option C is kilo, which means 1000. Option D is centi, which means one-hundredth. Option A is not one of the prefixes in this chapter. Hecto is rare except in pressure readings, where it shows up all the time.</p>
+<p><strong>Concept Tested:</strong> SI Prefix</p>
+<p><strong>See:</strong> <a href="../#prefixes-and-very-large-or-very-small-numbers">Prefixes and Very Large or Very Small Numbers</a></p>
+</details>
+<hr>
+<h4 id="2-when-you-calibrate-your-stations-thermometer-what-should-you-compare-it-to">2. When you calibrate your station's thermometer, what should you compare it to?<a class="headerlink" href="#2-when-you-calibrate-your-stations-thermometer-what-should-you-compare-it-to" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>Readings taken by the same thermometer last week</li>
+<li>The average of many readings from your own sensor</li>
+<li>The accuracy value printed on the sensor's datasheet</li>
+<li>A better thermometer that traces back to a reference standard</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>D</strong>. Calibration means comparing an instrument to a reference standard and correcting it. A reference standard is the object or procedure that defines a unit. You compare your thermometer to a better one, which was compared to a better one still, up a chain to a national lab. Options A and B compare the sensor to itself, so a sensor that always reads high would never be caught. Option C only tells you how far off the sensor might be.</p>
+<p><strong>Concept Tested:</strong> Calibration and Reference Standard</p>
+<p><strong>See:</strong> <a href="../#what-makes-a-measurement-good">What Makes a Measurement Good</a></p>
+</details>
+<hr>
+<h4 id="3-the-bme280-sensor-measures-pressure-from-300-to-1100-hpa-what-happens-if-the-real-pressure-is-outside-that-span">3. The BME280 sensor measures pressure from 300 to 1100 hPa. What happens if the real pressure is outside that span?<a class="headerlink" href="#3-the-bme280-sensor-measures-pressure-from-300-to-1100-hpa-what-happens-if-the-real-pressure-is-outside-that-span" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>The sensor gives a reading that is slightly less accurate</li>
+<li>The sensor switches itself to a wider range automatically</li>
+<li>The sensor still works but with a lower resolution</li>
+<li>The sensor gives no useful reading at all</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>D</strong>. Measurement range is the span between the smallest and largest values an instrument can measure at all. Outside its range, the BME280 does not give a slightly worse reading (A). It gives no useful reading whatsoever. The sensor does not switch ranges on its own (B), and resolution (C) is a different idea. That is why you should check that the values you expect sit comfortably inside a sensor's range, not at the edge.</p>
+<p><strong>Concept Tested:</strong> Measurement Range</p>
+<p><strong>See:</strong> <a href="../#what-makes-a-measurement-good">What Makes a Measurement Good</a></p>
+</details>
+<hr>
+<h4 id="4-which-term-names-the-smallest-change-an-instrument-can-detect-and-report">4. Which term names the smallest change an instrument can detect and report?<a class="headerlink" href="#4-which-term-names-the-smallest-change-an-instrument-can-detect-and-report" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>Accuracy</li>
+<li>Precision</li>
+<li>Resolution</li>
+<li>Measurement range</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>C</strong>. Resolution is the smallest change an instrument can detect and report. A thermometer that displays 21.3 °C has a resolution of 0.1 °C. Accuracy (A) is how close a reading is to the true value. Precision (B) is how close repeated readings are to each other. Measurement range (D) is the span of values an instrument can read at all. Remember that high resolution does not mean a reading is correct.</p>
+<p><strong>Concept Tested:</strong> Resolution</p>
+<p><strong>See:</strong> <a href="../#what-makes-a-measurement-good">What Makes a Measurement Good</a></p>
+</details>
+<hr>
+<h4 id="5-what-caused-the-loss-of-the-mars-climate-orbiter-in-1999">5. What caused the loss of the Mars Climate Orbiter in 1999?<a class="headerlink" href="#5-what-caused-the-loss-of-the-mars-climate-orbiter-in-1999" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>A thruster broke during the long flight from Earth to Mars</li>
+<li>One program used pound-force seconds, and another assumed newton-seconds</li>
+<li>Engineers wrote a number in scientific notation with the wrong exponent</li>
+<li>The orbiter's sensors could not read the thin atmosphere of Mars</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>B</strong>. A unit of measure is an agreed amount that other amounts are compared to. One team's software reported thruster force in pound-force seconds. The other team's software assumed newton-seconds. Nobody checked, so every firing was off by a factor of about 4.45. The investigation found no broken part (A). Options C and D did not happen. A $327 million spacecraft was lost because two teams did not agree on a unit.</p>
+<p><strong>Concept Tested:</strong> Unit Of Measure</p>
+<p><strong>See:</strong> <a href="../#the-327-million-unit-error">The $327 Million Unit Error</a></p>
+</details>
+<hr>
+<h4 id="6-why-is-20-c-not-twice-as-warm-as-10-c">6. Why is 20 °C not twice as warm as 10 °C?<a class="headerlink" href="#6-why-is-20-c-not-twice-as-warm-as-10-c" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>The degrees on the Celsius scale are not evenly spaced</li>
+<li>Ordinary thermometers are not accurate enough to compare them</li>
+<li>Celsius is an ordinal scale, like the Beaufort wind scale</li>
+<li>Zero on the Celsius scale does not mean "no temperature"</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>D</strong>. A measurement scale is the set of rules that says what numbers mean. Celsius puts zero at the freezing point of water, which is an arbitrary choice. Since zero does not mean "none," ratios do not work. In kelvin, the two temperatures are only about 3.5 percent apart. Option A is wrong because Celsius gaps are even. Option C is wrong because Celsius is an interval scale, not ordinal. Accuracy (B) has nothing to do with it.</p>
+<p><strong>Concept Tested:</strong> Measurement Scale</p>
+<p><strong>See:</strong> <a href="../#scales-and-what-numbers-mean">Scales and What Numbers Mean</a></p>
+</details>
+<hr>
+<h4 id="7-a-station-builder-reports-a-temperature-as-213-05-c-what-does-the-05-tell-readers">7. A station builder reports a temperature as 21.3 ± 0.5 °C. What does the "± 0.5" tell readers?<a class="headerlink" href="#7-a-station-builder-reports-a-temperature-as-213-05-c-what-does-the-05-tell-readers" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>The true temperature is very likely between 20.8 and 21.8 °C</li>
+<li>The sensor made a mistake of exactly 0.5 °C on this reading</li>
+<li>The temperature changed by 0.5 °C while the reading was taken</li>
+<li>The thermometer can only display steps of 0.5 °C</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>A</strong>. Measurement uncertainty is an honest statement of how much a measurement could be off. The plus-or-minus means the true value is very likely between 20.8 and 21.8 °C. It does not claim the error is exactly 0.5 (B). It is not about the air changing (C), and it is not the display step (D), which is resolution. Reporting a number with no uncertainty claims more than you really know.</p>
+<p><strong>Concept Tested:</strong> Measurement Uncertainty</p>
+<p><strong>See:</strong> <a href="../#what-makes-a-measurement-good">What Makes a Measurement Good</a></p>
+</details>
+<hr>
+<h4 id="8-why-is-earthquake-ground-motion-usually-shown-on-a-logarithmic-scale">8. Why is earthquake ground motion usually shown on a logarithmic scale?<a class="headerlink" href="#8-why-is-earthquake-ground-motion-usually-shown-on-a-logarithmic-scale" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>Earthquakes happen too quickly to plot on a normal scale</li>
+<li>A logarithmic scale makes small earthquakes look bigger than they are</li>
+<li>Ground motion spans many orders of magnitude, from tiny to huge</li>
+<li>Seismometers can only report their readings as whole numbers</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>C</strong>. An order of magnitude is a factor of ten. Ground motion from a barely felt tremor and a huge quake can differ by a factor of millions. On a logarithmic scale, each step multiplies by ten instead of adding one, so all the quakes fit on one chart. On a normal scale, every quake except the biggest would be a flat line. Speed (A) and whole numbers (D) are not the reason. The scale does not distort sizes (B).</p>
+<p><strong>Concept Tested:</strong> Logarithmic Scale and Order Of Magnitude</p>
+<p><strong>See:</strong> <a href="../#scales-and-what-numbers-mean">Scales and What Numbers Mean</a></p>
+</details>
+<hr>
+<h4 id="9-your-wind-sensor-reports-5-ms-one-meter-per-second-equals-36-kmh-using-the-fraction-method-what-is-the-wind-speed-in-kmh">9. Your wind sensor reports 5 m/s. One meter per second equals 3.6 km/h. Using the fraction method, what is the wind speed in km/h?<a class="headerlink" href="#9-your-wind-sensor-reports-5-ms-one-meter-per-second-equals-36-kmh-using-the-fraction-method-what-is-the-wind-speed-in-kmh" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>1.4 km/h</li>
+<li>8.6 km/h</li>
+<li>18 km/h</li>
+<li>180 km/h</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>C</strong>. Unit conversion means multiplying by a fraction equal to one: 5 m/s × (3.6 km/h ÷ 1 m/s) = 18 km/h. The m/s cancels top and bottom, leaving km/h. Option A comes from setting the fraction upside down and dividing, so the units would not cancel. Option B adds the numbers instead of multiplying. Option D slips a decimal place. Watching units cancel checks the setup before you do any math.</p>
+<p><strong>Concept Tested:</strong> Unit Conversion</p>
+<p><strong>See:</strong> <a href="../#converting-between-units">Converting Between Units</a></p>
+</details>
+<hr>
+<h4 id="10-the-true-temperature-is-200-c-sensor-x-reads-231-230-231-230-sensor-y-reads-18-22-19-21-which-plan-best-fixes-each-sensors-problem">10. The true temperature is 20.0 °C. Sensor X reads 23.1, 23.0, 23.1, 23.0. Sensor Y reads 18, 22, 19, 21. Which plan best fixes each sensor's problem?<a class="headerlink" href="#10-the-true-temperature-is-200-c-sensor-x-reads-231-230-231-230-sensor-y-reads-18-22-19-21-which-plan-best-fixes-each-sensors-problem" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>Calibrate X with an offset of about −3 °C, and average many readings from Y</li>
+<li>Calibrate Y with an offset of about −3 °C, and average many readings from X</li>
+<li>Apply the same −3 °C offset to both sensors, since both read wrong</li>
+<li>Replace both sensors, since neither one is accurate and precise</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>A</strong>. Sensor X is precise but not accurate. Its readings agree closely but sit about 3 °C high. Calibration fixes that kind of error with an offset. Sensor Y is fairly accurate on average but not precise, because its readings scatter. Averaging many readings helps that problem. Option B reverses the two problems. Option C would make Y read too low. Option D is only needed when a sensor is neither accurate nor precise.</p>
+<p><strong>Concept Tested:</strong> Accuracy and Precision</p>
+<p><strong>See:</strong> <a href="../#what-makes-a-measurement-good">What Makes a Measurement Good</a></p>
+</details>
+<hr>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Measurement Words Mastered!</p>
+<p><img alt="Mecha celebrating" class="mascot-admonition-img" src="../../../img/mascot/celebration.png">
+Well done, station builders! You worked through units, prefixes, conversions, scales, and the difference between accuracy and precision. Check the data, then check it again.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Content">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Content
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../03-electricity-and-computer/" class="md-footer__link md-footer__link--next" aria-label="Next: Content">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Content
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Hank Ratzesberger. Licensed under <a href="licensing/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

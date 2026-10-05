@@ -1,0 +1,2453 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A hands-on textbook for middle and high school students: build a Raspberry Pi station that measures temperature, pressure, and humidity, logs the data, and reports it from the field.">
+      
+      
+        <meta name="author" content="Hank Ratzesberger">
+      
+      
+        <link rel="canonical" href="https://iowerx.github.io/pi-env-monitor/chapters/14-data-logging/quiz/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../../15-charting-and-analysis/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Quiz - Raspberry Pi Environmental Monitoring: Grades 6–12</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website">
+<meta property="og:title" content="Quiz - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="og:description" content="A hands-on textbook for middle and high school students: build a Raspberry Pi station that measures temperature, pressure, and humidity, logs the data, and reports it from the field.">
+<meta property="og:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/14-data-logging/quiz.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://iowerx.github.io/pi-env-monitor/chapters/14-data-logging/quiz/">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Quiz - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="twitter:description" content="A hands-on textbook for middle and high school students: build a Raspberry Pi station that measures temperature, pressure, and humidity, logs the data, and reports it from the field.">
+<meta property="twitter:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/chapters/14-data-logging/quiz.png">
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#quiz-logging-data-timestamps-intervals-and-files" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  <img src="../../../img/mascot/neutral.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Raspberry Pi Environmental Monitoring: Grades 6–12
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Quiz
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  <img src="../../../img/mascot/neutral.png" alt="logo">
+
+    </a>
+    Raspberry Pi Environmental Monitoring: Grades 6–12
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components Used
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../01-why-we-measure/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Why We Measure the Natural Environment
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../02-language-of-measurement/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. The Language of Measurement
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../03-electricity-and-computer/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Electricity and the Single-Board Computer
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../04-how-sensors-work/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. How Sensors Turn the World Into Numbers
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../05-time-and-place/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Time and Place - Recording Where and When
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../06-temperature/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Temperature - From the Thermoscope to the Silicon Chip
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../07-barometric-pressure/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Barometric Pressure - The Weight of the Atmosphere
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../08-humidity-and-dew-point/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Humidity and Dew Point - The Water Hidden in the Air
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../09-solar-radiation/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Solar Radiation - The Energy That Drives the Weather
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../10-wind/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Wind - Measuring Air in Motion
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../11-ground-motion/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Ground Motion - Measuring Earthquakes
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../12-os-and-sensor-buses/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. The Station's Brain - Operating System, Command Line, and Sensor Buses
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../13-python-programming/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Programming the Station in Python
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_15" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Logging Data - Timestamps, Intervals, and Files
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_15" id="__nav_5_15_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_15_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    14. Logging Data - Timestamps, Intervals, and Files
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#1-in-your-stations-data-what-is-a-data-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. In your station's data, what is a data record?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-what-does-the-3-2-1-backup-rule-call-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. What does the 3-2-1 backup rule call for?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-which-statement-best-describes-a-csv-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Which statement best describes a CSV file?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-why-would-shuffling-the-rows-of-your-stations-data-file-destroy-most-of-its-meaning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Why would shuffling the rows of your station's data file destroy most of its meaning?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-according-to-the-chapter-what-is-the-real-limit-on-storing-station-data-on-a-microsd-card" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. According to the chapter, what is the real limit on storing station data on a microSD card?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-why-does-the-chapter-recommend-rotating-to-a-new-data-file-each-day-named-like-readings-2026-08-25csv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Why does the chapter recommend rotating to a new data file each day, named like readings-2026-08-25.csv?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-you-add-a-cup-anemometer-to-your-station-which-sampling-plan-best-fits-wind-speed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. You add a cup anemometer to your station. Which sampling plan best fits wind speed?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-you-add-wind-speed-in-ms-and-irradiance-in-wm2-to-your-csv-file-which-header-row-best-follows-the-chapters-advice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. You add wind speed in m/s and irradiance in W/m² to your CSV file. Which header row best follows the chapter's advice?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-a-teacher-plans-to-compare-your-stations-pressure-with-a-neighbors-which-entries-in-your-metadata-file-most-help-prevent-a-false-storm-alarm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. A teacher plans to compare your station's pressure with a neighbor's. Which entries in your metadata file most help prevent a false storm alarm?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-your-school-has-five-years-of-daily-csv-files-now-you-want-to-find-every-hour-when-pressure-fell-more-than-3-hpa-and-a-web-dashboard-needs-fast-lookups-what-is-the-best-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Your school has five years of daily CSV files. Now you want to find every hour when pressure fell more than 3 hPa, and a web dashboard needs fast lookups. What is the best plan?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../15-charting-and-analysis/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Charting and Interpreting Your Data
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../16-building-for-outdoors/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Building the Station for the Outdoors
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../17-measurement-to-consequence/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. From Measurement to Consequence
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../licensing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#1-in-your-stations-data-what-is-a-data-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. In your station's data, what is a data record?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-what-does-the-3-2-1-backup-rule-call-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. What does the 3-2-1 backup rule call for?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-which-statement-best-describes-a-csv-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Which statement best describes a CSV file?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-why-would-shuffling-the-rows-of-your-stations-data-file-destroy-most-of-its-meaning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Why would shuffling the rows of your station's data file destroy most of its meaning?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-according-to-the-chapter-what-is-the-real-limit-on-storing-station-data-on-a-microsd-card" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. According to the chapter, what is the real limit on storing station data on a microSD card?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-why-does-the-chapter-recommend-rotating-to-a-new-data-file-each-day-named-like-readings-2026-08-25csv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Why does the chapter recommend rotating to a new data file each day, named like readings-2026-08-25.csv?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-you-add-a-cup-anemometer-to-your-station-which-sampling-plan-best-fits-wind-speed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. You add a cup anemometer to your station. Which sampling plan best fits wind speed?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-you-add-wind-speed-in-ms-and-irradiance-in-wm2-to-your-csv-file-which-header-row-best-follows-the-chapters-advice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. You add wind speed in m/s and irradiance in W/m² to your CSV file. Which header row best follows the chapter's advice?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-a-teacher-plans-to-compare-your-stations-pressure-with-a-neighbors-which-entries-in-your-metadata-file-most-help-prevent-a-false-storm-alarm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. A teacher plans to compare your station's pressure with a neighbor's. Which entries in your metadata file most help prevent a false storm alarm?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-your-school-has-five-years-of-daily-csv-files-now-you-want-to-find-every-hour-when-pressure-fell-more-than-3-hpa-and-a-web-dashboard-needs-fast-lookups-what-is-the-best-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Your school has five years of daily CSV files. Now you want to find every hour when pressure fell more than 3 hPa, and a web dashboard needs fast lookups. What is the best plan?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    14. Logging Data - Timestamps, Intervals, and Files
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/iowerx/pi-env-monitor/blob/main/docs/chapters/14-data-logging/quiz.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="quiz-logging-data-timestamps-intervals-and-files">Quiz: Logging Data: Timestamps, Intervals, and Files<a class="headerlink" href="#quiz-logging-data-timestamps-intervals-and-files" title="Permanent link">¶</a></h1>
+<p>Test your understanding of sampling intervals, time series, records and fields, CSV files and header rows, storage, file rotation, backup, databases, and metadata with these review questions.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Think Like a Stranger</p>
+<p><img alt="Mecha pointing out a tip" class="mascot-admonition-img" src="../../../img/mascot/tip.png">
+For each question, imagine someone opening your data five years from now with no one to ask. The best answer is usually the one that lets that stranger understand and trust your numbers.</p>
+</div>
+<hr>
+<h4 id="1-in-your-stations-data-what-is-a-data-record">1. In your station's data, what is a data record?<a class="headerlink" href="#1-in-your-stations-data-what-is-a-data-record" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>One single value, such as a temperature of 21.4</li>
+<li>One complete observation: all readings at one moment, plus the time</li>
+<li>The first line of the file, which names each column</li>
+<li>A separate file that describes the station and its sensor</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>B</strong>. A data record is one complete observation. It holds all the readings taken at one moment, plus the time they were taken. In a CSV file, each line after the header is one record. Option A describes a data field, which is one value inside a record. Option C describes the header row. Option D describes the metadata file that sits alongside the data.</p>
+<p><strong>Concept Tested:</strong> Data Record and Data Field</p>
+<p><strong>See:</strong> <a href="../#time-series">Time Series</a></p>
+</details>
+<hr>
+<h4 id="2-what-does-the-3-2-1-backup-rule-call-for">2. What does the 3-2-1 backup rule call for?<a class="headerlink" href="#2-what-does-the-3-2-1-backup-rule-call-for" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>3 sensors, at 2 stations, with 1 backup made each week</li>
+<li>3 copies, on 2 kinds of media, with 1 copy in a different place</li>
+<li>3 files each day, kept for 2 days, with 1 backup each month</li>
+<li>3 copies, all on the same SD card, checked 1 time each year</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>B</strong>. Data backup means keeping copies of your data somewhere other than the station. The 3-2-1 rule asks for 3 copies, on 2 kinds of media, with 1 copy in a different physical place. For a school, that might be the SD card, a school computer, and cloud storage. Option D keeps every copy on one card, which can fail completely. Options A and C are not the rule.</p>
+<p><strong>Concept Tested:</strong> Data Backup</p>
+<p><strong>See:</strong> <a href="../#rotation-and-backup">Rotation and Backup</a></p>
+</details>
+<hr>
+<h4 id="3-which-statement-best-describes-a-csv-file">3. Which statement best describes a CSV file?<a class="headerlink" href="#3-which-statement-best-describes-a-csv-file" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>A binary database file that is indexed for fast searching</li>
+<li>A special spreadsheet file that only one program can open</li>
+<li>A plain text file with one record per line and commas between fields</li>
+<li>A JSON file that records where and how the data was measured</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>C</strong>. A CSV file, short for Comma-Separated Values, is plain text. Each line is one record, and commas separate the fields. Almost any program can read it, people can inspect it, and adding a new line is easy. Option A describes a database such as SQLite. Option B is wrong, because CSV opens almost anywhere. Option D describes the metadata file.</p>
+<p><strong>Concept Tested:</strong> CSV File</p>
+<p><strong>See:</strong> <a href="../#csv-files">CSV Files</a></p>
+</details>
+<hr>
+<h4 id="4-why-would-shuffling-the-rows-of-your-stations-data-file-destroy-most-of-its-meaning">4. Why would shuffling the rows of your station's data file destroy most of its meaning?<a class="headerlink" href="#4-why-would-shuffling-the-rows-of-your-stations-data-file-destroy-most-of-its-meaning" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>The CSV format cannot be opened again once rows are moved</li>
+<li>The header row would end up somewhere in the middle of the file</li>
+<li>A time series depends on order and spacing, and neighbors are related</li>
+<li>Shuffling changes the numbers stored in each data field</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>C</strong>. A time series is a sequence of measurements of one quantity taken over time. Order matters, spacing matters, and each reading is close to its neighbors. That closeness is what makes an outlier stand out. Shuffling destroys the order, so the story is lost. Option A is wrong, because the file still opens. Option B is a side issue. Option D is wrong, because the values themselves do not change.</p>
+<p><strong>Concept Tested:</strong> Time Series</p>
+<p><strong>See:</strong> <a href="../#time-series">Time Series</a></p>
+</details>
+<hr>
+<h4 id="5-according-to-the-chapter-what-is-the-real-limit-on-storing-station-data-on-a-microsd-card">5. According to the chapter, what is the real limit on storing station data on a microSD card?<a class="headerlink" href="#5-according-to-the-chapter-what-is-the-real-limit-on-storing-station-data-on-a-microsd-card" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>A year of one-minute readings is too large for most cards</li>
+<li>A card can hold only one CSV file at a time</li>
+<li>The card slows down how fast the sensor can respond</li>
+<li>Cards wear out from writing and can fail suddenly without warning</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>D</strong>. Data storage on a microSD card is limited by write endurance and sudden failure. Flash memory wears out after a finite number of writes, and a card can work perfectly and then become unreadable. Option A is wrong, because a year of one-minute data is only about 32 MB. Option B is false. Option C confuses storage with the sensor's response time. Capacity is not the constraint. Reliability is.</p>
+<p><strong>Concept Tested:</strong> Data Storage</p>
+<p><strong>See:</strong> <a href="../#storage-on-a-small-computer">Storage on a Small Computer</a></p>
+</details>
+<hr>
+<h4 id="6-why-does-the-chapter-recommend-rotating-to-a-new-data-file-each-day-named-like-readings-2026-08-25csv">6. Why does the chapter recommend rotating to a new data file each day, named like <code>readings-2026-08-25.csv</code>?<a class="headerlink" href="#6-why-does-the-chapter-recommend-rotating-to-a-new-data-file-each-day-named-like-readings-2026-08-25csv" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>Files stay small, damage stays in one day, and the names sort in time order</li>
+<li>Daily files use less memory, so the sensor can sample faster</li>
+<li>The CSV format can only hold one day of data per file</li>
+<li>Rotating files makes the timestamps switch to local time each day</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>A</strong>. File rotation means closing the current file and starting a new one, usually by date. Each daily file is small and quick to open, and any corruption is contained to one day. Copying new files is easy. Because the names use ISO 8601 dates, they sort in time order as plain text. Option B is not the reason. Option C is false. Option D is wrong, because timestamps stay in UTC.</p>
+<p><strong>Concept Tested:</strong> File Rotation</p>
+<p><strong>See:</strong> <a href="../#rotation-and-backup">Rotation and Backup</a></p>
+</details>
+<hr>
+<h4 id="7-you-add-a-cup-anemometer-to-your-station-which-sampling-plan-best-fits-wind-speed">7. You add a cup anemometer to your station. Which sampling plan best fits wind speed?<a class="headerlink" href="#7-you-add-a-cup-anemometer-to-your-station-which-sampling-plan-best-fits-wind-speed" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>Take one reading every hour to keep the files small</li>
+<li>Log 100 raw readings every second, all day long</li>
+<li>Take one instant reading each minute and save it</li>
+<li>Sample every 1 to 3 seconds and record one-minute summaries</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>D</strong>. The sampling interval is the time between readings. Gusts are brief and matter, so wind needs fast sampling, every 1 to 3 seconds. You then summarize each minute with values like average and gust. Option A misses almost everything. Option B samples far faster than a cup anemometer can respond, which wastes power and card life. Option C would miss most gusts between readings.</p>
+<p><strong>Concept Tested:</strong> Sampling Interval</p>
+<p><strong>See:</strong> <a href="../#how-often-should-you-read">How Often Should You Read?</a></p>
+</details>
+<hr>
+<h4 id="8-you-add-wind-speed-in-ms-and-irradiance-in-wm2-to-your-csv-file-which-header-row-best-follows-the-chapters-advice">8. You add wind speed in m/s and irradiance in W/m² to your CSV file. Which header row best follows the chapter's advice?<a class="headerlink" href="#8-you-add-wind-speed-in-ms-and-irradiance-in-wm2-to-your-csv-file-which-header-row-best-follows-the-chapters-advice" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li><code>time,temp,wind,light</code></li>
+<li><code>Timestamp,Temperature,Wind Speed,Irradiance</code></li>
+<li><code>timestamp,temperature_c,wind_speed_ms,irradiance_wm2</code></li>
+<li><code>timestamp_local,temperature_c,wind_speed_ms,irradiance_wm2</code></li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>C</strong>. The header row is the first line of a CSV file, and it names each field. The chapter's rule is that every column name carries its unit, so a stranger knows exactly what each number means. Options A and B have no units, so readers must guess. Option D includes units but stores local time, and the chapter says timestamps must always be UTC, in ISO 8601 format.</p>
+<p><strong>Concept Tested:</strong> Header Row</p>
+<p><strong>See:</strong> <a href="../#csv-files">CSV Files</a></p>
+</details>
+<hr>
+<h4 id="9-a-teacher-plans-to-compare-your-stations-pressure-with-a-neighbors-which-entries-in-your-metadata-file-most-help-prevent-a-false-storm-alarm">9. A teacher plans to compare your station's pressure with a neighbor's. Which entries in your metadata file most help prevent a false storm alarm?<a class="headerlink" href="#9-a-teacher-plans-to-compare-your-stations-pressure-with-a-neighbors-which-entries-in-your-metadata-file-most-help-prevent-a-false-storm-alarm" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>The station's elevation and whether pressure is sea-level corrected</li>
+<li>The data license and the name of the class running the station</li>
+<li>The station's name and a photo of the installation</li>
+<li>The date the station started and the sampling interval</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>A</strong>. Metadata is data about the data: where, how high, with what sensor, and how it was processed. Pressure falls about 12 hPa per 100 m, so elevation matters. Knowing whether a value is station pressure or sea-level corrected stops someone from comparing 995 hPa with 1013 hPa and seeing a storm that is not there. Options B, C, and D are useful metadata, but none of them explains a pressure difference.</p>
+<p><strong>Concept Tested:</strong> Metadata</p>
+<p><strong>See:</strong> <a href="../#metadata">Metadata</a></p>
+</details>
+<hr>
+<h4 id="10-your-school-has-five-years-of-daily-csv-files-now-you-want-to-find-every-hour-when-pressure-fell-more-than-3-hpa-and-a-web-dashboard-needs-fast-lookups-what-is-the-best-plan">10. Your school has five years of daily CSV files. Now you want to find every hour when pressure fell more than 3 hPa, and a web dashboard needs fast lookups. What is the best plan?<a class="headerlink" href="#10-your-school-has-five-years-of-daily-csv-files-now-you-want-to-find-every-hour-when-pressure-fell-more-than-3-hpa-and-a-web-dashboard-needs-fast-lookups-what-is-the-best-plan" title="Permanent link">¶</a></h4>
+<div class="upper-alpha">
+<ol>
+<li>Delete the CSV files and keep the data only in a database</li>
+<li>Combine everything into one giant CSV file and search it each time</li>
+<li>Switch to sampling once an hour so the files are easier to search</li>
+<li>Keep the CSV files as the record and import them into SQLite for queries</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>D</strong>. A database indexes data so questions can be answered without scanning everything. CSV is great for appending but slow to search over years of data. The chapter's middle path keeps the readable CSV files as the permanent record and imports them into SQLite for analysis. Option A throws away the durable, readable files. Option B makes searching slower. Option C throws away detail you can never get back.</p>
+<p><strong>Concept Tested:</strong> Database</p>
+<p><strong>See:</strong> <a href="../#when-a-file-is-not-enough">When a File Is Not Enough</a></p>
+</details>
+<hr>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Data Safely Stored!</p>
+<p><img alt="Mecha celebrating" class="mascot-admonition-img" src="../../../img/mascot/celebration.png">
+Fantastic work, station builders! You now know how to pick a sampling interval, write clear CSV files with units in the header, and protect your data with rotation, backup, and metadata. Check the data, then check it again.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Content">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Content
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../15-charting-and-analysis/" class="md-footer__link md-footer__link--next" aria-label="Next: Content">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Content
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Hank Ratzesberger. Licensed under <a href="licensing/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
