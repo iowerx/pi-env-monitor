@@ -228,8 +228,10 @@ exclude_docs: |
   **/image-prompt*.md
   **/image-prompts*.md
   **/cover-prompt.md
+  **/cover-image-prompt.md
   **/TODO.md
   img/bubo.png
+  img/cover-source.png
 
 # Rebuild on changes during `mkdocs serve`
 watch:
