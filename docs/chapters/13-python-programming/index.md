@@ -591,3 +591,5 @@ That conditional means "only run `main()` if this file is being executed directl
 You can now read a sensor and act on what it says. What you cannot yet do is remember any of it — every reading so far has been printed to a screen and then lost forever.
 
 Chapter 14 fixes that. It covers choosing a sampling interval against your sensor's response time, building a time series from timestamped readings, and the structure of a CSV file down to the header row that names the units. It covers storage, file rotation, and backup for a dataset that grows every minute of every day, and it closes with metadata — the record of what was measured, where, and with what instrument, without which your data cannot be understood by anyone but you.
+
+[See Annotated References](./references.md)

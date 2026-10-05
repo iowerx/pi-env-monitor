@@ -450,3 +450,5 @@ Implementation: Chart.js with two datasets on a shared y-axis, a third on a seco
 Three of the seven quantities are now covered, and all three come from the single BME280 chip. The remaining four each need their own sensor, and the next one is the source of the energy that drives everything you have read about so far.
 
 Chapter 9 covers solar radiation — the energy arriving from the Sun. It runs from Herschel's accidental discovery of infrared through the instruments that measure sunlight to the satellites that finally pinned down how much energy actually arrives. It also explains insolation, the number that determines whether the solar panel powering your station will actually keep up.
+
+[See Annotated References](./references.md)

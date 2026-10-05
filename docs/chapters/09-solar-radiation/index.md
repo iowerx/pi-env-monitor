@@ -440,3 +440,5 @@ Implementation: p5.js. Build UV index from a clear-sky model driven by solar zen
 Solar radiation heats the ground unevenly. Uneven heating produces uneven air density, which produces uneven pressure — and air flows from high pressure to low.
 
 Chapter 10 follows that chain to its result: wind. It opens with the pressure systems and gradients that create air movement, covers the anemometer families and the Beaufort scale that let sailors report wind speed with no instrument at all, and closes with what wind does to people and structures — wind chill, apparent temperature, the hurricane and tornado rating scales, and the wind loads that building codes are written around.
+
+[See Annotated References](./references.md)

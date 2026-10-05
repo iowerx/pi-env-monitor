@@ -479,3 +479,5 @@ Implementation: p5.js. Ring radii = velocity x elapsed time; the alert ring is e
 Every measurement in this book now has its physics, its history, and its instrument. What none of them have yet is a working computer to read them.
 
 Chapter 12 turns the bare board from Chapter 3 into a station. It covers what an operating system actually does, how to work at the command line, and how to make a program start automatically and keep running after a reboot. Then it covers the buses that carry sensor data — I2C, SPI, and serial — and ends at the BME280 itself, a single chip that combines three of the sensing mechanisms you have met in three separate chapters.
+
+[See Annotated References](./references.md)

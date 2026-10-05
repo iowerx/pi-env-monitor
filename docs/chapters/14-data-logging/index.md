@@ -583,3 +583,5 @@ Combine this with the systemd service from Chapter 12 and you have a station tha
 Your station now records. What it does not yet do is tell you anything.
 
 Chapter 15 is about reading change over time, which is a different skill from reading an instrument. It covers line charts and scatter plots, honest axis labeling, moving averages, trend, and correlation between two channels. That machinery unlocks six measurements that could not be defined earlier — pressure tendency and barometric forecasting, insolation, wind gust and sustained wind speed, and the Saffir-Simpson scale. It closes with data quality: finding outliers, missing data, and sensor drift, and deciding which suspicious readings are instrument faults and which are real events.
+
+[See Annotated References](./references.md)

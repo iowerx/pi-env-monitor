@@ -505,3 +505,5 @@ Calibration is not permanent. Sensors drift as they age, and Chapter 15 covers h
 You now have the vocabulary. The next chapter moves from ideas to hardware.
 
 Chapter 3 introduces the Raspberry Pi and the electrical basics needed to connect anything to it safely: voltage, current, ground, and the GPIO pins that sensors plug into. It also covers static discipline — the short set of habits that keeps you from destroying a board by touching it on a dry day. Nothing in this book gets measured until that hardware is working, so the next chapter is where the boxes come open.
+
+[See Annotated References](./references.md)

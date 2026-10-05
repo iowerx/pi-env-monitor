@@ -418,3 +418,5 @@ Implementation: p5.js. Store scenarios as arrays of {hour, pressure} plus an out
 Pressure and temperature are two of the three quantities the BME280 measures. The third is the one you cannot see at all.
 
 Chapter 8 covers humidity — the water vapor suspended invisibly in the air. It builds the water cycle first, then separates three ideas that get used interchangeably and should not be: absolute humidity, relative humidity, and dew point. It explains why warm air can hold more water than cold air, why that means fog can form overnight without any new water arriving, and why the dew point predicts how a day will actually feel far better than the percentage in the forecast does.
+
+[See Annotated References](./references.md)

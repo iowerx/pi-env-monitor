@@ -471,3 +471,5 @@ There is a second reason, and it is more personal. Once you have wired a sensor,
 You now know what this book is measuring and why. The next chapter takes on the thing that makes all of it possible: units. Every measurement in this book is a number attached to a unit, and every unit is an agreement that took people a surprisingly long time to reach.
 
 Chapter 2 covers the SI system, how to convert between units, and the vocabulary for describing how good a measurement is — accuracy, precision, and uncertainty. Those words get used loosely in conversation. They mean specific and different things here, and you will need all of them before you can judge whether your own station is telling you the truth.
+
+[See Annotated References](./references.md)

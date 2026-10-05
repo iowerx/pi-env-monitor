@@ -429,3 +429,5 @@ Implementation: p5.js. Store readings internally as true UTC instants and render
 You can now say where a reading was taken and exactly when. From here the book turns to the readings themselves, one quantity per chapter, each following the same shape: what it physically is, who first measured it and how, what units it is reported in, and what it affects in the world.
 
 Chapter 6 starts with temperature — the quantity everyone thinks they understand. It turns out that what a thermometer measures is the motion of atoms, that the three temperature scales in common use disagree about where zero belongs and why, and that how you shield a thermometer from sunlight matters as much as which thermometer you buy.
+
+[See Annotated References](./references.md)

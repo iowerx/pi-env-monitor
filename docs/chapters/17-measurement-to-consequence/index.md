@@ -430,3 +430,5 @@ Chapter 1 said the difference between consuming data and understanding it is hav
 The instruments in this book were built by people who wanted to know something and had no way to find out. Torricelli wanted to know why pumps failed at ten metres. Herschel wanted to know which colour carried the most heat. Beaufort wanted ships to be able to compare notes. None of them had the equipment they needed, so they made it.
 
 You have the equipment. The questions are still open.
+
+[See Annotated References](./references.md)

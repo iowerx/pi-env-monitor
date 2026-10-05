@@ -550,3 +550,5 @@ Implementation: p5.js. Generate each case as static multi-channel data with a do
 Everything so far has assumed the station is on a bench, plugged into a wall, with you nearby. That is not a monitoring station. That is a demonstration.
 
 Chapter 16 takes it outside. It covers siting and sensor exposure, weatherproof enclosures and their ingress protection ratings, and the power budget that determines the battery, solar panel, and charge controller you need — using the insolation figure this chapter just taught you to compute. It closes with telemetry: getting data off a device nobody can reach, over a connection that will not always be there.
+
+[See Annotated References](./references.md)

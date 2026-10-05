@@ -405,3 +405,5 @@ Before doing anything else with the board, do a visual check. This costs a minut
 The board exists and you can connect wires to it without destroying anything. But a wire from a sensor to a pin is only useful if something on the other end can turn a physical property into a voltage.
 
 Chapter 4 covers exactly that. It introduces transduction — the process of converting a physical property into an electrical signal — and follows a measurement from the analog signal a sensor produces through analog-to-digital conversion into a number a computer can store. It also covers the materials that make sensing possible: semiconductors, MEMS structures, and the photoelectric effect. After that chapter, every sensor in the rest of the book is a variation on one idea you already understand.
+
+[See Annotated References](./references.md)

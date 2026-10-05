@@ -482,3 +482,5 @@ The Enhanced Fujita scale works backwards from damage to wind speed, which is un
 Six of the seven quantities so far have been properties of the air. The last measurement in this part of the book is not about the atmosphere at all.
 
 Chapter 11 goes underground. It covers ground motion — earthquakes, the seismic waves they send through the planet, and the instruments that detect them. The instrument lineage is the oldest in this book, beginning with a bronze vessel ringed with dragons in 138 AD, and the modern end of it is a chip small enough that a student station can afford one. Along the way it draws the distinction between magnitude and intensity, which is the most commonly confused pair of ideas in this entire book.
+
+[See Annotated References](./references.md)

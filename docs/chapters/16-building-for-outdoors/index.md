@@ -490,3 +490,5 @@ The same logic applies to weather. Your station is one point. Contributing it to
 Your station is built, sited, powered, and reporting. It has been running for months and you have a growing record of your own air.
 
 Chapter 17 answers the question the whole book has been building toward: so what? It traces each of the seven measurements into the decisions it drives in the world — weather forecasting and severe weather warnings, agricultural planning, energy demand and solar generation, aviation safety, the building codes written from seismic and wind data, urban heat islands, air quality, wildfire risk, and flood and tsunami warning. It closes with what you can do with your own data: contribute it to citizen science networks, share it so others can use it, and communicate what you found to people who were not there.
+
+[See Annotated References](./references.md)

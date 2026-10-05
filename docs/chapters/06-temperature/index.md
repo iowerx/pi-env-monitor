@@ -462,3 +462,5 @@ Implementation: p5.js. Model each sensor's reading as trueAirTemp + solarLoad x 
 Temperature is the quantity people find most intuitive, which is why it comes first. The next one is the quantity people find least intuitive, and it has the best story in the book.
 
 Chapter 7 covers barometric pressure — the weight of the air stacked above you, which nobody believed in for two thousand years. It runs from Aristotle's insistence that a vacuum could not exist, through Torricelli's tube of mercury and Pascal's brother-in-law carrying a barometer up a mountain, to the silicon diaphragm inside your own sensor. Along the way it explains why weather forecasting became possible at all.
+
+[See Annotated References](./references.md)

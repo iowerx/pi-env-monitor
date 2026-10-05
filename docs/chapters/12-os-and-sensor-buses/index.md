@@ -621,3 +621,5 @@ Implementation: p5.js. Draw blocks as labeled rectangles with bezier signal path
 You have a computer that boots, a command line to work in, a service manager to keep programs running, and a sensor the Pi can see on the bus. The remaining gap is the program itself.
 
 Chapter 13 teaches enough Python to read that sensor and act on the result: variables and data types, functions, loops, conditionals, and libraries — which is how a sensor becomes three lines of code instead of three hundred. It closes with exception handling, because a sensor that fails to respond at three in the morning should not take down the whole station.
+
+[See Annotated References](./references.md)

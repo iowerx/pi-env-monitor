@@ -437,3 +437,5 @@ Datasheets look intimidating. The BME280's runs to about 60 pages of tables and 
 You now understand how a physical property becomes a number, and you have hardware that can receive one. There is one thing still missing before any of it counts as data.
 
 Chapter 5 supplies it: where and when. A temperature reading with no location and no timestamp cannot be compared to any other reading, cannot be plotted against time, and cannot be combined with anyone else's data. That chapter covers coordinate systems, the centuries-long struggle to measure longitude at sea, how GPS actually determines a position, and why every remote station records its times in UTC rather than local time.
+
+[See Annotated References](./references.md)
