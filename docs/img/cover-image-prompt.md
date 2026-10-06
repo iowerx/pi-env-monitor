@@ -55,12 +55,13 @@ composition reads as one image rather than a collage of unrelated styles:
 2. **Raspberry Pi board**: a green single-board computer with its row of
    gold GPIO header pins and four colored jumper wires (red, black, yellow,
    blue) running to a tiny purple sensor breakout board (the BME280)
-3. **Torricelli's barometer**: a tall glass tube of silvery mercury turned
+3. **Torricelli's barometer**: a tall glass tube of the color silver mercury turned
    upside down in a dish, with a small empty gap at the sealed top. A small
-   mountain peak (the Puy de Dôme) sits faintly behind it
+   mountain peak (the Puy de Dôme) sits faintly behind it. Make the liquid in the tube shiny silver mercury, filling about
+    three-quarters of the tube, with a clearly empty gap at the sealed top; the
+    dish also holds silver mercury.
 4. **Thermometer with three scales**: a classic glass thermometer with a red
-   column and three side-by-side tick scales, labeled only "°F", "°C", and
-   "K"
+   column and two side-by-side tick scales, labeled only "°F", "°C". The scale should go from 0 to 100 Celsius.
 5. **Sun and daily sunlight curve**: a bright cartoon sun above a smooth
    orange bell-shaped line on a simple chart, rising from dawn to a noon
    peak and falling to dusk
