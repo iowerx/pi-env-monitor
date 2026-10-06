@@ -1,0 +1,3588 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Answers to the most common questions about building the Raspberry Pi environmental monitoring station, what it measures, and how to read the data, organized by category.">
+      
+      
+        <meta name="author" content="Hank Ratzesberger">
+      
+      
+        <link rel="canonical" href="https://iowerx.github.io/pi-env-monitor/faq/">
+      
+      
+        <link rel="prev" href="../sims/weather-versus-climate-explorer/">
+      
+      
+        <link rel="next" href="../references/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Frequently Asked Questions - Raspberry Pi Environmental Monitoring: Grades 6–12</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+      <link rel="stylesheet" href="../css/mascot.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website">
+<meta property="og:title" content="Frequently Asked Questions - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="og:description" content="Answers to the most common questions about building the Raspberry Pi environmental monitoring station, what it measures, and how to read the data, organized by category.">
+<meta property="og:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/faq.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://iowerx.github.io/pi-env-monitor/faq/">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Frequently Asked Questions - Raspberry Pi Environmental Monitoring: Grades 6–12">
+<meta property="twitter:description" content="Answers to the most common questions about building the Raspberry Pi environmental monitoring station, what it measures, and how to read the data, organized by category.">
+<meta property="twitter:image" content="https://iowerx.github.io/pi-env-monitor/assets/images/social/faq.png">
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#frequently-asked-questions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-header__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  <img src="../img/mascot/neutral.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Raspberry Pi Environmental Monitoring: Grades 6–12
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Frequently Asked Questions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Raspberry Pi Environmental Monitoring: Grades 6–12" class="md-nav__button md-logo" aria-label="Raspberry Pi Environmental Monitoring: Grades 6–12" data-md-component="logo">
+      
+  <img src="../img/mascot/neutral.png" alt="logo">
+
+    </a>
+    Raspberry Pi Environmental Monitoring: Grades 6–12
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/iowerx/pi-env-monitor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components Used
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../chapters/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#getting-started-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Started Questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Started Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-this-book-about" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is this book about?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#who-is-this-book-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Who is this book for?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#do-i-need-to-know-programming-linux-or-electronics-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Do I need to know programming, Linux, or electronics first?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-math-and-science-should-i-know-before-starting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What math and science should I know before starting?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-are-the-seven-things-the-station-measures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What are the seven things the station measures?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-hardware-does-the-station-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What hardware does the station use?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-is-the-book-organized" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How is the book organized?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#do-i-need-to-solder-anything" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Do I need to solder anything?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-are-microsims-and-how-do-i-use-them" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What are MicroSims and how do I use them?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-the-quizzes-and-check-yourself-questions-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How do the quizzes and "Check Yourself" questions work?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#who-is-mecha-the-clockwork-owl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Who is Mecha the Clockwork Owl?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-topics-does-this-book-not-cover" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What topics does this book not cover?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-a-teacher-or-club-advisor-use-this-book-without-being-an-expert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Can a teacher or club advisor use this book without being an expert?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-environmental-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is environmental monitoring?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-difference-between-an-observation-and-a-measurement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the difference between an observation and a measurement?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-physical-property" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is a physical property?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-difference-between-weather-and-climate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the difference between weather and climate?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-my-station-measure-climate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Can my station measure climate?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-atmosphere-and-which-layer-does-my-station-measure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the atmosphere, and which layer does my station measure?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-an-air-mass-and-why-does-it-matter-for-my-readings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is an air mass, and why does it matter for my readings?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-cant-i-just-use-a-number-without-a-unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why can't I just use a number without a unit?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-are-si-units" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What are SI units?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-difference-between-accuracy-precision-and-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the difference between accuracy, precision, and resolution?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-temperature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is temperature?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-barometric-pressure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is barometric pressure?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-relative-humidity-and-how-is-it-different-from-absolute-humidity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is relative humidity, and how is it different from absolute humidity?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-dew-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the dew point?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-solar-radiation-and-how-is-it-measured" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is solar radiation, and how is it measured?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-causes-wind" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What causes wind?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-difference-between-earthquake-magnitude-and-intensity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the difference between earthquake magnitude and intensity?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-sensor-and-what-is-transduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is a sensor, and what is transduction?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-does-the-station-record-location-and-time-with-every-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why does the station record location and time with every reading?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-should-every-timestamp-use-utc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why should every timestamp use UTC?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-the-seven-measurements-affect-one-another" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How do the seven measurements affect one another?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-an-operating-system-and-why-does-the-station-use-ubuntu-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is an operating system, and why does the station use Ubuntu Server?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-i2c-bus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the I2C bus?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-time-series" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is a time series?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-detail-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Detail Questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Detail Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-do-the-gpio-pins-need-only-33-volts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why do the GPIO pins need only 3.3 volts?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-does-a-pull-up-resistor-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What does a pull-up resistor do?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-analog-to-digital-conversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is analog-to-digital conversion?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-sensor-response-time-and-why-does-it-matter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is sensor response time, and why does it matter?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-are-the-seven-questions-a-sensor-datasheet-answers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What are the seven questions a sensor datasheet answers?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-does-the-bme280-sensor-contain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What does the BME280 sensor contain?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-are-hectopascals-millibars-and-inches-of-mercury" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What are hectopascals, millibars, and inches of mercury?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-sea-level-pressure-and-why-is-it-calculated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is sea level pressure, and why is it calculated?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-are-the-celsius-fahrenheit-and-kelvin-scales-different" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How are the Celsius, Fahrenheit, and Kelvin scales different?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-stevenson-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is a Stevenson screen?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-difference-between-a-cup-anemometer-and-a-sonic-anemometer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the difference between a cup anemometer and a sonic anemometer?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-beaufort-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the Beaufort scale?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-difference-between-p-waves-and-s-waves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the difference between P waves and S waves?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-the-richter-scale-and-the-moment-magnitude-scale-differ" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How do the Richter scale and the moment magnitude scale differ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-does-gps-need-four-satellites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why does GPS need four satellites?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-are-file-permissions-on-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What are file permissions on Linux?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-systemd-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is a systemd service?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-csv-file-and-why-use-one-for-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is a CSV file, and why use one for logging?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-difference-between-sustained-wind-and-a-wind-gust" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the difference between sustained wind and a wind gust?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-challenge-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Challenge Questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Challenge Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-does-my-station-disagree-with-the-local-weather-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why does my station disagree with the local weather report?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-does-my-temperature-reading-spike-in-the-afternoon-sun" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why does my temperature reading spike in the afternoon sun?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#my-sensor-does-not-show-up-in-i2cdetect-what-do-i-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        My sensor does not show up in i2cdetect. What do I check?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#my-program-crashes-once-in-a-while-how-do-i-keep-the-station-running" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        My program crashes once in a while. How do I keep the station running?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-do-i-get-permission-denied" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why do I get "permission denied"?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-do-my-timestamps-have-a-missing-hour-or-a-repeated-hour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why do my timestamps have a missing hour or a repeated hour?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-friend-says-one-very-cold-morning-proves-climate-change-is-not-real-what-is-wrong-with-that" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A friend says one very cold morning proves climate change is not real. What is wrong with that?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-relative-humidity-fell-but-no-water-left-the-air-how-is-that-possible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The relative humidity fell, but no water left the air. How is that possible?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#my-chart-has-a-strange-spike-is-it-a-bad-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        My chart has a strange spike. Is it a bad reading?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-does-my-line-chart-have-gaps-and-should-i-fill-them" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why does my line chart have gaps, and should I fill them?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-does-my-station-run-out-of-power-overnight-or-in-winter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why does my station run out of power overnight or in winter?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-damage-my-raspberry-pi-with-static-or-the-wrong-voltage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Can I damage my Raspberry Pi with static or the wrong voltage?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-of-my-measurements-move-together-does-one-cause-the-other" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two of my measurements move together. Does one cause the other?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practice-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practice Questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practice Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#where-should-i-place-my-station" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where should I place my station?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-often-should-i-take-a-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How often should I take a reading?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-should-i-name-and-store-my-log-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How should I name and store my log files?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-should-i-back-up-my-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How should I back up my data?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-metadata-should-i-record-and-when" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What metadata should I record, and when?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-should-i-name-variables-in-my-python-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How should I name variables in my Python code?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-check-my-sensor-for-drift" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How do I check my sensor for drift?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#which-type-of-chart-should-i-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Which type of chart should I use?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#should-i-store-my-data-in-a-csv-file-or-a-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Should I store my data in a CSV file or a database?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#should-my-station-send-data-by-wi-fi-or-cellular" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Should my station send data by Wi-Fi or cellular?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-build-a-power-budget-for-my-station" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How do I build a power budget for my station?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-should-i-use-a-moving-average-without-hiding-real-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How should I use a moving average without hiding real events?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-share-my-data-with-scientists-or-other-schools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How can I share my data with scientists or other schools?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-topic-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced Topic Questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Topic Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-would-i-design-a-station-that-survives-a-winter-unattended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How would I design a station that survives a winter unattended?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-are-many-cheap-seismic-stations-better-than-one-expensive-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why are many cheap seismic stations better than one expensive one?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-tell-sensor-drift-from-a-real-change-in-the-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How can I tell sensor drift from a real change in the environment?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-are-the-trade-offs-between-sealing-and-venting-my-enclosure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What are the trade-offs between sealing and venting my enclosure?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-forecasters-farmers-and-engineers-use-data-like-mine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How do forecasters, farmers, and engineers use data like mine?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-would-i-write-code-that-handles-a-network-that-keeps-dropping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How would I write code that handles a network that keeps dropping?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-could-i-design-an-experiment-to-compare-two-locations-like-a-parking-lot-and-a-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How could I design an experiment to compare two locations, like a parking lot and a field?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-good-does-a-measurement-need-to-be" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How good does a measurement need to be?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-cant-earthquake-early-warning-predict-earthquakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why can't earthquake early warning predict earthquakes?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../licensing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#getting-started-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Started Questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Started Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-this-book-about" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is this book about?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#who-is-this-book-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Who is this book for?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#do-i-need-to-know-programming-linux-or-electronics-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Do I need to know programming, Linux, or electronics first?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-math-and-science-should-i-know-before-starting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What math and science should I know before starting?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-are-the-seven-things-the-station-measures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What are the seven things the station measures?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-hardware-does-the-station-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What hardware does the station use?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-is-the-book-organized" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How is the book organized?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#do-i-need-to-solder-anything" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Do I need to solder anything?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-are-microsims-and-how-do-i-use-them" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What are MicroSims and how do I use them?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-the-quizzes-and-check-yourself-questions-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How do the quizzes and "Check Yourself" questions work?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#who-is-mecha-the-clockwork-owl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Who is Mecha the Clockwork Owl?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-topics-does-this-book-not-cover" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What topics does this book not cover?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-a-teacher-or-club-advisor-use-this-book-without-being-an-expert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Can a teacher or club advisor use this book without being an expert?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-environmental-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is environmental monitoring?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-difference-between-an-observation-and-a-measurement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the difference between an observation and a measurement?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-physical-property" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is a physical property?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-difference-between-weather-and-climate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the difference between weather and climate?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-my-station-measure-climate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Can my station measure climate?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-atmosphere-and-which-layer-does-my-station-measure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the atmosphere, and which layer does my station measure?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-an-air-mass-and-why-does-it-matter-for-my-readings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is an air mass, and why does it matter for my readings?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-cant-i-just-use-a-number-without-a-unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why can't I just use a number without a unit?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-are-si-units" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What are SI units?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-difference-between-accuracy-precision-and-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the difference between accuracy, precision, and resolution?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-temperature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is temperature?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-barometric-pressure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is barometric pressure?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-relative-humidity-and-how-is-it-different-from-absolute-humidity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is relative humidity, and how is it different from absolute humidity?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-dew-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the dew point?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-solar-radiation-and-how-is-it-measured" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is solar radiation, and how is it measured?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-causes-wind" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What causes wind?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-difference-between-earthquake-magnitude-and-intensity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the difference between earthquake magnitude and intensity?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-sensor-and-what-is-transduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is a sensor, and what is transduction?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-does-the-station-record-location-and-time-with-every-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why does the station record location and time with every reading?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-should-every-timestamp-use-utc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why should every timestamp use UTC?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-the-seven-measurements-affect-one-another" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How do the seven measurements affect one another?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-an-operating-system-and-why-does-the-station-use-ubuntu-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is an operating system, and why does the station use Ubuntu Server?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-i2c-bus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the I2C bus?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-time-series" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is a time series?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-detail-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Detail Questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Detail Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-do-the-gpio-pins-need-only-33-volts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why do the GPIO pins need only 3.3 volts?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-does-a-pull-up-resistor-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What does a pull-up resistor do?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-analog-to-digital-conversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is analog-to-digital conversion?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-sensor-response-time-and-why-does-it-matter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is sensor response time, and why does it matter?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-are-the-seven-questions-a-sensor-datasheet-answers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What are the seven questions a sensor datasheet answers?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-does-the-bme280-sensor-contain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What does the BME280 sensor contain?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-are-hectopascals-millibars-and-inches-of-mercury" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What are hectopascals, millibars, and inches of mercury?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-sea-level-pressure-and-why-is-it-calculated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is sea level pressure, and why is it calculated?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-are-the-celsius-fahrenheit-and-kelvin-scales-different" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How are the Celsius, Fahrenheit, and Kelvin scales different?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-stevenson-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is a Stevenson screen?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-difference-between-a-cup-anemometer-and-a-sonic-anemometer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the difference between a cup anemometer and a sonic anemometer?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-beaufort-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the Beaufort scale?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-difference-between-p-waves-and-s-waves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the difference between P waves and S waves?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-the-richter-scale-and-the-moment-magnitude-scale-differ" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How do the Richter scale and the moment magnitude scale differ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-does-gps-need-four-satellites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why does GPS need four satellites?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-are-file-permissions-on-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What are file permissions on Linux?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-systemd-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is a systemd service?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-csv-file-and-why-use-one-for-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is a CSV file, and why use one for logging?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-difference-between-sustained-wind-and-a-wind-gust" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the difference between sustained wind and a wind gust?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-challenge-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Challenge Questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Challenge Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-does-my-station-disagree-with-the-local-weather-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why does my station disagree with the local weather report?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-does-my-temperature-reading-spike-in-the-afternoon-sun" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why does my temperature reading spike in the afternoon sun?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#my-sensor-does-not-show-up-in-i2cdetect-what-do-i-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        My sensor does not show up in i2cdetect. What do I check?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#my-program-crashes-once-in-a-while-how-do-i-keep-the-station-running" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        My program crashes once in a while. How do I keep the station running?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-do-i-get-permission-denied" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why do I get "permission denied"?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-do-my-timestamps-have-a-missing-hour-or-a-repeated-hour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why do my timestamps have a missing hour or a repeated hour?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-friend-says-one-very-cold-morning-proves-climate-change-is-not-real-what-is-wrong-with-that" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A friend says one very cold morning proves climate change is not real. What is wrong with that?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-relative-humidity-fell-but-no-water-left-the-air-how-is-that-possible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The relative humidity fell, but no water left the air. How is that possible?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#my-chart-has-a-strange-spike-is-it-a-bad-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        My chart has a strange spike. Is it a bad reading?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-does-my-line-chart-have-gaps-and-should-i-fill-them" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why does my line chart have gaps, and should I fill them?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-does-my-station-run-out-of-power-overnight-or-in-winter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why does my station run out of power overnight or in winter?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-damage-my-raspberry-pi-with-static-or-the-wrong-voltage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Can I damage my Raspberry Pi with static or the wrong voltage?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-of-my-measurements-move-together-does-one-cause-the-other" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two of my measurements move together. Does one cause the other?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practice-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practice Questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practice Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#where-should-i-place-my-station" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where should I place my station?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-often-should-i-take-a-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How often should I take a reading?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-should-i-name-and-store-my-log-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How should I name and store my log files?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-should-i-back-up-my-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How should I back up my data?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-metadata-should-i-record-and-when" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What metadata should I record, and when?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-should-i-name-variables-in-my-python-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How should I name variables in my Python code?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-check-my-sensor-for-drift" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How do I check my sensor for drift?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#which-type-of-chart-should-i-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Which type of chart should I use?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#should-i-store-my-data-in-a-csv-file-or-a-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Should I store my data in a CSV file or a database?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#should-my-station-send-data-by-wi-fi-or-cellular" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Should my station send data by Wi-Fi or cellular?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-build-a-power-budget-for-my-station" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How do I build a power budget for my station?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-should-i-use-a-moving-average-without-hiding-real-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How should I use a moving average without hiding real events?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-share-my-data-with-scientists-or-other-schools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How can I share my data with scientists or other schools?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-topic-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced Topic Questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Topic Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-would-i-design-a-station-that-survives-a-winter-unattended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How would I design a station that survives a winter unattended?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-are-many-cheap-seismic-stations-better-than-one-expensive-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why are many cheap seismic stations better than one expensive one?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-tell-sensor-drift-from-a-real-change-in-the-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How can I tell sensor drift from a real change in the environment?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-are-the-trade-offs-between-sealing-and-venting-my-enclosure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What are the trade-offs between sealing and venting my enclosure?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-forecasters-farmers-and-engineers-use-data-like-mine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How do forecasters, farmers, and engineers use data like mine?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-would-i-write-code-that-handles-a-network-that-keeps-dropping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How would I write code that handles a network that keeps dropping?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-could-i-design-an-experiment-to-compare-two-locations-like-a-parking-lot-and-a-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How could I design an experiment to compare two locations, like a parking lot and a field?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-good-does-a-measurement-need-to-be" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How good does a measurement need to be?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-cant-earthquake-early-warning-predict-earthquakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why can't earthquake early warning predict earthquakes?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/iowerx/pi-env-monitor/blob/main/docs/faq.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="frequently-asked-questions">Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permanent link">¶</a></h1>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Got a Question? Let's Take a Reading!</p>
+<p><img alt="Mecha waving welcome" class="mascot-admonition-img" src="../img/mascot/welcome.png">
+Every good observer asks questions. Look for yours below, or search the <a href="../glossary/">glossary</a> for a single term. Check the data, then check it again!</p>
+</div>
+<h2 id="getting-started-questions">Getting Started Questions<a class="headerlink" href="#getting-started-questions" title="Permanent link">¶</a></h2>
+<h3 id="what-is-this-book-about">What is this book about?<a class="headerlink" href="#what-is-this-book-about" title="Permanent link">¶</a></h3>
+<p>This book teaches you to build a <strong>Raspberry Pi environmental monitoring station</strong>. The station measures temperature, barometric pressure, and humidity, records the readings on its own, and reports them from wherever you put it. The main goal is not the hardware. It is to help you understand <em>what</em> is being measured in the natural environment and how those measurements affect the world around us.</p>
+<p>Along the way you will learn how sensors turn the world into numbers, how to program the station in Python, and how to read your data critically enough to know when the station is lying to you. Every term is explained before it is used.</p>
+<p>For the full plan, read the <a href="../course-description/">course description</a>. To begin, open <a href="../chapters/01-why-we-measure/">Chapter 1: Why We Measure</a>.</p>
+<h3 id="who-is-this-book-for">Who is this book for?<a class="headerlink" href="#who-is-this-book-for" title="Permanent link">¶</a></h3>
+<p>This book is written for students in <strong>grades 6 to 12</strong> who want to build a working environmental monitoring station. You might use it in a science classroom, an after-school STEM club, or for an independent science fair project. Teachers and club advisors can use it too, even if they are meeting this hardware for the first time.</p>
+<p>The reading level is set for middle school, and every technical term is introduced before it is used. Because the grade band is wide, the extension activities and the data-analysis chapters give older students more to explore without leaving younger ones behind.</p>
+<p>You can read more about the audience in the <a href="../course-description/">course description</a>.</p>
+<h3 id="do-i-need-to-know-programming-linux-or-electronics-first">Do I need to know programming, Linux, or electronics first?<a class="headerlink" href="#do-i-need-to-know-programming-linux-or-electronics-first" title="Permanent link">¶</a></h3>
+<p>No. The book assumes you are curious about how measurements are made but new to nearly all of the technology. You do <strong>not</strong> need any programming language, the Linux command line, circuits, voltage, soldering, or how to read a datasheet.</p>
+<p>Each skill is taught when you need it. <a href="../chapters/03-electricity-and-computer/">Chapter 3: Electricity and the Single-Board Computer</a> introduces voltage, current, and wiring. <a href="../chapters/12-os-and-sensor-buses/">Chapter 12: The Station's Brain</a> teaches the command line. <a href="../chapters/13-python-programming/">Chapter 13: Python Programming</a> teaches Python from the beginning, using code that reads a real sensor.</p>
+<p>If you can use files and folders, type, and connect to a Wi-Fi network, you are ready to start.</p>
+<h3 id="what-math-and-science-should-i-know-before-starting">What math and science should I know before starting?<a class="headerlink" href="#what-math-and-science-should-i-know-before-starting" title="Permanent link">¶</a></h3>
+<p>You should be comfortable with arithmetic using decimals, ratios, percentages, and unit conversion. You should be able to read and draw line graphs and scatter plots from a table of data. You should know the basics of physical science: matter, energy, temperature, and the states of matter. You should also be able to follow a written multi-step procedure and record your results in a notebook.</p>
+<p>You do not need statistics beyond the mean and the range, and you do not need trigonometry or calculus. When a chapter needs an extra idea, such as scientific notation, it teaches that idea first. <a href="../chapters/02-language-of-measurement/">Chapter 2: The Language of Measurement</a> covers units and conversions step by step.</p>
+<h3 id="what-are-the-seven-things-the-station-measures">What are the seven things the station measures?<a class="headerlink" href="#what-are-the-seven-things-the-station-measures" title="Permanent link">¶</a></h3>
+<p>The station records seven quantities:</p>
+<ol>
+<li><strong>Temperature</strong>, how fast the atoms in the air are moving</li>
+<li><strong>Barometric pressure</strong>, the weight of the air above you</li>
+<li><strong>Humidity</strong>, how much invisible water is in the air</li>
+<li><strong>Solar radiation</strong>, how much energy is arriving from the Sun</li>
+<li><strong>Wind speed</strong>, how fast air is moving past you</li>
+<li><strong>Ground motion</strong>, whether the earth beneath the station is shaking</li>
+<li><strong>Location and time</strong>, exactly where and when every reading was taken</li>
+</ol>
+<p>The seventh may seem like it does not belong, but a temperature with no place and no time attached is just a number that used to mean something. Chapters 5 through 11 take these one at a time, starting with <a href="../chapters/05-time-and-place/">Chapter 5: Time and Place</a>.</p>
+<h3 id="what-hardware-does-the-station-use">What hardware does the station use?<a class="headerlink" href="#what-hardware-does-the-station-use" title="Permanent link">¶</a></h3>
+<p>The remote station is built around a <strong>Raspberry Pi Zero 2 W</strong>, a small single-board computer chosen for its size, low power draw, built-in Wi-Fi, and low cost. It runs <strong>Ubuntu 24.04 Server</strong>. A <strong>BME280</strong> sensor chip measures temperature, pressure, and humidity, and a <strong>SIM7600A</strong> module provides the cellular link and location. A second computer, a Raspberry Pi 2B running Raspberry Pi OS, acts as the base station that receives the data.</p>
+<p>The tested-configuration table lists the solar and seismic sensors as still to be decided, so check the <a href="../components/">components page</a> for the current list. <a href="../chapters/03-electricity-and-computer/">Chapter 3</a> explains why single-board computers are a good choice for a station like this.</p>
+<h3 id="how-is-the-book-organized">How is the book organized?<a class="headerlink" href="#how-is-the-book-organized" title="Permanent link">¶</a></h3>
+<p>The 17 chapters build on one another, so read them in order.</p>
+<ul>
+<li><strong>Chapters 1 and 2</strong> explain what monitoring is and how measurements are described, including units, accuracy, and uncertainty.</li>
+<li><strong>Chapters 3 and 4</strong> cover the electricity, the computer, and how sensors work.</li>
+<li><strong>Chapter 5</strong> covers time and place.</li>
+<li><strong>Chapters 6 to 11</strong> take on one measurement at a time: temperature, pressure, humidity, solar radiation, wind, and ground motion.</li>
+<li><strong>Chapters 12 to 14</strong> teach the operating system, Python, and data logging.</li>
+<li><strong>Chapter 15</strong> covers charting and analyzing your data.</li>
+<li><strong>Chapter 16</strong> builds the station for the outdoors.</li>
+<li><strong>Chapter 17</strong> follows each measurement out into the world, to forecasts, farms, and building codes.</li>
+</ul>
+<p>Start with the <a href="../chapters/">list of chapters</a>. Each chapter opens with a summary and a list of the concepts it covers.</p>
+<h3 id="do-i-need-to-solder-anything">Do I need to solder anything?<a class="headerlink" href="#do-i-need-to-solder-anything" title="Permanent link">¶</a></h3>
+<p>No. The book leaves out soldering, circuit design, and circuit board layout. Every connection in the station is made with <strong>jumper wires</strong>, which are temporary wires with connectors on the ends, and a <strong>breadboard</strong> when you need one. That keeps the build safe and easy to change if you make a mistake.</p>
+<p>If a wire comes loose, you can simply push it back in. That makes mistakes cheap to fix and keeps the build friendly for beginners.</p>
+<p>You still need to be careful. Your Raspberry Pi's pins run at 3.3 volts, and static electricity can damage a board even when you cannot feel it. <a href="../chapters/03-electricity-and-computer/">Chapter 3</a> shows how to wire safely and how to ground yourself before you touch the hardware.</p>
+<h3 id="what-are-microsims-and-how-do-i-use-them">What are MicroSims and how do I use them?<a class="headerlink" href="#what-are-microsims-and-how-do-i-use-them" title="Permanent link">¶</a></h3>
+<p>A <strong>MicroSim</strong> is a small interactive model that runs right in your web browser. You can drag a slider, click a part of a diagram, or sort examples into bins and see the result right away. They are built into the chapters, close to the idea they explain.</p>
+<p>For example, the Atmospheric Layers Explorer in <a href="../chapters/01-why-we-measure/">Chapter 1</a> lets you slide up through the atmosphere to see how thin the weather layer really is. The Observation or Measurement Sorter lets you test whether you can tell a measurement from an observation, and tells you why each answer is right or wrong.</p>
+<p>You can find all of them on the <a href="../sims/">MicroSims page</a>. Try them after you read the section they belong to.</p>
+<h3 id="how-do-the-quizzes-and-check-yourself-questions-work">How do the quizzes and "Check Yourself" questions work?<a class="headerlink" href="#how-do-the-quizzes-and-check-yourself-questions-work" title="Permanent link">¶</a></h3>
+<p>Each chapter ends with a <strong>Check Yourself</strong> section. These are short questions with a hidden answer that you click to reveal, so you can test your thinking before you check it.</p>
+<p>Each chapter also has a separate <strong>Quiz</strong> page with 10 multiple-choice questions. Pick your answer first, then open "Show Answer" to see which choice is right and why the other choices are wrong. The questions start with remembering facts and move up to applying and analyzing them.</p>
+<p>You will find the quiz under each chapter's name in the sidebar menu. If a question trips you up, go back to the chapter section it points to and read it again. Mistakes are clues, not failures. Try the first quiz at <a href="../chapters/01-why-we-measure/">Chapter 1</a>.</p>
+<h3 id="who-is-mecha-the-clockwork-owl">Who is Mecha the Clockwork Owl?<a class="headerlink" href="#who-is-mecha-the-clockwork-owl" title="Permanent link">¶</a></h3>
+<p><strong>Mecha</strong> is the learning mascot of this book: a gold-and-brass clockwork owl with big round silver lens eyes. Mecha is observant, patient, and curious, and uses the pronouns "they" and "them." Mecha pops up in colored boxes in the chapters to welcome you, point out a tip, warn you about a common mistake, or celebrate when you finish a section.</p>
+<p>Mecha's catchphrase is <strong>"Let's take a reading!"</strong> and Mecha calls readers "observers" or "station builders." Mecha treats bad readings, loose wires, and crashed scripts as clues, not failures, which is a good way to think about your own station too.</p>
+<h3 id="what-topics-does-this-book-not-cover">What topics does this book not cover?<a class="headerlink" href="#what-topics-does-this-book-not-cover" title="Permanent link">¶</a></h3>
+<p>To keep the book short enough to finish, it leaves out several larger topics. These include circuit design, soldering, and circuit board layout; analog electronics theory; the chemistry of the atmosphere; weather prediction and climate computer models; advanced statistics such as hypothesis testing; machine learning on sensor data; network security beyond running one service; earthquake prediction and fault mechanics; and manufacturing a sensor yourself.</p>
+<p>The book <em>does</em> explain how sensors work, why earthquake warning is not prediction, and how forecasters use your kind of data. It just does not go deeper than a station builder needs. The <a href="../course-description/">course description</a> lists the boundaries in full.</p>
+<h3 id="can-a-teacher-or-club-advisor-use-this-book-without-being-an-expert">Can a teacher or club advisor use this book without being an expert?<a class="headerlink" href="#can-a-teacher-or-club-advisor-use-this-book-without-being-an-expert" title="Permanent link">¶</a></h3>
+<p>Yes. The book was written with teachers and club advisors in mind, including those who are using this hardware for the first time. Nothing is assumed about Linux, electronics, or Python. Each chapter has a summary, a concept list, step-by-step explanations, a quiz, and Check Yourself questions that make it easy to see what students have understood.</p>
+<p>A good habit is to build the station alongside your students and read each chapter first. When something does not work, treat it as a puzzle. The book shows how to separate a wiring fault from a code fault with a single command in <a href="../chapters/12-os-and-sensor-buses/">Chapter 12</a>. See the <a href="../course-description/">course description</a> for the learning outcomes you can use for planning.</p>
+<hr>
+<h2 id="core-concepts">Core Concepts<a class="headerlink" href="#core-concepts" title="Permanent link">¶</a></h2>
+<h3 id="what-is-environmental-monitoring">What is environmental monitoring?<a class="headerlink" href="#what-is-environmental-monitoring" title="Permanent link">¶</a></h3>
+<p><strong>Environmental monitoring</strong> means measuring conditions in the natural environment over and over, in the same place, for a long time. Every part of that sentence matters. <em>Measuring</em> means recording numbers, not just describing. <em>Over and over</em> means one reading is not enough. <em>The same place</em> means readings can be compared with each other. <em>A long time</em> is what turns a pile of numbers into a story.</p>
+<p>That is what makes monitoring different from an ordinary experiment. An experiment may collect data for an afternoon. A monitoring station asks questions like "Is it getting warmer here?" that only a year of readings can answer. See <a href="../chapters/01-why-we-measure/">Chapter 1: Why We Measure</a>.</p>
+<h3 id="what-is-the-difference-between-an-observation-and-a-measurement">What is the difference between an observation and a measurement?<a class="headerlink" href="#what-is-the-difference-between-an-observation-and-a-measurement" title="Permanent link">¶</a></h3>
+<p>A <strong>qualitative observation</strong> describes something without a number, such as "The wind is strong." <strong>Quantitative data</strong> has both a number and a unit, such as "Wind speed is 24 kilometers per hour." A <strong>measurement</strong> is the act of comparing something to an agreed standard and reporting a number with a unit.</p>
+<p>Both are useful. Observations are how you <em>notice</em> that something is worth measuring. But only numbers with units can be graphed or compared with last year. "The temperature is 25" is not quantitative data, because no one knows whether it is Celsius or Fahrenheit. Try the sorter in <a href="../chapters/01-why-we-measure/">Chapter 1</a>.</p>
+<h3 id="what-is-a-physical-property">What is a physical property?<a class="headerlink" href="#what-is-a-physical-property" title="Permanent link">¶</a></h3>
+<p>A <strong>physical property</strong> is a feature of an object or place that can be described by a number. Temperature, pressure, length, mass, speed, and brightness are all physical properties. You can build an instrument for each one, because each can be compared with an agreed standard.</p>
+<p>A quick test is to ask whether you could compare it with a standard and report a number. If you can, it is probably a physical property, and you can measure it.</p>
+<p>Words like "beautiful" or "scary" are not physical properties. There is nothing physical to compare with a standard, so no instrument can read them out. Environmental monitoring only works with physical properties. Your station's seven quantities are all examples. See <a href="../chapters/01-why-we-measure/">Chapter 1</a> and the <a href="../glossary/">glossary</a>.</p>
+<h3 id="what-is-the-difference-between-weather-and-climate">What is the difference between weather and climate?<a class="headerlink" href="#what-is-the-difference-between-weather-and-climate" title="Permanent link">¶</a></h3>
+<p><strong>Weather</strong> is the state of the atmosphere at one place at one time. It changes from hour to hour. <strong>Climate</strong> is the pattern of weather at a place, averaged over a long time. The standard averaging period is 30 years.</p>
+<p>A short way to remember it: <em>climate is what you expect, and weather is what you get.</em> If you plan a July picnic in Arizona, you are using climate, because you expect heat. If it rains on the picnic, that is weather. Meteorologists forecast weather over hours to about two weeks. Climatologists study patterns over decades or longer. Read more in <a href="../chapters/01-why-we-measure/">Chapter 1</a>.</p>
+<h3 id="can-my-station-measure-climate">Can my station measure climate?<a class="headerlink" href="#can-my-station-measure-climate" title="Permanent link">¶</a></h3>
+<p>Not by itself. Your station measures <strong>weather</strong>, the state of the air at this moment. Climate is what you get when someone averages about 30 years of weather. One school year of readings is not enough to establish a climate trend.</p>
+<p>Your station does help, though. Every climate record is built from weather readings taken one at a time by people who kept showing up. When you log honest, well-labeled data over many years, you are doing the part of the work that climate science rests on. <a href="../chapters/15-charting-and-analysis/">Chapter 15</a> explains how much data a trend needs, and <a href="../chapters/17-measurement-to-consequence/">Chapter 17</a> explains how climate records are built and corrected.</p>
+<h3 id="what-is-the-atmosphere-and-which-layer-does-my-station-measure">What is the atmosphere, and which layer does my station measure?<a class="headerlink" href="#what-is-the-atmosphere-and-which-layer-does-my-station-measure" title="Permanent link">¶</a></h3>
+<p>The <strong>atmosphere</strong> is the layer of gases held around Earth by gravity. It is about 78 percent nitrogen and 21 percent oxygen, and the last one percent holds argon, carbon dioxide, and water vapor. Scientists divide it into <strong>atmospheric layers</strong>: the troposphere, stratosphere, mesosphere, thermosphere, and exosphere.</p>
+<p>Remember that the atmosphere has no lid. It simply gets thinner with height until there is effectively nothing left, which is why the layers have no sharp edge.</p>
+<p>Your station sits in the first few meters of the <strong>troposphere</strong>, which reaches from the ground to about 12 kilometers. All weather happens there. The weather layer is a very thin sliver compared with the whole atmosphere, which you can see on the Atmospheric Layers Explorer in <a href="../chapters/01-why-we-measure/">Chapter 1</a>.</p>
+<h3 id="what-is-an-air-mass-and-why-does-it-matter-for-my-readings">What is an air mass, and why does it matter for my readings?<a class="headerlink" href="#what-is-an-air-mass-and-why-does-it-matter-for-my-readings" title="Permanent link">¶</a></h3>
+<p>An <strong>air mass</strong> is a large body of air, often hundreds of kilometers across, with roughly the same temperature and moisture throughout. It takes on its character from where it forms. Air that sits over the Gulf of Mexico for a week becomes warm and wet. Air that sits over northern Canada becomes cold and dry.</p>
+<p>When an air mass moves, it carries those properties with it. That is why your readings change: you are usually not watching one body of air warm up and cool down, you are watching different air masses arrive and leave. A cold snap in Texas is often just Canadian air that went for a walk. See <a href="../chapters/01-why-we-measure/">Chapter 1</a> and <a href="../chapters/10-wind/">Chapter 10</a> for fronts.</p>
+<h3 id="why-cant-i-just-use-a-number-without-a-unit">Why can't I just use a number without a unit?<a class="headerlink" href="#why-cant-i-just-use-a-number-without-a-unit" title="Permanent link">¶</a></h3>
+<p>A <strong>unit of measure</strong> is an agreed amount that other amounts are compared with. Without a unit, a number means nothing. "The temperature is 25" could be a warm day in Celsius or a very cold day in Fahrenheit.</p>
+<p>Units are also a social agreement. <strong>Standardization</strong> is the work of getting everyone to use the same definitions, and a <strong>reference standard</strong> is the physical object or procedure that those definitions point to. That is why your reading of 21 °C means the same thing to a scientist in another country. A good habit is to put the unit in every variable name, such as <code>pressure_hpa</code>. See <a href="../chapters/02-language-of-measurement/">Chapter 2: The Language of Measurement</a>.</p>
+<h3 id="what-are-si-units">What are SI units?<a class="headerlink" href="#what-are-si-units" title="Permanent link">¶</a></h3>
+<p><strong>SI units</strong> are the worldwide standard system of measurement, built on <strong>seven base units</strong>. Every other unit is made from combinations of them. <strong>SI prefixes</strong> such as kilo and milli scale a unit up or down by powers of ten, so one kilometer is 1,000 meters and one millimeter is one thousandth of a meter.</p>
+<p>The system makes conversions simple, because you move the decimal point instead of using awkward factors. Your station will log mostly in SI-friendly units: degrees Celsius, hectopascals, meters per second, and watts per square meter. Some fields use older units too, so <a href="../chapters/02-language-of-measurement/">Chapter 2</a> shows how to convert by multiplying by a fraction equal to one.</p>
+<h3 id="what-is-the-difference-between-accuracy-precision-and-resolution">What is the difference between accuracy, precision, and resolution?<a class="headerlink" href="#what-is-the-difference-between-accuracy-precision-and-resolution" title="Permanent link">¶</a></h3>
+<p>These three words sound alike but mean different things, and they are independent of each other.</p>
+<ul>
+<li><strong>Accuracy</strong> is how close a reading is to the true value.</li>
+<li><strong>Precision</strong> is how consistent repeated readings are with each other.</li>
+<li><strong>Resolution</strong> is the smallest change the instrument can detect.</li>
+</ul>
+<p>Picture darts on a target. Darts all landing together but far from the bullseye are precise but not accurate. A thermometer that shows 21.37 °C has fine resolution, but it can still be wrong if it was never calibrated. Add <strong>measurement uncertainty</strong>, an honest statement of how far off a reading might be, and you can judge your own data. See <a href="../chapters/02-language-of-measurement/">Chapter 2</a> and the Accuracy Versus Precision MicroSim.</p>
+<h3 id="what-is-temperature">What is temperature?<a class="headerlink" href="#what-is-temperature" title="Permanent link">¶</a></h3>
+<p><strong>Temperature</strong> is a measure of the average <strong>kinetic energy of atoms</strong>, which means how fast they are moving. Cold is not a substance. It is simply less motion. Heat moves from hot things to cold things by <strong>conduction</strong>, <strong>convection</strong>, and <strong>infrared radiation</strong>.</p>
+<p>Be careful with two ideas. <strong>Air temperature</strong> and <strong>surface temperature</strong> are different quantities, and on a summer afternoon they can differ by 30 °C. Also, Celsius has an arbitrary zero, so 20 °C is not twice as warm as 10 °C. Chapter 6 tells how thermometers developed, from the thermoscope to the silicon diode inside the BME280. See <a href="../chapters/06-temperature/">Chapter 6: Temperature</a>.</p>
+<h3 id="what-is-barometric-pressure">What is barometric pressure?<a class="headerlink" href="#what-is-barometric-pressure" title="Permanent link">¶</a></h3>
+<p><strong>Barometric pressure</strong> is the weight of the atmosphere above a point. Pressure itself is force divided by area. The air overhead presses down on everything, including you, with about 1013 hectopascals at sea level.</p>
+<p>In 1643, Torricelli showed that the atmosphere can hold up a 760 mm column of mercury, which proved the air has weight. In 1648 a barometer carried up a mountain, the Puy de Dome experiment, read lower pressure at the top. Pressure falls about 12 hPa for every 100 meters you climb, which is why your station needs to know its elevation. See <a href="../chapters/07-barometric-pressure/">Chapter 7: Barometric Pressure</a>.</p>
+<h3 id="what-is-relative-humidity-and-how-is-it-different-from-absolute-humidity">What is relative humidity, and how is it different from absolute humidity?<a class="headerlink" href="#what-is-relative-humidity-and-how-is-it-different-from-absolute-humidity" title="Permanent link">¶</a></h3>
+<p><strong>Absolute humidity</strong> is the mass of water vapor in a given volume of air. <strong>Relative humidity</strong> is a comparison: the ratio of the vapor actually in the air to the most the air could hold at that temperature, which is its saturation level. It is given as a percentage.</p>
+<p>Relative humidity is a comparison, not an amount. Because warm air can hold much more vapor, the same air can show a lower relative humidity as it warms, without losing any water. Cooling raises it. That is why 88 percent humidity feels muggy on a warm day, and why fog forms on a cool night. See <a href="../chapters/08-humidity-and-dew-point/">Chapter 8: Humidity and Dew Point</a>.</p>
+<h3 id="what-is-the-dew-point">What is the dew point?<a class="headerlink" href="#what-is-the-dew-point" title="Permanent link">¶</a></h3>
+<p>The <strong>dew point</strong> is the temperature at which air becomes saturated and water vapor begins to condense into liquid. If you cool the air to its dew point, dew, frost, or fog starts to form.</p>
+<p>Dew point is useful for three reasons. It is an <em>absolute</em> measure of how much moisture is in the air, so it does not change just because the temperature does. It predicts comfort well, since high dew points feel sticky. And it can never be higher than the air temperature. When the two get close, expect fog or dew. The BME280's temperature and humidity readings are enough to calculate it. See <a href="../chapters/08-humidity-and-dew-point/">Chapter 8</a>.</p>
+<h3 id="what-is-solar-radiation-and-how-is-it-measured">What is solar radiation, and how is it measured?<a class="headerlink" href="#what-is-solar-radiation-and-how-is-it-measured" title="Permanent link">¶</a></h3>
+<p><strong>Solar radiation</strong> is the energy arriving from the Sun. It drives temperature, evaporation, and wind. About 50 percent arrives as infrared, 43 percent as visible light, and 7 percent as ultraviolet.</p>
+<p>The amount arriving on a surface is <strong>irradiance</strong>, measured in <strong>watts per square meter</strong>. At the top of the atmosphere it is about 1361 W/m², called the solar constant. A <strong>pyranometer</strong> measures total sky irradiance, and a <strong>pyrheliometer</strong> measures only the direct beam. Cheaper stations use a <strong>photodiode</strong>, which is fast and cheap but does not respond evenly to all colors of light. Seasons are caused by the tilt of Earth's axis, not by distance. See <a href="../chapters/09-solar-radiation/">Chapter 9: Solar Radiation</a>.</p>
+<h3 id="what-causes-wind">What causes wind?<a class="headerlink" href="#what-causes-wind" title="Permanent link">¶</a></h3>
+<p><strong>Wind</strong> is air moving from high pressure to low pressure. The <strong>pressure gradient</strong>, meaning how quickly pressure changes with distance, sets how strong the wind is. Tight lines on a weather map (isobars) mean strong wind. The absolute pressure value does not.</p>
+<p>So the next time you feel a breeze, you are feeling air flow from higher pressure toward lower pressure, as it tries to even out the difference.</p>
+<p><strong>High pressure systems</strong> have sinking air and usually fair weather. <strong>Low pressure systems</strong> have rising air, cloud, and rain. A <strong>weather front</strong> is the boundary between two air masses. Wind direction is reported as the direction the wind comes <em>from</em>, in degrees clockwise from north. Wind speed is measured with an <strong>anemometer</strong>. See <a href="../chapters/10-wind/">Chapter 10: Wind</a>.</p>
+<h3 id="what-is-the-difference-between-earthquake-magnitude-and-intensity">What is the difference between earthquake magnitude and intensity?<a class="headerlink" href="#what-is-the-difference-between-earthquake-magnitude-and-intensity" title="Permanent link">¶</a></h3>
+<p><strong>Magnitude</strong> describes the earthquake itself: how much energy it released. Each earthquake has one magnitude value. <strong>Intensity</strong> describes the shaking at a particular place, so one earthquake has many intensity values. It is lower far away and higher close by.</p>
+<p>The <strong>Mercalli intensity scale</strong> rates observed effects from I to XII, such as rattling windows or damaged buildings. The <strong>moment magnitude scale</strong> measures the physical rupture of the fault. A useful comparison is a light bulb and a room. Magnitude is the wattage of the bulb, and intensity is how bright the room is where you are standing. See <a href="../chapters/11-ground-motion/">Chapter 11: Ground Motion</a>.</p>
+<h3 id="what-is-a-sensor-and-what-is-transduction">What is a sensor, and what is transduction?<a class="headerlink" href="#what-is-a-sensor-and-what-is-transduction" title="Permanent link">¶</a></h3>
+<p>A <strong>sensor</strong> detects a physical property and turns it into an electrical signal. <strong>Transduction</strong> is the name for that conversion. It works because certain materials change an electrical property when the physical world changes them. Heat changes the voltage across a silicon diode. Pressure bends a tiny membrane and changes its resistance, called the piezoresistive effect. Water in a polymer film changes how much charge a gap can store, which is capacitance.</p>
+<p>Transduction also explains why a sensor's raw output is often a voltage or a resistance, which software must then convert into a physical unit.</p>
+<p>The BME280 uses all three: a piezoresistive element for pressure, a capacitive element for humidity, and a silicon diode for temperature. See <a href="../chapters/04-how-sensors-work/">Chapter 4: How Sensors Work</a>.</p>
+<h3 id="why-does-the-station-record-location-and-time-with-every-reading">Why does the station record location and time with every reading?<a class="headerlink" href="#why-does-the-station-record-location-and-time-with-every-reading" title="Permanent link">¶</a></h3>
+<p>A reading with no place and no time attached cannot be compared with any other reading. Time tells you <em>when</em> a value happened, so you can see change. Location tells you <em>where</em>, and <strong>elevation</strong> is especially important, because air pressure falls about 12 hPa for every 100 m of height. Without elevation, you cannot turn a pressure reading into <strong>sea level pressure</strong>, which is how stations are compared.</p>
+<p>Together, many stations with locations become a map. Maps are how heat islands, storm tracks, and pollution plumes become visible. Your coordinates come from GPS, using latitude, longitude, and the WGS 84 datum. See <a href="../chapters/05-time-and-place/">Chapter 5: Time and Place</a>.</p>
+<h3 id="why-should-every-timestamp-use-utc">Why should every timestamp use UTC?<a class="headerlink" href="#why-should-every-timestamp-use-utc" title="Permanent link">¶</a></h3>
+<p><strong>Coordinated Universal Time (UTC)</strong> is one clock for the whole world, with no daylight saving changes. A station that records local time creates problems. When clocks go back in the fall, an hour happens twice, so you get <strong>duplicate</strong> timestamps. When clocks go forward in the spring, an hour is missing. Records from stations in different time zones can not be sorted together.</p>
+<p>A simple rule to remember is: store in UTC, show in local time. That one habit prevents many confusing mix-ups later.</p>
+<p>Recording in UTC with the <strong>ISO 8601</strong> format, for example <code>2026-10-05T14:30:00Z</code>, keeps every row unique and sortable. You can always convert to local time when you make a chart. See <a href="../chapters/05-time-and-place/">Chapter 5</a> and <a href="../chapters/14-data-logging/">Chapter 14</a>.</p>
+<h3 id="how-do-the-seven-measurements-affect-one-another">How do the seven measurements affect one another?<a class="headerlink" href="#how-do-the-seven-measurements-affect-one-another" title="Permanent link">¶</a></h3>
+<p>They are linked, which is why one station measuring all of them is so useful. <strong>Solar radiation</strong> heats the ground, which raises temperature and drives evaporation. Warm air rises, and rising air lowers pressure at the surface. <strong>Pressure differences</strong> between places set up a <strong>pressure gradient</strong>, and that moves the air as <strong>wind</strong>. Wind carries <strong>air masses</strong> that bring new temperature and humidity. Warm air holds more vapor, so humidity readings shift as temperature does.</p>
+<p>This is why Chapter 17 says evapotranspiration, the water plants and soil lose to the air, needs four of your seven measurements, and why wind and humidity together matter for wildfire risk. When one reading looks strange, check the others. See <a href="../chapters/09-solar-radiation/">Chapter 9</a>, <a href="../chapters/10-wind/">Chapter 10</a>, and <a href="../chapters/17-measurement-to-consequence/">Chapter 17</a>.</p>
+<h3 id="what-is-an-operating-system-and-why-does-the-station-use-ubuntu-server">What is an operating system, and why does the station use Ubuntu Server?<a class="headerlink" href="#what-is-an-operating-system-and-why-does-the-station-use-ubuntu-server" title="Permanent link">¶</a></h3>
+<p>An <strong>operating system</strong> manages the hardware, runs programs, organizes files, and controls who can do what. Your remote station uses <strong>Ubuntu Server</strong>, and the base station uses Raspberry Pi OS. Both are based on Debian Linux.</p>
+<p>Ubuntu Server has no desktop, no icons, and no mouse. You control it with the <strong>command line interface</strong>, which works well over slow connections and does not waste power drawing a screen nobody is looking at. The file system is one tree starting at <code>/</code>, and hardware devices appear as files under <code>/dev</code>, which is why sensor code looks a lot like file handling. See <a href="../chapters/12-os-and-sensor-buses/">Chapter 12: The Station's Brain</a>.</p>
+<h3 id="what-is-the-i2c-bus">What is the I2C bus?<a class="headerlink" href="#what-is-the-i2c-bus" title="Permanent link">¶</a></h3>
+<p>The <strong>I2C bus</strong> is a way for the Raspberry Pi to talk to sensors using only <strong>two wires</strong>: one for data and one for the clock. Many devices can share the same two wires, because each device has its own <strong>I2C device address</strong>. The BME280 is one such device.</p>
+<p>I2C needs <strong>pull-up resistors</strong> to hold the lines high when nobody is talking, and most breakout boards already include them. A very handy tool is <code>i2cdetect</code>, which lists the addresses it can hear. If your sensor shows up, the wiring is fine. If it does not, you have a wiring problem rather than a code problem. The SPI bus is faster but needs more pins, and serial UART links two devices directly. See <a href="../chapters/12-os-and-sensor-buses/">Chapter 12</a>.</p>
+<h3 id="what-is-a-time-series">What is a time series?<a class="headerlink" href="#what-is-a-time-series" title="Permanent link">¶</a></h3>
+<p>A <strong>time series</strong> is a set of measurements taken over time, in order. It has three features that make it special: the readings come in a <strong>sequence</strong>, they are spaced at known <strong>intervals</strong>, and neighbors are related. Your temperature one minute from now will be close to your temperature now.</p>
+<p>Each observation is a <strong>data record</strong>, which is one row in a file. Each value in the row is a <strong>data field</strong>. Because the order matters, you must never shuffle the rows, and you should never draw a line across a gap where data is missing. A line chart is the default way to show a time series. See <a href="../chapters/14-data-logging/">Chapter 14: Data Logging</a> and <a href="../chapters/15-charting-and-analysis/">Chapter 15</a>.</p>
+<hr>
+<h2 id="technical-detail-questions">Technical Detail Questions<a class="headerlink" href="#technical-detail-questions" title="Permanent link">¶</a></h2>
+<h3 id="why-do-the-gpio-pins-need-only-33-volts">Why do the GPIO pins need only 3.3 volts?<a class="headerlink" href="#why-do-the-gpio-pins-need-only-33-volts" title="Permanent link">¶</a></h3>
+<p>The <strong>GPIO pins</strong> are the software-controlled connections on the Raspberry Pi's <strong>pin header</strong>. They run at <strong>3.3 volts, and they are not 5 V tolerant</strong>. That means a 5 V signal on a GPIO pin can damage the board. Many sensors are happy at 3.3 V, and the BME280 breakout boards are designed to work at that level.</p>
+<p>Always check your sensor's <strong>datasheet</strong> for its supply voltage before connecting anything. <strong>Voltage</strong> is electrical pressure measured between two points, <strong>current</strong> is the rate of flow, and <strong>ground</strong> is the 0 V reference that completes every circuit. See <a href="../chapters/03-electricity-and-computer/">Chapter 3: Electricity and the Single-Board Computer</a>.</p>
+<h3 id="what-does-a-pull-up-resistor-do">What does a pull-up resistor do?<a class="headerlink" href="#what-does-a-pull-up-resistor-do" title="Permanent link">¶</a></h3>
+<p>A <strong>pull-up resistor</strong> holds a signal line at a high voltage when nothing is driving it. Without one, an unconnected input is <strong>floating</strong>: it picks up stray electrical noise and may flip between high and low at random, which your program reads as nonsense.</p>
+<p>The I2C bus needs pull-up resistors on both of its wires. The good news is that most sensor breakout boards already include them, so you rarely add your own. If you see odd data from an I2C sensor even when the wiring looks right, a missing or doubled pull-up is one thing to suspect. See <a href="../chapters/03-electricity-and-computer/">Chapter 3</a> and <a href="../chapters/12-os-and-sensor-buses/">Chapter 12</a>.</p>
+<h3 id="what-is-analog-to-digital-conversion">What is analog-to-digital conversion?<a class="headerlink" href="#what-is-analog-to-digital-conversion" title="Permanent link">¶</a></h3>
+<p>An <strong>analog signal</strong> varies smoothly, like a voltage that can be any value. A <strong>digital signal</strong> has a limited set of values, like numbers a computer can store. <strong>Analog-to-digital conversion</strong> changes the first into the second in two steps. <strong>Sampling</strong> measures the signal at moments in time. <strong>Quantizing</strong> rounds each measurement to the nearest step available.</p>
+<p>Both steps throw information away, but different information. Sampling loses what happens <em>between</em> samples, and quantizing loses detail <em>smaller than a step</em>. Digital signals survive noise and copying much better than analog ones, which is why sensors like the BME280 convert to digital inside the chip. Try the Analog to Digital Conversion Step-Through in <a href="../chapters/04-how-sensors-work/">Chapter 4</a>.</p>
+<h3 id="what-is-sensor-response-time-and-why-does-it-matter">What is sensor response time, and why does it matter?<a class="headerlink" href="#what-is-sensor-response-time-and-why-does-it-matter" title="Permanent link">¶</a></h3>
+<p><strong>Sensor response time</strong> is how long a sensor takes to show a change. If you dunk a thermometer from a cold room into warm water, it does not jump to the new value instantly. It climbs over several seconds.</p>
+<p>The key rule is: <em>never sample faster than the sensor can respond.</em> Reading a slow sensor many times per second only gives you the same value repeated. Response time also helps you choose a <strong>sampling interval</strong>. Temperature changes slowly, so once a minute is fine. Wind and ground motion change in seconds or less. Related ideas are <strong>sensor averaging</strong>, which cuts random noise by the square root of the number of readings, and <strong>sensor filtering</strong>, which can hide real events if overdone. See <a href="../chapters/04-how-sensors-work/">Chapter 4</a>.</p>
+<h3 id="what-are-the-seven-questions-a-sensor-datasheet-answers">What are the seven questions a sensor datasheet answers?<a class="headerlink" href="#what-are-the-seven-questions-a-sensor-datasheet-answers" title="Permanent link">¶</a></h3>
+<p>A <strong>sensor datasheet</strong> is the manufacturer's document describing a part. You do not have to read every page. Look for seven answers:</p>
+<ol>
+<li><strong>Range</strong>: the smallest and largest values it can read</li>
+<li><strong>Accuracy</strong>: how close it is to the true value</li>
+<li><strong>Resolution</strong>: the smallest change it can detect</li>
+<li><strong>Supply voltage</strong>: what power it needs, such as 3.3 V</li>
+<li><strong>Current draw</strong>: how much power it uses, which matters for batteries</li>
+<li><strong>Interface</strong>: how it talks, such as I2C</li>
+<li><strong>Response time</strong>: how quickly it reacts to change</li>
+</ol>
+<p>If the answer to the supply voltage question is 5 V and your Pi is 3.3 V, you have found a problem before you wired anything. See <a href="../chapters/04-how-sensors-work/">Chapter 4</a>.</p>
+<h3 id="what-does-the-bme280-sensor-contain">What does the BME280 sensor contain?<a class="headerlink" href="#what-does-the-bme280-sensor-contain" title="Permanent link">¶</a></h3>
+<p>The <strong>BME280</strong> is one small chip that measures temperature, pressure, and humidity. Inside are three different sensing parts. A <strong>piezoresistive</strong> element measures pressure, because pressure flexes a tiny membrane and changes its resistance. A <strong>capacitive</strong> polymer film measures humidity, because water absorbed into the film changes its capacitance. A <strong>silicon diode</strong> measures temperature.</p>
+<p>The temperature reading also <strong>compensates</strong> the other two, since both pressure and humidity elements are affected by temperature. It connects to the Raspberry Pi over the I2C bus. It does not measure solar radiation, wind, or ground motion. See <a href="../chapters/12-os-and-sensor-buses/">Chapter 12</a> and the temperature, pressure, and humidity chapters, <a href="../chapters/06-temperature/">6</a>, <a href="../chapters/07-barometric-pressure/">7</a>, and <a href="../chapters/08-humidity-and-dew-point/">8</a>.</p>
+<h3 id="what-are-hectopascals-millibars-and-inches-of-mercury">What are hectopascals, millibars, and inches of mercury?<a class="headerlink" href="#what-are-hectopascals-millibars-and-inches-of-mercury" title="Permanent link">¶</a></h3>
+<p>They are all units of pressure. The <strong>pascal</strong> is the SI unit, and a <strong>hectopascal (hPa)</strong> is 100 pascals. A <strong>millibar</strong> equals one hectopascal exactly, so 1 hPa = 1 mbar. <strong>Inches of mercury (inHg)</strong> comes from the height of a mercury barometer column and is still used in US weather reports and aviation.</p>
+<p>When you read a weather report, check which unit it uses before comparing it with your station. A reading of 29.92 and a reading of 1013 can describe the exact same pressure.</p>
+<p><strong>One atmosphere</strong> is standard sea-level pressure: <strong>1013.25 hPa</strong>, which is also 29.92 inHg and 760 mm of mercury. All of these describe the same thing, the weight of the air overhead. Your station will log hPa. See <a href="../chapters/07-barometric-pressure/">Chapter 7: Barometric Pressure</a>.</p>
+<h3 id="what-is-sea-level-pressure-and-why-is-it-calculated">What is sea level pressure, and why is it calculated?<a class="headerlink" href="#what-is-sea-level-pressure-and-why-is-it-calculated" title="Permanent link">¶</a></h3>
+<p><strong>Sea level pressure</strong> is the pressure a station <em>would</em> read if it were moved down to sea level. Pressure falls about 12 hPa for every 100 meters of height, so a station on a hill reads lower than one at the beach even in the same weather. If you compared the raw readings, you would think the hill had a storm.</p>
+<p>To fix this, weather services apply a correction using the station's <strong>elevation</strong>. Then readings from different places can be compared fairly. The same physics works backward: if you know the pressure, you can find your height, which is called <strong>pressure altitude</strong>, and is what an aircraft <strong>altimeter</strong> uses. See <a href="../chapters/07-barometric-pressure/">Chapter 7</a>.</p>
+<h3 id="how-are-the-celsius-fahrenheit-and-kelvin-scales-different">How are the Celsius, Fahrenheit, and Kelvin scales different?<a class="headerlink" href="#how-are-the-celsius-fahrenheit-and-kelvin-scales-different" title="Permanent link">¶</a></h3>
+<p>The <strong>Fahrenheit scale</strong> (1724) made thermometers reproducible. The <strong>Celsius scale</strong> (1742) uses two fixed points: the freezing point of water and the boiling point of water. The <strong>Kelvin scale</strong> (1848) starts at <strong>absolute zero</strong>, which is −273.15 °C, the point where atoms have the least possible motion.</p>
+<p>Because Celsius and Fahrenheit have arbitrary zeros, converting between them needs both a ratio and an offset. But a temperature <em>difference</em> uses only the ratio. Kelvin has a true zero, so 200 K really is twice 100 K, which makes it the scale scientists use for physics. Your station logs Celsius. See <a href="../chapters/06-temperature/">Chapter 6: Temperature</a> and <a href="../chapters/02-language-of-measurement/">Chapter 2</a>.</p>
+<h3 id="what-is-a-stevenson-screen">What is a Stevenson screen?<a class="headerlink" href="#what-is-a-stevenson-screen" title="Permanent link">¶</a></h3>
+<p>A <strong>Stevenson screen</strong> is the standard white, louvered box used to hold thermometers outdoors. Its job is to make temperature readings comparable. Without shade, airflow, and a standard height, a thermometer measures <em>itself</em>, heated by the Sun, instead of the air.</p>
+<p>The white color reflects sunlight, and the louvers (slanted slats) let air pass through. Your station needs the same idea: the BME280 should sit in a vented <strong>radiation shield</strong> so that the sensor reads the air and not the sunshine. This matters because <strong>air temperature</strong> and <strong>surface temperature</strong> can differ by 30 °C on a summer afternoon. See <a href="../chapters/06-temperature/">Chapter 6</a> and <a href="../chapters/16-building-for-outdoors/">Chapter 16</a>.</p>
+<h3 id="what-is-the-difference-between-a-cup-anemometer-and-a-sonic-anemometer">What is the difference between a cup anemometer and a sonic anemometer?<a class="headerlink" href="#what-is-the-difference-between-a-cup-anemometer-and-a-sonic-anemometer" title="Permanent link">¶</a></h3>
+<p>A <strong>cup anemometer</strong> (invented in 1846) has cups that spin faster as the wind blows harder. It is the standard for stations and is cheap and sturdy. But it has moving parts, a minimum speed needed to start turning (called the stall speed), and a slower response.</p>
+<p>A <strong>sonic anemometer</strong> measures how wind changes the travel time of sound between sensors. It has no moving parts, no stall speed, and a much faster response, but it costs more. Wind speed is reported in <strong>meters per second</strong> (the SI unit), or in <strong>knots</strong>, which are common in marine and aviation work. See <a href="../chapters/10-wind/">Chapter 10: Wind</a>.</p>
+<h3 id="what-is-the-beaufort-scale">What is the Beaufort scale?<a class="headerlink" href="#what-is-the-beaufort-scale" title="Permanent link">¶</a></h3>
+<p>The <strong>Beaufort scale</strong> rates wind by what you can <em>see</em> it do, with no instrument needed. For example, small trees begin to sway at a certain level, and umbrellas become hard to use at a higher one. It was created to standardize wind reports before anemometers were common.</p>
+<p>It is an <strong>ordinal</strong> scale, which means the numbers show order (force 6 is stronger than force 5), but the steps are not equal amounts of wind. A related idea is the <strong>Enhanced Fujita scale</strong>, which rates tornadoes by looking at the damage and inferring wind speed. Both are ways of turning an observation into a rating. See <a href="../chapters/10-wind/">Chapter 10</a>.</p>
+<h3 id="what-is-the-difference-between-p-waves-and-s-waves">What is the difference between P waves and S waves?<a class="headerlink" href="#what-is-the-difference-between-p-waves-and-s-waves" title="Permanent link">¶</a></h3>
+<p>Both are <strong>seismic waves</strong>, which carry the energy released when a fault slips. The <strong>P wave</strong> is a compressional wave: it pushes and pulls in the direction it travels. It is the faster wave, so it arrives first. The <strong>S wave</strong> is a shear wave: it shakes the ground side to side. It is slower, and it does most of the damage.</p>
+<p>S waves cannot travel through liquid. That is how scientists discovered that Earth's outer core is liquid. The gap between P and S arrival is what makes <strong>earthquake early warning</strong> possible, because radio signals travel faster than either wave. See <a href="../chapters/11-ground-motion/">Chapter 11: Ground Motion</a>.</p>
+<h3 id="how-do-the-richter-scale-and-the-moment-magnitude-scale-differ">How do the Richter scale and the moment magnitude scale differ?<a class="headerlink" href="#how-do-the-richter-scale-and-the-moment-magnitude-scale-differ" title="Permanent link">¶</a></h3>
+<p>The <strong>Richter scale</strong> (1935) is <strong>logarithmic</strong>: each whole step means 10 times more ground motion and about 32 times more energy. A magnitude 6 is therefore not "a bit more" than a 5. But the Richter scale <strong>saturates</strong>, meaning it stops telling large earthquakes apart above about magnitude 7.</p>
+<p>The <strong>moment magnitude scale</strong> (1979) measures the physical size of the rupture, including how much rock slipped and how far, and it does not saturate. It is the scale used today for big earthquakes. A <strong>logarithmic scale</strong> is useful whenever values span many orders of magnitude, so <a href="../chapters/02-language-of-measurement/">Chapter 2</a> introduces the idea first. See <a href="../chapters/11-ground-motion/">Chapter 11</a>.</p>
+<h3 id="why-does-gps-need-four-satellites">Why does GPS need four satellites?<a class="headerlink" href="#why-does-gps-need-four-satellites" title="Permanent link">¶</a></h3>
+<p><strong>GPS</strong> finds your position by <strong>trilateration</strong>: measuring your distance from several <strong>GPS satellites</strong> and finding the point that fits. Each satellite carries an <strong>atomic clock</strong> and broadcasts the time it sent its signal. Distance is the signal's travel time multiplied by the speed of light.</p>
+<p>Three satellites would be enough if your receiver had a perfect clock. But yours does not, so its clock error is a fourth unknown, and you need a fourth satellite to solve for it. <strong>GNSS</strong> is the umbrella term that includes GPS, GLONASS, Galileo, and BeiDou. Vertical accuracy is always worse than horizontal accuracy. See <a href="../chapters/05-time-and-place/">Chapter 5: Time and Place</a>.</p>
+<h3 id="what-are-file-permissions-on-linux">What are file permissions on Linux?<a class="headerlink" href="#what-are-file-permissions-on-linux" title="Permanent link">¶</a></h3>
+<p><strong>File permissions</strong> control who can read, write, or run a file. There are three permissions, <strong>read</strong>, <strong>write</strong>, and <strong>execute</strong>, and each can be set for three kinds of user: the <strong>owner</strong>, the <strong>group</strong>, and <strong>others</strong>.</p>
+<p>If a script says "permission denied," it often lacks execute permission or you are not in the right group. Adding yourself to a group, such as the one that controls the I2C device, does not take effect until you <strong>log in again</strong>. You can also make a Python script run directly by adding a shebang line and execute permission. See <a href="../chapters/12-os-and-sensor-buses/">Chapter 12</a> and <a href="../chapters/13-python-programming/">Chapter 13</a>.</p>
+<h3 id="what-is-a-systemd-service">What is a systemd service?<a class="headerlink" href="#what-is-a-systemd-service" title="Permanent link">¶</a></h3>
+<p>A <strong>systemd service</strong> is a program that the operating system starts, watches, and restarts for you. For a station, this is how your logger starts automatically at boot and keeps running after you disconnect. If the logger crashes, systemd can restart it.</p>
+<p>Think of it as a helper that keeps your logger on duty even when nobody is watching, which is exactly what a remote station needs.</p>
+<p>Without a service, your script stops when you close your terminal window. The way to test a service is to <strong>reboot the Pi</strong> and check that the logger starts by itself. Installing software uses <code>apt</code>, and you should always run <code>apt update</code> first so it sees the newest package list. See <a href="../chapters/12-os-and-sensor-buses/">Chapter 12: The Station's Brain</a>.</p>
+<h3 id="what-is-a-csv-file-and-why-use-one-for-logging">What is a CSV file, and why use one for logging?<a class="headerlink" href="#what-is-a-csv-file-and-why-use-one-for-logging" title="Permanent link">¶</a></h3>
+<p>A <strong>CSV file</strong> (comma-separated values) is a plain text file where each line is one <strong>data record</strong> and the values are separated by commas. It is a good choice for logging because almost every program can read it, you can open it in a text editor, new rows are simple to append, and it lasts.</p>
+<p>The first line is the <strong>header row</strong>, which names each column. Put the unit in every column name, such as <code>temperature_c</code> or <code>pressure_hpa</code>, because a data file without units is a puzzle. A <strong>database</strong> is faster for large searches but is harder to read. <a href="../chapters/14-data-logging/">Chapter 14</a> recommends starting with CSV.</p>
+<h3 id="what-is-the-difference-between-sustained-wind-and-a-wind-gust">What is the difference between sustained wind and a wind gust?<a class="headerlink" href="#what-is-the-difference-between-sustained-wind-and-a-wind-gust" title="Permanent link">¶</a></h3>
+<p><strong>Sustained wind speed</strong> is the average wind speed over a defined period, conventionally two minutes in the United States and ten minutes by the World Meteorological Organization. A <strong>wind gust</strong> is the peak speed over a short interval, and is reported when it exceeds the sustained speed by a defined margin, conventionally 5 knots (about 2.6 m/s).</p>
+<p>Both are calculated from fast samples. That is why wind is sampled every second or two but logged once a minute: the raw samples are temporary, and the summary is the record. The window matters, too. The <strong>Saffir Simpson scale</strong> rates hurricanes by sustained wind, so the category depends on which window you use. See <a href="../chapters/15-charting-and-analysis/">Chapter 15</a>.</p>
+<hr>
+<h2 id="common-challenge-questions">Common Challenge Questions<a class="headerlink" href="#common-challenge-questions" title="Permanent link">¶</a></h2>
+<h3 id="why-does-my-station-disagree-with-the-local-weather-report">Why does my station disagree with the local weather report?<a class="headerlink" href="#why-does-my-station-disagree-with-the-local-weather-report" title="Permanent link">¶</a></h3>
+<p>Small differences are normal, and there are several likely causes. First, <strong>siting and exposure</strong>: official stations follow strict rules about shade, height, and the surface underneath. A station next to a wall or a parking lot can read warmer. Second, <strong>elevation</strong>: raw pressure depends on height, so compare only <strong>sea level pressure</strong>. Third, <strong>distance</strong>: weather can differ across even a short distance. Fourth, <strong>calibration</strong>: your sensor may be a little off.</p>
+<p>To investigate, check each cause one at a time, and keep notes. Compare your readings with a nearby official station over several days to see whether the gap is steady (calibration) or changes with the weather (siting). See <a href="../chapters/16-building-for-outdoors/">Chapter 16</a> and <a href="../chapters/02-language-of-measurement/">Chapter 2</a>.</p>
+<h3 id="why-does-my-temperature-reading-spike-in-the-afternoon-sun">Why does my temperature reading spike in the afternoon sun?<a class="headerlink" href="#why-does-my-temperature-reading-spike-in-the-afternoon-sun" title="Permanent link">¶</a></h3>
+<p>Probably your sensor is measuring the Sun, not the air. Direct sunlight heats the sensor and its board, so it reads <strong>surface temperature</strong> more than <strong>air temperature</strong>, which can differ by 30 °C on a summer afternoon. Heat from the Pi itself can also warm a sensor that sits too close.</p>
+<p>Fix it by moving the BME280 into a white, vented <strong>radiation shield</strong> (like a mini Stevenson screen), placing it away from the computer, and making sure air can flow past it. A good test is to compare the shaded reading with a second thermometer. In a black enclosure, summer sun can push the inside above 60 °C. See <a href="../chapters/06-temperature/">Chapter 6</a> and <a href="../chapters/16-building-for-outdoors/">Chapter 16</a>.</p>
+<h3 id="my-sensor-does-not-show-up-in-i2cdetect-what-do-i-check">My sensor does not show up in i2cdetect. What do I check?<a class="headerlink" href="#my-sensor-does-not-show-up-in-i2cdetect-what-do-i-check" title="Permanent link">¶</a></h3>
+<p>This is useful news: <code>i2cdetect</code> separates a <strong>wiring fault</strong> from a <strong>code fault</strong> immediately. If the address does not appear, the problem is in the hardware or the connection, and rewriting your Python will not help.</p>
+<p>Check these in order. First, power the board off before changing wires. Second, confirm the sensor gets <strong>3.3 V</strong> and ground. Third, check that the <strong>data and clock wires</strong> are on the right pins and are not swapped. Fourth, push every jumper wire in firmly. Fifth, check the board has <strong>pull-up resistors</strong>. If the address shows up but your code fails, the issue is in the program. See <a href="../chapters/12-os-and-sensor-buses/">Chapter 12</a> and <a href="../chapters/03-electricity-and-computer/">Chapter 3</a>.</p>
+<h3 id="my-program-crashes-once-in-a-while-how-do-i-keep-the-station-running">My program crashes once in a while. How do I keep the station running?<a class="headerlink" href="#my-program-crashes-once-in-a-while-how-do-i-keep-the-station-running" title="Permanent link">¶</a></h3>
+<p>Stations run for months, so rare errors will happen. A sensor can fail to answer once and then work again. The fix is <strong>exception handling</strong>: put the risky sensor read in a <code>try</code> block and catch the error in an <code>except</code> block, so one bad read does not stop the program.</p>
+<p>Follow three rules. <strong>Catch specific errors</strong>, not everything. <strong>Never write a bare <code>except: pass</code></strong>, because it hides problems. And <strong>always log the failure</strong> with a timestamp, so you can look later. A gap in your data with a matching line such as <code>Sensor read failed</code> is a diagnosed gap. A gap with nothing in the log is a mystery. Pair this with a systemd service that restarts the program. See <a href="../chapters/13-python-programming/">Chapter 13</a> and <a href="../chapters/14-data-logging/">Chapter 14</a>.</p>
+<h3 id="why-do-i-get-permission-denied">Why do I get "permission denied"?<a class="headerlink" href="#why-do-i-get-permission-denied" title="Permanent link">¶</a></h3>
+<p>This usually means the file or device does not allow your user to do what you are trying. There are three common causes. A script may lack <strong>execute permission</strong>. A file may belong to another user. Or you may need to be in a <strong>group</strong> that controls a device, such as the one for the I2C bus.</p>
+<p>Check with <code>ls -l</code> to see the permissions. If you add yourself to a group, remember that <strong>group changes only take effect when you log in again</strong>. Many people add themselves and then wonder why nothing changed. Use <code>sudo</code> only when you truly need it. See <a href="../chapters/12-os-and-sensor-buses/">Chapter 12</a>.</p>
+<h3 id="why-do-my-timestamps-have-a-missing-hour-or-a-repeated-hour">Why do my timestamps have a missing hour or a repeated hour?<a class="headerlink" href="#why-do-my-timestamps-have-a-missing-hour-or-a-repeated-hour" title="Permanent link">¶</a></h3>
+<p>That is the signature of <strong>local time</strong> with daylight saving changes. In spring, clocks jump forward and one hour never happens. In autumn, clocks fall back and one hour happens twice, so two rows have the same time. A file with this problem can not be sorted reliably, and your charts may show strange gaps or overlaps.</p>
+<p>If you already have a file with this problem, keep the original and add a clearly labeled corrected copy, rather than editing the old rows in place.</p>
+<p>The cure is to store every timestamp in <strong>UTC</strong> using the <strong>ISO 8601</strong> format. UTC has no daylight saving changes. When you draw a chart for people, convert to local time at that point. See <a href="../chapters/05-time-and-place/">Chapter 5</a> and <a href="../chapters/14-data-logging/">Chapter 14</a>.</p>
+<h3 id="a-friend-says-one-very-cold-morning-proves-climate-change-is-not-real-what-is-wrong-with-that">A friend says one very cold morning proves climate change is not real. What is wrong with that?<a class="headerlink" href="#a-friend-says-one-very-cold-morning-proves-climate-change-is-not-real-what-is-wrong-with-that" title="Permanent link">¶</a></h3>
+<p>That argument mixes up weather and climate. One cold morning is a single <strong>weather</strong> observation. <strong>Climate</strong> is the pattern averaged over about 30 years. A cold morning is entirely compatible with a warming climate, in the same way that one short student does not mean the school's average height is falling.</p>
+<p>A helpful habit is to ask how many years of data a claim rests on. If the answer is one morning, it is weather.</p>
+<p>Your own station shows this clearly. In the Weather Versus Climate Explorer, extreme days appear in the data without moving the long-term average at all. To say something about climate, you need decades of readings, not one morning, and also steady methods. See <a href="../chapters/01-why-we-measure/">Chapter 1</a> and <a href="../chapters/15-charting-and-analysis/">Chapter 15</a>.</p>
+<h3 id="the-relative-humidity-fell-but-no-water-left-the-air-how-is-that-possible">The relative humidity fell, but no water left the air. How is that possible?<a class="headerlink" href="#the-relative-humidity-fell-but-no-water-left-the-air-how-is-that-possible" title="Permanent link">¶</a></h3>
+<p>Relative humidity depends on temperature as well as on the amount of water. It is the ratio of the water vapor present to the most the air could hold at that temperature. Warm air can hold much more, and the amount rises steeply with temperature.</p>
+<p>So when the air warms during the day, the same vapor is a smaller fraction of what the air could hold, and the relative humidity drops. At night the opposite happens: cooling raises relative humidity without adding any water, which is what produces <strong>dew, frost, and fog</strong>. The <strong>dew point</strong> will stay steady in a case like this, which is why it is a better measure of the actual moisture. See <a href="../chapters/08-humidity-and-dew-point/">Chapter 8</a>.</p>
+<h3 id="my-chart-has-a-strange-spike-is-it-a-bad-reading">My chart has a strange spike. Is it a bad reading?<a class="headerlink" href="#my-chart-has-a-strange-spike-is-it-a-bad-reading" title="Permanent link">¶</a></h3>
+<p>Maybe, but do not delete it yet. An <strong>outlier</strong> is a question, not an answer. Ask whether other channels agree. If temperature jumps 10 °C in one minute but pressure and humidity did not change, the sensor probably glitched. If several channels moved together, it may be real, such as a cold front or a door opening nearby.</p>
+<p>Use <strong>data validation</strong>: a <strong>range check</strong> (is the value physically possible?) and a <strong>rate-of-change check</strong> (did it change too fast?). Then <strong>flag</strong> the point, but never delete it. Flagged data keeps the record honest and lets someone else decide later. Also remember that a moving average can smooth away real events, so keep the raw data. See <a href="../chapters/15-charting-and-analysis/">Chapter 15: Charting and Analysis</a>.</p>
+<h3 id="why-does-my-line-chart-have-gaps-and-should-i-fill-them">Why does my line chart have gaps, and should I fill them?<a class="headerlink" href="#why-does-my-line-chart-have-gaps-and-should-i-fill-them" title="Permanent link">¶</a></h3>
+<p>A gap means readings are <strong>missing data</strong>. Maybe the station lost power, the program crashed, or the network dropped. A line chart should never draw a line <em>across</em> a gap, because that makes up values that were never measured.</p>
+<p>Keep missing data <strong>visible</strong>. Show it as a break in the line, and use the log to explain it. Do not fill it with made-up numbers unless you clearly say so. If the log has a matching error line, the gap is diagnosed. Over time, you can reduce gaps with a systemd service, exception handling, and a good power budget. See <a href="../chapters/15-charting-and-analysis/">Chapter 15</a> and <a href="../chapters/16-building-for-outdoors/">Chapter 16</a>.</p>
+<h3 id="why-does-my-station-run-out-of-power-overnight-or-in-winter">Why does my station run out of power overnight or in winter?<a class="headerlink" href="#why-does-my-station-run-out-of-power-overnight-or-in-winter" title="Permanent link">¶</a></h3>
+<p>The most likely cause is a <strong>power budget</strong> that was sized for summer, or for the daytime. A power budget compares how much energy the station uses with how much it can collect and store. The computer and radio use most of the energy. The sensors use almost none.</p>
+<p>Check four things. <strong>Battery capacity</strong> must be reduced for depth of discharge and for cold weather. The <strong>solar panel</strong> must be sized for the <strong>worst month's</strong> insolation, not summer. A <strong>charge controller</strong> is required. And try <strong>duty cycling</strong>: turning off HDMI and LEDs and sending data in batches can cut use in half with no loss of function. See <a href="../chapters/16-building-for-outdoors/">Chapter 16: Building for the Outdoors</a>.</p>
+<h3 id="can-i-damage-my-raspberry-pi-with-static-or-the-wrong-voltage">Can I damage my Raspberry Pi with static or the wrong voltage?<a class="headerlink" href="#can-i-damage-my-raspberry-pi-with-static-or-the-wrong-voltage" title="Permanent link">¶</a></h3>
+<p>Yes, in both ways. <strong>Electrostatic discharge</strong> (ESD) can destroy a board at voltages far lower than you can feel. Ground yourself before touching the hardware, every time, and hold boards by the edges. And the GPIO pins run at <strong>3.3 V and are not 5 V tolerant</strong>, so connecting a 5 V signal can damage them.</p>
+<p>Good habits include powering the board off before changing wires, checking the sensor's supply voltage on its datasheet, using red for power and black for ground, and double-checking a new circuit before turning it on. These steps cost almost nothing and prevent most hardware accidents. See <a href="../chapters/03-electricity-and-computer/">Chapter 3</a>.</p>
+<h3 id="two-of-my-measurements-move-together-does-one-cause-the-other">Two of my measurements move together. Does one cause the other?<a class="headerlink" href="#two-of-my-measurements-move-together-does-one-cause-the-other" title="Permanent link">¶</a></h3>
+<p>Not necessarily. <strong>Correlation</strong> tells you whether two quantities move together. It never proves that one causes the other. Two things can rise together because a third thing drives both, or just by coincidence.</p>
+<p>Being careful about this is part of reading data honestly, and it will make your own conclusions much stronger when you share them.</p>
+<p>The test is to <strong>name the physical mechanism</strong>. If you cannot, call it a pattern, not a cause. For example, afternoon temperature and solar radiation rise together because sunlight heats the ground. That has a clear mechanism. A scatter plot is the usual way to look at it, because it puts one measurement on each axis and drops time. See <a href="../chapters/15-charting-and-analysis/">Chapter 15</a> and the <a href="../glossary/">glossary</a>.</p>
+<hr>
+<h2 id="best-practice-questions">Best Practice Questions<a class="headerlink" href="#best-practice-questions" title="Permanent link">¶</a></h2>
+<h3 id="where-should-i-place-my-station">Where should I place my station?<a class="headerlink" href="#where-should-i-place-my-station" title="Permanent link">¶</a></h3>
+<p>Follow the siting rules. Keep clear of obstacles by <strong>four times their height</strong>. For example, a 3 m wall should be at least 12 m from the wind sensor. Mount over a <strong>natural surface</strong>, such as grass, rather than concrete or a dark roof. Use standard heights for each sensor.</p>
+<p>Be aware that <strong>sensor exposure</strong> needs conflict. Temperature needs shade and airflow. Solar radiation needs a clear view of the sky. Seismic sensing needs good coupling to the ground. You may need to mount sensors in different places on the same post. Write down exactly where and how each one is installed, since that goes in your metadata. See <a href="../chapters/16-building-for-outdoors/">Chapter 16</a>.</p>
+<h3 id="how-often-should-i-take-a-reading">How often should I take a reading?<a class="headerlink" href="#how-often-should-i-take-a-reading" title="Permanent link">¶</a></h3>
+<p>One reading per minute is a good default for temperature, pressure, and humidity. Those change slowly. The <strong>sampling interval</strong> is a trade-off: faster sampling gives more detail but costs file size, power, and SD card wear. You can thin out dense data later, but you can never recover detail you did not capture.</p>
+<p>Never sample faster than the sensor can respond. Wind and ground motion need fast sampling, such as wind every second or two and seismic around 100 samples per second, but you should <strong>summarize</strong> them and log a gust and a sustained value each minute instead of every raw sample. See <a href="../chapters/14-data-logging/">Chapter 14: Data Logging</a>.</p>
+<h3 id="how-should-i-name-and-store-my-log-files">How should I name and store my log files?<a class="headerlink" href="#how-should-i-name-and-store-my-log-files" title="Permanent link">¶</a></h3>
+<p>Use a <strong>CSV file</strong> with a <strong>header row</strong> where every column name carries its unit, such as <code>temperature_c</code>, <code>pressure_hpa</code>, and <code>humidity_pct</code>. Put timestamps in UTC using ISO 8601 as the first column.</p>
+<p>A consistent pattern also makes it easy to write a program that finds and combines files later, for example all the files from one month.</p>
+<p>Use <strong>file rotation</strong>: start a new file each day, named by the ISO date, such as <code>2026-10-05.csv</code>. Smaller files are easier to open, and if one gets corrupted you lose a day, not everything. Remember that SD cards are limited by write endurance and sudden failure more than by capacity, so avoid writing more often than you need. See <a href="../chapters/14-data-logging/">Chapter 14</a>.</p>
+<h3 id="how-should-i-back-up-my-data">How should I back up my data?<a class="headerlink" href="#how-should-i-back-up-my-data" title="Permanent link">¶</a></h3>
+<p>Follow the <strong>3-2-1 rule</strong>: keep <strong>three copies</strong> of your data, on <strong>two different kinds</strong> of storage, with <strong>one copy somewhere else</strong>, off the station. For a station, that could be the original on the Pi's SD card, a copy on the base station, and a copy in the cloud or on another computer.</p>
+<p>The most important rule is that <strong>an untested backup is not a backup.</strong> Practice restoring a file so you know it works before you need it. An SD card can fail suddenly, so do not rely on it alone. <a href="../chapters/14-data-logging/">Chapter 14</a> covers storage and backups in more detail.</p>
+<h3 id="what-metadata-should-i-record-and-when">What metadata should I record, and when?<a class="headerlink" href="#what-metadata-should-i-record-and-when" title="Permanent link">¶</a></h3>
+<p><strong>Metadata</strong> is data about your data. Record <strong>where</strong> the station is (coordinates and elevation), <strong>how high</strong> each sensor is mounted, <strong>which sensor</strong> and model you use, <strong>what exposure</strong> it has (shaded, in a shield, near a wall), and <strong>what processing</strong> was applied (for example, a moving average or a calibration offset).</p>
+<p>Write it on <strong>day one</strong>, in a text file stored next to the data. Without it, your numbers are a pile with no context. A year from now you will not remember whether you moved the sensor, and neither will anyone you share the data with. If you change something, add a dated note. See <a href="../chapters/14-data-logging/">Chapter 14</a> and <a href="../chapters/17-measurement-to-consequence/">Chapter 17</a>.</p>
+<h3 id="how-should-i-name-variables-in-my-python-code">How should I name variables in my Python code?<a class="headerlink" href="#how-should-i-name-variables-in-my-python-code" title="Permanent link">¶</a></h3>
+<p>Put the <strong>unit in the name</strong>: <code>pressure_hpa</code>, not <code>p</code>; <code>temperature_c</code>, not <code>t</code>. This prevents a whole class of mistakes. When you see <code>wind_ms</code> you know it is meters per second, and nobody adds a Celsius value to a Fahrenheit one by accident.</p>
+<p>These small habits make code easier to read a year from now. They also help a friend who reads your script understand what each number means without guessing.</p>
+<p>Two more habits help. Always check what <strong>units a library returns</strong>, since the BME280 library may give a different unit than you expect. And never test floating-point numbers for exact equality, because floats are approximations. Compare them within a small tolerance. See <a href="../chapters/13-python-programming/">Chapter 13: Python Programming</a>.</p>
+<h3 id="how-do-i-check-my-sensor-for-drift">How do I check my sensor for drift?<a class="headerlink" href="#how-do-i-check-my-sensor-for-drift" title="Permanent link">¶</a></h3>
+<p><strong>Sensor drift</strong> is a slow change in a sensor's readings over time, even when the real value stays the same. Detect it by <strong>comparing against a reference</strong>: a trusted instrument, a <strong>physical fixed point</strong> (such as ice water at 0 °C), or a <strong>nearby station</strong>.</p>
+<p>Patience helps here, because drift is slow. A check once a month or once a season is often enough to catch a problem before it spoils a long record.</p>
+<p>Do this regularly and keep the comparisons. A steady offset suggests calibration. A gap that grows over months suggests drift. Do not fix drift by quietly changing old data. Record the check in your metadata, flag any adjusted values, and keep the raw readings. <a href="../chapters/15-charting-and-analysis/">Chapter 15</a> covers drift, and <a href="../chapters/02-language-of-measurement/">Chapter 2</a> covers calibration.</p>
+<h3 id="which-type-of-chart-should-i-use">Which type of chart should I use?<a class="headerlink" href="#which-type-of-chart-should-i-use" title="Permanent link">¶</a></h3>
+<p>Use a <strong>line chart</strong> for a time series, since time has a natural order, but never join points across a gap. Use a <strong>scatter plot</strong> when you want to see how two measurements relate, because it puts one on each axis and drops time.</p>
+<p>Always label axes with the variable, the unit, and the range, and add a title and legend. A truncated y-axis is not automatically dishonest. The test is whether the scale matches the claim, and whether you disclose it clearly. Choose the chart that answers your question, and if you can, show the raw data alongside any smoothing. See <a href="../chapters/15-charting-and-analysis/">Chapter 15</a>.</p>
+<h3 id="should-i-store-my-data-in-a-csv-file-or-a-database">Should I store my data in a CSV file or a database?<a class="headerlink" href="#should-i-store-my-data-in-a-csv-file-or-a-database" title="Permanent link">¶</a></h3>
+<p>Start with a <strong>CSV file</strong>. It is readable by almost anything, easy for a person to inspect, simple to append, and long-lasting. A <strong>database</strong> buys fast searches and the ability for several programs to use the data at once, but you pay with readability and more to maintain.</p>
+<p>For a station logging one reading a minute, daily files stay small, so CSV usually works well for a long time.</p>
+<p>A good rule is: <em>begin with CSV and add a database such as SQLite only when a specific problem requires it</em>, for example when files grow too large to search quickly. Whichever you choose, keep a CSV export as a durable copy. See <a href="../chapters/14-data-logging/">Chapter 14</a>.</p>
+<h3 id="should-my-station-send-data-by-wi-fi-or-cellular">Should my station send data by Wi-Fi or cellular?<a class="headerlink" href="#should-my-station-send-data-by-wi-fi-or-cellular" title="Permanent link">¶</a></h3>
+<p>It depends on where the station lives. <strong>Wi-Fi</strong> is simple, cheap, and works well when the station is near a network you control. A <strong>cellular data link</strong>, such as the SIM7600A module, works almost anywhere with coverage but adds a monthly plan and uses more power. Both send data to a <strong>base station</strong>, which turns a recorder into a monitored instrument.</p>
+<p>Whichever you pick, plan for failure. <strong>Intermittent connectivity</strong> is normal. Write locally first, always, and treat sending as a later, optional step with back-off and batching. A station that needs the network to record data will lose data whenever the network drops. See <a href="../chapters/16-building-for-outdoors/">Chapter 16</a>.</p>
+<h3 id="how-do-i-build-a-power-budget-for-my-station">How do I build a power budget for my station?<a class="headerlink" href="#how-do-i-build-a-power-budget-for-my-station" title="Permanent link">¶</a></h3>
+<p>A <strong>power budget</strong> is an accounting of energy used against energy collected. Follow these steps, which are plain arithmetic:</p>
+<ol>
+<li><strong>List each load</strong> and its current draw in milliamps. The computer and radio dominate.</li>
+<li><strong>Multiply by hours</strong> per day to get milliamp-hours used per day.</li>
+<li><strong>Divide the battery capacity</strong> (after derating for depth of discharge and cold) by the daily use to see how many days it lasts.</li>
+<li><strong>Size the solar panel</strong> against the <strong>worst month's</strong> insolation, not summer's.</li>
+<li><strong>Add a charge controller.</strong></li>
+<li><strong>Look for savings</strong> with duty cycling.</li>
+</ol>
+<p>Work the numbers for December, because the budget has to survive the worst month. See <a href="../chapters/16-building-for-outdoors/">Chapter 16</a>.</p>
+<h3 id="how-should-i-use-a-moving-average-without-hiding-real-events">How should I use a moving average without hiding real events?<a class="headerlink" href="#how-should-i-use-a-moving-average-without-hiding-real-events" title="Permanent link">¶</a></h3>
+<p>A <strong>moving average</strong> reveals the shape of data by cancelling noise. The window size changes what you see: a 24-hour window removes the daily cycle completely, which may be exactly what you want when looking for a trend, or exactly what you do not.</p>
+<p>A good check is to compare the smoothed line with the raw points. If the raw data shows a sharp event that the smooth line hides, shorten the window.</p>
+<p>The risk is that it also <strong>smooths away real fast events</strong>, such as a pressure drop ahead of a storm. So choose the window to match your question, say what window you used on the chart, and always <strong>keep the raw data</strong>. If you are not sure, plot both. See <a href="../chapters/15-charting-and-analysis/">Chapter 15</a>.</p>
+<h3 id="how-can-i-share-my-data-with-scientists-or-other-schools">How can I share my data with scientists or other schools?<a class="headerlink" href="#how-can-i-share-my-data-with-scientists-or-other-schools" title="Permanent link">¶</a></h3>
+<p>Several <strong>citizen science</strong> networks accept data from student and hobby stations, including CoCoRaHS (the Community Collaborative Rain, Hail and Snow Network) and the Weather Underground personal weather station network. Professional forecasters use this data.</p>
+<p>Sharing is also a good chance to double-check your work, since other people will look at your numbers with fresh eyes and may spot a problem you missed.</p>
+<p>Good <strong>data sharing</strong> requires a clear <strong>format</strong>, <strong>metadata</strong>, <strong>units</strong>, quality <strong>flags</strong>, a <strong>license</strong> saying how it may be used, and a stable place to keep it. Before you share, make sure the station is sited properly and logging honest numbers. When you present findings, lead with the result, show one honest chart, and state the limits. See <a href="../chapters/17-measurement-to-consequence/">Chapter 17: From Measurement to Consequence</a>.</p>
+<hr>
+<h2 id="advanced-topic-questions">Advanced Topic Questions<a class="headerlink" href="#advanced-topic-questions" title="Permanent link">¶</a></h2>
+<h3 id="how-would-i-design-a-station-that-survives-a-winter-unattended">How would I design a station that survives a winter unattended?<a class="headerlink" href="#how-would-i-design-a-station-that-survives-a-winter-unattended" title="Permanent link">¶</a></h3>
+<p>Work through the whole chapter in order. <strong>Siting</strong>: pick a spot with clearance, a natural surface, and standard heights. <strong>Enclosure</strong>: choose an <strong>IP65</strong> box, but <strong>vent</strong> it, because a sealed box condenses moisture inside and destroys the electronics. Use a white or light color to reduce heat.</p>
+<p><strong>Power</strong>: write a power budget for the <em>worst month</em>, derate the battery for cold, size the panel for winter insolation, and add a charge controller. Use <strong>duty cycling</strong> to cut consumption. <strong>Software</strong>: run the logger as a systemd service, use exception handling, and write locally first. <strong>Data</strong>: set up telemetry with back-off and batching, and back up. Test everything on the bench before you go out. See <a href="../chapters/16-building-for-outdoors/">Chapter 16</a>.</p>
+<h3 id="why-are-many-cheap-seismic-stations-better-than-one-expensive-one">Why are many cheap seismic stations better than one expensive one?<a class="headerlink" href="#why-are-many-cheap-seismic-stations-better-than-one-expensive-one" title="Permanent link">¶</a></h3>
+<p>A <strong>seismic network</strong> locates an event by <strong>trilateration</strong>, using the arrival times at several stations, and it <strong>rejects false alarms</strong> by requiring agreement among them. One truck driving past one sensor can look like an earthquake. If five stations in different places all feel the P wave, it is real.</p>
+<p>That is the argument for <strong>density over individual precision</strong>. A cheap <strong>MEMS accelerometer</strong>, built for car airbags, is not as sensitive as a laboratory seismometer. But a dense network of them can give <strong>earthquake early warning</strong>, using the gap between the fast P wave and the slower S wave and the speed of radio. The trade-off is quality per sensor against coverage and reliability. See <a href="../chapters/11-ground-motion/">Chapter 11</a> and <a href="../chapters/16-building-for-outdoors/">Chapter 16</a>.</p>
+<h3 id="how-can-i-tell-sensor-drift-from-a-real-change-in-the-environment">How can I tell sensor drift from a real change in the environment?<a class="headerlink" href="#how-can-i-tell-sensor-drift-from-a-real-change-in-the-environment" title="Permanent link">¶</a></h3>
+<p>Compare. A real environmental change should appear in <strong>other measurements</strong> and in <strong>other stations</strong>. If your temperature reading slowly creeps up but a nearby station and a reference thermometer disagree with it, suspect drift. If they all rise together, the world changed.</p>
+<p>Use three tools: a <strong>reference instrument</strong>, <strong>physical fixed points</strong>, and a <strong>nearby station</strong>. Look at whether the change is gradual and one-directional (drift) or tied to weather. This matters most for <strong>climate records</strong>, where finding and correcting every instrument change, station move, and drift is what makes a century of different instruments mean something. See <a href="../chapters/15-charting-and-analysis/">Chapter 15</a> and <a href="../chapters/17-measurement-to-consequence/">Chapter 17</a>.</p>
+<h3 id="what-are-the-trade-offs-between-sealing-and-venting-my-enclosure">What are the trade-offs between sealing and venting my enclosure?<a class="headerlink" href="#what-are-the-trade-offs-between-sealing-and-venting-my-enclosure" title="Permanent link">¶</a></h3>
+<p>A <strong>sealed</strong> box keeps out rain, dust, and insects. But it traps air, and as the temperature changes the moisture inside condenses on the electronics and destroys them. A <strong>vented</strong> box lets the air breathe and equalizes humidity, but must be designed so that water cannot get in.</p>
+<p>There is a second trade-off with ratings. <strong>IP65</strong> (dust-tight, protected against water jets) is the sensible target. Higher ratings cost more, and past a point they work against you by trapping moisture. Pressure and humidity sensors also need to sample the outside air, so they usually sit in a vented shield. An IP68 box that is perfectly sealed can still corrode inside. See <a href="../chapters/16-building-for-outdoors/">Chapter 16</a>.</p>
+<h3 id="how-do-forecasters-farmers-and-engineers-use-data-like-mine">How do forecasters, farmers, and engineers use data like mine?<a class="headerlink" href="#how-do-forecasters-farmers-and-engineers-use-data-like-mine" title="Permanent link">¶</a></h3>
+<p>Each uses a different <strong>time scale</strong> of the same measurements. <strong>Weather forecasting</strong> and <strong>severe weather warnings</strong> rest on dense observation: every reading improves the model's starting point. <strong>Aviation</strong> needs pressure for altimetry and wind for runways. <strong>Agriculture</strong> uses accumulated temperature and <strong>evapotranspiration</strong>, which needs four of your seven measurements, to decide planting and irrigation.</p>
+<p><strong>Energy</strong> companies forecast demand from temperature, where an error of a degree can be hundreds of megawatts. Engineers turn decades of wind and seismic records into a <strong>building code</strong>. Cities map the <strong>urban heat island</strong> with dense volunteer networks. All of it begins with someone taking honest readings. See <a href="../chapters/17-measurement-to-consequence/">Chapter 17</a>.</p>
+<h3 id="how-would-i-write-code-that-handles-a-network-that-keeps-dropping">How would I write code that handles a network that keeps dropping?<a class="headerlink" href="#how-would-i-write-code-that-handles-a-network-that-keeps-dropping" title="Permanent link">¶</a></h3>
+<p>Follow the rule <em>write locally first, transmit second</em>. Your logger should save every reading to a file on the Pi no matter what the network is doing. A separate step then tries to send data that has not yet been sent.</p>
+<p>Add three ideas. <strong>Back off</strong> after repeated failures: double the wait time after each failure, up to about an hour, so the radio does not waste power on a dead link. <strong>Batch</strong> the transmissions, so one connection sends many readings. And <strong>log every failure</strong> to <code>station.log</code>, so a gap is explained later. Wrap each network call in exception handling. See <a href="../chapters/16-building-for-outdoors/">Chapter 16</a> and <a href="../chapters/13-python-programming/">Chapter 13</a>.</p>
+<h3 id="how-could-i-design-an-experiment-to-compare-two-locations-like-a-parking-lot-and-a-field">How could I design an experiment to compare two locations, like a parking lot and a field?<a class="headerlink" href="#how-could-i-design-an-experiment-to-compare-two-locations-like-a-parking-lot-and-a-field" title="Permanent link">¶</a></h3>
+<p>Start with a clear question: <em>"Does the parking lot beside the school get hotter than the field behind it?"</em> Then design for a fair comparison. Use <strong>the same sensor model</strong> at both sites, <strong>calibrate both</strong> against the same reference first, and use the same height and the same radiation shield. Log in <strong>UTC</strong> with the same <strong>sampling interval</strong>.</p>
+<p>Change only one thing, the location. Record <strong>metadata</strong> for each site: surface, shade, and distance from buildings. Collect for long enough to include sunny, cloudy, windy, and calm days. Then compare with a line chart of the difference. Keep a notes column too, because plain-word observations often explain odd readings. See <a href="../chapters/01-why-we-measure/">Chapter 1</a> and <a href="../chapters/15-charting-and-analysis/">Chapter 15</a>.</p>
+<h3 id="how-good-does-a-measurement-need-to-be">How good does a measurement need to be?<a class="headerlink" href="#how-good-does-a-measurement-need-to-be" title="Permanent link">¶</a></h3>
+<p>It depends on the question you are asking. This idea is called being <em>fit for purpose</em>. <strong>Measurement uncertainty</strong> is an honest statement of how far off a reading might be. If you only want to know whether to bring a coat, an uncertainty of one degree does not matter. If you want to find a warming trend of 0.02 °C per year, a sensor that drifts by that much each year could hide the answer.</p>
+<p>So ask: what decision depends on this number, and how much error can that decision tolerate? Then compare against your sensor's <strong>accuracy</strong>, <strong>resolution</strong>, and <strong>drift</strong>. Spending more on a better sensor is only worth it if the question needs it. See <a href="../chapters/02-language-of-measurement/">Chapter 2</a> and <a href="../chapters/15-charting-and-analysis/">Chapter 15</a>.</p>
+<h3 id="why-cant-earthquake-early-warning-predict-earthquakes">Why can't earthquake early warning predict earthquakes?<a class="headerlink" href="#why-cant-earthquake-early-warning-predict-earthquakes" title="Permanent link">¶</a></h3>
+<p><strong>Earthquake early warning</strong> is <strong>not prediction</strong>. Nobody can say in advance when and where a fault will slip. Early warning only works <em>after</em> the earthquake has started. Stations near the fault feel the fast <strong>P wave</strong> first. They send the alert by radio, which travels much faster than the slower, more damaging <strong>S wave</strong>. People farther away then get <strong>seconds</strong> of notice before shaking arrives.</p>
+<p>The warning time depends on the gap between P and S arrival and the speed of the alert, so it is longest for places far from the epicenter. <strong>Tsunami</strong> and <strong>flood warnings</strong> use the same speed-gap and density ideas. See <a href="../chapters/11-ground-motion/">Chapter 11</a> and <a href="../chapters/17-measurement-to-consequence/">Chapter 17</a>.</p>
+<hr>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../sims/weather-versus-climate-explorer/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Weather Versus Climate Explorer">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Weather Versus Climate Explorer
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../references/" class="md-footer__link md-footer__link--next" aria-label="Next: References">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                References
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Hank Ratzesberger. Licensed under <a href="licensing/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
